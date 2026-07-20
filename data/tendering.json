@@ -1,0 +1,93 @@
+{
+  "phoneTitle": "Tendering RST Platform",
+  "stakeholders": [
+    {
+      "id": "sh37-h9p1nl",
+      "title": "Partners / Supplier / Ecosystem",
+      "hue": "partner",
+      "glyph": "P",
+      "side": "left",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh38-4dyar1",
+      "title": "Complementor",
+      "hue": "comp",
+      "glyph": "C",
+      "side": "left",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh39-hcb5zu",
+      "title": "Competitor",
+      "hue": "compet",
+      "glyph": "VS",
+      "side": "left",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh40-9dctyc",
+      "title": "Buyer",
+      "hue": "buyer",
+      "glyph": "B",
+      "side": "right",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh41-4zkcwa",
+      "title": "Precise Business",
+      "hue": "biz",
+      "glyph": "PB",
+      "side": "right",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh42-qazh08",
+      "title": "Platform Admin",
+      "hue": "admin",
+      "glyph": "A",
+      "side": "right",
+      "image": null,
+      "items": []
+    }
+  ],
+  "layers": [
+    {
+      "title": "Technology Platform",
+      "groups": [
+        {
+          "name": "Core Capability",
+          "chips": []
+        }
+      ]
+    },
+    {
+      "title": "Commercial & Management Technology Platform",
+      "groups": [
+        {
+          "name": "Business Generation",
+          "chips": []
+        }
+      ]
+    },
+    {
+      "title": "Foundation Platform",
+      "foundation": true,
+      "groups": [
+        {
+          "name": "Shared Foundation",
+          "chips": [
+            "OT/IT Cyber Security Framework",
+            "Cloud / SaaS Infrastructure",
+            "Embedded AI Capability Layer"
+          ]
+        }
+      ]
+    }
+  ]
+}

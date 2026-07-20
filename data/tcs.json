@@ -1,0 +1,194 @@
+{
+  "phoneTitle": "TCS Platform",
+  "stakeholders": [
+    {
+      "id": "sh49-hx9335",
+      "title": "Partners / Supplier / Ecosystem",
+      "hue": "partner",
+      "glyph": "P",
+      "side": "left",
+      "image": null,
+      "items": [
+        "เชื่อมต่อ Solution ของตน (Financing, Insurance, IoT Sensor, Sub Contractor) → [Partner / 3rd-Party App Ecosystem]",
+        "รับดูแลความสัมพันธ์ต่อเนื่อง → [Ecosystem & Services]",
+        "ให้บริการเงินทุนแลกค่าคอมมิชชั่น → [Financing Platform]",
+        "รับส่วนแบ่งรายได้ Marketplace Commission → [Ecosystem & Partner]"
+      ]
+    },
+    {
+      "id": "sh50-a1sgm4",
+      "title": "Complementor",
+      "hue": "comp",
+      "glyph": "C",
+      "side": "left",
+      "image": null,
+      "items": [
+        "หน่วยงานภายนอก 20 แห่ง → [Ecosystem & Partner]",
+        "ราชการ/กำกับดูแล: FTI, กระทรวงอุตสาหกรรม, กระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.",
+        "การเงิน/ประกันภัย: ธนาคาร, บริษัทประกันภัย",
+        "โลจิสติกส์/ศุลกากร: Freight Forwarder, กรมศุลกากร",
+        "ผู้ตรวจสอบ/รับรองมาตรฐาน: Third Party Inspection, ISO/IEC/ESG/Carbon Certification Body"
+      ]
+    },
+    {
+      "id": "sh51-exf1f8",
+      "title": "Competitor",
+      "hue": "compet",
+      "glyph": "VS",
+      "side": "left",
+      "image": null,
+      "items": [
+        "Power Distribution & Transmission: Schneider, Siemens, ABB, Hitachi Energy, LS Electric, Eaton, Mitsubishi Electric, ASEFA, PMK",
+        "High-Quality Power System: Siemens, Hitachi Energy, GE Vernova",
+        "Power Quality: Siemens, Danfoss, Delta Electronics, PQ Team",
+        "Energy Conservation: Schneider, Honeywell, Johnson Controls, Delta Electronics, MFEC",
+        "Renewable Energy: Encom, SCG, Banpu, BGE"
+      ]
+    },
+    {
+      "id": "sh52-0blnsm",
+      "title": "Buyer",
+      "hue": "buyer",
+      "glyph": "B",
+      "side": "right",
+      "image": null,
+      "items": [
+        "ส่ง requirement เริ่มต้นก่อนโครงการ → [Digital Engineering Platform]",
+        "รับการดูแลแบบรู้จักตัวตน → [Customer Engagement Platform]",
+        "ติดตามข้อมูลพลังงาน/ต้นทุนเรียลไทม์ → [IoT Data Management]",
+        "รับคำแนะนำลดใช้พลังงาน → [Energy Procurement Platform]",
+        "สั่งซื้ออะไหล่/อุปกรณ์เองได้ → [Digital Commerce Platform]",
+        "เข้าถึงแหล่งทุนเมื่อต้องการอัปเกรด → [Financing Platform]",
+        "ขอรายงาน ESG/Carbon Footprint → [Carbon Accounting & Reporting]",
+        "ต่อสัญญา/ขยายขอบเขตเมื่อครบรอบ → [Energy Intelligence Platform (EMS)]",
+        "รับ Alert ล่วงหน้าเมื่อพบความเสี่ยง → [Monitoring, Reporting & Event Resolution]",
+        "ยื่นขอ Green Financing / ขายคาร์บอนเครดิต → [ESG & Carbon Commercial Platform]",
+        "ใช้ผู้ช่วยออกแบบด้านพลังงาน → [AI Engineering Copilot]"
+      ]
+    },
+    {
+      "id": "sh53-9sogcu",
+      "title": "Precise Business",
+      "hue": "biz",
+      "glyph": "PB",
+      "side": "right",
+      "image": null,
+      "items": [
+        "Sales: วิเคราะห์ Stakeholders / ผู้มีอิทธิพลตัดสินใจ → [Stakeholder Platform]",
+        "Sales: กำหนดกลยุทธ์ราคาแข่งขัน → [Pricing Strategy Platform]",
+        "Sales: Cross-sell/Upsell จาก Loyalty & Insight → [Customer Engagement Platform]",
+        "S&OP: จัดใบเสนอราคาจาก BOM/ราคามาตรฐาน → [Technical Platform]",
+        "S&OP: วางแผนสอดคล้องขาย-ผลิต-ติดตั้ง → [Sale & Operation Planning Platform]",
+        "S&OP: ดึงข้อมูล LCC หาโอกาสขาย → [Asset Lifecycle Management Platform]",
+        "Digital Engineering: บันทึก Requirement ครบถ้วน → [System Modeling & Requirements]",
+        "Digital Engineering: จำลอง/พิสูจน์ก่อนลงทุนจริง → [Simulation & Virtual Validation]",
+        "Digital Engineering: เก็บมาตรฐานกลางอ้างอิง → [Standards & Compliance Repository]",
+        "Demand Satisfaction: รับ Scope จาก Sales มาแตกเป็นชิ้นงาน → [Architecture Design]",
+        "Demand Satisfaction: บริหารโครงการหลายฝ่ายให้ตรง Scope/เวลา/งบ → [Project Management Business Platform]"
+      ]
+    },
+    {
+      "id": "sh54-l66oo7",
+      "title": "Platform Admin",
+      "hue": "admin",
+      "glyph": "A",
+      "side": "right",
+      "image": null,
+      "items": [
+        "ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]",
+        "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]",
+        "กำกับดูแล Embedded AI ให้ฝังตัวถูกต้อง → [Embedded AI Capability Layer]"
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "title": "Technology Platform",
+      "groups": [
+        {
+          "name": "Digital Engineering Platform",
+          "chips": [
+            "System Modeling & Requirements",
+            "Architecture Design",
+            "Simulation & Virtual Validation",
+            "Integration",
+            "Standards & Compliance Repository",
+            "Technical Platform",
+            "Spatial Engineering & Fleet Management",
+            "Digital Twin & Remote"
+          ]
+        },
+        {
+          "name": "Energy Intelligence Platform (EMS)",
+          "chips": [
+            "AI Engineering Copilot",
+            "IoT Data Management",
+            "Connectivity & Edge Management",
+            "Grid Edge / Field Devices",
+            "Grid Operations & Control",
+            "Energy Procurement Platform",
+            "Carbon Accounting & Reporting",
+            "Monitoring, Reporting & Event Resolution",
+            "Digital / Predictive Maintenance"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Commercial & Management Technology Platform",
+      "groups": [
+        {
+          "name": "Ecosystem & Partner",
+          "chips": [
+            "Partner / 3rd-Party App Ecosystem",
+            "Ecosystem & Services"
+          ]
+        },
+        {
+          "name": "Buyer / User Platform",
+          "chips": [
+            "Customer Engagement Platform",
+            "Digital Commerce Platform"
+          ]
+        },
+        {
+          "name": "Business Generation Platform",
+          "chips": [
+            "Stakeholder Platform",
+            "Sale & Operation Planning Platform",
+            "Pricing Strategy Platform",
+            "Financing Platform",
+            "Commercial Platform"
+          ]
+        },
+        {
+          "name": "Post-Sale Platform",
+          "chips": [
+            "Asset Lifecycle Management Platform",
+            "ESG & Carbon Commercial Platform"
+          ]
+        },
+        {
+          "name": "Demand Satisfaction Platform",
+          "chips": [
+            "Project Management Business Platform"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Foundation Platform",
+      "foundation": true,
+      "groups": [
+        {
+          "name": "Shared Foundation",
+          "chips": [
+            "OT/IT Cyber Security Framework",
+            "Cloud / SaaS Infrastructure",
+            "Embedded AI Capability Layer"
+          ]
+        }
+      ]
+    }
+  ]
+}

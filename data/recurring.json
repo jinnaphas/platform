@@ -1,0 +1,93 @@
+{
+  "phoneTitle": "Recurring RST Platform",
+  "stakeholders": [
+    {
+      "id": "sh55-ceb0ab",
+      "title": "Partners / Supplier / Ecosystem",
+      "hue": "partner",
+      "glyph": "P",
+      "side": "left",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh56-hqhs1j",
+      "title": "Complementor",
+      "hue": "comp",
+      "glyph": "C",
+      "side": "left",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh57-ojaf1a",
+      "title": "Competitor",
+      "hue": "compet",
+      "glyph": "VS",
+      "side": "left",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh58-xxap13",
+      "title": "Buyer",
+      "hue": "buyer",
+      "glyph": "B",
+      "side": "right",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh59-ftveu3",
+      "title": "Precise Business",
+      "hue": "biz",
+      "glyph": "PB",
+      "side": "right",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh60-9anpxl",
+      "title": "Platform Admin",
+      "hue": "admin",
+      "glyph": "A",
+      "side": "right",
+      "image": null,
+      "items": []
+    }
+  ],
+  "layers": [
+    {
+      "title": "Technology Platform",
+      "groups": [
+        {
+          "name": "Core Capability",
+          "chips": []
+        }
+      ]
+    },
+    {
+      "title": "Commercial & Management Technology Platform",
+      "groups": [
+        {
+          "name": "Business Generation",
+          "chips": []
+        }
+      ]
+    },
+    {
+      "title": "Foundation Platform",
+      "foundation": true,
+      "groups": [
+        {
+          "name": "Shared Foundation",
+          "chips": [
+            "OT/IT Cyber Security Framework",
+            "Cloud / SaaS Infrastructure",
+            "Embedded AI Capability Layer"
+          ]
+        }
+      ]
+    }
+  ]
+}
