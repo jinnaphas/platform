@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--ARTIFACT-START-->
+<title>RST Architecture Studio — Platform Capitalism Designer</title>
+<style>
+  :root {
+    --paper: #F3F5F8;
+    --panel: #FFFFFF;
+    --ink: #18202E;
+    --muted: #5A6577;
+    --line: #D8DEE8;
+    --accent: #2358C6;
+    --accent-soft: #E7EEFB;
+    --phone-bezel: #1B2333;
+    --phone-screen: #F8FAFD;
+    --chip-bg: #EDF1F8;
+    --chip-ink: #27354E;
+    --hl: #FFD666;
+    --z-partner: #D97A24;
+    --z-comp: #2F4B9E;
+    --z-compet: #4048C8;
+    --z-buyer: #3D6FA8;
+    --z-biz: #C43D33;
+    --z-admin: #D97A24;
+    --shadow: 0 1px 2px rgba(24,32,46,.06), 0 8px 24px rgba(24,32,46,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #10151E;
+      --panel: #1A2130;
+      --ink: #E8ECF4;
+      --muted: #97A2B5;
+      --line: #2A3348;
+      --accent: #6D9BF0;
+      --accent-soft: #223252;
+      --phone-bezel: #060910;
+      --phone-screen: #141B29;
+      --chip-bg: #232D42;
+      --chip-ink: #D5DDEC;
+      --hl: #8A6D1C;
+      --z-partner: #E8964A;
+      --z-comp: #7C96E0;
+      --z-compet: #8E96EC;
+      --z-buyer: #7FA8D6;
+      --z-biz: #E07A6E;
+      --z-admin: #E8964A;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #10151E;
+    --panel: #1A2130;
+    --ink: #E8ECF4;
+    --muted: #97A2B5;
+    --line: #2A3348;
+    --accent: #6D9BF0;
+    --accent-soft: #223252;
+    --phone-bezel: #060910;
+    --phone-screen: #141B29;
+    --chip-bg: #232D42;
+    --chip-ink: #D5DDEC;
+    --hl: #8A6D1C;
+    --z-partner: #E8964A;
+    --z-comp: #7C96E0;
+    --z-compet: #8E96EC;
+    --z-buyer: #7FA8D6;
+    --z-biz: #E07A6E;
+    --z-admin: #E8964A;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"] {
+    --paper: #F3F5F8;
+    --panel: #FFFFFF;
+    --ink: #18202E;
+    --muted: #5A6577;
+    --line: #D8DEE8;
+    --accent: #2358C6;
+    --accent-soft: #E7EEFB;
+    --phone-bezel: #1B2333;
+    --phone-screen: #F8FAFD;
+    --chip-bg: #EDF1F8;
+    --chip-ink: #27354E;
+    --hl: #FFD666;
+    --z-partner: #D97A24;
+    --z-comp: #2F4B9E;
+    --z-compet: #4048C8;
+    --z-buyer: #3D6FA8;
+    --z-biz: #C43D33;
+    --z-admin: #D97A24;
+    --shadow: 0 1px 2px rgba(24,32,46,.06), 0 8px 24px rgba(24,32,46,.07);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 14px/1.55 -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+  }
+  button { font: inherit; color: inherit; cursor: pointer; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 40;
+    display: flex; align-items: center; gap: 16px;
+    padding: 10px 20px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; flex-direction: column; line-height: 1.15; min-width: 190px; }
+  .brand strong { font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
+  .brand span { font-size: 11px; color: var(--muted); }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+  .tab {
+    border: 1px solid var(--line); background: transparent;
+    border-radius: 999px; padding: 5px 14px; font-size: 13px; color: var(--muted);
+  }
+  .tab:hover { border-color: var(--accent); color: var(--ink); }
+  .tab.on {
+    background: var(--accent); border-color: var(--accent);
+    color: #fff; font-weight: 600;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .presence { display: flex; }
+  .presence .dot {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 2px solid var(--panel);
+    display: grid; place-items: center;
+    font-size: 10px; font-weight: 700; color: #fff;
+    margin-left: -7px;
+  }
+  .presence .dot:first-child { margin-left: 0; }
+  .btn {
+    border: 1px solid var(--line); background: var(--panel);
+    border-radius: 8px; padding: 6px 12px; font-size: 13px;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .note {
+    max-width: 1520px; margin: 14px auto 0; padding: 0 20px;
+  }
+  .note > div {
+    background: var(--accent-soft); border: 1px solid var(--line);
+    border-radius: 10px; padding: 8px 14px; font-size: 12.5px; color: var(--muted);
+  }
+  .note b { color: var(--ink); }
+
+  /* ---------- canvas ---------- */
+  .canvas {
+    max-width: 1520px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(280px, 330px) minmax(400px, 1fr) minmax(300px, 360px);
+    gap: 18px; padding: 16px 20px 40px;
+    align-items: start;
+  }
+  .rail { display: flex; flex-direction: column; gap: 14px; }
+
+  /* actor card */
+  .actor {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; box-shadow: var(--shadow);
+    border-top: 3px solid var(--zc, var(--accent));
+    overflow: hidden;
+  }
+  .actor header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 12px 7px;
+  }
+  .actor .glyph {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--zc); color: #fff;
+    display: grid; place-items: center; font-size: 12px; flex: none;
+  }
+  .actor h2 {
+    margin: 0; font-size: 11px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--zc);
+  }
+  .actor .sub { font-size: 11px; color: var(--muted); margin-left: auto; font-variant-numeric: tabular-nums; }
+  .actor ol {
+    margin: 0; padding: 2px 12px 8px 30px;
+    max-height: 230px; overflow-y: auto;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .actor li { font-size: 12.5px; color: var(--ink); }
+  .actor li::marker { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 11px; }
+  .actor li .txt {
+    display: block; padding: 2px 4px; border-radius: 5px; outline: none;
+  }
+  .actor li .txt:hover { background: var(--chip-bg); }
+  .actor li .txt:focus { background: var(--chip-bg); box-shadow: inset 0 0 0 1.5px var(--accent); }
+  .actor li .txt.linked { cursor: help; }
+  .actor .foot { padding: 0 12px 10px; }
+  .add {
+    border: 1px dashed var(--line); background: transparent;
+    border-radius: 7px; padding: 3px 10px; font-size: 12px; color: var(--muted);
+  }
+  .add:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- phone ---------- */
+  .center { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .center .cap {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); text-align: center;
+  }
+  .phone {
+    width: min(430px, 100%);
+    background: var(--phone-bezel);
+    border-radius: 40px; padding: 12px;
+    box-shadow: var(--shadow), 0 24px 48px rgba(10,15,25,.25);
+  }
+  .phone .screen {
+    background: var(--phone-screen);
+    border-radius: 30px;
+    height: 760px; max-height: 76vh;
+    overflow-y: auto;
+    position: relative;
+  }
+  .phone .notch {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; justify-content: center; padding: 8px 0 4px;
+    background: var(--phone-screen);
+  }
+  .phone .notch i {
+    width: 110px; height: 20px; border-radius: 999px;
+    background: var(--phone-bezel); display: block;
+  }
+  .screen .appbar { text-align: center; padding: 2px 16px 10px; }
+  .screen .appbar h1 {
+    margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+  .screen .appbar p { margin: 2px 0 0; font-size: 11px; color: var(--muted); }
+
+  .layer { padding: 4px 12px 12px; }
+  .layer > h3 {
+    margin: 6px 2px 8px; font-size: 11px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .layer > h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .group {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 9px 10px 10px; margin-bottom: 8px;
+  }
+  .group h4 {
+    margin: 0 0 7px; font-size: 12.5px; font-weight: 700; color: var(--ink);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chip {
+    background: var(--chip-bg); color: var(--chip-ink);
+    border-radius: 7px; padding: 3px 8px; font-size: 11.5px;
+    outline: none; position: relative;
+  }
+  .chip:focus { box-shadow: inset 0 0 0 1.5px var(--accent); }
+  .chip.hl { background: var(--hl); color: #241A00; }
+  :root[data-theme="dark"] .chip.hl, .chip.hl { transition: background .15s; }
+  .chip .x {
+    display: none; position: absolute; top: -7px; right: -7px;
+    width: 16px; height: 16px; border-radius: 50%; border: none;
+    background: var(--z-biz); color: #fff; font-size: 10px; line-height: 1;
+    padding: 0;
+  }
+  .chip:hover .x { display: block; }
+  .chips .add { padding: 2px 8px; font-size: 11px; }
+
+  .foundation .group { border-style: dashed; }
+
+  /* responsive */
+  @media (max-width: 1080px) {
+    .canvas { grid-template-columns: 1fr; }
+    .center { order: -1; }
+    .phone .screen { max-height: none; height: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <strong>RST Architecture Studio</strong>
+    <span>Business Architecture · Platform Capitalism Format</span>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="เลือกทีม"></nav>
+  <div class="topbar-right">
+    <div class="presence" id="presence" title="สมาชิกที่กำลังออกแบบ (ตัวอย่าง)"></div>
+    <button class="btn" id="btnReset" title="ล้างข้อมูลทีมนี้กลับเป็นค่าเริ่มต้น">รีเซ็ตทีมนี้</button>
+    <button class="btn primary" id="btnExport">Export JSON</button>
+  </div>
+</header>
+
+<div class="note">
+  <div><b>Prototype:</b> แก้ข้อความได้ทุกจุด (คลิกแล้วพิมพ์) · ข้อมูลแยกเก็บรายทีมใน browser ของคุณ ·
+  ชี้เมาส์ที่รายการของ Actor ที่มี [ชื่อ Platform] ระบบจะไฮไลต์ชิ้นส่วนนั้นบนจอมือถือ ·
+  เวอร์ชันจริงจะ sync แบบ real-time ให้ทุกทีมเห็นพร้อมกัน</div>
+</div>
+
+<main class="canvas">
+  <div class="rail" id="railLeft"></div>
+
+  <section class="center">
+    <div class="cap" id="capTeam"></div>
+    <div class="phone">
+      <div class="screen" id="screen">
+        <div class="notch"><i></i></div>
+        <div class="appbar">
+          <h1 id="phoneTitle"></h1>
+          <p>มุมมองผู้ใช้ปลายทาง — Platform ทั้งหมดส่งมอบผ่านหน้าจอเดียว</p>
+        </div>
+        <div id="layers"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rail" id="railRight"></div>
+</main>
+
+<script>
+"use strict";
+
+/* ---------------- fixed template (ทุกทีมใช้โครงเดียวกัน) ---------------- */
+const ZONES = [
+  { key:"partners",     side:"left",  color:"var(--z-partner)", glyph:"P", title:"Partners / Supplier / Ecosystem" },
+  { key:"complementor", side:"left",  color:"var(--z-comp)",    glyph:"C", title:"Complementor" },
+  { key:"competitor",   side:"left",  color:"var(--z-compet)",  glyph:"VS", title:"Competitor" },
+  { key:"buyer",        side:"right", color:"var(--z-buyer)",   glyph:"B", title:"Buyer" },
+  { key:"business",     side:"right", color:"var(--z-biz)",     glyph:"PB", title:"Precise Business" },
+  { key:"admin",        side:"right", color:"var(--z-admin)",   glyph:"A", title:"Platform Admin" },
+];
+
+const TEAMS = [
+  { id:"tendering", name:"Tendering RST" },
+  { id:"omni",      name:"Omni Channel RST" },
+  { id:"tcs",       name:"TCS RST" },
+  { id:"recurring", name:"Recurring RST" },
+  { id:"ppa",       name:"PPA / Long-term Contract RST" },
+  { id:"invest",    name:"Investment RST" },
+];
+
+const NAMES = ["จินณพัศ","กอล์ฟ","หญิง","ตุลลี่","พี่ท้อป","เบียร์","นัท","ปอ"];
+
+function emptyDesign(teamName){
+  return {
+    phoneTitle: teamName + " Platform",
+    actors: { partners:[], complementor:[], competitor:[], buyer:[], business:[], admin:[] },
+    layers: [
+      { title:"Technology Platform", groups:[ { name:"Core Capability", chips:[] } ] },
+      { title:"Commercial & Management Technology Platform", groups:[ { name:"Business Generation", chips:[] } ] },
+      { title:"Foundation Platform", foundation:true, groups:[ { name:"Shared Foundation", chips:[
+        "OT/IT Cyber Security Framework","Cloud / SaaS Infrastructure","Embedded AI Capability Layer" ] } ] },
+    ],
+  };
+}
+
+/* ตัวอย่างจริง: TCS RST (ย่อจากแผนภาพต้นฉบับ) */
+function tcsDesign(){
+  return {
+    phoneTitle: "TCS Platform",
+    actors: {
+      partners: [
+        "เชื่อมต่อ Solution ของตน (Financing, Insurance, IoT Sensor, Sub Contractor) → [Partner / 3rd-Party App Ecosystem]",
+        "รับดูแลความสัมพันธ์ต่อเนื่อง → [Ecosystem & Services]",
+        "ให้บริการเงินทุนแลกค่าคอมมิชชั่น → [Financing Platform]",
+        "รับส่วนแบ่งรายได้ Marketplace Commission → [Ecosystem & Partner]",
+      ],
+      complementor: [
+        "หน่วยงานภายนอก 20 แห่ง → [Ecosystem & Partner]",
+        "ราชการ/กำกับดูแล: FTI, กระทรวงอุตสาหกรรม, กระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.",
+        "การเงิน/ประกันภัย: ธนาคาร, บริษัทประกันภัย",
+        "โลจิสติกส์/ศุลกากร: Freight Forwarder, กรมศุลกากร",
+        "ผู้ตรวจสอบ/รับรองมาตรฐาน: Third Party Inspection, ISO/IEC/ESG/Carbon Certification Body",
+      ],
+      competitor: [
+        "Power Distribution & Transmission: Schneider, Siemens, ABB, Hitachi Energy, LS Electric, Eaton, Mitsubishi Electric, ASEFA, PMK",
+        "High-Quality Power System: Siemens, Hitachi Energy, GE Vernova",
+        "Power Quality: Siemens, Danfoss, Delta Electronics, PQ Team",
+        "Energy Conservation: Schneider, Honeywell, Johnson Controls, Delta Electronics, MFEC",
+        "Renewable Energy: Encom, SCG, Banpu, BGE",
+      ],
+      buyer: [
+        "ส่ง requirement เริ่มต้นก่อนโครงการ → [Digital Engineering Platform]",
+        "รับการดูแลแบบรู้จักตัวตน → [Customer Engagement Platform]",
+        "ติดตามข้อมูลพลังงาน/ต้นทุนเรียลไทม์ → [IoT Data Management]",
+        "รับคำแนะนำลดใช้พลังงาน → [Energy Procurement Platform]",
+        "สั่งซื้ออะไหล่/อุปกรณ์เองได้ → [Digital Commerce Platform]",
+        "เข้าถึงแหล่งทุนเมื่อต้องการอัปเกรด → [Financing Platform]",
+        "ขอรายงาน ESG/Carbon Footprint → [Carbon Accounting & Reporting]",
+        "ต่อสัญญา/ขยายขอบเขตเมื่อครบรอบ → [Energy Intelligence Platform (EMS)]",
+        "รับ Alert ล่วงหน้าเมื่อพบความเสี่ยง → [Monitoring, Reporting & Event Resolution]",
+        "ยื่นขอ Green Financing / ขายคาร์บอนเครดิต → [ESG & Carbon Commercial Platform]",
+        "ใช้ผู้ช่วยออกแบบด้านพลังงาน → [AI Engineering Copilot]",
+      ],
+      business: [
+        "Sales: วิเคราะห์ Stakeholders / ผู้มีอิทธิพลตัดสินใจ → [Stakeholder Platform]",
+        "Sales: กำหนดกลยุทธ์ราคาแข่งขัน → [Pricing Strategy Platform]",
+        "Sales: Cross-sell/Upsell จาก Loyalty & Insight → [Customer Engagement Platform]",
+        "S&OP: จัดใบเสนอราคาจาก BOM/ราคามาตรฐาน → [Technical Platform]",
+        "S&OP: วางแผนสอดคล้องขาย-ผลิต-ติดตั้ง → [Sale & Operation Planning Platform]",
+        "S&OP: ดึงข้อมูล LCC หาโอกาสขาย → [Asset Lifecycle Management Platform]",
+        "Digital Engineering: บันทึก Requirement ครบถ้วน → [System Modeling & Requirements]",
+        "Digital Engineering: จำลอง/พิสูจน์ก่อนลงทุนจริง → [Simulation & Virtual Validation]",
+        "Digital Engineering: เก็บมาตรฐานกลางอ้างอิง → [Standards & Compliance Repository]",
+        "Demand Satisfaction: รับ Scope จาก Sales มาแตกเป็นชิ้นงาน → [Architecture Design]",
+        "Demand Satisfaction: บริหารโครงการหลายฝ่ายให้ตรง Scope/เวลา/งบ → [Project Management Business Platform]",
+      ],
+      admin: [
+        "ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]",
+        "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]",
+        "กำกับดูแล Embedded AI ให้ฝังตัวถูกต้อง → [Embedded AI Capability Layer]",
+      ],
+    },
+    layers: [
+      { title:"Technology Platform", groups:[
+        { name:"Digital Engineering Platform", chips:[
+          "System Modeling & Requirements","Architecture Design","Simulation & Virtual Validation",
+          "Integration","Standards & Compliance Repository","Technical Platform",
+          "Spatial Engineering & Fleet Management","Digital Twin & Remote" ] },
+        { name:"Energy Intelligence Platform (EMS)", chips:[
+          "AI Engineering Copilot","IoT Data Management","Connectivity & Edge Management",
+          "Grid Edge / Field Devices","Grid Operations & Control","Energy Procurement Platform",
+          "Carbon Accounting & Reporting","Monitoring, Reporting & Event Resolution",
+          "Digital / Predictive Maintenance" ] },
+      ]},
+      { title:"Commercial & Management Technology Platform", groups:[
+        { name:"Ecosystem & Partner", chips:[ "Partner / 3rd-Party App Ecosystem","Ecosystem & Services" ] },
+        { name:"Buyer / User Platform", chips:[ "Customer Engagement Platform","Digital Commerce Platform" ] },
+        { name:"Business Generation Platform", chips:[
+          "Stakeholder Platform","Sale & Operation Planning Platform","Pricing Strategy Platform",
+          "Financing Platform","Commercial Platform" ] },
+        { name:"Post-Sale Platform", chips:[ "Asset Lifecycle Management Platform","ESG & Carbon Commercial Platform" ] },
+        { name:"Demand Satisfaction Platform", chips:[ "Project Management Business Platform" ] },
+      ]},
+      { title:"Foundation Platform", foundation:true, groups:[
+        { name:"Shared Foundation", chips:[
+          "OT/IT Cyber Security Framework","Cloud / SaaS Infrastructure","Embedded AI Capability Layer" ] },
+      ]},
+    ],
+  };
+}
+
+/* ---------------- state ---------------- */
+const KEY = "rst-arch-studio-v1";
+let store = load();
+let current = store.current || "tcs";
+
+function load(){
+  try { return JSON.parse(localStorage.getItem(KEY)) || seed(); }
+  catch(e){ return seed(); }
+}
+function seed(){
+  const s = { current:"tcs", teams:{} };
+  TEAMS.forEach(t => { s.teams[t.id] = (t.id === "tcs") ? tcsDesign() : emptyDesign(t.name); });
+  return s;
+}
+function save(){
+  store.current = current;
+  localStorage.setItem(KEY, JSON.stringify(store));
+}
+function design(){ return store.teams[current]; }
+function teamMeta(){ return TEAMS.find(t => t.id === current); }
+
+/* ---------------- render ---------------- */
+const $ = sel => document.querySelector(sel);
+
+function renderTabs(){
+  const el = $("#tabs"); el.innerHTML = "";
+  TEAMS.forEach(t => {
+    const b = document.createElement("button");
+    b.className = "tab" + (t.id === current ? " on" : "");
+    b.textContent = t.name;
+    b.onclick = () => { current = t.id; save(); renderAll(); };
+    el.appendChild(b);
+  });
+}
+
+function renderPresence(){
+  const el = $("#presence"); el.innerHTML = "";
+  const idx = TEAMS.findIndex(t => t.id === current);
+  const hues = [24, 210, 350, 130];
+  for (let i = 0; i < 3; i++){
+    const d = document.createElement("span");
+    d.className = "dot";
+    d.style.background = `hsl(${hues[(idx + i) % hues.length]} 55% 45%)`;
+    const name = NAMES[(idx * 3 + i) % NAMES.length];
+    d.textContent = name.slice(0, 1);
+    d.title = name + " (ตัวอย่าง presence)";
+    el.appendChild(d);
+  }
+}
+
+function editable(text, onChange){
+  const s = document.createElement("span");
+  s.className = "txt" + (/\[[^\]]+\]/.test(text) ? " linked" : "");
+  s.contentEditable = "true";
+  s.spellcheck = false;
+  s.textContent = text;
+  s.addEventListener("blur", () => onChange(s.textContent.trim()));
+  s.addEventListener("mouseenter", () => highlight(s.textContent));
+  s.addEventListener("mouseleave", clearHighlight);
+  return s;
+}
+
+function renderActors(){
+  const left = $("#railLeft"), right = $("#railRight");
+  left.innerHTML = ""; right.innerHTML = "";
+  ZONES.forEach(z => {
+    const items = design().actors[z.key];
+    const card = document.createElement("section");
+    card.className = "actor";
+    card.style.setProperty("--zc", z.color);
+
+    const head = document.createElement("header");
+    const g = document.createElement("span"); g.className = "glyph"; g.textContent = z.glyph;
+    const h = document.createElement("h2"); h.textContent = z.title;
+    const n = document.createElement("span"); n.className = "sub"; n.textContent = items.length + " รายการ";
+    head.append(g, h, n);
+
+    const ol = document.createElement("ol");
+    items.forEach((txt, i) => {
+      const li = document.createElement("li");
+      li.appendChild(editable(txt, v => {
+        if (v) items[i] = v; else items.splice(i, 1);
+        save(); renderActors();
+      }));
+      ol.appendChild(li);
+    });
+
+    const foot = document.createElement("div"); foot.className = "foot";
+    const add = document.createElement("button");
+    add.className = "add"; add.textContent = "+ เพิ่มบทบาท / Flow";
+    add.onclick = () => {
+      items.push("บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]");
+      save(); renderActors();
+      const spans = card.querySelectorAll(".txt");
+      const last = spans[spans.length - 1];
+      if (last) { last.focus(); document.getSelection().selectAllChildren(last); }
+    };
+    foot.appendChild(add);
+
+    card.append(head, ol, foot);
+    (z.side === "left" ? left : right).appendChild(card);
+  });
+}
+
+function renderPhone(){
+  $("#capTeam").textContent = teamMeta().name + " — Mobile-first Platform View";
+  const title = $("#phoneTitle");
+  title.textContent = design().phoneTitle;
+  title.contentEditable = "true"; title.spellcheck = false;
+  title.onblur = () => { design().phoneTitle = title.textContent.trim() || teamMeta().name; save(); };
+
+  const wrap = $("#layers"); wrap.innerHTML = "";
+  design().layers.forEach(layer => {
+    const sec = document.createElement("section");
+    sec.className = "layer" + (layer.foundation ? " foundation" : "");
+    const h3 = document.createElement("h3"); h3.textContent = layer.title;
+    sec.appendChild(h3);
+
+    layer.groups.forEach(gr => {
+      const box = document.createElement("div"); box.className = "group";
+      const h4 = document.createElement("h4");
+      h4.contentEditable = "true"; h4.spellcheck = false; h4.textContent = gr.name;
+      h4.onblur = () => { gr.name = h4.textContent.trim() || gr.name; save(); };
+
+      const chips = document.createElement("div"); chips.className = "chips";
+      gr.chips.forEach((c, i) => {
+        const chip = document.createElement("span");
+        chip.className = "chip"; chip.contentEditable = "true"; chip.spellcheck = false;
+        chip.textContent = c;
+        chip.dataset.chip = "1";
+        chip.addEventListener("blur", () => {
+          const v = chip.textContent.trim();
+          if (v) gr.chips[i] = v; else gr.chips.splice(i, 1);
+          save(); renderPhone();
+        });
+        const x = document.createElement("button");
+        x.className = "x"; x.textContent = "×"; x.title = "ลบ";
+        x.contentEditable = "false";
+        x.onclick = e => { e.preventDefault(); gr.chips.splice(i, 1); save(); renderPhone(); };
+        chip.appendChild(x);
+        chips.appendChild(chip);
+      });
+      const add = document.createElement("button");
+      add.className = "add"; add.textContent = "+ Capability";
+      add.onclick = () => { gr.chips.push("New Capability"); save(); renderPhone(); };
+      chips.appendChild(add);
+
+      box.append(h4, chips);
+      sec.appendChild(box);
+    });
+
+    if (!layer.foundation){
+      const addG = document.createElement("button");
+      addG.className = "add"; addG.textContent = "+ เพิ่มกลุ่ม Platform";
+      addG.onclick = () => { layer.groups.push({ name:"กลุ่มใหม่", chips:[] }); save(); renderPhone(); };
+      sec.appendChild(addG);
+    }
+    wrap.appendChild(sec);
+  });
+}
+
+/* hover actor item → ไฮไลต์ chip ที่ชื่อตรงกับ [ ... ] */
+function highlight(text){
+  const m = text.match(/\[([^\]]+)\]/);
+  if (!m) return;
+  const target = m[1].trim().toLowerCase();
+  document.querySelectorAll("[data-chip]").forEach(chip => {
+    const name = chip.textContent.replace("×", "").trim().toLowerCase();
+    if (name.includes(target) || target.includes(name)) {
+      chip.classList.add("hl");
+      chip.scrollIntoView({ block:"nearest", behavior:"smooth" });
+    }
+  });
+}
+function clearHighlight(){
+  document.querySelectorAll(".chip.hl").forEach(c => c.classList.remove("hl"));
+}
+
+/* ---------------- toolbar ---------------- */
+$("#btnExport").onclick = () => {
+  const blob = new Blob(
+    [JSON.stringify({ team: teamMeta().name, design: design() }, null, 2)],
+    { type:"application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = current + "-architecture.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+
+$("#btnReset").onclick = () => {
+  if (!confirm("ล้างข้อมูลของ " + teamMeta().name + " กลับเป็นค่าเริ่มต้น?")) return;
+  store.teams[current] = (current === "tcs") ? tcsDesign() : emptyDesign(teamMeta().name);
+  save(); renderAll();
+};
+
+function renderAll(){
+  renderTabs(); renderPresence(); renderActors(); renderPhone();
+}
+renderAll();
+</script>
+<!--ARTIFACT-END-->
+</body>
+</html>
