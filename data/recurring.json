@@ -39,12 +39,22 @@
     },
     {
       "id": "sh59-ftveu3",
-      "title": "Precise Business",
+      "title": "Precise Business : ขอบเขตธุรกิจลงทุน",
       "hue": "biz",
-      "glyph": "PB",
+      "glyph": "P",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "กติกาและวินัยการลงทุนของบริษัท",
+        "• กลยุทธ์การลงทุน - Trend Following / Breakout · R:R ≥ 1.5",
+        "Sector - เปรียบเทียบรายหมวดอุตสาหกรรม (14 หมวด SET)",
+        "• หุ้นไทย (SET) - พอร์ตหลักของบริษัท• หุ้นต่างประเทศ (US) - กระจายความเสี่ยง · แปลง THB อัตโนมัติ",
+        "Market Regime - Bull/Bear/Sideways/Panic ชี้กลยุทธ์",
+        "Risk Management - Position Sizing จาก Risk% ต่อไม้",
+        "บัญชีแยก P&L / OCI - ตาม TFRS 9 ตรงกับฝ่ายบัญชี",
+        "เป้าหมายผลงานรายปี - ติดตามกำไรจริงเทียบเป้า",
+        "บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
       "id": "sh60-9anpxl",
