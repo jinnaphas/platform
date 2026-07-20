@@ -274,7 +274,16 @@
     letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
     display: flex; align-items: center; gap: 8px;
   }
-  .layer > h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .layer > h3 .ltxt { outline: none; border-radius: 5px; padding: 1px 4px; }
+  .layer > h3 .ltxt:focus { box-shadow: inset 0 0 0 1.5px var(--accent); text-transform: none; }
+  .layer > h3 .rule { flex: 1; height: 1px; background: var(--line); }
+  .hdel {
+    border: none; background: transparent; color: var(--muted);
+    font-size: 14px; line-height: 1; padding: 1px 5px; border-radius: 5px; flex: none;
+  }
+  .hdel:hover { background: var(--chip-bg); color: var(--z-biz); }
+  .group .ghead { display: flex; align-items: flex-start; gap: 4px; }
+  .group .ghead h4 { flex: 1; min-width: 0; }
   .groups { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
   body.view-desktop .groups {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -349,7 +358,7 @@
 </header>
 
 <div class="note">
-  <div><b>Prototype:</b> แก้ข้อความได้ทุกจุด (คลิกแล้วพิมพ์) · คลิกวงกลมหน้าชื่อ Stakeholder เพื่อใส่รูป (ดับเบิลคลิกเพื่อลบรูป) ·
+  <div><b>Prototype:</b> แก้ข้อความได้ทุกจุด (คลิกแล้วพิมพ์) · บนจอกลาง เพิ่ม/ลบ Capability, กลุ่ม และชั้น Platform ได้ (ปุ่ม × และปุ่ม +) · คลิกวงกลมหน้าชื่อ Stakeholder เพื่อใส่รูป (ดับเบิลคลิกเพื่อลบรูป) ·
   ชี้เมาส์ที่รายการที่มี [ชื่อ Platform] จะมีเส้นลากไปยัง Capability บนจอ ·
   สลับ 📱/🖥️ มุมบนขวาเพื่อดูแบบมือถือหรือ Desktop · ข้อมูลแยกเก็บรายทีมใน browser ของคุณ</div>
 </div>
@@ -742,20 +751,41 @@ function renderPhone(){
   title.onblur = () => { design().phoneTitle = title.textContent.trim() || teamMeta().name; save(); };
 
   const wrap = $("#layers"); wrap.innerHTML = "";
-  design().layers.forEach(layer => {
+  design().layers.forEach((layer, li) => {
     const sec = document.createElement("section");
     sec.className = "layer" + (layer.foundation ? " foundation" : "");
-    const h3 = document.createElement("h3"); h3.textContent = layer.title;
+
+    const h3 = document.createElement("h3");
+    const lt = document.createElement("span");
+    lt.className = "ltxt"; lt.contentEditable = "true"; lt.spellcheck = false;
+    lt.textContent = layer.title;
+    lt.addEventListener("blur", () => { layer.title = lt.textContent.trim() || layer.title; save(); });
+    const rule = document.createElement("i"); rule.className = "rule";
+    const ldel = document.createElement("button");
+    ldel.className = "hdel"; ldel.textContent = "×"; ldel.title = "ลบชั้นนี้ทั้งหมด";
+    ldel.onclick = () => {
+      if (!confirm(`ลบชั้น "${layer.title}" ทั้งหมด (รวมทุกกลุ่มข้างใน)?`)) return;
+      design().layers.splice(li, 1); save(); renderPhone();
+    };
+    h3.append(lt, rule, ldel);
     sec.appendChild(h3);
 
     const groupsWrap = document.createElement("div");
     groupsWrap.className = "groups";
 
-    layer.groups.forEach(gr => {
+    layer.groups.forEach((gr, gi) => {
       const box = document.createElement("div"); box.className = "group";
+      const ghead = document.createElement("div"); ghead.className = "ghead";
       const h4 = document.createElement("h4");
       h4.contentEditable = "true"; h4.spellcheck = false; h4.textContent = gr.name;
       h4.onblur = () => { gr.name = h4.textContent.trim() || gr.name; save(); };
+      const gdel = document.createElement("button");
+      gdel.className = "hdel"; gdel.textContent = "×"; gdel.title = "ลบกลุ่มนี้";
+      gdel.onclick = () => {
+        if (gr.chips.length && !confirm(`ลบกลุ่ม "${gr.name}" (${gr.chips.length} capability)?`)) return;
+        layer.groups.splice(gi, 1); save(); renderPhone();
+      };
+      ghead.append(h4, gdel);
 
       const chips = document.createElement("div"); chips.className = "chips";
       gr.chips.forEach((c, i) => {
@@ -780,19 +810,28 @@ function renderPhone(){
       add.onclick = () => { gr.chips.push("New Capability"); save(); renderPhone(); };
       chips.appendChild(add);
 
-      box.append(h4, chips);
+      box.append(ghead, chips);
       groupsWrap.appendChild(box);
     });
     sec.appendChild(groupsWrap);
 
-    if (!layer.foundation){
-      const addG = document.createElement("button");
-      addG.className = "add"; addG.textContent = "+ เพิ่มกลุ่ม Platform";
-      addG.onclick = () => { layer.groups.push({ name:"กลุ่มใหม่", chips:[] }); save(); renderPhone(); };
-      sec.appendChild(addG);
-    }
+    const addG = document.createElement("button");
+    addG.className = "add"; addG.textContent = "+ เพิ่มกลุ่ม Platform";
+    addG.onclick = () => { layer.groups.push({ name:"กลุ่มใหม่", chips:[] }); save(); renderPhone(); };
+    sec.appendChild(addG);
     wrap.appendChild(sec);
   });
+
+  const addLayerWrap = document.createElement("div");
+  addLayerWrap.className = "layer";
+  const addL = document.createElement("button");
+  addL.className = "add"; addL.textContent = "+ เพิ่มชั้น Platform (Layer)";
+  addL.onclick = () => {
+    design().layers.push({ title:"ชั้น Platform ใหม่", groups:[ { name:"กลุ่มใหม่", chips:[] } ] });
+    save(); renderPhone();
+  };
+  addLayerWrap.appendChild(addL);
+  wrap.appendChild(addLayerWrap);
 }
 
 /* ---------------- flow lines: hover item → เส้นลากไป capability ---------------- */
