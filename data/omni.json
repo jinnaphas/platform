@@ -71,7 +71,9 @@
       "groups": [
         {
           "name": "Business Generation",
-          "chips": []
+          "chips": [
+            "Intelligence Inventory Platform"
+          ]
         }
       ]
     },
