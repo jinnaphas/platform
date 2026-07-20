@@ -14,8 +14,8 @@
     --line: #D8DEE8;
     --accent: #2358C6;
     --accent-soft: #E7EEFB;
-    --phone-bezel: #1B2333;
-    --phone-screen: #F8FAFD;
+    --bezel: #1B2333;
+    --screen: #F8FAFD;
     --chip-bg: #EDF1F8;
     --chip-ink: #27354E;
     --hl: #FFD666;
@@ -24,7 +24,7 @@
     --z-compet: #4048C8;
     --z-buyer: #3D6FA8;
     --z-biz: #C43D33;
-    --z-admin: #D97A24;
+    --z-admin: #B0891F;
     --shadow: 0 1px 2px rgba(24,32,46,.06), 0 8px 24px rgba(24,32,46,.07);
   }
   @media (prefers-color-scheme: dark) {
@@ -36,8 +36,8 @@
       --line: #2A3348;
       --accent: #6D9BF0;
       --accent-soft: #223252;
-      --phone-bezel: #060910;
-      --phone-screen: #141B29;
+      --bezel: #060910;
+      --screen: #141B29;
       --chip-bg: #232D42;
       --chip-ink: #D5DDEC;
       --hl: #8A6D1C;
@@ -46,7 +46,7 @@
       --z-compet: #8E96EC;
       --z-buyer: #7FA8D6;
       --z-biz: #E07A6E;
-      --z-admin: #E8964A;
+      --z-admin: #D3B25A;
       --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
     }
   }
@@ -58,8 +58,8 @@
     --line: #2A3348;
     --accent: #6D9BF0;
     --accent-soft: #223252;
-    --phone-bezel: #060910;
-    --phone-screen: #141B29;
+    --bezel: #060910;
+    --screen: #141B29;
     --chip-bg: #232D42;
     --chip-ink: #D5DDEC;
     --hl: #8A6D1C;
@@ -68,7 +68,7 @@
     --z-compet: #8E96EC;
     --z-buyer: #7FA8D6;
     --z-biz: #E07A6E;
-    --z-admin: #E8964A;
+    --z-admin: #D3B25A;
     --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
   }
   :root[data-theme="light"] {
@@ -79,8 +79,8 @@
     --line: #D8DEE8;
     --accent: #2358C6;
     --accent-soft: #E7EEFB;
-    --phone-bezel: #1B2333;
-    --phone-screen: #F8FAFD;
+    --bezel: #1B2333;
+    --screen: #F8FAFD;
     --chip-bg: #EDF1F8;
     --chip-ink: #27354E;
     --hl: #FFD666;
@@ -89,7 +89,7 @@
     --z-compet: #4048C8;
     --z-buyer: #3D6FA8;
     --z-biz: #C43D33;
-    --z-admin: #D97A24;
+    --z-admin: #B0891F;
     --shadow: 0 1px 2px rgba(24,32,46,.06), 0 8px 24px rgba(24,32,46,.07);
   }
 
@@ -105,7 +105,7 @@
   /* ---------- top bar ---------- */
   .topbar {
     position: sticky; top: 0; z-index: 40;
-    display: flex; align-items: center; gap: 16px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
     padding: 10px 20px;
     background: var(--panel);
     border-bottom: 1px solid var(--line);
@@ -124,6 +124,11 @@
     color: #fff; font-weight: 600;
   }
   .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .seg { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .seg button {
+    border: none; background: transparent; padding: 5px 12px; font-size: 12.5px; color: var(--muted);
+  }
+  .seg button.on { background: var(--accent); color: #fff; font-weight: 600; }
   .presence { display: flex; }
   .presence .dot {
     width: 26px; height: 26px; border-radius: 50%;
@@ -140,9 +145,7 @@
   .btn:hover { border-color: var(--accent); color: var(--accent); }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-  .note {
-    max-width: 1520px; margin: 14px auto 0; padding: 0 20px;
-  }
+  .note { max-width: 1560px; margin: 14px auto 0; padding: 0 20px; }
   .note > div {
     background: var(--accent-soft); border: 1px solid var(--line);
     border-radius: 10px; padding: 8px 14px; font-size: 12.5px; color: var(--muted);
@@ -151,15 +154,19 @@
 
   /* ---------- canvas ---------- */
   .canvas {
-    max-width: 1520px; margin: 0 auto;
+    max-width: 1560px; margin: 0 auto;
     display: grid;
     grid-template-columns: minmax(280px, 330px) minmax(400px, 1fr) minmax(300px, 360px);
     gap: 18px; padding: 16px 20px 40px;
     align-items: start;
   }
+  body.view-desktop .canvas {
+    max-width: none;
+    grid-template-columns: minmax(240px, 300px) minmax(560px, 1fr) minmax(250px, 315px);
+  }
   .rail { display: flex; flex-direction: column; gap: 14px; }
 
-  /* actor card */
+  /* stakeholder card */
   .actor {
     background: var(--panel); border: 1px solid var(--line);
     border-radius: 12px; box-shadow: var(--shadow);
@@ -171,15 +178,30 @@
     padding: 9px 12px 7px;
   }
   .actor .glyph {
-    width: 24px; height: 24px; border-radius: 50%;
+    width: 30px; height: 30px; border-radius: 50%;
     background: var(--zc); color: #fff;
-    display: grid; place-items: center; font-size: 12px; flex: none;
+    display: grid; place-items: center; font-size: 12px; font-weight: 700;
+    flex: none; border: none; padding: 0; overflow: hidden; position: relative;
   }
+  .actor .glyph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .actor .glyph::after {
+    content: "📷"; position: absolute; inset: 0;
+    display: grid; place-items: center; font-size: 13px;
+    background: rgba(10,15,25,.55); opacity: 0; transition: opacity .12s;
+  }
+  .actor .glyph:hover::after { opacity: 1; }
   .actor h2 {
-    margin: 0; font-size: 11px; font-weight: 700;
-    letter-spacing: .08em; text-transform: uppercase; color: var(--zc);
+    margin: 0; font-size: 11.5px; font-weight: 700; flex: 1; min-width: 0;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--zc);
+    outline: none; border-radius: 5px; padding: 1px 4px;
   }
-  .actor .sub { font-size: 11px; color: var(--muted); margin-left: auto; font-variant-numeric: tabular-nums; }
+  .actor h2:focus { box-shadow: inset 0 0 0 1.5px var(--accent); text-transform: none; }
+  .actor .sub { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; flex: none; }
+  .actor .del {
+    border: none; background: transparent; color: var(--muted);
+    font-size: 15px; line-height: 1; padding: 2px 4px; border-radius: 5px; flex: none;
+  }
+  .actor .del:hover { background: var(--chip-bg); color: var(--z-biz); }
   .actor ol {
     margin: 0; padding: 2px 12px 8px 30px;
     max-height: 230px; overflow-y: auto;
@@ -187,51 +209,62 @@
   }
   .actor li { font-size: 12.5px; color: var(--ink); }
   .actor li::marker { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 11px; }
-  .actor li .txt {
-    display: block; padding: 2px 4px; border-radius: 5px; outline: none;
-  }
+  .actor li .txt { display: block; padding: 2px 4px; border-radius: 5px; outline: none; }
   .actor li .txt:hover { background: var(--chip-bg); }
   .actor li .txt:focus { background: var(--chip-bg); box-shadow: inset 0 0 0 1.5px var(--accent); }
-  .actor li .txt.linked { cursor: help; }
+  .actor li .txt.linked { cursor: crosshair; }
   .actor .foot { padding: 0 12px 10px; }
   .add {
     border: 1px dashed var(--line); background: transparent;
     border-radius: 7px; padding: 3px 10px; font-size: 12px; color: var(--muted);
   }
   .add:hover { border-color: var(--accent); color: var(--accent); }
+  .rail > .add { padding: 8px; font-size: 12.5px; }
 
-  /* ---------- phone ---------- */
-  .center { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  /* ---------- device frame ---------- */
+  .center { display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 0; }
   .center .cap {
     font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
     color: var(--muted); text-align: center;
   }
-  .phone {
+  .device {
     width: min(430px, 100%);
-    background: var(--phone-bezel);
+    background: var(--bezel);
     border-radius: 40px; padding: 12px;
     box-shadow: var(--shadow), 0 24px 48px rgba(10,15,25,.25);
   }
-  .phone .screen {
-    background: var(--phone-screen);
+  .device .screen {
+    background: var(--screen);
     border-radius: 30px;
     height: 760px; max-height: 76vh;
     overflow-y: auto;
     position: relative;
   }
-  .phone .notch {
+  .device .notch {
     position: sticky; top: 0; z-index: 5;
     display: flex; justify-content: center; padding: 8px 0 4px;
-    background: var(--phone-screen);
+    background: var(--screen);
   }
-  .phone .notch i {
+  .device .notch i {
     width: 110px; height: 20px; border-radius: 999px;
-    background: var(--phone-bezel); display: block;
+    background: var(--bezel); display: block;
   }
+  .stand { display: none; }
+
+  body.view-desktop .device { width: 100%; border-radius: 16px; padding: 14px 14px 16px; }
+  body.view-desktop .device .screen { border-radius: 8px; height: auto; max-height: 80vh; }
+  body.view-desktop .device .notch { display: none; }
+  body.view-desktop .stand {
+    display: block; width: 180px; height: 12px; margin-top: -2px;
+    background: var(--bezel); border-radius: 0 0 12px 12px;
+    box-shadow: 0 14px 10px -8px rgba(10,15,25,.35);
+  }
+
   .screen .appbar { text-align: center; padding: 2px 16px 10px; }
+  body.view-desktop .screen .appbar { padding-top: 14px; }
   .screen .appbar h1 {
     margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -.01em;
-    text-wrap: balance;
+    text-wrap: balance; outline: none;
   }
   .screen .appbar p { margin: 2px 0 0; font-size: 11px; color: var(--muted); }
 
@@ -242,22 +275,26 @@
     display: flex; align-items: center; gap: 8px;
   }
   .layer > h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .groups { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+  body.view-desktop .groups {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    align-items: start;
+  }
   .group {
     background: var(--panel); border: 1px solid var(--line);
-    border-radius: 12px; padding: 9px 10px 10px; margin-bottom: 8px;
+    border-radius: 12px; padding: 9px 10px 10px;
   }
   .group h4 {
-    margin: 0 0 7px; font-size: 12.5px; font-weight: 700; color: var(--ink);
+    margin: 0 0 7px; font-size: 12.5px; font-weight: 700; color: var(--ink); outline: none;
   }
   .chips { display: flex; flex-wrap: wrap; gap: 5px; }
   .chip {
     background: var(--chip-bg); color: var(--chip-ink);
     border-radius: 7px; padding: 3px 8px; font-size: 11.5px;
-    outline: none; position: relative;
+    outline: none; position: relative; transition: background .15s;
   }
   .chip:focus { box-shadow: inset 0 0 0 1.5px var(--accent); }
   .chip.hl { background: var(--hl); color: #241A00; }
-  :root[data-theme="dark"] .chip.hl, .chip.hl { transition: background .15s; }
   .chip .x {
     display: none; position: absolute; top: -7px; right: -7px;
     width: 16px; height: 16px; border-radius: 50%; border: none;
@@ -266,17 +303,29 @@
   }
   .chip:hover .x { display: block; }
   .chips .add { padding: 2px 8px; font-size: 11px; }
-
   .foundation .group { border-style: dashed; }
 
-  /* responsive */
+  /* flow lines overlay */
+  #flow {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 60;
+  }
+  #flow path.link {
+    fill: none; stroke: var(--accent); stroke-width: 2;
+    stroke-dasharray: 6 5;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    #flow path.link { animation: dashmove .6s linear infinite; }
+    @keyframes dashmove { to { stroke-dashoffset: -11; } }
+  }
+
   @media (max-width: 1080px) {
-    .canvas { grid-template-columns: 1fr; }
+    .canvas, body.view-desktop .canvas { grid-template-columns: 1fr; }
     .center { order: -1; }
-    .phone .screen { max-height: none; height: auto; }
+    .device .screen { max-height: none; height: auto; }
   }
   @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
+    * { transition: none !important; animation: none !important; }
   }
 </style>
 </head>
@@ -289,6 +338,10 @@
   </div>
   <nav class="tabs" id="tabs" aria-label="เลือกทีม"></nav>
   <div class="topbar-right">
+    <div class="seg" role="group" aria-label="มุมมองอุปกรณ์">
+      <button id="viewMobile" title="มุมมองมือถือ">📱 Mobile</button>
+      <button id="viewDesktop" title="มุมมอง Desktop สำหรับนำเสนอ">🖥️ Desktop</button>
+    </div>
     <div class="presence" id="presence" title="สมาชิกที่กำลังออกแบบ (ตัวอย่าง)"></div>
     <button class="btn" id="btnReset" title="ล้างข้อมูลทีมนี้กลับเป็นค่าเริ่มต้น">รีเซ็ตทีมนี้</button>
     <button class="btn primary" id="btnExport">Export JSON</button>
@@ -296,9 +349,9 @@
 </header>
 
 <div class="note">
-  <div><b>Prototype:</b> แก้ข้อความได้ทุกจุด (คลิกแล้วพิมพ์) · ข้อมูลแยกเก็บรายทีมใน browser ของคุณ ·
-  ชี้เมาส์ที่รายการของ Actor ที่มี [ชื่อ Platform] ระบบจะไฮไลต์ชิ้นส่วนนั้นบนจอมือถือ ·
-  เวอร์ชันจริงจะ sync แบบ real-time ให้ทุกทีมเห็นพร้อมกัน</div>
+  <div><b>Prototype:</b> แก้ข้อความได้ทุกจุด (คลิกแล้วพิมพ์) · คลิกวงกลมหน้าชื่อ Stakeholder เพื่อใส่รูป (ดับเบิลคลิกเพื่อลบรูป) ·
+  ชี้เมาส์ที่รายการที่มี [ชื่อ Platform] จะมีเส้นลากไปยัง Capability บนจอ ·
+  สลับ 📱/🖥️ มุมบนขวาเพื่อดูแบบมือถือหรือ Desktop · ข้อมูลแยกเก็บรายทีมใน browser ของคุณ</div>
 </div>
 
 <main class="canvas">
@@ -306,7 +359,7 @@
 
   <section class="center">
     <div class="cap" id="capTeam"></div>
-    <div class="phone">
+    <div class="device">
       <div class="screen" id="screen">
         <div class="notch"><i></i></div>
         <div class="appbar">
@@ -316,24 +369,28 @@
         <div id="layers"></div>
       </div>
     </div>
+    <div class="stand"></div>
   </section>
 
   <div class="rail" id="railRight"></div>
 </main>
 
+<svg id="flow" aria-hidden="true">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"></path>
+    </marker>
+  </defs>
+</svg>
+
+<input type="file" id="imgInput" accept="image/*" hidden>
+
 <script>
 "use strict";
 
-/* ---------------- fixed template (ทุกทีมใช้โครงเดียวกัน) ---------------- */
-const ZONES = [
-  { key:"partners",     side:"left",  color:"var(--z-partner)", glyph:"P", title:"Partners / Supplier / Ecosystem" },
-  { key:"complementor", side:"left",  color:"var(--z-comp)",    glyph:"C", title:"Complementor" },
-  { key:"competitor",   side:"left",  color:"var(--z-compet)",  glyph:"VS", title:"Competitor" },
-  { key:"buyer",        side:"right", color:"var(--z-buyer)",   glyph:"B", title:"Buyer" },
-  { key:"business",     side:"right", color:"var(--z-biz)",     glyph:"PB", title:"Precise Business" },
-  { key:"admin",        side:"right", color:"var(--z-admin)",   glyph:"A", title:"Platform Admin" },
-];
-
+/* ---------------- constants ---------------- */
+const HUES = ["partner","comp","compet","buyer","biz","admin"];
 const TEAMS = [
   { id:"tendering", name:"Tendering RST" },
   { id:"omni",      name:"Omni Channel RST" },
@@ -342,13 +399,26 @@ const TEAMS = [
   { id:"ppa",       name:"PPA / Long-term Contract RST" },
   { id:"invest",    name:"Investment RST" },
 ];
-
 const NAMES = ["จินณพัศ","กอล์ฟ","หญิง","ตุลลี่","พี่ท้อป","เบียร์","นัท","ปอ"];
+
+let uidSeq = 1;
+function uid(){ return "sh" + (uidSeq++) + "-" + Math.random().toString(36).slice(2, 8); }
+
+function baseStakeholders(){
+  return [
+    { id:uid(), title:"Partners / Supplier / Ecosystem", hue:"partner", glyph:"P",  side:"left",  image:null, items:[] },
+    { id:uid(), title:"Complementor",                    hue:"comp",    glyph:"C",  side:"left",  image:null, items:[] },
+    { id:uid(), title:"Competitor",                      hue:"compet",  glyph:"VS", side:"left",  image:null, items:[] },
+    { id:uid(), title:"Buyer",                           hue:"buyer",   glyph:"B",  side:"right", image:null, items:[] },
+    { id:uid(), title:"Precise Business",                hue:"biz",     glyph:"PB", side:"right", image:null, items:[] },
+    { id:uid(), title:"Platform Admin",                  hue:"admin",   glyph:"A",  side:"right", image:null, items:[] },
+  ];
+}
 
 function emptyDesign(teamName){
   return {
     phoneTitle: teamName + " Platform",
-    actors: { partners:[], complementor:[], competitor:[], buyer:[], business:[], admin:[] },
+    stakeholders: baseStakeholders(),
     layers: [
       { title:"Technology Platform", groups:[ { name:"Core Capability", chips:[] } ] },
       { title:"Commercial & Management Technology Platform", groups:[ { name:"Business Generation", chips:[] } ] },
@@ -360,107 +430,137 @@ function emptyDesign(teamName){
 
 /* ตัวอย่างจริง: TCS RST (ย่อจากแผนภาพต้นฉบับ) */
 function tcsDesign(){
-  return {
-    phoneTitle: "TCS Platform",
-    actors: {
-      partners: [
-        "เชื่อมต่อ Solution ของตน (Financing, Insurance, IoT Sensor, Sub Contractor) → [Partner / 3rd-Party App Ecosystem]",
-        "รับดูแลความสัมพันธ์ต่อเนื่อง → [Ecosystem & Services]",
-        "ให้บริการเงินทุนแลกค่าคอมมิชชั่น → [Financing Platform]",
-        "รับส่วนแบ่งรายได้ Marketplace Commission → [Ecosystem & Partner]",
-      ],
-      complementor: [
-        "หน่วยงานภายนอก 20 แห่ง → [Ecosystem & Partner]",
-        "ราชการ/กำกับดูแล: FTI, กระทรวงอุตสาหกรรม, กระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.",
-        "การเงิน/ประกันภัย: ธนาคาร, บริษัทประกันภัย",
-        "โลจิสติกส์/ศุลกากร: Freight Forwarder, กรมศุลกากร",
-        "ผู้ตรวจสอบ/รับรองมาตรฐาน: Third Party Inspection, ISO/IEC/ESG/Carbon Certification Body",
-      ],
-      competitor: [
-        "Power Distribution & Transmission: Schneider, Siemens, ABB, Hitachi Energy, LS Electric, Eaton, Mitsubishi Electric, ASEFA, PMK",
-        "High-Quality Power System: Siemens, Hitachi Energy, GE Vernova",
-        "Power Quality: Siemens, Danfoss, Delta Electronics, PQ Team",
-        "Energy Conservation: Schneider, Honeywell, Johnson Controls, Delta Electronics, MFEC",
-        "Renewable Energy: Encom, SCG, Banpu, BGE",
-      ],
-      buyer: [
-        "ส่ง requirement เริ่มต้นก่อนโครงการ → [Digital Engineering Platform]",
-        "รับการดูแลแบบรู้จักตัวตน → [Customer Engagement Platform]",
-        "ติดตามข้อมูลพลังงาน/ต้นทุนเรียลไทม์ → [IoT Data Management]",
-        "รับคำแนะนำลดใช้พลังงาน → [Energy Procurement Platform]",
-        "สั่งซื้ออะไหล่/อุปกรณ์เองได้ → [Digital Commerce Platform]",
-        "เข้าถึงแหล่งทุนเมื่อต้องการอัปเกรด → [Financing Platform]",
-        "ขอรายงาน ESG/Carbon Footprint → [Carbon Accounting & Reporting]",
-        "ต่อสัญญา/ขยายขอบเขตเมื่อครบรอบ → [Energy Intelligence Platform (EMS)]",
-        "รับ Alert ล่วงหน้าเมื่อพบความเสี่ยง → [Monitoring, Reporting & Event Resolution]",
-        "ยื่นขอ Green Financing / ขายคาร์บอนเครดิต → [ESG & Carbon Commercial Platform]",
-        "ใช้ผู้ช่วยออกแบบด้านพลังงาน → [AI Engineering Copilot]",
-      ],
-      business: [
-        "Sales: วิเคราะห์ Stakeholders / ผู้มีอิทธิพลตัดสินใจ → [Stakeholder Platform]",
-        "Sales: กำหนดกลยุทธ์ราคาแข่งขัน → [Pricing Strategy Platform]",
-        "Sales: Cross-sell/Upsell จาก Loyalty & Insight → [Customer Engagement Platform]",
-        "S&OP: จัดใบเสนอราคาจาก BOM/ราคามาตรฐาน → [Technical Platform]",
-        "S&OP: วางแผนสอดคล้องขาย-ผลิต-ติดตั้ง → [Sale & Operation Planning Platform]",
-        "S&OP: ดึงข้อมูล LCC หาโอกาสขาย → [Asset Lifecycle Management Platform]",
-        "Digital Engineering: บันทึก Requirement ครบถ้วน → [System Modeling & Requirements]",
-        "Digital Engineering: จำลอง/พิสูจน์ก่อนลงทุนจริง → [Simulation & Virtual Validation]",
-        "Digital Engineering: เก็บมาตรฐานกลางอ้างอิง → [Standards & Compliance Repository]",
-        "Demand Satisfaction: รับ Scope จาก Sales มาแตกเป็นชิ้นงาน → [Architecture Design]",
-        "Demand Satisfaction: บริหารโครงการหลายฝ่ายให้ตรง Scope/เวลา/งบ → [Project Management Business Platform]",
-      ],
-      admin: [
-        "ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]",
-        "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]",
-        "กำกับดูแล Embedded AI ให้ฝังตัวถูกต้อง → [Embedded AI Capability Layer]",
-      ],
-    },
-    layers: [
-      { title:"Technology Platform", groups:[
-        { name:"Digital Engineering Platform", chips:[
-          "System Modeling & Requirements","Architecture Design","Simulation & Virtual Validation",
-          "Integration","Standards & Compliance Repository","Technical Platform",
-          "Spatial Engineering & Fleet Management","Digital Twin & Remote" ] },
-        { name:"Energy Intelligence Platform (EMS)", chips:[
-          "AI Engineering Copilot","IoT Data Management","Connectivity & Edge Management",
-          "Grid Edge / Field Devices","Grid Operations & Control","Energy Procurement Platform",
-          "Carbon Accounting & Reporting","Monitoring, Reporting & Event Resolution",
-          "Digital / Predictive Maintenance" ] },
-      ]},
-      { title:"Commercial & Management Technology Platform", groups:[
-        { name:"Ecosystem & Partner", chips:[ "Partner / 3rd-Party App Ecosystem","Ecosystem & Services" ] },
-        { name:"Buyer / User Platform", chips:[ "Customer Engagement Platform","Digital Commerce Platform" ] },
-        { name:"Business Generation Platform", chips:[
-          "Stakeholder Platform","Sale & Operation Planning Platform","Pricing Strategy Platform",
-          "Financing Platform","Commercial Platform" ] },
-        { name:"Post-Sale Platform", chips:[ "Asset Lifecycle Management Platform","ESG & Carbon Commercial Platform" ] },
-        { name:"Demand Satisfaction Platform", chips:[ "Project Management Business Platform" ] },
-      ]},
-      { title:"Foundation Platform", foundation:true, groups:[
-        { name:"Shared Foundation", chips:[
-          "OT/IT Cyber Security Framework","Cloud / SaaS Infrastructure","Embedded AI Capability Layer" ] },
-      ]},
+  const d = emptyDesign("TCS RST");
+  d.phoneTitle = "TCS Platform";
+  const items = {
+    "Partners / Supplier / Ecosystem": [
+      "เชื่อมต่อ Solution ของตน (Financing, Insurance, IoT Sensor, Sub Contractor) → [Partner / 3rd-Party App Ecosystem]",
+      "รับดูแลความสัมพันธ์ต่อเนื่อง → [Ecosystem & Services]",
+      "ให้บริการเงินทุนแลกค่าคอมมิชชั่น → [Financing Platform]",
+      "รับส่วนแบ่งรายได้ Marketplace Commission → [Ecosystem & Partner]",
+    ],
+    "Complementor": [
+      "หน่วยงานภายนอก 20 แห่ง → [Ecosystem & Partner]",
+      "ราชการ/กำกับดูแล: FTI, กระทรวงอุตสาหกรรม, กระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.",
+      "การเงิน/ประกันภัย: ธนาคาร, บริษัทประกันภัย",
+      "โลจิสติกส์/ศุลกากร: Freight Forwarder, กรมศุลกากร",
+      "ผู้ตรวจสอบ/รับรองมาตรฐาน: Third Party Inspection, ISO/IEC/ESG/Carbon Certification Body",
+    ],
+    "Competitor": [
+      "Power Distribution & Transmission: Schneider, Siemens, ABB, Hitachi Energy, LS Electric, Eaton, Mitsubishi Electric, ASEFA, PMK",
+      "High-Quality Power System: Siemens, Hitachi Energy, GE Vernova",
+      "Power Quality: Siemens, Danfoss, Delta Electronics, PQ Team",
+      "Energy Conservation: Schneider, Honeywell, Johnson Controls, Delta Electronics, MFEC",
+      "Renewable Energy: Encom, SCG, Banpu, BGE",
+    ],
+    "Buyer": [
+      "ส่ง requirement เริ่มต้นก่อนโครงการ → [Digital Engineering Platform]",
+      "รับการดูแลแบบรู้จักตัวตน → [Customer Engagement Platform]",
+      "ติดตามข้อมูลพลังงาน/ต้นทุนเรียลไทม์ → [IoT Data Management]",
+      "รับคำแนะนำลดใช้พลังงาน → [Energy Procurement Platform]",
+      "สั่งซื้ออะไหล่/อุปกรณ์เองได้ → [Digital Commerce Platform]",
+      "เข้าถึงแหล่งทุนเมื่อต้องการอัปเกรด → [Financing Platform]",
+      "ขอรายงาน ESG/Carbon Footprint → [Carbon Accounting & Reporting]",
+      "ต่อสัญญา/ขยายขอบเขตเมื่อครบรอบ → [Energy Intelligence Platform (EMS)]",
+      "รับ Alert ล่วงหน้าเมื่อพบความเสี่ยง → [Monitoring, Reporting & Event Resolution]",
+      "ยื่นขอ Green Financing / ขายคาร์บอนเครดิต → [ESG & Carbon Commercial Platform]",
+      "ใช้ผู้ช่วยออกแบบด้านพลังงาน → [AI Engineering Copilot]",
+    ],
+    "Precise Business": [
+      "Sales: วิเคราะห์ Stakeholders / ผู้มีอิทธิพลตัดสินใจ → [Stakeholder Platform]",
+      "Sales: กำหนดกลยุทธ์ราคาแข่งขัน → [Pricing Strategy Platform]",
+      "Sales: Cross-sell/Upsell จาก Loyalty & Insight → [Customer Engagement Platform]",
+      "S&OP: จัดใบเสนอราคาจาก BOM/ราคามาตรฐาน → [Technical Platform]",
+      "S&OP: วางแผนสอดคล้องขาย-ผลิต-ติดตั้ง → [Sale & Operation Planning Platform]",
+      "S&OP: ดึงข้อมูล LCC หาโอกาสขาย → [Asset Lifecycle Management Platform]",
+      "Digital Engineering: บันทึก Requirement ครบถ้วน → [System Modeling & Requirements]",
+      "Digital Engineering: จำลอง/พิสูจน์ก่อนลงทุนจริง → [Simulation & Virtual Validation]",
+      "Digital Engineering: เก็บมาตรฐานกลางอ้างอิง → [Standards & Compliance Repository]",
+      "Demand Satisfaction: รับ Scope จาก Sales มาแตกเป็นชิ้นงาน → [Architecture Design]",
+      "Demand Satisfaction: บริหารโครงการหลายฝ่ายให้ตรง Scope/เวลา/งบ → [Project Management Business Platform]",
+    ],
+    "Platform Admin": [
+      "ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]",
+      "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]",
+      "กำกับดูแล Embedded AI ให้ฝังตัวถูกต้อง → [Embedded AI Capability Layer]",
     ],
   };
+  d.stakeholders.forEach(s => { s.items = items[s.title] || []; });
+  d.layers = [
+    { title:"Technology Platform", groups:[
+      { name:"Digital Engineering Platform", chips:[
+        "System Modeling & Requirements","Architecture Design","Simulation & Virtual Validation",
+        "Integration","Standards & Compliance Repository","Technical Platform",
+        "Spatial Engineering & Fleet Management","Digital Twin & Remote" ] },
+      { name:"Energy Intelligence Platform (EMS)", chips:[
+        "AI Engineering Copilot","IoT Data Management","Connectivity & Edge Management",
+        "Grid Edge / Field Devices","Grid Operations & Control","Energy Procurement Platform",
+        "Carbon Accounting & Reporting","Monitoring, Reporting & Event Resolution",
+        "Digital / Predictive Maintenance" ] },
+    ]},
+    { title:"Commercial & Management Technology Platform", groups:[
+      { name:"Ecosystem & Partner", chips:[ "Partner / 3rd-Party App Ecosystem","Ecosystem & Services" ] },
+      { name:"Buyer / User Platform", chips:[ "Customer Engagement Platform","Digital Commerce Platform" ] },
+      { name:"Business Generation Platform", chips:[
+        "Stakeholder Platform","Sale & Operation Planning Platform","Pricing Strategy Platform",
+        "Financing Platform","Commercial Platform" ] },
+      { name:"Post-Sale Platform", chips:[ "Asset Lifecycle Management Platform","ESG & Carbon Commercial Platform" ] },
+      { name:"Demand Satisfaction Platform", chips:[ "Project Management Business Platform" ] },
+    ]},
+    { title:"Foundation Platform", foundation:true, groups:[
+      { name:"Shared Foundation", chips:[
+        "OT/IT Cyber Security Framework","Cloud / SaaS Infrastructure","Embedded AI Capability Layer" ] },
+    ]},
+  ];
+  return d;
 }
 
-/* ---------------- state ---------------- */
-const KEY = "rst-arch-studio-v1";
+/* ---------------- state (v2 + migration จาก v1) ---------------- */
+const KEY1 = "rst-arch-studio-v1";
+const KEY2 = "rst-arch-studio-v2";
 let store = load();
 let current = store.current || "tcs";
 
 function load(){
-  try { return JSON.parse(localStorage.getItem(KEY)) || seed(); }
-  catch(e){ return seed(); }
+  try {
+    const v2 = JSON.parse(localStorage.getItem(KEY2));
+    if (v2 && v2.teams) return v2;
+  } catch(e){}
+  try {
+    const v1 = JSON.parse(localStorage.getItem(KEY1));
+    if (v1 && v1.teams) return migrateV1(v1);
+  } catch(e){}
+  return seed();
+}
+function migrateV1(v1){
+  const keyToTitle = {
+    partners:"Partners / Supplier / Ecosystem", complementor:"Complementor",
+    competitor:"Competitor", buyer:"Buyer", business:"Precise Business", admin:"Platform Admin",
+  };
+  const s = { current: v1.current || "tcs", teams:{} };
+  TEAMS.forEach(t => {
+    const old = v1.teams[t.id];
+    if (!old) { s.teams[t.id] = emptyDesign(t.name); return; }
+    const d = emptyDesign(t.name);
+    d.phoneTitle = old.phoneTitle || d.phoneTitle;
+    d.layers = old.layers || d.layers;
+    d.stakeholders.forEach(sh => {
+      const oldKey = Object.keys(keyToTitle).find(k => keyToTitle[k] === sh.title);
+      if (oldKey && old.actors && old.actors[oldKey]) sh.items = old.actors[oldKey];
+    });
+    s.teams[t.id] = d;
+  });
+  return s;
 }
 function seed(){
-  const s = { current:"tcs", teams:{} };
+  const s = { current:"tcs", view:"mobile", teams:{} };
   TEAMS.forEach(t => { s.teams[t.id] = (t.id === "tcs") ? tcsDesign() : emptyDesign(t.name); });
   return s;
 }
 function save(){
   store.current = current;
-  localStorage.setItem(KEY, JSON.stringify(store));
+  try { localStorage.setItem(KEY2, JSON.stringify(store)); }
+  catch(e){ alert("บันทึกไม่สำเร็จ — พื้นที่ browser เต็ม (รูปภาพเยอะเกินไป) ลองลบรูปบางส่วนออก"); }
 }
 function design(){ return store.teams[current]; }
 function teamMeta(){ return TEAMS.find(t => t.id === current); }
@@ -494,39 +594,110 @@ function renderPresence(){
   }
 }
 
-function editable(text, onChange){
+function renderView(){
+  const v = store.view || "mobile";
+  document.body.classList.toggle("view-desktop", v === "desktop");
+  $("#viewMobile").classList.toggle("on", v === "mobile");
+  $("#viewDesktop").classList.toggle("on", v === "desktop");
+  $("#capTeam").textContent = teamMeta().name + " — Platform View (" + (v === "desktop" ? "Desktop" : "Mobile") + ")";
+}
+$("#viewMobile").onclick  = () => { store.view = "mobile";  save(); renderView(); clearHighlight(); };
+$("#viewDesktop").onclick = () => { store.view = "desktop"; save(); renderView(); clearHighlight(); };
+
+function editableItem(text, onChange){
   const s = document.createElement("span");
   s.className = "txt" + (/\[[^\]]+\]/.test(text) ? " linked" : "");
   s.contentEditable = "true";
   s.spellcheck = false;
   s.textContent = text;
   s.addEventListener("blur", () => onChange(s.textContent.trim()));
-  s.addEventListener("mouseenter", () => highlight(s.textContent));
+  s.addEventListener("mouseenter", () => highlight(s));
   s.addEventListener("mouseleave", clearHighlight);
   return s;
 }
 
-function renderActors(){
+/* image upload */
+let pendingImageCard = null;
+$("#imgInput").addEventListener("change", e => {
+  const file = e.target.files[0];
+  e.target.value = "";
+  if (!file || !pendingImageCard) return;
+  const card = pendingImageCard; pendingImageCard = null;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const size = 128, cv = document.createElement("canvas");
+      cv.width = size; cv.height = size;
+      const ctx = cv.getContext("2d");
+      const sc = Math.max(size / img.width, size / img.height);
+      const w = img.width * sc, h = img.height * sc;
+      ctx.drawImage(img, (size - w) / 2, (size - h) / 2, w, h);
+      card.image = cv.toDataURL("image/jpeg", 0.82);
+      save(); renderRails();
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+function renderRails(){
   const left = $("#railLeft"), right = $("#railRight");
   left.innerHTML = ""; right.innerHTML = "";
-  ZONES.forEach(z => {
-    const items = design().actors[z.key];
+  const list = design().stakeholders;
+
+  list.forEach(sh => {
     const card = document.createElement("section");
     card.className = "actor";
-    card.style.setProperty("--zc", z.color);
+    card.style.setProperty("--zc", `var(--z-${sh.hue})`);
 
     const head = document.createElement("header");
-    const g = document.createElement("span"); g.className = "glyph"; g.textContent = z.glyph;
-    const h = document.createElement("h2"); h.textContent = z.title;
-    const n = document.createElement("span"); n.className = "sub"; n.textContent = items.length + " รายการ";
-    head.append(g, h, n);
+
+    const g = document.createElement("button");
+    g.className = "glyph";
+    g.title = "คลิกเพื่อใส่/เปลี่ยนรูป · ดับเบิลคลิกเพื่อลบรูป";
+    if (sh.image) {
+      const im = document.createElement("img");
+      im.src = sh.image; im.alt = sh.title;
+      g.appendChild(im);
+    } else {
+      g.textContent = sh.glyph || sh.title.slice(0, 1).toUpperCase();
+    }
+    g.onclick = () => { pendingImageCard = sh; $("#imgInput").click(); };
+    g.ondblclick = e => {
+      e.preventDefault();
+      if (sh.image) { sh.image = null; save(); renderRails(); }
+    };
+
+    const h = document.createElement("h2");
+    h.contentEditable = "true"; h.spellcheck = false;
+    h.textContent = sh.title;
+    h.addEventListener("blur", () => {
+      sh.title = h.textContent.trim() || sh.title;
+      sh.glyph = sh.title.slice(0, 1).toUpperCase();
+      save(); renderRails();
+    });
+
+    const n = document.createElement("span");
+    n.className = "sub"; n.textContent = sh.items.length + " รายการ";
+
+    const del = document.createElement("button");
+    del.className = "del"; del.textContent = "×"; del.title = "ลบ Stakeholder นี้";
+    del.onclick = () => {
+      if (!confirm(`ลบ "${sh.title}" ทั้งการ์ด?`)) return;
+      const i = list.indexOf(sh);
+      if (i > -1) list.splice(i, 1);
+      save(); renderRails();
+    };
+
+    head.append(g, h, n, del);
 
     const ol = document.createElement("ol");
-    items.forEach((txt, i) => {
+    sh.items.forEach((txt, i) => {
       const li = document.createElement("li");
-      li.appendChild(editable(txt, v => {
-        if (v) items[i] = v; else items.splice(i, 1);
-        save(); renderActors();
+      li.appendChild(editableItem(txt, v => {
+        if (v) sh.items[i] = v; else sh.items.splice(i, 1);
+        save(); renderRails();
       }));
       ol.appendChild(li);
     });
@@ -535,8 +706,8 @@ function renderActors(){
     const add = document.createElement("button");
     add.className = "add"; add.textContent = "+ เพิ่มบทบาท / Flow";
     add.onclick = () => {
-      items.push("บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]");
-      save(); renderActors();
+      sh.items.push("บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]");
+      save(); renderRails();
       const spans = card.querySelectorAll(".txt");
       const last = spans[spans.length - 1];
       if (last) { last.focus(); document.getSelection().selectAllChildren(last); }
@@ -544,12 +715,27 @@ function renderActors(){
     foot.appendChild(add);
 
     card.append(head, ol, foot);
-    (z.side === "left" ? left : right).appendChild(card);
+    (sh.side === "left" ? left : right).appendChild(card);
+  });
+
+  ["left","right"].forEach(side => {
+    const btn = document.createElement("button");
+    btn.className = "add";
+    btn.textContent = "+ เพิ่ม Stakeholder";
+    btn.onclick = () => {
+      list.push({
+        id: uid(), title: "Stakeholder ใหม่",
+        hue: HUES[list.length % HUES.length],
+        glyph: "S", side, image: null, items: [],
+      });
+      save(); renderRails();
+    };
+    (side === "left" ? left : right).appendChild(btn);
   });
 }
 
 function renderPhone(){
-  $("#capTeam").textContent = teamMeta().name + " — Mobile-first Platform View";
+  renderView();
   const title = $("#phoneTitle");
   title.textContent = design().phoneTitle;
   title.contentEditable = "true"; title.spellcheck = false;
@@ -561,6 +747,9 @@ function renderPhone(){
     sec.className = "layer" + (layer.foundation ? " foundation" : "");
     const h3 = document.createElement("h3"); h3.textContent = layer.title;
     sec.appendChild(h3);
+
+    const groupsWrap = document.createElement("div");
+    groupsWrap.className = "groups";
 
     layer.groups.forEach(gr => {
       const box = document.createElement("div"); box.className = "group";
@@ -575,7 +764,7 @@ function renderPhone(){
         chip.textContent = c;
         chip.dataset.chip = "1";
         chip.addEventListener("blur", () => {
-          const v = chip.textContent.trim();
+          const v = chip.textContent.replace("×","").trim();
           if (v) gr.chips[i] = v; else gr.chips.splice(i, 1);
           save(); renderPhone();
         });
@@ -592,8 +781,9 @@ function renderPhone(){
       chips.appendChild(add);
 
       box.append(h4, chips);
-      sec.appendChild(box);
+      groupsWrap.appendChild(box);
     });
+    sec.appendChild(groupsWrap);
 
     if (!layer.foundation){
       const addG = document.createElement("button");
@@ -605,22 +795,61 @@ function renderPhone(){
   });
 }
 
-/* hover actor item → ไฮไลต์ chip ที่ชื่อตรงกับ [ ... ] */
-function highlight(text){
-  const m = text.match(/\[([^\]]+)\]/);
+/* ---------------- flow lines: hover item → เส้นลากไป capability ---------------- */
+let activeSource = null;
+let activeChips = [];
+
+function highlight(srcEl){
+  clearHighlight();
+  const m = srcEl.textContent.match(/\[([^\]]+)\]/);
   if (!m) return;
   const target = m[1].trim().toLowerCase();
+  const matched = [];
   document.querySelectorAll("[data-chip]").forEach(chip => {
     const name = chip.textContent.replace("×", "").trim().toLowerCase();
     if (name.includes(target) || target.includes(name)) {
       chip.classList.add("hl");
-      chip.scrollIntoView({ block:"nearest", behavior:"smooth" });
+      matched.push(chip);
     }
   });
+  if (!matched.length) return;
+  activeSource = srcEl;
+  activeChips = matched;
+  matched[0].scrollIntoView({ block:"nearest" });
+  requestAnimationFrame(drawLines);
 }
+
+function drawLines(){
+  const svg = $("#flow");
+  svg.querySelectorAll("path.link").forEach(p => p.remove());
+  if (!activeSource) return;
+  const screenBox = $("#screen").getBoundingClientRect();
+  const s = activeSource.getBoundingClientRect();
+  const sy = s.top + s.height / 2;
+  activeChips.forEach(chip => {
+    const c = chip.getBoundingClientRect();
+    if (c.bottom < screenBox.top + 30 || c.top > screenBox.bottom - 10) return;
+    const cy = c.top + c.height / 2;
+    const goingRight = (c.left + c.width / 2) > (s.left + s.width / 2);
+    const sx = goingRight ? s.right : s.left;
+    const tx = goingRight ? c.left - 3 : c.right + 3;
+    const bend = Math.max(50, Math.abs(tx - sx) * 0.35) * (goingRight ? 1 : -1);
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("class", "link");
+    path.setAttribute("marker-end", "url(#arrow)");
+    path.setAttribute("d", `M ${sx} ${sy} C ${sx + bend} ${sy}, ${tx - bend} ${cy}, ${tx} ${cy}`);
+    svg.appendChild(path);
+  });
+}
+
 function clearHighlight(){
   document.querySelectorAll(".chip.hl").forEach(c => c.classList.remove("hl"));
+  activeSource = null; activeChips = [];
+  drawLines();
 }
+
+window.addEventListener("scroll", () => { if (activeSource) drawLines(); }, true);
+window.addEventListener("resize", () => { if (activeSource) drawLines(); });
 
 /* ---------------- toolbar ---------------- */
 $("#btnExport").onclick = () => {
@@ -641,7 +870,7 @@ $("#btnReset").onclick = () => {
 };
 
 function renderAll(){
-  renderTabs(); renderPresence(); renderActors(); renderPhone();
+  renderTabs(); renderPresence(); renderRails(); renderPhone();
 }
 renderAll();
 </script>
