@@ -329,6 +329,15 @@
     @keyframes dashmove { to { stroke-dashoffset: -11; } }
   }
   .btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .sync {
+    font-size: 11.5px; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 4px 10px; white-space: nowrap;
+    min-width: 150px; text-align: center;
+  }
+  .sync.on { color: #1B7F4B; border-color: #1B7F4B; }
+  .sync.dirty { color: #B0701C; border-color: #B0701C; }
+  .sync.err { color: var(--z-biz); border-color: var(--z-biz); }
 
   /* export snapshot: ขยายทุกส่วนที่ scroll และซ่อนปุ่มแก้ไข */
   .exporting .actor ol { max-height: none !important; }
@@ -383,6 +392,9 @@
       <button id="viewDesktop" title="มุมมอง Desktop สำหรับนำเสนอ">🖥️ Desktop</button>
     </div>
     <div class="presence" id="presence" title="สมาชิกที่กำลังออกแบบ (ตัวอย่าง)"></div>
+    <span class="sync" id="syncStatus" title="สถานะการเชื่อมต่อระบบกลาง">ออฟไลน์</span>
+    <button class="btn" id="btnLink" title="ตั้งค่าการเชื่อมต่อระบบกลาง (วาง URL ของ Worker)">🔗</button>
+    <button class="btn primary" id="btnSave" hidden title="บันทึกขึ้นระบบกลาง ให้ทั้งทีมเห็น">💾 Save</button>
     <button class="btn" id="btnFlows" title="แสดง/ซ่อนเส้น Flow ทั้งหมด แยกสีตาม Stakeholder">🕸️ Flow ทั้งหมด</button>
     <button class="btn" id="btnPng" title="บันทึกผังทั้งแผ่นเป็นรูป PNG">📷 PNG</button>
     <button class="btn" id="btnReset" title="ล้างข้อมูลทีมนี้กลับเป็นค่าเริ่มต้น">รีเซ็ตทีมนี้</button>
@@ -610,10 +622,16 @@ function seed(){
   TEAMS.forEach(t => { s.teams[t.id] = (t.id === "tcs") ? tcsDesign() : emptyDesign(t.name); });
   return s;
 }
-function save(){
+/* persist = เขียนลงเครื่องเฉยๆ / save = การแก้ไขเนื้อหา (นับเป็นงานค้าง save ขึ้นระบบกลาง) */
+let applyingRemote = false;
+function persist(){
   store.current = current;
   try { localStorage.setItem(KEY2, JSON.stringify(store)); }
   catch(e){ alert("บันทึกไม่สำเร็จ — พื้นที่ browser เต็ม (รูปภาพเยอะเกินไป) ลองลบรูปบางส่วนออก"); }
+}
+function save(){
+  persist();
+  if (!applyingRemote) markDirty();
 }
 function design(){ return store.teams[current]; }
 function teamMeta(){ return TEAMS.find(t => t.id === current); }
@@ -627,7 +645,7 @@ function renderTabs(){
     const b = document.createElement("button");
     b.className = "tab" + (t.id === current ? " on" : "");
     b.textContent = t.name;
-    b.onclick = () => { current = t.id; save(); renderAll(); };
+    b.onclick = () => { current = t.id; persist(); renderAll(); if (online()) loadRemote(current); };
     el.appendChild(b);
   });
 }
@@ -654,8 +672,8 @@ function renderView(){
   $("#viewDesktop").classList.toggle("on", v === "desktop");
   $("#capTeam").textContent = teamMeta().name + " — Platform View (" + (v === "desktop" ? "Desktop" : "Mobile") + ")";
 }
-$("#viewMobile").onclick  = () => { store.view = "mobile";  save(); renderView(); clearHighlight(); };
-$("#viewDesktop").onclick = () => { store.view = "desktop"; save(); renderView(); clearHighlight(); };
+$("#viewMobile").onclick  = () => { store.view = "mobile";  persist(); renderView(); clearHighlight(); };
+$("#viewDesktop").onclick = () => { store.view = "desktop"; persist(); renderView(); clearHighlight(); };
 
 function editableItem(text, hue, onChange){
   const s = document.createElement("span");
@@ -1219,11 +1237,156 @@ $("#btnReset").onclick = () => {
   save(); renderAll();
 };
 
+/* ---------------- online sync (Cloudflare Worker + รหัสทีม) ---------------- */
+const SYNC_KEY = "rst-sync-v1";
+let sync = {};
+try { sync = JSON.parse(localStorage.getItem(SYNC_KEY)) || {}; } catch(e){ sync = {}; }
+const qsApi = new URLSearchParams(location.search).get("api");
+if (qsApi){ sync.api = qsApi.trim().replace(/\/+$/, ""); saveSyncCfg(); }
+
+function saveSyncCfg(){ localStorage.setItem(SYNC_KEY, JSON.stringify(sync)); }
+function online(){ return !!sync.api; }
+
+const remoteSha = {};
+let dirty = false;
+let syncBusy = false;
+
+function setSyncStatus(txt, cls){
+  const el = $("#syncStatus");
+  el.textContent = txt;
+  el.className = "sync" + (cls ? " " + cls : "");
+}
+function markDirty(){
+  if (!online()) return;
+  dirty = true;
+  setSyncStatus("ยังไม่บันทึก — กด 💾 Save", "dirty");
+}
+
+async function loadRemote(team){
+  if (!online()) return;
+  try {
+    setSyncStatus("กำลังโหลด…");
+    const r = await fetch(sync.api + "/load?team=" + encodeURIComponent(team));
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
+    if (j.design){
+      applyingRemote = true;
+      store.teams[team] = j.design;
+      remoteSha[team] = j.sha;
+      persist();
+      if (team === current) renderAll();
+      applyingRemote = false;
+    } else {
+      remoteSha[team] = null; /* ยังไม่มีไฟล์บนระบบกลาง — ใช้ของในเครื่องไปก่อน */
+    }
+    dirty = false;
+    setSyncStatus("● ออนไลน์", "on");
+  } catch(e){
+    setSyncStatus("เชื่อมต่อระบบกลางไม่ได้", "err");
+  }
+}
+
+async function saveRemote(){
+  if (!online() || syncBusy) return;
+  const team = current;
+  if (!sync.name){
+    const n = prompt("ชื่อของคุณ (จะแสดงในประวัติการแก้ไข):");
+    if (!n || !n.trim()) return;
+    sync.name = n.trim(); saveSyncCfg();
+  }
+  if (!sync.codes) sync.codes = {};
+  if (!sync.codes[team]){
+    const c = prompt("รหัสทีมของ " + teamMeta().name + ":");
+    if (!c || !c.trim()) return;
+    sync.codes[team] = c.trim(); saveSyncCfg();
+  }
+  syncBusy = true;
+  setSyncStatus("กำลังบันทึก…");
+  try {
+    const r = await fetch(sync.api + "/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        team, passcode: sync.codes[team], design: design(),
+        sha: remoteSha[team] || null, editor: sync.name,
+      }),
+    });
+    if (r.status === 401){
+      delete sync.codes[team]; saveSyncCfg();
+      setSyncStatus("รหัสทีมไม่ถูกต้อง", "err");
+      alert("รหัสทีมไม่ถูกต้อง — กด 💾 Save อีกครั้งเพื่อใส่รหัสใหม่");
+      return;
+    }
+    if (r.status === 409){
+      /* มีคนบันทึกตัดหน้า: สำรองของเราเป็นไฟล์ แล้วโหลดเวอร์ชันล่าสุดขึ้นมา */
+      const j = await r.json();
+      const blob = new Blob([JSON.stringify(design(), null, 2)], { type:"application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = team + "-my-unsaved-backup.json";
+      a.click(); URL.revokeObjectURL(a.href);
+      applyingRemote = true;
+      store.teams[team] = j.design; remoteSha[team] = j.sha;
+      persist(); renderAll();
+      applyingRemote = false; dirty = false;
+      setSyncStatus("● ออนไลน์", "on");
+      alert("มีเพื่อนร่วมทีมบันทึกเวอร์ชันใหม่ไปก่อนหน้า\n\nระบบดาวน์โหลดสำรองงานของคุณเป็นไฟล์ไว้ให้แล้ว และโหลดเวอร์ชันล่าสุดขึ้นมาแทน — กรุณาใส่ส่วนที่คุณแก้อีกครั้งแล้วกด Save");
+      return;
+    }
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
+    remoteSha[team] = j.sha;
+    dirty = false;
+    setSyncStatus("บันทึกแล้ว " + new Date().toLocaleTimeString("th-TH", { hour:"2-digit", minute:"2-digit" }), "on");
+  } catch(e){
+    setSyncStatus("บันทึกไม่สำเร็จ", "err");
+    alert("บันทึกไม่สำเร็จ (" + e.message + ") — ข้อมูลยังอยู่ในเครื่องของคุณ ลองกด Save ใหม่อีกครั้ง");
+  } finally {
+    syncBusy = false;
+    if (dirty) setSyncStatus("ยังไม่บันทึก — กด 💾 Save", "dirty");
+  }
+}
+
+/* poll ทุก 20 วิ: ถ้ามีเวอร์ชันใหม่และเราไม่มีงานค้าง/ไม่ได้กำลังพิมพ์ ให้ดึงมาแสดงเลย */
+setInterval(async () => {
+  if (!online() || dirty || syncBusy || document.hidden || presentState.on) return;
+  const ae = document.activeElement;
+  if (ae && ae.isContentEditable) return;
+  try {
+    const r = await fetch(sync.api + "/load?team=" + encodeURIComponent(current));
+    if (!r.ok) return;
+    const j = await r.json();
+    if (j.sha && j.sha !== remoteSha[current]){
+      applyingRemote = true;
+      store.teams[current] = j.design; remoteSha[current] = j.sha;
+      persist(); renderAll();
+      applyingRemote = false;
+      setSyncStatus("↻ อัปเดตใหม่จากทีมเมื่อสักครู่", "on");
+    }
+  } catch(e){}
+}, 20000);
+
+$("#btnSave").onclick = saveRemote;
+$("#btnLink").onclick = () => {
+  const v = prompt(
+    "วาง URL ของระบบกลาง (Cloudflare Worker) เช่น\nhttps://rst-arch-sync.xxxx.workers.dev\n\nปล่อยว่างแล้วกด OK เพื่อกลับสู่โหมดออฟไลน์:",
+    sync.api || "");
+  if (v === null) return;
+  sync.api = v.trim().replace(/\/+$/, "");
+  saveSyncCfg(); initSync();
+};
+function initSync(){
+  $("#btnSave").hidden = !online();
+  if (online()) loadRemote(current);
+  else setSyncStatus("ออฟไลน์");
+}
+
 function renderAll(){
   renderTabs(); renderPresence(); renderRails(); renderPhone();
   if (showFlows && !presentState.on) requestAnimationFrame(drawAllFlows);
 }
 renderAll();
+initSync();
 </script>
 <!--ARTIFACT-END-->
 </body>
