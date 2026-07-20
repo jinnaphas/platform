@@ -160,7 +160,7 @@
     gap: 18px; padding: 16px 20px 40px;
     align-items: start;
   }
-  body.view-desktop .canvas {
+  .view-desktop .canvas {
     max-width: none;
     grid-template-columns: minmax(240px, 300px) minmax(560px, 1fr) minmax(250px, 315px);
   }
@@ -251,17 +251,17 @@
   }
   .stand { display: none; }
 
-  body.view-desktop .device { width: 100%; border-radius: 16px; padding: 14px 14px 16px; }
-  body.view-desktop .device .screen { border-radius: 8px; height: auto; max-height: 80vh; }
-  body.view-desktop .device .notch { display: none; }
-  body.view-desktop .stand {
+  .view-desktop .device { width: 100%; border-radius: 16px; padding: 14px 14px 16px; }
+  .view-desktop .device .screen { border-radius: 8px; height: auto; max-height: 80vh; }
+  .view-desktop .device .notch { display: none; }
+  .view-desktop .stand {
     display: block; width: 180px; height: 12px; margin-top: -2px;
     background: var(--bezel); border-radius: 0 0 12px 12px;
     box-shadow: 0 14px 10px -8px rgba(10,15,25,.35);
   }
 
   .screen .appbar { text-align: center; padding: 2px 16px 10px; }
-  body.view-desktop .screen .appbar { padding-top: 14px; }
+  .view-desktop .screen .appbar { padding-top: 14px; }
   .screen .appbar h1 {
     margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -.01em;
     text-wrap: balance; outline: none;
@@ -285,7 +285,7 @@
   .group .ghead { display: flex; align-items: flex-start; gap: 4px; }
   .group .ghead h4 { flex: 1; min-width: 0; }
   .groups { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
-  body.view-desktop .groups {
+  .view-desktop .groups {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     align-items: start;
   }
@@ -304,6 +304,7 @@
   }
   .chip:focus { box-shadow: inset 0 0 0 1.5px var(--accent); }
   .chip.hl { background: var(--hl); color: #241A00; }
+  .group h4.hl { background: var(--hl); color: #241A00; border-radius: 5px; padding: 0 4px; }
   .chip .x {
     display: none; position: absolute; top: -7px; right: -7px;
     width: 16px; height: 16px; border-radius: 50%; border: none;
@@ -327,9 +328,39 @@
     #flow path.link { animation: dashmove .6s linear infinite; }
     @keyframes dashmove { to { stroke-dashoffset: -11; } }
   }
+  .btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* export snapshot: ขยายทุกส่วนที่ scroll และซ่อนปุ่มแก้ไข */
+  .exporting .actor ol { max-height: none !important; }
+  .exporting .device .screen { max-height: none !important; height: auto !important; }
+  .exporting .add, .exporting .hdel, .exporting .actor .del,
+  .exporting .chip .x, .exporting .presence { display: none !important; }
+
+  /* presentation mode */
+  .present { background: #0B0F16; }
+  .present .topbar, .present .note, .present .add, .present .hdel,
+  .present .actor .del, .present .chip .x { display: none !important; }
+  .present .canvas { max-width: none; padding-top: 28px; }
+  .present .cap { color: #B9C3D4; }
+  .present .actor { box-shadow: 0 12px 32px rgba(0,0,0,.4); }
+  .present .hidden-step { display: none !important; }
+  .present li.glow .txt { background: var(--accent-soft); box-shadow: inset 0 0 0 1.5px var(--accent); }
+  #presentCtl {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    display: none; align-items: center; gap: 10px; z-index: 90;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 999px;
+    padding: 7px 12px; box-shadow: var(--shadow);
+  }
+  .present #presentCtl { display: flex; }
+  #presentCtl .btn { border-radius: 999px; padding: 5px 12px; }
+  #pStep {
+    font-size: 12.5px; color: var(--muted); min-width: 56px; text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  #pHint { font-size: 11.5px; color: var(--muted); }
 
   @media (max-width: 1080px) {
-    .canvas, body.view-desktop .canvas { grid-template-columns: 1fr; }
+    .canvas, .view-desktop .canvas { grid-template-columns: 1fr; }
     .center { order: -1; }
     .device .screen { max-height: none; height: auto; }
   }
@@ -352,15 +383,20 @@
       <button id="viewDesktop" title="มุมมอง Desktop สำหรับนำเสนอ">🖥️ Desktop</button>
     </div>
     <div class="presence" id="presence" title="สมาชิกที่กำลังออกแบบ (ตัวอย่าง)"></div>
+    <button class="btn" id="btnFlows" title="แสดง/ซ่อนเส้น Flow ทั้งหมด แยกสีตาม Stakeholder">🕸️ Flow ทั้งหมด</button>
+    <button class="btn" id="btnPng" title="บันทึกผังทั้งแผ่นเป็นรูป PNG">📷 PNG</button>
     <button class="btn" id="btnReset" title="ล้างข้อมูลทีมนี้กลับเป็นค่าเริ่มต้น">รีเซ็ตทีมนี้</button>
-    <button class="btn primary" id="btnExport">Export JSON</button>
+    <button class="btn" id="btnExport">Export JSON</button>
+    <button class="btn primary" id="btnPresent" title="โหมดนำเสนอเต็มจอ เดินเรื่องทีละ step">🎬 นำเสนอ</button>
   </div>
 </header>
 
 <div class="note">
   <div><b>Prototype:</b> แก้ข้อความได้ทุกจุด (คลิกแล้วพิมพ์) · บนจอกลาง เพิ่ม/ลบ Capability, กลุ่ม และชั้น Platform ได้ (ปุ่ม × และปุ่ม +) · คลิกวงกลมหน้าชื่อ Stakeholder เพื่อใส่รูป (ดับเบิลคลิกเพื่อลบรูป) ·
   ชี้เมาส์ที่รายการที่มี [ชื่อ Platform] จะมีเส้นลากไปยัง Capability บนจอ ·
-  สลับ 📱/🖥️ มุมบนขวาเพื่อดูแบบมือถือหรือ Desktop · ข้อมูลแยกเก็บรายทีมใน browser ของคุณ</div>
+  🕸️ แสดงทุกเส้นแยกสีตาม Stakeholder · 📷 บันทึกผังเป็นรูป PNG ไปแปะสไลด์ ·
+  🎬 โหมดนำเสนอเต็มจอ เดินเรื่องทีละ step (Foundation → Platform → Stakeholder ทีละราย → ภาพรวมทุกเส้น) ·
+  สลับ 📱/🖥️ เพื่อดูแบบมือถือหรือ Desktop · ข้อมูลแยกเก็บรายทีมใน browser ของคุณ</div>
 </div>
 
 <main class="canvas">
@@ -392,6 +428,14 @@
     </marker>
   </defs>
 </svg>
+
+<div id="presentCtl">
+  <button class="btn" id="pPrev" title="ก่อนหน้า (←)">◀</button>
+  <span id="pStep">1 / 1</span>
+  <button class="btn" id="pNext" title="ถัดไป (→ หรือ Space)">▶</button>
+  <span id="pHint">← → เดินเรื่อง · Esc ออก</span>
+  <button class="btn" id="pExit" title="ออกจากโหมดนำเสนอ (Esc)">✕</button>
+</div>
 
 <input type="file" id="imgInput" accept="image/*" hidden>
 
@@ -613,12 +657,13 @@ function renderView(){
 $("#viewMobile").onclick  = () => { store.view = "mobile";  save(); renderView(); clearHighlight(); };
 $("#viewDesktop").onclick = () => { store.view = "desktop"; save(); renderView(); clearHighlight(); };
 
-function editableItem(text, onChange){
+function editableItem(text, hue, onChange){
   const s = document.createElement("span");
   s.className = "txt" + (/\[[^\]]+\]/.test(text) ? " linked" : "");
   s.contentEditable = "true";
   s.spellcheck = false;
   s.textContent = text;
+  s.dataset.hue = hue;
   s.addEventListener("blur", () => onChange(s.textContent.trim()));
   s.addEventListener("mouseenter", () => highlight(s));
   s.addEventListener("mouseleave", clearHighlight);
@@ -655,9 +700,10 @@ function renderRails(){
   left.innerHTML = ""; right.innerHTML = "";
   const list = design().stakeholders;
 
-  list.forEach(sh => {
+  list.forEach((sh, shIdx) => {
     const card = document.createElement("section");
     card.className = "actor";
+    card.dataset.sh = shIdx;
     card.style.setProperty("--zc", `var(--z-${sh.hue})`);
 
     const head = document.createElement("header");
@@ -704,7 +750,7 @@ function renderRails(){
     const ol = document.createElement("ol");
     sh.items.forEach((txt, i) => {
       const li = document.createElement("li");
-      li.appendChild(editableItem(txt, v => {
+      li.appendChild(editableItem(txt, sh.hue, v => {
         if (v) sh.items[i] = v; else sh.items.splice(i, 1);
         save(); renderRails();
       }));
@@ -754,6 +800,7 @@ function renderPhone(){
   design().layers.forEach((layer, li) => {
     const sec = document.createElement("section");
     sec.className = "layer" + (layer.foundation ? " foundation" : "");
+    sec.dataset.layer = li;
 
     const h3 = document.createElement("h3");
     const lt = document.createElement("span");
@@ -834,24 +881,56 @@ function renderPhone(){
   wrap.appendChild(addLayerWrap);
 }
 
-/* ---------------- flow lines: hover item → เส้นลากไป capability ---------------- */
+/* ---------------- flow lines ---------------- */
+const SVGNS = "http://www.w3.org/2000/svg";
 let activeSource = null;
 let activeChips = [];
+let showFlows = false;
+
+function hueColor(hue){
+  return getComputedStyle(document.documentElement).getPropertyValue("--z-" + hue).trim() ||
+         getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
+}
+
+function flowGeometry(s, c){
+  const sy = s.top + s.height / 2, cy = c.top + c.height / 2;
+  const goingRight = (c.left + c.width / 2) > (s.left + s.width / 2);
+  const sx = goingRight ? s.right : s.left;
+  const tx = goingRight ? c.left - 3 : c.right + 3;
+  const bend = Math.max(50, Math.abs(tx - sx) * 0.35) * (goingRight ? 1 : -1);
+  return { d:`M ${sx} ${sy} C ${sx + bend} ${sy}, ${tx - bend} ${cy}, ${tx} ${cy}`, tx, ty: cy };
+}
+
+function matchChips(text){
+  const m = text.match(/\[([^\]]+)\]/);
+  if (!m) return [];
+  const target = m[1].trim().toLowerCase();
+  const out = [];
+  /* จับคู่ได้ทั้ง capability chip และชื่อกลุ่ม Platform */
+  document.querySelectorAll("[data-chip], .group h4").forEach(chip => {
+    const name = chip.textContent.replace("×", "").trim().toLowerCase();
+    if (name.includes(target) || target.includes(name)) out.push(chip);
+  });
+  return out;
+}
+
+/* รายการยังมองเห็นอยู่ในการ์ด (ไม่โดน scroll บัง) */
+function itemVisible(span){
+  const r = span.getBoundingClientRect();
+  if (!r.width) return false;
+  const ol = span.closest("ol");
+  if (ol){
+    const or = ol.getBoundingClientRect();
+    if (r.bottom < or.top || r.top > or.bottom) return false;
+  }
+  return true;
+}
 
 function highlight(srcEl){
   clearHighlight();
-  const m = srcEl.textContent.match(/\[([^\]]+)\]/);
-  if (!m) return;
-  const target = m[1].trim().toLowerCase();
-  const matched = [];
-  document.querySelectorAll("[data-chip]").forEach(chip => {
-    const name = chip.textContent.replace("×", "").trim().toLowerCase();
-    if (name.includes(target) || target.includes(name)) {
-      chip.classList.add("hl");
-      matched.push(chip);
-    }
-  });
+  const matched = matchChips(srcEl.textContent);
   if (!matched.length) return;
+  matched.forEach(c => c.classList.add("hl"));
   activeSource = srcEl;
   activeChips = matched;
   matched[0].scrollIntoView({ block:"nearest" });
@@ -864,19 +943,14 @@ function drawLines(){
   if (!activeSource) return;
   const screenBox = $("#screen").getBoundingClientRect();
   const s = activeSource.getBoundingClientRect();
-  const sy = s.top + s.height / 2;
   activeChips.forEach(chip => {
     const c = chip.getBoundingClientRect();
     if (c.bottom < screenBox.top + 30 || c.top > screenBox.bottom - 10) return;
-    const cy = c.top + c.height / 2;
-    const goingRight = (c.left + c.width / 2) > (s.left + s.width / 2);
-    const sx = goingRight ? s.right : s.left;
-    const tx = goingRight ? c.left - 3 : c.right + 3;
-    const bend = Math.max(50, Math.abs(tx - sx) * 0.35) * (goingRight ? 1 : -1);
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const g = flowGeometry(s, c);
+    const path = document.createElementNS(SVGNS, "path");
     path.setAttribute("class", "link");
     path.setAttribute("marker-end", "url(#arrow)");
-    path.setAttribute("d", `M ${sx} ${sy} C ${sx + bend} ${sy}, ${tx - bend} ${cy}, ${tx} ${cy}`);
+    path.setAttribute("d", g.d);
     svg.appendChild(path);
   });
 }
@@ -887,8 +961,245 @@ function clearHighlight(){
   drawLines();
 }
 
-window.addEventListener("scroll", () => { if (activeSource) drawLines(); }, true);
-window.addEventListener("resize", () => { if (activeSource) drawLines(); });
+/* เส้น flow สีตาม stakeholder (ใช้ inline attribute เพื่อให้ export ติดไปด้วย) */
+function drawFlowFor(span, color, emphasize){
+  const svg = $("#flow");
+  const chips = matchChips(span.textContent);
+  if (!chips.length) return;
+  if (emphasize) chips[0].scrollIntoView({ block:"nearest" });
+  const screenBox = $("#screen").getBoundingClientRect();
+  const s = span.getBoundingClientRect();
+  if (!s.width) return;
+  chips.forEach(chip => {
+    const c = chip.getBoundingClientRect();
+    if (c.bottom < screenBox.top + 30 || c.top > screenBox.bottom - 10) return;
+    const g = flowGeometry(s, c);
+    const path = document.createElementNS(SVGNS, "path");
+    path.setAttribute("class", "flowline");
+    path.setAttribute("d", g.d);
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", color);
+    path.setAttribute("stroke-width", emphasize ? "2.2" : "1.5");
+    path.setAttribute("opacity", emphasize ? "0.95" : "0.5");
+    svg.appendChild(path);
+    const dot = document.createElementNS(SVGNS, "circle");
+    dot.setAttribute("class", "flowdot");
+    dot.setAttribute("cx", g.tx); dot.setAttribute("cy", g.ty);
+    dot.setAttribute("r", emphasize ? "3.5" : "2.5");
+    dot.setAttribute("fill", color);
+    svg.appendChild(dot);
+  });
+}
+
+function clearFlowlines(){
+  $("#flow").querySelectorAll(".flowline, .flowdot").forEach(p => p.remove());
+}
+
+function drawAllFlows(){
+  clearFlowlines();
+  document.querySelectorAll(".txt.linked").forEach(span => {
+    if (!itemVisible(span)) return;
+    drawFlowFor(span, hueColor(span.dataset.hue || ""), false);
+  });
+}
+
+function setShowFlows(v){
+  showFlows = v;
+  $("#btnFlows").classList.toggle("on", v);
+  if (v) drawAllFlows(); else clearFlowlines();
+}
+$("#btnFlows").onclick = () => setShowFlows(!showFlows);
+
+let flowRaf = 0;
+function refreshFlowOverlay(){
+  if (flowRaf) return;
+  flowRaf = requestAnimationFrame(() => {
+    flowRaf = 0;
+    if (activeSource) drawLines();
+    if (showFlows && !presentState.on) drawAllFlows();
+  });
+}
+window.addEventListener("scroll", refreshFlowOverlay, true);
+window.addEventListener("resize", refreshFlowOverlay);
+
+/* ---------------- export PNG ---------------- */
+async function exportPNG(){
+  const el = document.querySelector(".canvas");
+  const btn = $("#btnPng");
+  btn.disabled = true; btn.textContent = "กำลังสร้างรูป…";
+  clearHighlight();
+  document.body.classList.add("exporting");
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  if (showFlows) drawAllFlows();
+
+  const rect = el.getBoundingClientRect();
+  const w = Math.ceil(rect.width), h = Math.ceil(rect.height);
+  const styleText = document.querySelector("style").textContent;
+  const xhtml = new XMLSerializer().serializeToString(el);
+
+  const flowClone = $("#flow").cloneNode(true);
+  flowClone.removeAttribute("id");
+  flowClone.setAttribute("xmlns", SVGNS);
+  flowClone.setAttribute("width", w);
+  flowClone.setAttribute("height", h);
+  flowClone.setAttribute("viewBox", `${rect.left} ${rect.top} ${w} ${h}`);
+
+  const bg = getComputedStyle(document.body).backgroundColor;
+  const svgStr =
+    `<svg xmlns="${SVGNS}" width="${w}" height="${h}">` +
+    `<foreignObject width="100%" height="100%">` +
+    `<div xmlns="http://www.w3.org/1999/xhtml" class="${document.body.className}" ` +
+    `style="width:${w}px;background:${bg}">` +
+    `<style>${styleText}</style>${xhtml}</div></foreignObject>` +
+    new XMLSerializer().serializeToString(flowClone) +
+    `</svg>`;
+
+  /* ใช้ data URL แทน blob URL — blob ทำให้ canvas ถูก taint ตอนเปิดจากไฟล์ */
+  const url = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgStr);
+  const done = () => {
+    document.body.classList.remove("exporting");
+    btn.disabled = false; btn.textContent = "📷 PNG";
+    if (showFlows) requestAnimationFrame(drawAllFlows);
+  };
+  const img = new Image();
+  img.onload = () => {
+    const scale = 2;
+    const cv = document.createElement("canvas");
+    cv.width = w * scale; cv.height = h * scale;
+    const ctx = cv.getContext("2d");
+    ctx.scale(scale, scale);
+    ctx.drawImage(img, 0, 0, w, h);
+    try {
+      cv.toBlob(blob => {
+        if (blob){
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = current + "-architecture.png";
+          a.click();
+          URL.revokeObjectURL(a.href);
+        } else {
+          alert("Export PNG ไม่สำเร็จในเบราว์เซอร์นี้");
+        }
+        done();
+      }, "image/png");
+    } catch(e){
+      alert("Export PNG ไม่สำเร็จในเบราว์เซอร์นี้");
+      done();
+    }
+  };
+  img.onerror = () => { alert("Export PNG ไม่สำเร็จในเบราว์เซอร์นี้"); done(); };
+  img.src = url;
+}
+$("#btnPng").onclick = exportPNG;
+
+/* ---------------- presentation mode ---------------- */
+const presentState = { on:false, step:0, order:[], timer:null };
+
+function presentOrder(){
+  const d = design();
+  const layerIdx = d.layers.map((_, i) => i)
+    .sort((a, b) => (d.layers[b].foundation ? 1 : 0) - (d.layers[a].foundation ? 1 : 0));
+  const steps = layerIdx.map(i => ({ type:"layer", index:i }));
+  d.stakeholders.forEach((_, i) => steps.push({ type:"sh", index:i }));
+  steps.push({ type:"network" });
+  return steps;
+}
+
+function stopFlowTimer(){
+  if (presentState.timer){ clearInterval(presentState.timer); presentState.timer = null; }
+  document.querySelectorAll("li.glow").forEach(l => l.classList.remove("glow"));
+}
+
+/* เดินเส้น flow ของการ์ดทีละรายการ (วาดสะสม + วาดใหม่ทุกจังหวะกัน scroll เพี้ยน) */
+function playCardFlows(shIndex){
+  const card = document.querySelector(`.actor[data-sh="${shIndex}"]`);
+  if (!card) return;
+  const sh = design().stakeholders[shIndex];
+  const color = hueColor(sh ? sh.hue : "");
+  const spans = [...card.querySelectorAll(".txt.linked")];
+  if (!spans.length) return;
+  const shown = [];
+  let i = 0;
+  const tick = () => {
+    document.querySelectorAll("li.glow").forEach(l => l.classList.remove("glow"));
+    if (i >= spans.length){ stopFlowTimer(); return; }
+    const span = spans[i];
+    shown.push(span);
+    span.closest("li").classList.add("glow");
+    span.scrollIntoView({ block:"nearest" });
+    clearFlowlines();
+    shown.forEach((sp, j) => drawFlowFor(sp, color, j === shown.length - 1));
+    i++;
+  };
+  tick();
+  presentState.timer = setInterval(tick, 1100);
+}
+
+function applyPresentStep(){
+  const steps = presentState.order, k = presentState.step;
+  stopFlowTimer(); clearFlowlines(); clearHighlight();
+  const revealedLayers = new Set(), revealedSh = new Set();
+  let network = false;
+  for (let i = 0; i <= k; i++){
+    const st = steps[i];
+    if (st.type === "layer") revealedLayers.add(st.index);
+    else if (st.type === "sh") revealedSh.add(st.index);
+    else network = true;
+  }
+  document.querySelectorAll("#layers > .layer").forEach(sec => {
+    sec.classList.toggle("hidden-step", !revealedLayers.has(+sec.dataset.layer));
+  });
+  document.querySelectorAll(".actor").forEach(card => {
+    card.classList.toggle("hidden-step", !revealedSh.has(+card.dataset.sh));
+  });
+  $("#pStep").textContent = (k + 1) + " / " + steps.length;
+  const st = steps[k];
+  if (st.type === "sh") requestAnimationFrame(() => playCardFlows(st.index));
+  if (network) requestAnimationFrame(drawAllFlows);
+}
+
+function enterPresent(){
+  presentState.on = true;
+  presentState.order = presentOrder();
+  presentState.step = 0;
+  clearFlowlines(); clearHighlight();
+  document.body.classList.add("present");
+  if (document.documentElement.requestFullscreen){
+    document.documentElement.requestFullscreen().catch(() => {});
+  }
+  applyPresentStep();
+}
+
+function exitPresent(){
+  if (!presentState.on) return;
+  presentState.on = false;
+  stopFlowTimer(); clearFlowlines();
+  document.body.classList.remove("present");
+  document.querySelectorAll(".hidden-step").forEach(e => e.classList.remove("hidden-step"));
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  if (showFlows) requestAnimationFrame(drawAllFlows);
+}
+
+function presentNav(dir){
+  const max = presentState.order.length - 1;
+  presentState.step = Math.max(0, Math.min(max, presentState.step + dir));
+  applyPresentStep();
+}
+
+$("#btnPresent").onclick = enterPresent;
+$("#pNext").onclick = () => presentNav(1);
+$("#pPrev").onclick = () => presentNav(-1);
+$("#pExit").onclick = exitPresent;
+
+document.addEventListener("keydown", e => {
+  if (!presentState.on) return;
+  if (e.key === "ArrowRight" || e.key === " "){ e.preventDefault(); presentNav(1); }
+  else if (e.key === "ArrowLeft"){ e.preventDefault(); presentNav(-1); }
+  else if (e.key === "Escape"){ exitPresent(); }
+});
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement && presentState.on) exitPresent();
+});
 
 /* ---------------- toolbar ---------------- */
 $("#btnExport").onclick = () => {
@@ -910,6 +1221,7 @@ $("#btnReset").onclick = () => {
 
 function renderAll(){
   renderTabs(); renderPresence(); renderRails(); renderPhone();
+  if (showFlows && !presentState.on) requestAnimationFrame(drawAllFlows);
 }
 renderAll();
 </script>
