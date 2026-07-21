@@ -103,9 +103,11 @@
           ]
         },
         {
-          "name": "Biomass Power Plant",
+          "name": "Bamboo Conversion",
           "chips": [
-            "Combine Heat & Power"
+            "Chip",
+            "Pulp",
+            "Biochar"
           ]
         }
       ]
