@@ -35,7 +35,11 @@
       "glyph": "B",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "อุตสาหกรรมเส้นใยและเยื้อ → [ชื่อ Platform ที่รองรับ]",
+        "ผู้ซื้อไฟระยะยาว → [ชื่อ Platform ที่รองรับ]",
+        "Carbon Credit → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
       "id": "sh65-bw504e",
