@@ -17,7 +17,14 @@
       "glyph": "C",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "กลุ่มนักส่งเสริม → [ชื่อ Platform ที่รองรับ]",
+        "Local Government → [ชื่อ Platform ที่รองรับ]",
+        "Government/Utility → [ชื่อ Platform ที่รองรับ]",
+        "Technology → [ชื่อ Platform ที่รองรับ]",
+        "หน่วยงานมหาวิทยาลัย → [ชื่อ Platform ที่รองรับ]",
+        "Community Area → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
       "id": "sh63-6acpsd",
@@ -26,7 +33,9 @@
       "glyph": "VS",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "กลุ่มพลังงาน Energy → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
       "id": "sh64-9n109f",
