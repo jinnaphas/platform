@@ -34,7 +34,9 @@
       "side": "left",
       "image": null,
       "items": [
-        "กลุ่มพลังงาน Energy → [ชื่อ Platform ที่รองรับ]"
+        "กลุ่มพลังงาน Energy → [ชื่อ Platform ที่รองรับ]",
+        "กลุ่มการเกษตร → [ชื่อ Platform ที่รองรับ]",
+        "Substitube + Future Energy → [ชื่อ Platform ที่รองรับ]"
       ]
     },
     {
