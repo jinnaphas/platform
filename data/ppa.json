@@ -50,7 +50,12 @@
       "glyph": "PB",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "Bamboo Micropropagation → [ชื่อ Platform ที่รองรับ]",
+        "Bamboo Planting → [ชื่อ Platform ที่รองรับ]",
+        "Bamboo Harvesting → [ชื่อ Platform ที่รองรับ]",
+        "Pulp Biochar Chip Particle → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
       "id": "sh66-gxyua9",
