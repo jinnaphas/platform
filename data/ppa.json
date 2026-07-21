@@ -52,9 +52,13 @@
       "image": null,
       "items": [
         "Bamboo Micropropagation → [ชื่อ Platform ที่รองรับ]",
-        "Bamboo Planting → [ชื่อ Platform ที่รองรับ]",
+        "Bamboo Planting Farm → [ชื่อ Platform ที่รองรับ]",
         "Bamboo Harvesting → [ชื่อ Platform ที่รองรับ]",
-        "Pulp Biochar Chip Particle → [ชื่อ Platform ที่รองรับ]"
+        "Bamboo Conversion (Pulp Biochar Chip Particle) → [ชื่อ Platform ที่รองรับ]",
+        "CHP Biomass Power Plant → [ชื่อ Platform ที่รองรับ]",
+        "Colocation Datacenter → [ชื่อ Platform ที่รองรับ]",
+        "AIaaS → [ชื่อ Platform ที่รองรับ]",
+        "Smart District → [ชื่อ Platform ที่รองรับ]"
       ]
     },
     {
