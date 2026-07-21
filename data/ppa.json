@@ -107,7 +107,8 @@
           "chips": [
             "Chip",
             "Pulp",
-            "Biochar"
+            "Biochar",
+            "Particle"
           ]
         }
       ]
