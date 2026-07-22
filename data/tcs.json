@@ -1,8 +1,14 @@
 {
   "phoneTitle": "TCS Platform",
+  "valueChain": [
+    "ต้นน้ำ",
+    "กลางน้ำ",
+    "ปลายน้ำ",
+    "หลังการขาย"
+  ],
   "stakeholders": [
     {
-      "id": "sh49-hx9335",
+      "id": "sh49-vefj0n",
       "title": "Partners / Supplier / Ecosystem",
       "hue": "partner",
       "glyph": "P",
@@ -16,7 +22,7 @@
       ]
     },
     {
-      "id": "sh50-a1sgm4",
+      "id": "sh50-7qwka8",
       "title": "Complementor",
       "hue": "comp",
       "glyph": "C",
@@ -31,7 +37,7 @@
       ]
     },
     {
-      "id": "sh51-exf1f8",
+      "id": "sh51-juzgzr",
       "title": "Competitor",
       "hue": "compet",
       "glyph": "VS",
@@ -46,7 +52,7 @@
       ]
     },
     {
-      "id": "sh52-0blnsm",
+      "id": "sh52-lq1myo",
       "title": "Buyer",
       "hue": "buyer",
       "glyph": "B",
@@ -67,7 +73,7 @@
       ]
     },
     {
-      "id": "sh53-9sogcu",
+      "id": "sh53-zy7id3",
       "title": "Precise Business",
       "hue": "biz",
       "glyph": "PB",
@@ -88,7 +94,7 @@
       ]
     },
     {
-      "id": "sh54-l66oo7",
+      "id": "sh54-sa313i",
       "title": "Platform Admin",
       "hue": "admin",
       "glyph": "A",
