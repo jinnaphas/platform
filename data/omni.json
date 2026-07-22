@@ -1,14 +1,8 @@
 {
   "phoneTitle": "Omni Channel RST Platform",
-  "valueChain": [
-    "ต้นน้ำ",
-    "กลางน้ำ",
-    "ปลายน้ำ",
-    "หลังการขาย"
-  ],
   "stakeholders": [
     {
-      "id": "sh43-4jc3ie",
+      "id": "sh43-tt9h2u",
       "title": "Partners / Supplier / Ecosystem",
       "hue": "partner",
       "glyph": "P",
@@ -17,7 +11,7 @@
       "items": []
     },
     {
-      "id": "sh44-jbn1qu",
+      "id": "sh44-exqzg4",
       "title": "Complementor",
       "hue": "comp",
       "glyph": "C",
@@ -26,7 +20,7 @@
       "items": []
     },
     {
-      "id": "sh45-dbkosu",
+      "id": "sh45-uw5aja",
       "title": "Competitor",
       "hue": "compet",
       "glyph": "VS",
@@ -35,7 +29,7 @@
       "items": []
     },
     {
-      "id": "sh46-k99u1z",
+      "id": "sh46-tvm14r",
       "title": "Buyer",
       "hue": "buyer",
       "glyph": "B",
@@ -44,7 +38,7 @@
       "items": []
     },
     {
-      "id": "sh47-3izwsy",
+      "id": "sh47-47usl2",
       "title": "Precise Business",
       "hue": "biz",
       "glyph": "PB",
@@ -53,7 +47,7 @@
       "items": []
     },
     {
-      "id": "sh48-wxth0s",
+      "id": "sh48-wltm1n",
       "title": "Platform Admin",
       "hue": "admin",
       "glyph": "A",
@@ -77,7 +71,10 @@
       "groups": [
         {
           "name": "Business Generation",
-          "chips": []
+          "chips": [
+            "Intelligence Inventory Platform",
+            "Chase Sale & Operation"
+          ]
         }
       ]
     },

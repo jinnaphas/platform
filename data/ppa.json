@@ -1,14 +1,8 @@
 {
   "phoneTitle": "PPA / Long-term Contract RST Platform",
-  "valueChain": [
-    "ต้นน้ำ",
-    "กลางน้ำ",
-    "ปลายน้ำ",
-    "หลังการขาย"
-  ],
   "stakeholders": [
     {
-      "id": "sh61-qi86yg",
+      "id": "sh61-vfo2z7",
       "title": "Partners / Supplier / Ecosystem",
       "hue": "partner",
       "glyph": "P",
@@ -17,43 +11,69 @@
       "items": []
     },
     {
-      "id": "sh62-o3zlj1",
+      "id": "sh62-evtft6",
       "title": "Complementor",
       "hue": "comp",
       "glyph": "C",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "กลุ่มนักส่งเสริม → [นักส่งเสริม]",
+        "Local Government → [ชื่อ Platform ที่รองรับ]",
+        "Government/Utility → [ชื่อ Platform ที่รองรับ]",
+        "Technology → [ชื่อ Platform ที่รองรับ]",
+        "หน่วยงานมหาวิทยาลัย → [ชื่อ Platform ที่รองรับ]",
+        "Community Area → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
-      "id": "sh63-soxyuq",
+      "id": "sh63-6acpsd",
       "title": "Competitor",
       "hue": "compet",
       "glyph": "VS",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "กลุ่มพลังงาน Energy → [ชื่อ Platform ที่รองรับ]",
+        "กลุ่มการเกษตร → [เกษตรกร]",
+        "Substitube + Future Energy → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
-      "id": "sh64-2xuh7j",
+      "id": "sh64-9n109f",
       "title": "Buyer",
       "hue": "buyer",
       "glyph": "B",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "ทำเอกสารซื้อขายระยะสั้น → [ชื่อ Platform ที่รองรับ]",
+        "ทำสัญญาซื้อขายระยะยาว → [ชื่อ Platform ที่รองรับ]",
+        "Carbon Credit → [ชื่อ Platform ที่รองรับ]",
+        "Land Investor → [ชื่อ Platform ที่รองรับ]",
+        "บริการ AI Platform→ [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
-      "id": "sh65-9md963",
+      "id": "sh65-bw504e",
       "title": "Precise Business",
       "hue": "biz",
       "glyph": "PB",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "Bamboo Micropropagation → [ชื่อ Platform ที่รองรับ]",
+        "Bamboo Farming → [ชื่อ Platform ที่รองรับ]",
+        "Bamboo Harvesting → [ชื่อ Platform ที่รองรับ]",
+        "Bamboo Conversion (Pulp Biochar Chip Particle) → [ชื่อ Platform ที่รองรับ]",
+        "CHP Biomass Power Plant → [ชื่อ Platform ที่รองรับ]",
+        "Colocation Datacenter → [ชื่อ Platform ที่รองรับ]",
+        "AIaaS → [ชื่อ Platform ที่รองรับ]",
+        "Smart District → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
-      "id": "sh66-1gfn4r",
+      "id": "sh66-gxyua9",
       "title": "Platform Admin",
       "hue": "admin",
       "glyph": "A",
@@ -67,8 +87,30 @@
       "title": "Technology Platform",
       "groups": [
         {
-          "name": "Core Capability",
-          "chips": []
+          "name": "Bamboo Micropropagation",
+          "chips": [
+            "Seeding",
+            "Tissue Culture",
+            "Nursery"
+          ]
+        },
+        {
+          "name": "Bamboo Harvesting",
+          "chips": [
+            "การคัดเลือกไผ่ตามเกณฑ์",
+            "การตัด",
+            "ริดกิ่ง+ตัดท่อน",
+            "การขนส่ง"
+          ]
+        },
+        {
+          "name": "Bamboo Conversion",
+          "chips": [
+            "Wood Chip",
+            "Pulp",
+            "Biochar",
+            "Particle"
+          ]
         }
       ]
     },
@@ -77,6 +119,20 @@
       "groups": [
         {
           "name": "Business Generation",
+          "chips": []
+        },
+        {
+          "name": "DBTP Bamboo Platform",
+          "chips": [
+            "นักส่งเสริม",
+            "เกษตรกร",
+            "นักพัฒนาที่ดิน",
+            "โรงงานอุตสากรรม",
+            "นักจัดการสิ่งแวดล้อม"
+          ]
+        },
+        {
+          "name": "Demand Satisfaction Platform",
           "chips": []
         }
       ]

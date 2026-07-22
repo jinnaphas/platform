@@ -1,14 +1,8 @@
 {
   "phoneTitle": "Recurring RST Platform",
-  "valueChain": [
-    "ต้นน้ำ",
-    "กลางน้ำ",
-    "ปลายน้ำ",
-    "หลังการขาย"
-  ],
   "stakeholders": [
     {
-      "id": "sh55-0ee8a6",
+      "id": "sh55-ceb0ab",
       "title": "Partners / Supplier / Ecosystem",
       "hue": "partner",
       "glyph": "P",
@@ -17,7 +11,7 @@
       "items": []
     },
     {
-      "id": "sh56-k2gw3w",
+      "id": "sh56-hqhs1j",
       "title": "Complementor",
       "hue": "comp",
       "glyph": "C",
@@ -26,7 +20,7 @@
       "items": []
     },
     {
-      "id": "sh57-0bcx44",
+      "id": "sh57-ojaf1a",
       "title": "Competitor",
       "hue": "compet",
       "glyph": "VS",
@@ -35,7 +29,7 @@
       "items": []
     },
     {
-      "id": "sh58-jj8jjo",
+      "id": "sh58-xxap13",
       "title": "Buyer",
       "hue": "buyer",
       "glyph": "B",
@@ -44,16 +38,26 @@
       "items": []
     },
     {
-      "id": "sh59-tvfr9q",
-      "title": "Precise Business",
+      "id": "sh59-ftveu3",
+      "title": "Precise Business : ขอบเขตธุรกิจลงทุน",
       "hue": "biz",
-      "glyph": "PB",
+      "glyph": "P",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "กติกาและวินัยการลงทุนของบริษัท",
+        "• กลยุทธ์การลงทุน - Trend Following / Breakout · R:R ≥ 1.5",
+        "Sector - เปรียบเทียบรายหมวดอุตสาหกรรม (14 หมวด SET)",
+        "• หุ้นไทย (SET) - พอร์ตหลักของบริษัท• หุ้นต่างประเทศ (US) - กระจายความเสี่ยง · แปลง THB อัตโนมัติ",
+        "Market Regime - Bull/Bear/Sideways/Panic ชี้กลยุทธ์",
+        "Risk Management - Position Sizing จาก Risk% ต่อไม้",
+        "บัญชีแยก P&L / OCI - ตาม TFRS 9 ตรงกับฝ่ายบัญชี",
+        "เป้าหมายผลงานรายปี - ติดตามกำไรจริงเทียบเป้า",
+        "บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
-      "id": "sh60-rtqidy",
+      "id": "sh60-9anpxl",
       "title": "Platform Admin",
       "hue": "admin",
       "glyph": "A",
