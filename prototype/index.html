@@ -32,6 +32,9 @@
     --dot: #DCE1EA;
     --chip-new-bg: #F6E7C6;
     --chip-new-ink: #5A4008;
+    --p1: #C4453A;
+    --p2: #C08A1D;
+    --p3: #64748B;
     --shadow: 0 1px 2px rgba(24,32,46,.06), 0 8px 24px rgba(24,32,46,.07);
   }
   @media (prefers-color-scheme: dark) {
@@ -57,6 +60,9 @@
       --dot: #212A3C;
       --chip-new-bg: #4A3A14;
       --chip-new-ink: #EFD9A0;
+      --p1: #E0685C;
+      --p2: #D9A83E;
+      --p3: #8B9AB2;
       --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
     }
   }
@@ -82,6 +88,9 @@
     --dot: #212A3C;
     --chip-new-bg: #4A3A14;
     --chip-new-ink: #EFD9A0;
+    --p1: #E0685C;
+    --p2: #D9A83E;
+    --p3: #8B9AB2;
     --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
   }
   :root[data-theme="light"] {
@@ -106,6 +115,9 @@
     --dot: #DCE1EA;
     --chip-new-bg: #F6E7C6;
     --chip-new-ink: #5A4008;
+    --p1: #C4453A;
+    --p2: #C08A1D;
+    --p3: #64748B;
     --shadow: 0 1px 2px rgba(24,32,46,.06), 0 8px 24px rgba(24,32,46,.07);
   }
 
@@ -340,7 +352,7 @@
 
   .layer { padding: 4px 12px 12px; }
   .layer > h3 {
-    margin: 6px 2px 8px; font-size: 11px; font-weight: 700;
+    margin: 6px 2px 8px; font-size: 12.5px; font-weight: 700;
     letter-spacing: .08em; text-transform: uppercase; color: var(--team);
     display: flex; align-items: center; gap: 8px;
   }
@@ -361,11 +373,18 @@
   }
   .group {
     background: var(--panel); border: 1px solid var(--line);
-    border-radius: 12px; padding: 9px 10px 10px;
+    border-radius: 12px; padding: 0 0 10px; overflow: hidden;
+  }
+  .group .ghead {
+    background: color-mix(in srgb, var(--team) 9%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--team) 18%, var(--line));
+    padding: 8px 12px; margin-bottom: 8px;
   }
   .group h4 {
-    margin: 0 0 7px; font-size: 12.5px; font-weight: 700; color: var(--ink); outline: none;
+    margin: 0; font-size: 15px; font-weight: 700; color: var(--ink);
+    letter-spacing: -.01em; outline: none;
   }
+  .group .chips { padding: 0 10px; }
   .chips { display: flex; flex-wrap: wrap; gap: 5px; }
   .chip {
     background: var(--chip-bg); color: var(--chip-ink);
@@ -377,6 +396,24 @@
   .chip:focus { box-shadow: inset 0 0 0 1.5px var(--accent); }
   .chip.hl { background: var(--hl); color: #241A00; }
   .chip.new { background: var(--chip-new-bg); color: var(--chip-new-ink); }
+  .chip.p1 { border-left: 3px solid var(--p1); background: color-mix(in srgb, var(--p1) 13%, var(--chip-bg)); }
+  .chip.p2 { border-left: 3px solid var(--p2); background: color-mix(in srgb, var(--p2) 14%, var(--chip-bg)); }
+  .chip.p3 { border-left: 3px solid var(--p3); background: color-mix(in srgb, var(--p3) 13%, var(--chip-bg)); }
+  body.paint-mode .chip { cursor: crosshair; }
+
+  /* palette เครื่องมือ Priority */
+  .prio { display: flex; align-items: center; gap: 5px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; }
+  .prio .plabel { font-size: 11px; color: var(--muted); }
+  .prio-btn {
+    width: 20px; height: 20px; border-radius: 50%;
+    border: 2px solid transparent; padding: 0; flex: none;
+    display: grid; place-items: center; color: #fff; font-size: 9px; font-weight: 800;
+  }
+  .prio-btn.b1 { background: var(--p1); }
+  .prio-btn.b2 { background: var(--p2); }
+  .prio-btn.b3 { background: var(--p3); }
+  .prio-btn.b0 { background: transparent; color: var(--muted); border: 1.5px dashed var(--line); }
+  .prio-btn.on { border-color: var(--ink); box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px var(--ink); }
   .chip .badge {
     position: absolute; top: -7px; left: -7px;
     width: 16px; height: 16px; border-radius: 50%;
@@ -488,6 +525,13 @@
     <span class="sync" id="syncStatus" title="สถานะการเชื่อมต่อระบบกลาง">ออฟไลน์</span>
     <button class="btn primary" id="btnSave" hidden title="บันทึกขึ้นระบบกลาง ให้ทั้งทีมเห็น">Save</button>
     <button class="btn" id="btnFlows" title="แสดง/ซ่อนเส้น Flow ทั้งหมด แยกสีตาม Stakeholder">Flow</button>
+    <div class="prio" role="group" aria-label="ระบายสี Priority ของ Capability" title="เลือกสีแล้วคลิกแต้มลง Capability บนจอ · Esc เลิกใช้">
+      <span class="plabel">Priority</span>
+      <button class="prio-btn b1" data-prio="1" title="P1 — ขาดไม่ได้ ต้องทำก่อน">1</button>
+      <button class="prio-btn b2" data-prio="2" title="P2 — สำคัญ ทำถัดไป">2</button>
+      <button class="prio-btn b3" data-prio="3" title="P3 — ทำภายหลังได้">3</button>
+      <button class="prio-btn b0" data-prio="0" title="ยางลบ — ล้างสี Priority">⌀</button>
+    </div>
     <button class="btn" id="btnPresent" title="โหมดนำเสนอเต็มจอ เดินเรื่องทีละ step">▶ นำเสนอ</button>
     <div class="menu-wrap">
       <button class="btn" id="btnMenu" title="เมนูเพิ่มเติม" aria-haspopup="true">⋯</button>
@@ -503,9 +547,9 @@
 </header>
 
 <div class="note">
-  <div><b>วิธีใช้:</b> แก้ข้อความได้ทุกจุด (คลิกแล้วพิมพ์) · จอกลางมีแถบ <b>Value Chain</b> กำหนดขั้นธุรกิจของทีมเอง — พิมพ์ Capability เป็น <b>"3|ชื่อ"</b> เพื่อติดหมายเลขขั้น และใส่ <b>🆕</b> ในชื่อเพื่อไฮไลต์ของใหม่ ·
-  ชี้เมาส์ที่รายการที่มี [ชื่อ Platform] จะมีเส้นลากไปยัง Capability บนจอ · ปุ่ม Flow = เส้นทั้งหมดแยกสีตาม Stakeholder · ▶ นำเสนอ = เดินเรื่องเต็มจอทีละ step ·
-  เมนู ⋯ มี Export PNG/JSON, ตั้งค่าเชื่อมต่อ และรีเซ็ต · แต่ละทีมมีสีประจำของตัวเอง สลับแท็บแล้วทั้งหน้าเปลี่ยนตาม</div>
+  <div><b>วิธีใช้:</b> แก้ข้อความได้ทุกจุด (คลิกแล้วพิมพ์) · แถบ <b>Value Chain</b> กำหนดขั้นธุรกิจเอง — พิมพ์ Capability เป็น <b>"3|ชื่อ"</b> ติดหมายเลขขั้น, ใส่ <b>🆕</b> ไฮไลต์ของใหม่ ·
+  <b>Priority:</b> คลิกสี <span style="color:var(--p1);font-weight:700">P1 ขาดไม่ได้</span> / <span style="color:var(--p2);font-weight:700">P2 ทำถัดไป</span> / <span style="color:var(--p3);font-weight:700">P3 ทีหลัง</span> แล้วแต้มลง Capability ได้เลย (⌀ = ลบสี, Esc = เลิกใช้) ·
+  ชี้เมาส์ที่รายการที่มี [ชื่อ Platform] = เส้น Flow · ▶ นำเสนอ เต็มจอ · ⌃ ซ่อนเมนู (กด H) · เมนู ⋯ มี Export/ตั้งค่า</div>
 </div>
 
 <main class="canvas">
@@ -1088,12 +1132,11 @@ function renderPhone(){
 
       const chips = document.createElement("div"); chips.className = "chips";
       gr.chips.forEach((c, i) => {
-        /* รูปแบบ "3|ชื่อ" = ป้ายหมายเลขขั้น Value Chain, มี 🆕 ในชื่อ = สไตล์ของใหม่ */
-        const m = /^([1-9])\|\s*(.*)$/.exec(c);
-        const stage = m ? m[1] : null;
-        const label = m ? m[2] : c;
+        /* รูปแบบ "3|p1: ชื่อ" — n| = ขั้น Value Chain, pN: = สี Priority, มี 🆕 = ของใหม่ */
+        const m = parseChip(c);
+        const { stage, prio, label } = m;
         const chip = document.createElement("span");
-        chip.className = "chip" + (label.includes("🆕") ? " new" : "");
+        chip.className = "chip" + (label.includes("🆕") ? " new" : "") + (prio ? " p" + prio : "");
         chip.contentEditable = "true"; chip.spellcheck = false;
         chip.textContent = label;
         chip.dataset.chip = "1";
@@ -1104,13 +1147,21 @@ function renderPhone(){
           b.textContent = stage; b.title = "ขั้นที่ " + stage + " ของ Value Chain";
           chip.appendChild(b);
         }
+        chip.addEventListener("mousedown", e => {
+          if (paintTool === null) return;
+          e.preventDefault();
+          gr.chips[i] = buildChip(stage, paintTool === "0" ? null : paintTool, label);
+          save(); renderPhone();
+        });
         chip.addEventListener("blur", () => {
           const clone = chip.cloneNode(true);
           clone.querySelectorAll(".x, .badge").forEach(n => n.remove());
           const v = clone.textContent.trim();
           if (!v){ gr.chips.splice(i, 1); }
-          else if (/^[1-9]\|/.test(v)){ gr.chips[i] = v; }        /* พิมพ์ n| ใหม่ = เปลี่ยนขั้น */
-          else { gr.chips[i] = (stage ? stage + "|" : "") + v; }  /* คงขั้นเดิมไว้ */
+          else {
+            const t = parseChip(v); /* พิมพ์ n| หรือ pN: ใหม่ = เปลี่ยนค่า, ไม่พิมพ์ = คงเดิม */
+            gr.chips[i] = buildChip(t.stage || stage, t.prio || prio, t.label);
+          }
           save(); renderPhone();
         });
         const x = document.createElement("button");
@@ -1148,6 +1199,34 @@ function renderPhone(){
   addLayerWrap.appendChild(addL);
   wrap.appendChild(addLayerWrap);
 }
+
+/* chip token helpers: "3|p1: ชื่อ" */
+function parseChip(raw){
+  const m = /^(?:([1-9])\|)?(?:[pP]([123]):)?\s*(.*)$/.exec(raw);
+  return { stage: m[1] || null, prio: m[2] || null, label: m[3] };
+}
+function buildChip(stage, prio, label){
+  return (stage ? stage + "|" : "") + (prio ? "p" + prio + ":" : "") + label;
+}
+
+/* เครื่องมือระบายสี Priority */
+let paintTool = null;
+document.querySelectorAll(".prio-btn").forEach(btn => {
+  btn.onclick = () => {
+    const v = btn.dataset.prio;
+    paintTool = (paintTool === v) ? null : v;
+    document.querySelectorAll(".prio-btn").forEach(b =>
+      b.classList.toggle("on", paintTool !== null && b.dataset.prio === paintTool));
+    document.body.classList.toggle("paint-mode", paintTool !== null);
+  };
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && paintTool !== null){
+    paintTool = null;
+    document.querySelectorAll(".prio-btn").forEach(b => b.classList.remove("on"));
+    document.body.classList.remove("paint-mode");
+  }
+});
 
 /* value chain strip บนจอ */
 function renderChain(){
