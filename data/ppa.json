@@ -119,7 +119,9 @@
       "groups": [
         {
           "name": "Business Generation",
-          "chips": []
+          "chips": [
+            "New Capability"
+          ]
         },
         {
           "name": "Buyer/User Platform",
