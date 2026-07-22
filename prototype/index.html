@@ -447,6 +447,19 @@
     font-variant-numeric: tabular-nums;
   }
   #pHint { font-size: 11.5px; color: var(--muted); }
+  #presentCtl .pdiv { width: 1px; height: 20px; background: var(--line); }
+
+  /* ซ่อนแถบเมนูทั้งหมด */
+  .hide-chrome .topbar, .hide-chrome .note { display: none; }
+  #chromeShow {
+    display: none; position: fixed; top: 10px; right: 10px; z-index: 96;
+    border: 1px solid var(--line); background: var(--panel); color: var(--muted);
+    border-radius: 999px; padding: 5px 12px; font-size: 12px;
+    box-shadow: var(--shadow); opacity: .6; transition: opacity .15s;
+  }
+  #chromeShow:hover { opacity: 1; color: var(--team); border-color: var(--team); }
+  .hide-chrome #chromeShow { display: block; }
+  .present #chromeShow, .exporting #chromeShow { display: none !important; }
 
   @media (max-width: 1080px) {
     .canvas, .view-desktop .canvas { grid-template-columns: 1fr; }
@@ -485,6 +498,7 @@
         <button id="btnReset" class="danger">รีเซ็ตทีมนี้</button>
       </div>
     </div>
+    <button class="btn" id="btnHide" title="ซ่อนแถบเมนูทั้งหมด ให้เห็นผังเต็มจอ (กด H)">⌃ ซ่อน</button>
   </div>
 </header>
 
@@ -532,9 +546,15 @@
   <button class="btn" id="pPrev" title="ก่อนหน้า (←)">◀</button>
   <span id="pStep">1 / 1</span>
   <button class="btn" id="pNext" title="ถัดไป (→ หรือ Space)">▶</button>
-  <span id="pHint">← → เดินเรื่อง · Esc ออก</span>
+  <span class="pdiv"></span>
+  <button class="btn" id="pZoomOut" title="ซูมออก (-)">−</button>
+  <button class="btn" id="pZoomFit" title="ย่อให้เห็นทั้งผังในจอเดียว (0)">พอดีจอ</button>
+  <button class="btn" id="pZoomIn" title="ซูมเข้า (+)">+</button>
+  <span id="pHint">← → เดินเรื่อง · 0 พอดีจอ · Esc ออก</span>
   <button class="btn" id="pExit" title="ออกจากโหมดนำเสนอ (Esc)">✕</button>
 </div>
+
+<button id="chromeShow" title="แสดงแถบเมนู (กด H)">⌄ เมนู</button>
 
 <input type="file" id="imgInput" accept="image/*" hidden>
 
@@ -1459,6 +1479,8 @@ function enterPresent(){
 function exitPresent(){
   if (!presentState.on) return;
   presentState.on = false;
+  presentZoom = 1;
+  document.querySelector(".canvas").style.zoom = "";
   stopFlowTimer(); clearFlowlines();
   document.body.classList.remove("present");
   document.querySelectorAll(".hidden-step").forEach(e => e.classList.remove("hidden-step"));
@@ -1477,15 +1499,56 @@ $("#pNext").onclick = () => presentNav(1);
 $("#pPrev").onclick = () => presentNav(-1);
 $("#pExit").onclick = exitPresent;
 
+/* ---------------- zoom (โหมดนำเสนอ) ---------------- */
+let presentZoom = 1;
+function setPresentZoom(z){
+  presentZoom = Math.min(2, Math.max(0.3, z));
+  document.querySelector(".canvas").style.zoom = presentZoom === 1 ? "" : presentZoom;
+  const st = presentState.order[presentState.step];
+  if (st && st.type === "network") requestAnimationFrame(drawAllFlows);
+}
+function fitZoom(){
+  const el = document.querySelector(".canvas");
+  el.style.zoom = "";
+  const w = el.scrollWidth, h = el.scrollHeight;
+  const z = Math.min((window.innerWidth - 16) / w, (window.innerHeight - 86) / h, 1);
+  setPresentZoom(z);
+  window.scrollTo(0, 0);
+}
+$("#pZoomIn").onclick  = () => setPresentZoom(presentZoom + 0.1);
+$("#pZoomOut").onclick = () => setPresentZoom(presentZoom - 0.1);
+$("#pZoomFit").onclick = fitZoom;
+
 document.addEventListener("keydown", e => {
   if (!presentState.on) return;
   if (e.key === "ArrowRight" || e.key === " "){ e.preventDefault(); presentNav(1); }
   else if (e.key === "ArrowLeft"){ e.preventDefault(); presentNav(-1); }
+  else if (e.key === "+" || e.key === "="){ setPresentZoom(presentZoom + 0.1); }
+  else if (e.key === "-"){ setPresentZoom(presentZoom - 0.1); }
+  else if (e.key === "0"){ fitZoom(); }
   else if (e.key === "Escape"){ exitPresent(); }
 });
 document.addEventListener("fullscreenchange", () => {
   if (!document.fullscreenElement && presentState.on) exitPresent();
 });
+
+/* ---------------- ซ่อน/แสดงแถบเมนู ---------------- */
+function setChrome(hidden){
+  store.hideChrome = hidden;
+  document.body.classList.toggle("hide-chrome", hidden);
+  persist();
+  refreshFlowOverlay();
+}
+$("#btnHide").onclick = () => setChrome(true);
+$("#chromeShow").onclick = () => setChrome(false);
+document.addEventListener("keydown", e => {
+  if (presentState.on) return;
+  if ((e.key === "h" || e.key === "H" || e.key === "ๆ") &&
+      !(document.activeElement && document.activeElement.isContentEditable)){
+    setChrome(!store.hideChrome);
+  }
+});
+if (store.hideChrome) document.body.classList.add("hide-chrome");
 
 /* ---------------- toolbar ---------------- */
 $("#btnExport").onclick = () => {
