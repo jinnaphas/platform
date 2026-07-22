@@ -1,77 +1,211 @@
 {
-  "phoneTitle": "Tendering RST Platform",
+  "phoneTitle": "Tendering Platform",
+  "valueChain": [
+    "ต้นน้ำ — Policy & Budget Intelligence",
+    "วางแผน — AI Budget-Project Matching",
+    "กลางน้ำ — TOR / Compliance / AI Pricing",
+    "ประมูล — ยื่นข้อเสนอ & ติดตามสถานะ",
+    "ปลายน้ำ — ลงนามสัญญา → ERP/PM",
+    "หลังการขาย — Recurring Revenue"
+  ],
   "stakeholders": [
     {
-      "id": "sh37-h9p1nl",
-      "title": "Partners / Supplier / Ecosystem",
+      "id": "sh37-csfs5h",
+      "title": "Suppliers / ซัพพลายเออร์",
       "hue": "partner",
       "glyph": "P",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "แหล่งวัตถุดิบต้นน้ำ → [Raw Material Sourcing]",
+        "รับรองมาตรฐานวัสดุ → [Material Supplier DB]",
+        "ส่งมอบชิ้นส่วน/Lead time → [Component Vendor Mgmt]",
+        "ร่วมพัฒนากับผู้ผลิต OEM → [OEM Collaboration]",
+        "เสนอเทคโนโลยีใหม่ → [Tech Partner & Innovation]",
+        "ให้บริการโลจิสติกส์ Real-time → [Logistics Visibility]",
+        "ให้ข้อมูลเครดิต/ความเสี่ยงการเงิน → [Financial Risk Scoring]",
+        "จัดกลุ่มตามระดับความสำคัญ → [Kraljic Segmentation]",
+        "จับคู่ Compliance/Catalog กับ TOR → [Vendor Mgmt Platform (VMP) Compliance Matching]"
+      ]
     },
     {
-      "id": "sh38-4dyar1",
-      "title": "Complementor",
+      "id": "sh38-a59qmb",
+      "title": "Complementor / พันธมิตรเสริม",
       "hue": "comp",
       "glyph": "C",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "ให้วงเงิน/Bank Guarantee → [Bank Guarantee & Financial]",
+        "ออกกรมธรรม์/หลักประกัน → [Insurance & Risk Coverage]",
+        "กำหนดมาตรฐาน TISI/IEC/ISO → [Standards & Certification]",
+        "เชื่อมเครือข่ายสมาคมการค้า → [Trade Association Engagement]",
+        "ประสานงานกฎระเบียบ → [Regulatory Liaison]",
+        "สนับสนุนที่ปรึกษา TOR → [TOR Consultant Network]",
+        "ร่วมทุน/Joint Venture → [JV Partner Management]",
+        "ให้บริการต่อเนื่องหลังส่งมอบ → [Recurring Revenue Platform]"
+      ]
     },
     {
-      "id": "sh39-hcb5zu",
+      "id": "sh39-nlh4ue",
       "title": "Competitor",
       "hue": "compet",
       "glyph": "VS",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "เปิดเผยข้อมูลการเงิน/สถานะ → [Financial & Profile Intelligence]",
+        "เปิดตัว Core Product ใหม่ → [Product Intelligence]",
+        "เปลี่ยนทีมผู้บริหาร/ทีมขาย → [People & Relationship Mapping]",
+        "ร่วมมือในโครงการ Win-Win → [Co-opetition Collaboration]",
+        "ปรับกลยุทธ์การแข่งขัน → [Positioning & Market Structure]",
+        "เปลี่ยนอันดับช่วงยื่นประมูลถึงประกาศผล → [Live Competitor Ranking Tracker]"
+      ]
     },
     {
-      "id": "sh40-9dctyc",
-      "title": "Buyer",
+      "id": "sh40-pcb4f3",
+      "title": "Buyer / ผู้ซื้อ (การไฟฟ้า-รัฐวิสาหกิจ)",
       "hue": "buyer",
       "glyph": "B",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "เปิดเผย Need/Pain ล่วงหน้า → [Customer Need & Pain Discovery]",
+        "ให้ Connection/Contact กับทีมงาน → [Relationship-based Market Intel]",
+        "ประกาศกำหนดการ TOR → [TOR Early-Warning & Tracking]",
+        "สื่อสารผ่านทีม KA-CRM → [Key Account CRM]",
+        "ให้ข้อมูลผู้มีอำนาจตัดสินใจ → [DMU Mapping]",
+        "รับข้อเสนอ/ราคา → [Quotation Optimization]",
+        "ประเมินผลงานหลังส่งมอบ → [Win-Loss Analytics]",
+        "รับบริการต่อเนื่องหลังการขาย → [Recurring Revenue Platform]"
+      ]
     },
     {
-      "id": "sh41-4zkcwa",
+      "id": "sh41-secy6k",
       "title": "Precise Business",
       "hue": "biz",
       "glyph": "PB",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "Sales: วิเคราะห์ Stakeholders/DMU → [DMU Mapping]",
+        "Sales: วางกลยุทธ์ก่อน TOR ออก → [KAIP]",
+        "Sales: วิเคราะห์คู่แข่งก่อนเสนอราคา → [CIP]",
+        "Sales: จับคู่ TOR กับสินค้า → [TOR-to-Product Mapping]",
+        "Sales: จัดทำเอกสารประมูลด้วย AI → [AI Tendering Document]",
+        "Sales: คำนวณราคาที่เหมาะสม → [Quotation Optimization]",
+        "S&OP: วางแผนผลิต-ส่งมอบร่วมกัน → [Sales-Operation Kick-off]",
+        "S&OP: ควบคุม Max-Min Stock → [Inventory Intelligence (MTS)]",
+        "S&OP: บันทึก Cycle Time Real-time → [Factory 4.0 Performance]",
+        "Post: วิเคราะห์สาเหตุพลาดงาน → [Win-Loss Analytics]",
+        "Post: ประสาน Supplier ตลอด Chain → [SRM]",
+        "Post: วิเคราะห์นโยบาย/งบภาครัฐก่อนมี TOR → [Government Policy & Budget Intelligence]",
+        "Post: จับคู่งบประมาณกับโครงการ → [AI Budget-Project Matching]",
+        "Post: Review สัญญาเทียบ TOR → [Contract-TOR Variance Review]",
+        "Post: ส่งต่อบริการหลังการขาย → [Recurring Revenue Platform]"
+      ]
     },
     {
-      "id": "sh42-qazh08",
+      "id": "sh42-51en8o",
       "title": "Platform Admin",
       "hue": "admin",
       "glyph": "A",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "ดูแล Common Database ให้เป็น Single Data Entry → [Common Database]",
+        "กำกับ Data Governance/Security ทั้ง Ecosystem → [Common Database]",
+        "ควบคุมสิทธิ์การเข้าถึงของ 5 Stakeholder Groups → [Common Database]"
+      ]
     }
   ],
   "layers": [
     {
-      "title": "Technology Platform",
+      "title": "Core Execution Platform — PBEP",
       "groups": [
         {
-          "name": "Core Capability",
-          "chips": []
+          "name": "Business Generation (เตรียมยื่นประมูล)",
+          "chips": [
+            "2|Market Player 360° DB",
+            "3|Core Product & Tech Proposal DB",
+            "3|TOR-to-Product Mapping",
+            "3|AI Tendering Document",
+            "3|AI TOR Categorization",
+            "4|Win-Loss Analytics",
+            "4|Quotation Optimization",
+            "2|🆕 AI Budget-Project Matching",
+            "2|🆕 Opportunity Categorization",
+            "3|🆕 AI TOR-Compliance-Pricing Fit",
+            "4|🆕 Bid Decision & Finance-Risk Panel",
+            "4|🆕 Tender Status Tracking Schedule"
+          ]
+        },
+        {
+          "name": "Demand Satisfaction (ผลิต-ส่งมอบงาน)",
+          "chips": [
+            "5|Manufacturing Standardization",
+            "5|Sales-Operation Kick-off",
+            "5|DL/OII Consolidation",
+            "5|Inventory Intelligence (MTS)",
+            "5|MTO Contract & Risk",
+            "5|Factory 4.0 Performance",
+            "5|🆕 Contract-TOR Variance Review",
+            "5|🆕 Master Manufacturing Schedule Handoff"
+          ]
         }
       ]
     },
     {
-      "title": "Commercial & Management Technology Platform",
+      "title": "Commercial & Intelligence Platform",
       "groups": [
         {
-          "name": "Business Generation",
-          "chips": []
+          "name": "KAIP — Key Account Intelligence",
+          "chips": [
+            "1|Customer Need & Pain Discovery",
+            "1|Relationship-based Market Intel",
+            "1|TOR Early-Warning & Tracking",
+            "1|Key Account CRM",
+            "1|DMU Mapping",
+            "1|🆕 Government Policy & Budget Intelligence"
+          ]
+        },
+        {
+          "name": "CIP — Competitor Intelligence",
+          "chips": [
+            "2|Financial & Profile Intelligence",
+            "2|Product Intelligence",
+            "2|People & Relationship Mapping",
+            "2|Co-opetition Collaboration",
+            "2|Positioning & Market Structure",
+            "4|🆕 Live Competitor Ranking Tracker"
+          ]
+        },
+        {
+          "name": "SRM — Supplier Relationship Mgmt",
+          "chips": [
+            "5|Raw Material Sourcing",
+            "3|Material Supplier DB",
+            "5|Component Vendor Mgmt",
+            "3|OEM Collaboration",
+            "3|Tech Partner & Innovation",
+            "5|Logistics Visibility",
+            "3|Financial Risk Scoring",
+            "3|Kraljic Segmentation",
+            "3|🆕 Vendor Mgmt Platform (VMP) Compliance Matching"
+          ]
+        },
+        {
+          "name": "CECP — Complementor Ecosystem",
+          "chips": [
+            "4|Bank Guarantee & Financial",
+            "4|Insurance & Risk Coverage",
+            "3|Standards & Certification",
+            "3|TOR Consultant Network",
+            "1|Trade Association Engagement",
+            "5|JV Partner Management",
+            "3|Regulatory Liaison",
+            "6|🆕 Recurring Revenue Platform"
+          ]
         }
       ]
     },
@@ -80,11 +214,10 @@
       "foundation": true,
       "groups": [
         {
-          "name": "Shared Foundation",
+          "name": "Common Database / Single Source of Truth",
           "chips": [
-            "OT/IT Cyber Security Framework",
-            "Cloud / SaaS Infrastructure",
-            "Embedded AI Capability Layer"
+            "Common Database",
+            "SGAM 6 Layers (Business · Function · Information · Communication · Component · Intelligence)"
           ]
         }
       ]

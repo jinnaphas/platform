@@ -1,8 +1,14 @@
 {
   "phoneTitle": "Omni Channel RST Platform",
+  "valueChain": [
+    "ต้นน้ำ",
+    "กลางน้ำ",
+    "ปลายน้ำ",
+    "หลังการขาย"
+  ],
   "stakeholders": [
     {
-      "id": "sh43-tt9h2u",
+      "id": "sh43-4jc3ie",
       "title": "Partners / Supplier / Ecosystem",
       "hue": "partner",
       "glyph": "P",
@@ -11,7 +17,7 @@
       "items": []
     },
     {
-      "id": "sh44-exqzg4",
+      "id": "sh44-jbn1qu",
       "title": "Complementor",
       "hue": "comp",
       "glyph": "C",
@@ -20,7 +26,7 @@
       "items": []
     },
     {
-      "id": "sh45-uw5aja",
+      "id": "sh45-dbkosu",
       "title": "Competitor",
       "hue": "compet",
       "glyph": "VS",
@@ -29,7 +35,7 @@
       "items": []
     },
     {
-      "id": "sh46-tvm14r",
+      "id": "sh46-k99u1z",
       "title": "Buyer",
       "hue": "buyer",
       "glyph": "B",
@@ -38,7 +44,7 @@
       "items": []
     },
     {
-      "id": "sh47-47usl2",
+      "id": "sh47-3izwsy",
       "title": "Precise Business",
       "hue": "biz",
       "glyph": "PB",
@@ -47,7 +53,7 @@
       "items": []
     },
     {
-      "id": "sh48-wltm1n",
+      "id": "sh48-wxth0s",
       "title": "Platform Admin",
       "hue": "admin",
       "glyph": "A",

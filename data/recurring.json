@@ -1,8 +1,14 @@
 {
   "phoneTitle": "Recurring RST Platform",
+  "valueChain": [
+    "ต้นน้ำ",
+    "กลางน้ำ",
+    "ปลายน้ำ",
+    "หลังการขาย"
+  ],
   "stakeholders": [
     {
-      "id": "sh55-ceb0ab",
+      "id": "sh55-0ee8a6",
       "title": "Partners / Supplier / Ecosystem",
       "hue": "partner",
       "glyph": "P",
@@ -11,7 +17,7 @@
       "items": []
     },
     {
-      "id": "sh56-hqhs1j",
+      "id": "sh56-k2gw3w",
       "title": "Complementor",
       "hue": "comp",
       "glyph": "C",
@@ -20,7 +26,7 @@
       "items": []
     },
     {
-      "id": "sh57-ojaf1a",
+      "id": "sh57-0bcx44",
       "title": "Competitor",
       "hue": "compet",
       "glyph": "VS",
@@ -29,7 +35,7 @@
       "items": []
     },
     {
-      "id": "sh58-xxap13",
+      "id": "sh58-jj8jjo",
       "title": "Buyer",
       "hue": "buyer",
       "glyph": "B",
@@ -38,7 +44,7 @@
       "items": []
     },
     {
-      "id": "sh59-ftveu3",
+      "id": "sh59-tvfr9q",
       "title": "Precise Business",
       "hue": "biz",
       "glyph": "PB",
@@ -47,7 +53,7 @@
       "items": []
     },
     {
-      "id": "sh60-9anpxl",
+      "id": "sh60-rtqidy",
       "title": "Platform Admin",
       "hue": "admin",
       "glyph": "A",
