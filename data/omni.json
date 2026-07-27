@@ -1,26 +1,52 @@
 {
-  "phoneTitle": "Omni Channel RST Platform",
+  "phoneTitle": "Omni Channel Platform",
+  "valueChain": [
+    "แสดงความต้องการ — TOR / Customer Need",
+    "เสนอราคา — Quotation",
+    "ตกลงซื้อ-ขาย — PO / สัญญา",
+    "ส่งมอบ — Delivery ใน 3-5 วัน",
+    "After-sales — Satisfaction & Recurring"
+  ],
   "stakeholders": [
     {
-      "id": "sh43-tt9h2u",
-      "title": "Partners / Supplier / Ecosystem",
+      "id": "sh1-omni",
+      "title": "Supplier / ซัพพลายเออร์",
       "hue": "partner",
-      "glyph": "P",
+      "glyph": "S",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "กลุ่ม Product/Service: Direct Raw Material, Testing & Calibration, Freight Forwarder, Construction Supplier ฯลฯ",
+        "Vendor Registration → [Vendor Management Platform]",
+        "รับ TOR / RFQ → [Vendor Management Platform]",
+        "เสนอ Product / Service",
+        "เสนอราคา (Quotation / Proposal)",
+        "เจรจาต่อรอง",
+        "รับ PO / เซ็นสัญญา → [Vendor Management Platform]",
+        "Update Order Status",
+        "Delivery Product / Service → [Logistics & Fleet Platform]",
+        "วางบิล, รับเงิน → [Financial & Accounting Platform]"
+      ]
     },
     {
-      "id": "sh44-exqzg4",
-      "title": "Complementor",
+      "id": "sh2-omni",
+      "title": "Complementor / พันธมิตรเสริม",
       "hue": "comp",
       "glyph": "C",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "หน่วยงานรับรองมาตรฐาน/ห้องทดสอบ: สภาอุตสาหกรรม (MiT), Testing Lab / Type Test Lab (KERI, KEMA, CESI, EEI), สถาบันไฟฟ้า, สมอ., Certification Body (ISO, สิ่งแวดล้อม, ESG)",
+        "ภาครัฐ/กำกับดูแล: กรมบัญชีกลาง — ระเบียบจัดซื้อจัดจ้างภาครัฐ, ระบบ e-GP, ราคากลาง, เงื่อนไขประกวดราคา",
+        "สถาบันการเงิน: Bank — เงินทุนหมุนเวียน, สินเชื่อโครงการ, LC, TR, Bid Bond",
+        "พรรคการเมือง: ทิศทางนโยบาย งบลงทุน โครงการโครงสร้างพื้นฐาน และแผนพัฒนาระบบไฟฟ้า",
+        "SET / กลต.: ธรรมาภิบาล การเปิดเผยข้อมูล การระดมทุน ESG และความน่าเชื่อถือของบริษัท",
+        "Consultant Company ที่ออก TOR: กำหนด Spec, TOR",
+        "สถาบันการศึกษา/วิจัยและพัฒนา, มหาวิทยาลัย: R&D, Testing, Talent, งานวิจัยและนวัตกรรม"
+      ]
     },
     {
-      "id": "sh45-uw5aja",
+      "id": "sh3-omni",
       "title": "Competitor",
       "hue": "compet",
       "glyph": "VS",
@@ -29,51 +55,160 @@
       "items": []
     },
     {
-      "id": "sh46-tvm14r",
-      "title": "Buyer",
+      "id": "sh4-omni",
+      "title": "End User (Precise, Direct)",
       "hue": "buyer",
-      "glyph": "B",
+      "glyph": "E",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "แสดงความต้องการสินค้า: TOR · Customer Need — เลือก/ค้นหาสินค้าผ่านช่องทางของ Precise → [Digital Commerce]",
+        "รับการดูแลติดต่อเสนอราคา → [Quotation & Contract Management]",
+        "ทำข้อตกลงการซื้อ-ขายสินค้า (PO)",
+        "ติดตาม Delivery, Order Status และรับสินค้าตามกำหนด → [Logistics & Fleet Platform]",
+        "After-sales, Customer Satisfaction → [Customer Satisfaction & After-Sale]"
+      ]
     },
     {
-      "id": "sh47-47usl2",
+      "id": "sh5-omni",
+      "title": "Channel Member (Main Contractor · Dealer · Smartshop)",
+      "hue": "compet",
+      "glyph": "CM",
+      "side": "right",
+      "image": null,
+      "items": [
+        "ใช้ Process ของแต่ละ Channel ผ่าน [Dealer Management Platform]",
+        "Register Channel Member, จัด Tier/Group → [Dealer Registration]",
+        "เห็น KPI ตัวเองเทียบเป้าผ่าน Dashboard/Scorecard → [Target & Performance Management]",
+        "Check Pricelist",
+        "Order สั่งซื้อของ, Check Stock → [Ordering & Fulfillment]",
+        "ติดตาม Delivery, Order Status และรับสินค้าตามกำหนด",
+        "After-sales, Customer Satisfaction → [Customer Satisfaction & After-Sale]",
+        "Rewarding → [Rewarding & ระบบแนะนำงาน/Commission]",
+        "Training → [Enablement]",
+        "Certification: หนังสือแต่งตั้งเข้างานของการไฟฟ้า",
+        "ระบบกลางที่ให้คนแนะนำงานมาให้ Precise ได้ → [Rewarding & ระบบแนะนำงาน/Commission]"
+      ]
+    },
+    {
+      "id": "sh6-omni",
       "title": "Precise Business",
       "hue": "biz",
       "glyph": "PB",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "🎯 Target: GP 375 mb (PEM105), Total GP 540 mb (PEM,PPP,PSP,PSL) ภายในปี 2573 · ลูกค้าเข้าถึง-ซื้อง่าย · Stock พร้อมขาย ส่งได้ใน 3-5 วัน",
+        "Business Generation: กวาดหาโอกาส OI มาจนได้ PO/GP ตาม Target",
+        "Sale&CRM&KA: หา Information for OI ทั้งหมดมาบันทึกในระบบ → [Customer Relationship Management]",
+        "Sale&CRM&KA: TOR/Customer Need → Mapping Product Category to Quotation → [Bid/Product Mapping]",
+        "Sale&CRM&KA: เสนอราคา Quotation → [Quotation & Contract Management]",
+        "Sale&CRM&KA: Record Pass/Fail OI & Quotation พร้อมระบุเหตุผล",
+        "Sale&CRM&KA: ทำ Sale Forecasting และ Chase Sale Operation ดูความพร้อมก่อนเสนอราคา → [Sale Forecasting]",
+        "Sale&CRM&KA: ควบคุมสต็อกให้อยู่ในระดับที่ตั้งไว้ (Target Finished Inventory = 5 วัน) → [Forecast Max-Min Stock]",
+        "Demand Satisfaction: บริหาร QCDS ทุก CTR และเก็บเงินให้ได้ เพื่อให้เกิด Customer Satisfaction",
+        "S&OP: Finalize Chase Sale & Operation Plan — บริหารคน Maximize Resource/Manday, Conso ทั้งบริษัท (Skill Matrix of Operator) → [Sale & Operation Planning Platform]",
+        "S&OP: บริหารการผลิตแบบ MTS ด้วย Inventory Intelligence — Keep Max-Min Stock ส่งของได้ตาม CTR (MPS, MRP, APS, MES, WMS) → [Inventory Intelligence Platform]",
+        "S&OP: กรณี MTO สั่งของเท่ากับ Contract, ของเสียส่ง Short Shipment, ห้ามสั่งเผื่อ 1% กัน Over Inventory",
+        "S&OP: Conso & Minimize DL/OH, ควบคุม CFS",
+        "S&OP: Record QCDS ทุก CTR วัด Performance + Record Takt time/Cycle time พัฒนา Factory 4.0 → [Manufacturing Platform]",
+        "S&OP: เก็บเงินให้ได้ตาม Target RRC → [Financial & Accounting Platform]",
+        "Purchasing: บริหารซัพพลายเออร์ตั้งแต่สั่งซื้อวัตถุดิบ (PO) จนถึงประเมินผลงาน → [Vendor Management Platform]",
+        "Engineering: บริหารข้อมูลตลอดอายุสินค้า — Drawing/CAD, BOM, ควบคุม Revision (ECO) → [Engineering Design & PLM Platform]",
+        "Production: ควบคุมการผลิตหน้างาน (MES) ติดตาม Performance แบ่ง MTO/MTS → [Manufacturing Platform]",
+        "QA: ควบคุมมาตรฐานคุณภาพ → [Quality Management Platform]",
+        "Warehouse: รับเข้า-เบิกจ่าย-จัดเก็บ ติดตาม Stock Real-time → [Warehouse Management System (WMS)]",
+        "Logistics: บริหารขนส่ง/ยานพาหนะ จัดเส้นทาง Consolidation → [Logistics & Fleet Platform]",
+        "Financial: บัญชีการเงิน รายรับ-รายจ่าย เก็บหนี้ AR, AP, ต้นทุน → [Financial & Accounting Platform]",
+        "Customer Feedback & After-sales → [Customer Satisfaction & After-Sale]"
+      ]
     },
     {
-      "id": "sh48-wltm1n",
+      "id": "sh7-omni",
       "title": "Platform Admin",
       "hue": "admin",
       "glyph": "A",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]",
+        "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]",
+        "กำกับดูแล Embedded AI ให้ฝังตัวถูกต้อง → [Embedded AI Capability Layer]"
+      ]
     }
   ],
   "layers": [
     {
-      "title": "Technology Platform",
+      "title": "Commercial & Management Technology Platform",
       "groups": [
         {
-          "name": "Core Capability",
-          "chips": []
+          "name": "Customer Engagement Platform",
+          "chips": [
+            "1|Digital Commerce",
+            "1|Line OA",
+            "1|Facebook",
+            "1|Website",
+            "5|Customer Satisfaction & After-Sale"
+          ]
+        },
+        {
+          "name": "Dealer Management Platform",
+          "chips": [
+            "1|Dealer Registration",
+            "2|Target & Performance Management",
+            "3|Ordering & Fulfillment (การซื้อขายและส่งมอบ)",
+            "5|Enablement (พัฒนาศักยภาพและมาตรฐาน)",
+            "5|Rewarding & ระบบแนะนำงาน/Commission",
+            "5|Customer Satisfaction & After-Sale"
+          ]
         }
       ]
     },
     {
-      "title": "Commercial & Management Technology Platform",
+      "title": "Data Analytics & AI Platform",
       "groups": [
         {
-          "name": "Business Generation",
+          "name": "Analytics & AI",
           "chips": [
-            "Intelligence Inventory Platform",
-            "Chase Sale & Operation"
+            "2|Sale Forecasting",
+            "2|Chase Sale Operation",
+            "2|Bid/Product Mapping",
+            "4|Forecast Max-Min Stock",
+            "4|Inventory Intelligence Platform",
+            "1|AI Chatbot",
+            "Dashboard — Customer 360 Profile, QCDS, POR & RRC"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Information System Platform : ERP Odoo",
+      "groups": [
+        {
+          "name": "Business Generation Platform",
+          "chips": [
+            "1|Customer Registration",
+            "1|Customer Relationship Management",
+            "1|Lead Management (Lead & Opportunity Pipeline)",
+            "2|Quotation & Contract Management",
+            "2|Pricing Strategy",
+            "1|Marketing/Campaign Management",
+            "1|Product Platform",
+            "5|Customer Satisfaction & After-Sale"
+          ]
+        },
+        {
+          "name": "Demand Satisfaction Platform",
+          "chips": [
+            "4|Sale & Operation Planning Platform",
+            "4|Vendor Management Platform",
+            "4|Manufacturing Platform",
+            "4|Quality Management Platform",
+            "4|Engineering Design & PLM Platform",
+            "4|Warehouse Management System (WMS)",
+            "4|Logistics & Fleet Platform",
+            "5|Financial & Accounting Platform",
+            "5|Returns Management Platform"
           ]
         }
       ]
@@ -92,5 +227,6 @@
         }
       ]
     }
-  ]
+  ],
+  "images": []
 }
