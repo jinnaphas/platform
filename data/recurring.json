@@ -1,5 +1,14 @@
 {
   "phoneTitle": "Recurring RST Platform",
+  "valueChain": [
+    "1. Design recurring value — ออกแบบคุณค่าต่อเนื่องตั้งแต่ต้นดีล",
+    "2. Package & Price — จัด Offering / Package / ราคา",
+    "3. Contract & Entitlement — ทำสัญญาและกำหนดสิทธิ์บริการ",
+    "4. Onboard — เปิด Tenant / Job / Asset / Data",
+    "5. Operate — Monitor / Alert / Case / Work / SLA",
+    "6. Prove Value — Evidence / KPI / Report / M&V",
+    "7. Bill & Grow — Billing / Renewal / Upsell / Retirement"
+  ],
   "stakeholders": [
     {
       "id": "sh55-ceb0ab",
@@ -8,7 +17,17 @@
       "glyph": "P",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "ส่งข้อมูล License / Usage / วันหมดอายุ → [Software License Care]",
+        "ส่งแบบและ Model ฉบับล่าสุด → [Digital Engineering Updates]",
+        "เชื่อม Model กับข้อมูลปฏิบัติการตามขอบเขตที่อนุมัติ → [Digital Twin]",
+        "เชื่อม Sensor / Gateway / Telemetry → [Remote Monitoring 24/7]",
+        "รับและอัปเดตใบงานภาคสนาม → [Preventive Maintenance]",
+        "รับงานตามทักษะ พื้นที่ และ SLA → [O&M Outsourcing]",
+        "สำรอง–เบิก–คืน–RMA อะไหล่ → [Spare Parts Subscription]",
+        "ส่งหลักฐานการทำงานและผลตรวจรับ → [Evidence & Service History]",
+        "ร่วมพัฒนา Offering และแบ่งรายได้ → [Party & Ecosystem Registry]"
+      ]
     },
     {
       "id": "sh56-hqhs1j",
@@ -17,7 +36,17 @@
       "glyph": "C",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "ธนาคาร/Leasing สนับสนุนโมเดลจ่ายรายเดือน → [Catalog, Package & Pricing]",
+        "บริษัทประกันใช้ Asset Health และประวัติงาน → [Asset Health Assessment]",
+        "Utility / Aggregator เชื่อมข้อมูลพลังงานและ Event → [Energy Optimization]",
+        "ผู้ตรวจประเมินตรวจ Evidence และ M&V → [Evidence & Service History]",
+        "Certification Body ตรวจแบบ/มาตรฐาน/Carbon → [Governance & Audit]",
+        "ผู้ทวนสอบตรวจบัญชีและโครงการคาร์บอน → [Carbon Accounting]",
+        "Registry/Verifier รองรับวงจรเครดิตที่ผ่านการรับรอง → [Carbon Credit]",
+        "Logistics รับงานส่งและ Reverse Logistics → [Decommissioning & Returns]",
+        "Technology Integrator เชื่อม API ผ่าน Data Contract → [Integration & Data Contract]"
+      ]
     },
     {
       "id": "sh57-ojaf1a",
@@ -26,33 +55,57 @@
       "glyph": "VS",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "แข่งด้วย Subscription / Managed Service แทนขายขาด → [Platform Subscription]",
+        "แข่งด้วย Remote Monitoring และ Response Time → [Remote Monitoring 24/7]",
+        "แข่งด้วย Cybersecurity Service ตามรอบสัญญา → [Cybersecurity Care]",
+        "แข่งด้วย Predictive Insight และ Uptime Outcome → [Predictive Maintenance]",
+        "แข่งด้วย Performance และ Reliability ที่วัดผลได้ → [Asset Performance]",
+        "ใช้ Root Cause และ CAPA ลดเหตุซ้ำ → [Reliability Improvement]",
+        "แข่งด้วย Savings ที่ตรวจสอบย้อนกลับได้ → [AI & Energy Optimization]",
+        "แข่งด้วย Lifecycle Cost ไม่ใช่ราคาซื้อครั้งแรก → [Life Cycle Cost Optimization]",
+        "แข่งด้วย ESG / Carbon Evidence ที่พร้อม Audit → [ESG & Carbon Reporting]",
+        "ใช้ข้อมูลเปรียบเทียบเพื่อปรับ Package และ Renewal → [Value, Revenue & Renewal]"
+      ]
     },
     {
       "id": "sh58-xxap13",
-      "title": "Buyer",
+      "title": "Buyer / Customer",
       "hue": "buyer",
       "glyph": "B",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "เลือกบริการตาม Site / Asset / SLA / ระยะสัญญา → [Catalog, Package & Pricing]",
+        "เห็นสิทธิ์ที่ซื้อและขอบเขตบริการชัดเจน → [Contract & Entitlement]",
+        "เปิด Tenant / Job และเชื่อม Asset / Data → [Tenant, Job & Access]",
+        "กำหนด Site / Asset / Baseline ที่รับบริการ → [Service Subject & Configuration]",
+        "ดูสุขภาพ Asset และ Alert จากระยะไกล → [Remote Monitoring 24/7]",
+        "รับ Observation / Event / Alert ตามกติกา → [Signal, Event & Alert]",
+        "แจ้งปัญหาและติดตาม Case / Work Order / SLA → [Case, Work & SLA]",
+        "รับรายงานงาน PM / CM พร้อมหลักฐาน → [Evidence & Service History]",
+        "เห็น Savings / Uptime / Cost / Carbon Outcome → [Value, Revenue & Renewal]",
+        "ต่ออายุ เพิ่มขอบเขต หรือยุติบริการอย่างควบคุม → [Value, Revenue & Renewal]"
+      ]
     },
     {
       "id": "sh59-ftveu3",
-      "title": "Precise Business : ขอบเขตธุรกิจลงทุน",
+      "title": "Precise Business / Recurring Team",
       "hue": "biz",
-      "glyph": "P",
+      "glyph": "PB",
       "side": "right",
       "image": null,
       "items": [
-        "• กลยุทธ์การลงทุน - Trend Following / Breakout · R:R ≥ 1.5",
-        "Sector - เปรียบเทียบรายหมวดอุตสาหกรรม (14 หมวด SET)",
-        "• หุ้นไทย (SET) - พอร์ตหลักของบริษัท• หุ้นต่างประเทศ (US) - กระจายความเสี่ยง · แปลง THB อัตโนมัติ",
-        "Market Regime - Bull/Bear/Sideways/Panic ชี้กลยุทธ์",
-        "Risk Management - Position Sizing จาก Risk% ต่อไม้",
-        "บัญชีแยก P&L / OCI - ตาม TFRS 9 ตรงกับฝ่ายบัญชี",
-        "เป้าหมายผลงานรายปี - ติดตามกำไรจริงเทียบเป้า",
-        "บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]"
+        "ออกแบบ Recurring ตั้งแต่ต้นดีลร่วมกับอีก 5 RST → [Catalog, Package & Pricing]",
+        "จำแนก Recurring แท้ vs Repeat Project ก่อนรับเข้าพอร์ต → [Governance & Audit]",
+        "กำหนด Offering / Price / SLA / Margin / Renewal Rule → [Catalog, Package & Pricing]",
+        "ส่งมอบจาก Sales/Project เข้าสู่ Service Onboarding → [Contract & Entitlement]",
+        "ตรวจสิทธิ์ก่อนเปิด Case และเริ่ม SLA Clock → [Case, Work & SLA]",
+        "วางแผนช่าง Partner อะไหล่ และงานตามรอบ → [O&M Outsourcing]",
+        "ติดตาม MRR / NRR / Churn / Margin / Renewal Pipeline → [Value, Revenue & Renewal]",
+        "นำปัญหา ผลลัพธ์ และของคืนมาปรับบริการรอบถัดไป → [Improvement & Returns]",
+        "แยกรายได้ ผลงาน และเจ้าของลูกค้าร่วมกับ Finance/RST ต้นทาง → [Value, Revenue & Renewal]",
+        "เปิดเผย Monitoring/Tracking ให้ลูกค้ารับทราบในสัญญา → [Contract & Entitlement]"
       ]
     },
     {
@@ -62,16 +115,70 @@
       "glyph": "A",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "ดูแล Tenant / User / Job / Role แบบ deny-by-default → [Tenant, Job & Access]",
+        "แยก Authorization ออกจาก Service Tier / Entitlement → [Contract & Entitlement]",
+        "กำกับ API / Event / Adapter ด้วย Data Contract → [Integration & Data Contract]",
+        "ดูแล Catalog และ Module Registry ที่มี Version → [Module Registry]",
+        "บันทึก Approval / Cross-tenant Access / Audit Trail → [Governance & Audit]",
+        "เฝ้าระวัง Security / Availability / Integration Failure → [Governance & Audit]",
+        "ห้าม Technology ใดเป็นข้อบังคับจนมี NFR และ ADR อนุมัติ → [Governance & Audit]"
+      ]
     }
   ],
   "layers": [
     {
-      "title": "Technology Platform",
+      "title": "Technology Platform — 6 Product Families / 20 Streams",
       "groups": [
         {
-          "name": "Core Capability",
-          "chips": []
+          "name": "P1 — Platform & Licensing Core",
+          "chips": [
+            "Platform Subscription",
+            "Software License Care",
+            "Cybersecurity Care"
+          ]
+        },
+        {
+          "name": "P2 — Digital Engineering & Twin",
+          "chips": [
+            "Digital Engineering Updates",
+            "Digital Twin"
+          ]
+        },
+        {
+          "name": "P3 — Energy Intelligence / EMS-DR",
+          "chips": [
+            "AI & Energy Optimization",
+            "Energy Optimization"
+          ]
+        },
+        {
+          "name": "P4 — Asset Reliability & Lifecycle",
+          "chips": [
+            "Remote Monitoring 24/7",
+            "Preventive Maintenance",
+            "Predictive Maintenance",
+            "Asset Performance",
+            "Reliability Improvement",
+            "Asset Health Assessment",
+            "Life Cycle Cost Optimization"
+          ]
+        },
+        {
+          "name": "P5 — Sustainability & Carbon",
+          "chips": [
+            "ESG & Carbon Reporting",
+            "Carbon Accounting",
+            "Carbon Credit"
+          ]
+        },
+        {
+          "name": "P6 — Managed Service & Ecosystem",
+          "chips": [
+            "Spare Parts Subscription",
+            "O&M Outsourcing",
+            "Decommissioning & Returns"
+          ]
         }
       ]
     },
@@ -79,8 +186,28 @@
       "title": "Commercial & Management Technology Platform",
       "groups": [
         {
-          "name": "Business Generation",
-          "chips": []
+          "name": "Define & Sell Recurring Value",
+          "chips": [
+            "Catalog, Package & Pricing",
+            "Party & Ecosystem Registry",
+            "Contract & Entitlement"
+          ]
+        },
+        {
+          "name": "Operate & Fulfil",
+          "chips": [
+            "Service Subject & Configuration",
+            "Signal, Event & Alert",
+            "Case, Work & SLA",
+            "Evidence & Service History"
+          ]
+        },
+        {
+          "name": "Prove, Bill & Grow",
+          "chips": [
+            "Value, Revenue & Renewal",
+            "Improvement & Returns"
+          ]
         }
       ]
     },
@@ -91,9 +218,10 @@
         {
           "name": "Shared Foundation",
           "chips": [
-            "OT/IT Cyber Security Framework",
-            "Cloud / SaaS Infrastructure",
-            "Embedded AI Capability Layer"
+            "Tenant, Job & Access",
+            "Module Registry",
+            "Integration & Data Contract",
+            "Governance & Audit"
           ]
         }
       ]
