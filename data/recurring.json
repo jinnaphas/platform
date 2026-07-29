@@ -77,6 +77,9 @@
       "image": null,
       "items": [
         "เลือกบริการตาม Site / Asset / SLA / ระยะสัญญา → [Catalog, Package & Pricing]",
+        "ค้นบริการและส่งคำขอราคาเบื้องต้น → [Customer Portal — Current Public Intake / Target Account]",
+        "แจ้ง Case ติดตามสถานะ และต่ออายุผ่านมือถือ → [LINE OA / LIFF — Proposed · PDPA Gate]",
+        "รับนัดหมาย Alert และสรุปปิดงานตาม Consent → [Email Notification — Simulated · PDPA/SMTP Gate]",
         "เห็นสิทธิ์ที่ซื้อและขอบเขตบริการชัดเจน → [Contract & Entitlement]",
         "เปิด Tenant / Job และเชื่อม Asset / Data → [Tenant, Job & Access]",
         "กำหนด Site / Asset / Baseline ที่รับบริการ → [Service Subject & Configuration]",
@@ -100,11 +103,13 @@
         "จำแนก Recurring แท้ vs Repeat Project ก่อนรับเข้าพอร์ต → [Governance & Audit]",
         "กำหนด Offering / Price / SLA / Margin / Renewal Rule → [Catalog, Package & Pricing]",
         "ส่งมอบจาก Sales/Project เข้าสู่ Service Onboarding → [Contract & Entitlement]",
+        "รับงานจาก Portal/LINE เข้าคิวทีมบริการโดยไม่ให้ Channel ถือข้อมูลหลัก → [Service Desk / Jira Adapter]",
         "ตรวจสิทธิ์ก่อนเปิด Case และเริ่ม SLA Clock → [Case, Work & SLA]",
         "วางแผนช่าง Partner อะไหล่ และงานตามรอบ → [O&M Outsourcing]",
         "ติดตาม MRR / NRR / Churn / Margin / Renewal Pipeline → [Value, Revenue & Renewal]",
         "นำปัญหา ผลลัพธ์ และของคืนมาปรับบริการรอบถัดไป → [Improvement & Returns]",
         "แยกรายได้ ผลงาน และเจ้าของลูกค้าร่วมกับ Finance/RST ต้นทาง → [Value, Revenue & Renewal]",
+        "กำหนด Consent, Template, Opt-out และผู้รับผิดชอบ Incident ก่อนเปิดส่งจริง → [LINE OA / LIFF — Proposed · PDPA Gate]",
         "เปิดเผย Monitoring/Tracking ให้ลูกค้ารับทราบในสัญญา → [Contract & Entitlement]"
       ]
     },
@@ -119,6 +124,8 @@
         "ดูแล Tenant / User / Job / Role แบบ deny-by-default → [Tenant, Job & Access]",
         "แยก Authorization ออกจาก Service Tier / Entitlement → [Contract & Entitlement]",
         "กำกับ API / Event / Adapter ด้วย Data Contract → [Integration & Data Contract]",
+        "เชื่อม Customer Channel เข้าระบบกลางโดยเก็บ Audit และ Idempotency → [Service Desk / Jira Adapter]",
+        "เปิด–ปิดการส่ง Email ตาม PDPA/SMTP Gate → [Email Notification — Simulated · PDPA/SMTP Gate]",
         "ดูแล Catalog และ Module Registry ที่มี Version → [Module Registry]",
         "บันทึก Approval / Cross-tenant Access / Audit Trail → [Governance & Audit]",
         "เฝ้าระวัง Security / Availability / Integration Failure → [Governance & Audit]",
@@ -133,51 +140,51 @@
         {
           "name": "P1 — Platform & Licensing Core",
           "chips": [
-            "p1:Platform Subscription",
-            "p2:Software License Care",
-            "p2:Cybersecurity Care"
+            "Platform Subscription",
+            "Software License Care",
+            "Cybersecurity Care"
           ]
         },
         {
           "name": "P2 — Digital Engineering & Twin",
           "chips": [
-            "p2:Digital Engineering Updates",
-            "p3:Digital Twin"
+            "Digital Engineering Updates",
+            "Digital Twin"
           ]
         },
         {
           "name": "P3 — Energy Intelligence / EMS-DR",
           "chips": [
-            "p2:AI & Energy Optimization",
-            "p2:Energy Optimization"
+            "AI & Energy Optimization",
+            "Energy Optimization"
           ]
         },
         {
           "name": "P4 — Asset Reliability & Lifecycle",
           "chips": [
-            "p1:Remote Monitoring 24/7",
-            "p1:Preventive Maintenance",
-            "p2:Predictive Maintenance",
-            "p2:Asset Performance",
-            "p2:Reliability Improvement",
-            "p1:Asset Health Assessment",
-            "p3:Life Cycle Cost Optimization"
+            "Remote Monitoring 24/7",
+            "Preventive Maintenance",
+            "Predictive Maintenance",
+            "Asset Performance",
+            "Reliability Improvement",
+            "Asset Health Assessment",
+            "Life Cycle Cost Optimization"
           ]
         },
         {
           "name": "P5 — Sustainability & Carbon",
           "chips": [
-            "p2:ESG & Carbon Reporting",
-            "p2:Carbon Accounting",
-            "p3:Carbon Credit"
+            "ESG & Carbon Reporting",
+            "Carbon Accounting",
+            "Carbon Credit"
           ]
         },
         {
           "name": "P6 — Managed Service & Ecosystem",
           "chips": [
-            "p1:Spare Parts Subscription",
-            "p2:O&M Outsourcing",
-            "p3:Decommissioning & Returns"
+            "Spare Parts Subscription",
+            "O&M Outsourcing",
+            "Decommissioning & Returns"
           ]
         }
       ]
@@ -186,27 +193,36 @@
       "title": "Commercial & Management Technology Platform",
       "groups": [
         {
+          "name": "Customer Engagement & Channel Layer",
+          "chips": [
+            "Customer Portal — Current Public Intake / Target Account",
+            "LINE OA / LIFF — Proposed · PDPA Gate",
+            "Email Notification — Simulated · PDPA/SMTP Gate",
+            "Service Desk / Jira Adapter"
+          ]
+        },
+        {
           "name": "Define & Sell Recurring Value",
           "chips": [
-            "2|p1:Catalog, Package & Pricing",
-            "1|p2:Party & Ecosystem Registry",
-            "3|p1:Contract & Entitlement"
+            "Catalog, Package & Pricing",
+            "Party & Ecosystem Registry",
+            "Contract & Entitlement"
           ]
         },
         {
           "name": "Operate & Fulfil",
           "chips": [
-            "4|p2:Service Subject & Configuration",
-            "5|p2:Signal, Event & Alert",
-            "5|p1:Case, Work & SLA",
-            "6|p1:Evidence & Service History"
+            "Service Subject & Configuration",
+            "Signal, Event & Alert",
+            "Case, Work & SLA",
+            "Evidence & Service History"
           ]
         },
         {
           "name": "Prove, Bill & Grow",
           "chips": [
-            "7|p1:Value, Revenue & Renewal",
-            "7|p2:Improvement & Returns"
+            "Value, Revenue & Renewal",
+            "Improvement & Returns"
           ]
         }
       ]
@@ -218,10 +234,10 @@
         {
           "name": "Shared Foundation",
           "chips": [
-            "4|p1:Tenant, Job & Access",
-            "p2:Module Registry",
-            "4|p2:Integration & Data Contract",
-            "p1:Governance & Audit"
+            "Tenant, Job & Access",
+            "Module Registry",
+            "Integration & Data Contract",
+            "Governance & Audit"
           ]
         }
       ]
