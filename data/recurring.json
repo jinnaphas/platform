@@ -140,51 +140,51 @@
         {
           "name": "P1 — Platform & Licensing Core",
           "chips": [
-            "Platform Subscription",
-            "Software License Care",
-            "Cybersecurity Care"
+            "p1:Platform Subscription",
+            "p2:Software License Care",
+            "p2:Cybersecurity Care"
           ]
         },
         {
           "name": "P2 — Digital Engineering & Twin",
           "chips": [
-            "Digital Engineering Updates",
-            "Digital Twin"
+            "p2:Digital Engineering Updates",
+            "p3:Digital Twin"
           ]
         },
         {
           "name": "P3 — Energy Intelligence / EMS-DR",
           "chips": [
-            "AI & Energy Optimization",
-            "Energy Optimization"
+            "p2:AI & Energy Optimization",
+            "p2:Energy Optimization"
           ]
         },
         {
           "name": "P4 — Asset Reliability & Lifecycle",
           "chips": [
-            "Remote Monitoring 24/7",
-            "Preventive Maintenance",
-            "Predictive Maintenance",
-            "Asset Performance",
-            "Reliability Improvement",
-            "Asset Health Assessment",
-            "Life Cycle Cost Optimization"
+            "p1:Remote Monitoring 24/7 @@http://localhost:5175",
+            "p1:Preventive Maintenance",
+            "p2:Predictive Maintenance",
+            "p2:Asset Performance",
+            "p2:Reliability Improvement",
+            "p1:Asset Health Assessment",
+            "p3:Life Cycle Cost Optimization"
           ]
         },
         {
           "name": "P5 — Sustainability & Carbon",
           "chips": [
-            "ESG & Carbon Reporting",
-            "Carbon Accounting",
-            "Carbon Credit"
+            "p2:ESG & Carbon Reporting",
+            "p2:Carbon Accounting",
+            "p3:Carbon Credit"
           ]
         },
         {
           "name": "P6 — Managed Service & Ecosystem",
           "chips": [
-            "Spare Parts Subscription",
-            "O&M Outsourcing",
-            "Decommissioning & Returns"
+            "p1:Spare Parts Subscription",
+            "p2:O&M Outsourcing",
+            "p3:Decommissioning & Returns"
           ]
         }
       ]
@@ -195,34 +195,34 @@
         {
           "name": "Customer Engagement & Channel Layer",
           "chips": [
-            "Customer Portal — Current Public Intake / Target Account",
-            "LINE OA / LIFF — Proposed · PDPA Gate",
-            "Email Notification — Simulated · PDPA/SMTP Gate",
-            "Service Desk / Jira Adapter"
+            "4|p1:Customer Portal — Current Public Intake / Target Account @@http://localhost:5180",
+            "p2:LINE OA / LIFF — Proposed · PDPA Gate",
+            "p2:Email Notification — Simulated · PDPA/SMTP Gate",
+            "5|p2:Service Desk / Jira Adapter"
           ]
         },
         {
           "name": "Define & Sell Recurring Value",
           "chips": [
-            "Catalog, Package & Pricing",
-            "Party & Ecosystem Registry",
-            "Contract & Entitlement"
+            "2|p1:Catalog, Package & Pricing @@http://localhost:5180",
+            "1|p2:Party & Ecosystem Registry",
+            "3|p1:Contract & Entitlement"
           ]
         },
         {
           "name": "Operate & Fulfil",
           "chips": [
-            "Service Subject & Configuration",
-            "Signal, Event & Alert",
-            "Case, Work & SLA",
-            "Evidence & Service History"
+            "4|p2:Service Subject & Configuration",
+            "5|p2:Signal, Event & Alert",
+            "5|p1:Case, Work & SLA @@http://localhost:5175",
+            "6|p1:Evidence & Service History @@http://localhost:5175"
           ]
         },
         {
           "name": "Prove, Bill & Grow",
           "chips": [
-            "Value, Revenue & Renewal",
-            "Improvement & Returns"
+            "7|p1:Value, Revenue & Renewal @@http://localhost:5175",
+            "7|p2:Improvement & Returns @@http://localhost:5175"
           ]
         }
       ]
@@ -234,10 +234,10 @@
         {
           "name": "Shared Foundation",
           "chips": [
-            "Tenant, Job & Access",
-            "Module Registry",
-            "Integration & Data Contract",
-            "Governance & Audit"
+            "4|p1:Tenant, Job & Access",
+            "p2:Module Registry",
+            "4|p2:Integration & Data Contract",
+            "p1:Governance & Audit"
           ]
         }
       ]
