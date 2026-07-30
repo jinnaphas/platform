@@ -195,16 +195,16 @@
         {
           "name": "Customer Engagement & Channel Layer",
           "chips": [
-            "4|p1:Customer Portal — Current Public Intake / Target Account @@https://claude.ai/code/artifact/08c98b8a-ac17-4976-90b6-b3a2a0ba5771#portal",
+            "4|p1:Customer Portal — Current Public Intake / Target Account",
             "p2:LINE OA / LIFF — Proposed · PDPA Gate",
             "p2:Email Notification — Simulated · PDPA/SMTP Gate",
-            "5|p2:Service Desk / Jira Adapter @@https://claude.ai/code/artifact/08c98b8a-ac17-4976-90b6-b3a2a0ba5771#orders"
+            "5|p2:Service Desk / Jira Adapter"
           ]
         },
         {
           "name": "Define & Sell Recurring Value",
           "chips": [
-            "2|p1:Catalog, Package & Pricing @@https://claude.ai/code/artifact/08c98b8a-ac17-4976-90b6-b3a2a0ba5771#portal",
+            "2|p1:Catalog, Package & Pricing",
             "1|p2:Party & Ecosystem Registry",
             "3|p1:Contract & Entitlement"
           ]
@@ -214,15 +214,15 @@
           "chips": [
             "4|p2:Service Subject & Configuration",
             "5|p2:Signal, Event & Alert",
-            "5|p1:Case, Work & SLA @@https://claude.ai/code/artifact/08c98b8a-ac17-4976-90b6-b3a2a0ba5771#value",
-            "6|p1:Evidence & Service History @@https://claude.ai/code/artifact/08c98b8a-ac17-4976-90b6-b3a2a0ba5771#value"
+            "5|p1:Case, Work & SLA",
+            "6|p1:Evidence & Service History"
           ]
         },
         {
           "name": "Prove, Bill & Grow",
           "chips": [
-            "7|p1:Value, Revenue & Renewal @@https://claude.ai/code/artifact/08c98b8a-ac17-4976-90b6-b3a2a0ba5771#value",
-            "7|p2:Improvement & Returns @@https://claude.ai/code/artifact/08c98b8a-ac17-4976-90b6-b3a2a0ba5771#pcs"
+            "7|p1:Value, Revenue & Renewal",
+            "7|p2:Improvement & Returns"
           ]
         }
       ]
@@ -237,7 +237,7 @@
             "4|p1:Tenant, Job & Access",
             "p2:Module Registry",
             "4|p2:Integration & Data Contract",
-            "p1:Governance & Audit @@https://claude.ai/code/artifact/08c98b8a-ac17-4976-90b6-b3a2a0ba5771#status"
+            "p1:Governance & Audit"
           ]
         }
       ]
