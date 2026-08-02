@@ -4,13 +4,18 @@
   "stakeholders": [
     {
       "id": "sh67-q357kg",
-      "title": "Partners / Supplier / Ecosystem",
+      "title": "Information",
       "hue": "partner",
-      "glyph": "P",
+      "glyph": "I",
       "side": "left",
       "image": null,
       "items": [
-        "ช่องทางการซื้อขาย : Trading Channels - Broker - บัญชีซื้อขายหลักทรัพย์ของบริษัท  KSecurities (KS) - บล.กสิกรไทย"
+        "SET - ข้อมูลทางการตลาดหลักทรัพย์ฯ",
+        "Yahoo Finance -  ราคา+งบการเงิน",
+        "TradingView - เทคโนโลยีกราฟมืออาชีพในระบบ",
+        "Settrade - ข้อมูลตลาดหุ้นไทย + Open API",
+        "ข่าวหุ้น - จากแหล่งข้อมูลของข่าวไทยและต่างประเทศ",
+        "Claude AI (Anthropic) -  วิเคราะห์เชิงลึก"
       ]
     },
     {
@@ -60,7 +65,9 @@
       "glyph": "P",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "PCC Trading AI Assistant"
+      ]
     }
   ],
   "layers": [
