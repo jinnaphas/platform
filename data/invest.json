@@ -18,13 +18,19 @@
       "glyph": "C",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "Bank - ธนาคารพันธมิตร · สภาพคล่องและวงเงิน",
+        "Business Partner - ข้อมูลเชิงลึกรายอุตสาหกรรม",
+        "Financial Analysis - บทวิเคราะห์ภายนอก",
+        "Investment Consultant - ที่ปรึกษารับใบอนุญาต",
+        "AI Investment Committee  - กรรมการเสมือน 4 บทบาท 1.Analyst  2.Devil′s 3.Advocate  4.Risk (veto) PM คะแนนเต็ม 100"
+      ]
     },
     {
       "id": "sh69-3on4xa",
       "title": "Competitor",
       "hue": "compet",
-      "glyph": "VS",
+      "glyph": "C",
       "side": "left",
       "image": null,
       "items": []
@@ -45,7 +51,9 @@
       "glyph": "PB",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
       "id": "sh72-xc7zpd",
