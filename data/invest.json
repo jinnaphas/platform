@@ -29,12 +29,14 @@
     },
     {
       "id": "sh70-1xvto8",
-      "title": "Buyer",
+      "title": "Trading Channels",
       "hue": "buyer",
-      "glyph": "B",
+      "glyph": "T",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "Broker - บัญชีซื้อขายหลักทรัพย์ของบริษัท  KSecurities (KS) - บล.กสิกรไทย"
+      ]
     },
     {
       "id": "sh71-er70d0",
@@ -44,6 +46,11 @@
       "side": "right",
       "image": null,
       "items": [
+        "กลยุทธ์การลงทุน - Trend Following / Breakout · R:R ≥ 1.5",
+        "Sector - เปรียบเทียบรายหมวดอุตสาหกรรม (14 หมวด SET)• หุ้นไทย (SET) - พอร์ตหลักของบริษัท• หุ้นต่างประเทศ (US) - กระจายความเสี่ยง",
+        "Market Regime - Dividend/Bull/Bear/Sideways/Panic ชี้กลยุทธ์",
+        "Risk Management - Position Sizing จาก Risk% ต่อไม้",
+        "เป้าหมายผลงานรายปี - ติดตามกำไรจริงเทียบเป้า",
         "บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]"
       ]
     },
@@ -51,7 +58,7 @@
       "id": "sh72-xc7zpd",
       "title": "Platform Admin",
       "hue": "admin",
-      "glyph": "A",
+      "glyph": "P",
       "side": "right",
       "image": null,
       "items": []
