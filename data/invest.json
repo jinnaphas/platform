@@ -68,7 +68,9 @@
       "groups": [
         {
           "name": "Core Capability",
-          "chips": []
+          "chips": [
+            "Portfolio Optimization"
+          ]
         }
       ]
     },
@@ -95,5 +97,6 @@
         }
       ]
     }
-  ]
+  ],
+  "images": []
 }
