@@ -92,7 +92,12 @@
           "chips": [
             "Seeding",
             "Tissue Culture",
-            "Nursery"
+            "Nursery",
+            "Planting",
+            "Harvesting",
+            "Transportation",
+            "Preparation",
+            "Conversion"
           ]
         },
         {
