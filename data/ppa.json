@@ -88,7 +88,7 @@
       "title": "Technology Platform",
       "groups": [
         {
-          "name": "Bamboo Micropropagation",
+          "name": "Addressing overall of bamboo",
           "chips": [
             "Seeding",
             "Tissue Culture",
@@ -101,21 +101,12 @@
           ]
         },
         {
-          "name": "Bamboo Harvesting",
+          "name": "CCHP Biomass Powerplant",
           "chips": [
             "การคัดเลือกไผ่ตามเกณฑ์",
             "การตัดไผ่จากกอ",
             "การริดกิ่ง+ตัดท่อน",
             "การขนส่ง"
-          ]
-        },
-        {
-          "name": "Bamboo Conversion",
-          "chips": [
-            "Wood Chip",
-            "Pulp",
-            "Biochar",
-            "Particle"
           ]
         }
       ]
