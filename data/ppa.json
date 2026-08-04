@@ -100,12 +100,12 @@
           ]
         },
         {
-          "name": "CCHP Biomass Powerplant",
+          "name": "Bamboo Conversion",
           "chips": [
-            "Upstream & Feedstock Preparation",
-            "Core Thermochemical Conversion",
-            "Power Generation Technology",
-            "Trigeneration & Cooling"
+            "Pulp",
+            "Biochar",
+            "Wood chip",
+            "Particle"
           ]
         },
         {
