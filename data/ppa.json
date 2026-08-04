@@ -142,13 +142,14 @@
             "Farmer Register",
             "Land Improvement",
             "Local Industry",
-            "Environment, Social and Governance"
+            "Environment, Social and Governance",
+            "Bamboo Farming"
           ]
         },
         {
           "name": "Demand Satisfaction Platform",
           "chips": [
-            "Bamboo Farming"
+            "New Capability"
           ]
         },
         {
