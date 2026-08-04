@@ -147,7 +147,9 @@
         },
         {
           "name": "Demand Satisfaction Platform",
-          "chips": []
+          "chips": [
+            "Bamboo Farming"
+          ]
         },
         {
           "name": "Ecosystem Partner",
