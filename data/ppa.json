@@ -96,14 +96,22 @@
             "Planting",
             "Harvesting",
             "Transportation",
-            "Preparation",
-            "Conversion"
+            "Preparation"
           ]
         },
         {
           "name": "CCHP Biomass Powerplant",
           "chips": [
             "Upstream & Feedstock Preparation",
+            "Core Thermochemical Conversion",
+            "Power Generation Technology",
+            "Trigeneration & Cooling"
+          ]
+        },
+        {
+          "name": "CCHP Biomass Powerplant",
+          "chips": [
+            "CCHP Biomass Powerplant",
             "Core Thermochemical Conversion",
             "Power Generation Technology",
             "Trigeneration & Cooling"
