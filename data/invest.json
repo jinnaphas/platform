@@ -65,7 +65,9 @@
       "side": "right",
       "image": null,
       "items": [
-        "PCC Trading AI Assistant"
+        "PCC Trading AI Assistant",
+        "ดูแลเกณฑ์และเวอร์ชัน",
+        "สิทธิการเข้าถึงข้อมูล"
       ]
     },
     {
@@ -94,27 +96,45 @@
         {
           "name": "Insight and analysis",
           "chips": [
-            "New Capability"
+            "Data intake :  รวมข้อมูลราคา งบ มหภาค ปรับ XD/XR แปลงเป็น TTM",
+            "Screening : hard filter + soft score ตามเกณฑ์",
+            "Valuation",
+            "Market regime"
           ]
         },
         {
           "name": "Decision and allocation",
-          "chips": []
+          "chips": [
+            "Cash vs invest",
+            "Portfolio optimization",
+            "Order sizing",
+            "Scenario test"
+          ]
         },
         {
           "name": "Monitoring and reporting",
-          "chips": []
+          "chips": [
+            "Investment dashboard",
+            "Dividend calendar",
+            "Yield on cost",
+            "Quarterly report"
+          ]
         },
         {
           "name": "Risk, control and foundation",
           "chips": [
-            "New Capability"
+            "Limit and mandate",
+            "Approval, audit trail",
+            "Point-in-time data",
+            "Cyber security"
           ]
         },
         {
           "name": "Business generation (มีข่าว)",
           "chips": [
-            "New Capability"
+            "Treasury yield plan",
+            "Partner value",
+            "Knowledge base"
           ]
         }
       ]
