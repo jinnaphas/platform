@@ -39,7 +39,9 @@
       "side": "right",
       "image": null,
       "items": [
-        "Broker - บัญชีซื้อขายหลักทรัพย์ของบริษัท  KSecurities (KS) - บล.กสิกรไทย"
+        "Broker - KSecurities (KS)",
+        "ส่งคำสั่งและยืนยันรายการ",
+        "ชำระราคาและส่งมอบ"
       ]
     },
     {
@@ -63,7 +65,7 @@
       "side": "right",
       "image": null,
       "items": [
-        "PCC Trading AI Assistant",
+        "PCC Trading AI Assistant : ระบบที่ใช้งานได้ AI assistant",
         "ดูแลเกณฑ์และเวอร์ชัน",
         "สิทธิการเข้าถึงข้อมูล"
       ]
@@ -104,35 +106,35 @@
           "chips": [
             "Data intake :  รวมข้อมูลราคา งบ มหภาค ปรับ XD/XR แปลงเป็น TTM",
             "Screening : hard filter + soft score ตามเกณฑ์",
-            "Valuation",
-            "Market regime"
+            "Valuation : DDM, peer z-score, ราคาที่ให้ yield เป้าหมาย",
+            "Market regime : ระบุช่วงตลาดและปรับน้ำหนักเกณฑ์"
           ]
         },
         {
           "name": "Decision and allocation",
           "chips": [
-            "Cash vs invest",
-            "Portfolio optimization",
-            "Order sizing",
-            "Scenario test"
+            "Cash vs invest : ตัดสินสัดส่วนเงินสดกับเงินลงทุนตามสภาพคล่องธุรกิจ",
+            "Portfolio optimization : กำหนดน้ำหนักรายตัว เพดานรายกลุ่ม แผน rebalance",
+            "Order sizing : แปลงน้ำหนักเป็นจำนวนหุ้นและราคาที่จะเข้า",
+            "Scenario test : ทดสอบผลกระทบเมื่อราคาหรือปันผลเปลี่ยน"
           ]
         },
         {
           "name": "Monitoring and reporting",
           "chips": [
-            "Investment dashboard",
-            "Dividend calendar",
-            "Yield on cost",
-            "Quarterly report"
+            "Investment dashboard : มูลค่าตลาด ต้นทุน กำไรขาดทุนทั้งรับรู้และยังไม่รับรู้",
+            "Dividend calendar : ปฏิทิน XD วันจ่าย จำนวนที่จะได้รับ",
+            "Yield on cost : ผลตอบแทนเทียบต้นทุนจริงรายตัวและรวมพอร์ต",
+            "Quarterly report : รายงานการลงทุนในธุรกิจอื่นตามรอบ"
           ]
         },
         {
           "name": "Risk, control and foundation",
           "chips": [
-            "Limit and mandate",
-            "Approval, audit trail",
-            "Point-in-time data",
-            "Cyber security"
+            "Limit and mandate : คุมเพดานรายตัว รายกลุ่ม และประเภทหลักทรัพย์ที่ลงทุนได้",
+            "Approval, audit trail : ขั้นอนุมัติและบันทึกว่าใครทำอะไรเมื่อไหร่",
+            "Point-in-time data : เก็บวันที่เปิดเผยข้อมูลคู่กับงวดข้อมูล",
+            "Cyber security : สิทธิ์เข้าถึง การเข้ารหัส การสำรองข้อมูล"
           ]
         },
         {
