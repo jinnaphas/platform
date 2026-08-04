@@ -67,9 +67,10 @@
         "S&OP นักส่งเสริมทำสัญญากับเกษตรกรเพื่อเริ่มโครงการปลูกไผ่ → [ฺBamboo Farming]",
         "Production เก็บเกี่ยว ขนส่ง แปรรูป→ [Bamboo Harvesting and Conversion]",
         "Sale เจรจาและบริหารสัญญา PPA → [Local Industry]",
-        "Colocation Datacenter → [ชื่อ Platform ที่รองรับ]",
-        "AIaaS → [ชื่อ Platform ที่รองรับ]",
-        "Smart District → [ชื่อ Platform ที่รองรับ]"
+        "Production เดินโรงไฟฟ้าและบริหารความพร้อมจ่าย→ [Operation Availability/Reliability]",
+        "Colocation Datacenter → [ชื่อ Platform ที่รองรับ]",
+        "AIaaS → [ชื่อ Platform ที่รองรับ]",
+        "Smart Distric→ [ชื่อ Platform ที่รองรับ]"
       ]
     },
     {
