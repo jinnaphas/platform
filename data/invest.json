@@ -136,14 +136,6 @@
             "Point-in-time data : เก็บวันที่เปิดเผยข้อมูลคู่กับงวดข้อมูล",
             "Cyber security : สิทธิ์เข้าถึง การเข้ารหัส การสำรองข้อมูล"
           ]
-        },
-        {
-          "name": "Business generation",
-          "chips": [
-            "Treasury yield plan",
-            "Partner value",
-            "Knowledge base"
-          ]
         }
       ]
     },
