@@ -47,8 +47,7 @@
       "side": "right",
       "image": null,
       "items": [
-        "ทำเอกสารซื้อขายระยะสั้น → [Farmer Register]",
-        "ทำสัญญาซื้อขายระยะยาวผ่านระบบสัญญาบน Platform → [Local Industry, Land Development]",
+        "ทำสัญญาซื้อขายระยะยาวผ่านระบบสัญญาบน Platform → [Farmer Register,Local Industry, Land Development]",
         "Carbon Credit → [Environment, Social and Governance]",
         "Land Investor → [Land Improvement]",
         "บริการ AI Platform→ [ชื่อ Platform ที่รองรับ]",
@@ -140,7 +139,6 @@
         {
           "name": "Buyer/User Platform",
           "chips": [
-            "หาโอกาสและรายชื่อเกษตรกรเข้าร่วมโครงการ",
             "Farmer Register",
             "Land Improvement",
             "Local Industry",
