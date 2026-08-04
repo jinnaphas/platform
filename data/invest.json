@@ -67,6 +67,24 @@
       "items": [
         "PCC Trading AI Assistant"
       ]
+    },
+    {
+      "id": "sh1-rafbhx",
+      "title": "Stakeholder ใหม่",
+      "hue": "admin",
+      "glyph": "S",
+      "side": "right",
+      "image": null,
+      "items": []
+    },
+    {
+      "id": "sh2-fm8qjq",
+      "title": "Stakeholder ใหม่",
+      "hue": "partner",
+      "glyph": "S",
+      "side": "left",
+      "image": null,
+      "items": []
     }
   ],
   "layers": [
@@ -74,12 +92,29 @@
       "title": "Technology Platform",
       "groups": [
         {
-          "name": "Investment platform",
+          "name": "Insight and analysis",
           "chips": [
-            "Portfolio Optimization",
-            "Investment dashboard",
-            "Investment Analysis",
-            "Consumer behavior insights dashboard"
+            "New Capability"
+          ]
+        },
+        {
+          "name": "Decision and allocation",
+          "chips": []
+        },
+        {
+          "name": "Monitoring and reporting",
+          "chips": []
+        },
+        {
+          "name": "Risk, control and foundation",
+          "chips": [
+            "New Capability"
+          ]
+        },
+        {
+          "name": "Business generation (มีข่าว)",
+          "chips": [
+            "New Capability"
           ]
         }
       ]
