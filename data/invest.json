@@ -10,13 +10,11 @@
       "side": "left",
       "image": null,
       "items": [
-        "หน่วยงานและตลาดหลักทรัพย์ : ตลาดหลักทรัพย์แห่งประเทศไทย (SET), SETTRADE, เว็บไซต์สำนักงาน ก.ล.ต.",
-        "ข้อมูลจากบริษัทโดยตรง : เว็บไซต์ Investor Relations ของบริษัท",
-        "ข้อมูลเศรษฐกิจ (Macro) : ธนาคารแห่งประเทศไทย, สภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ, กระทรวงพาณิชย์, สำนักงานเศรษฐกิจการคลัง, สำนักงานนโยบายและยุทธศาสตร์การค้า",
-        "บทวิเคราะห์จากบริษัทหลักทรัพย์ : InnovestX, Kasikorn, Bualuang, Krungsri, KGI, Yuanta, Finansia Syrus, Maybank, Phillip, CGS International, TISCO, DAOL",
-        "สื่อการลงทุนในประเทศ : THE STANDARD WEALTH, ลงทุนแมน, ทันโลกกับ Trader KP, eFinanceThai, FINNOMENA, Money Buffalo, กรุงเทพธุรกิจ, ฐานเศรษฐกิจ, ประชาชาติธุรกิจ, ข่าวหุ้นธุรกิจ, Wealth Me Up, Kaohoon International",
-        "สื่อต่างประเทศ : Reuters, Bloomberg, CNBC, Financial Times, The Wall Street Journal, Nikkei Asia, Yahoo Finance, Morningstar, S&P Global, Trading Economics",
-        "ชุมชนและความคิดเห็นของนักลงทุน : ThaiVI, Facebook Group, YouTube, X, Pantip, กลุ่ม LINE, Podcast การลงทุน, บทสัมภาษณ์นักลงทุนรายบุคคล"
+        "SET, SETTRADE, ก.ล.ต.",
+        "IR ข้อมูลบริษัทจดทะเบียน",
+        "ตลท., สมาคมฯ",
+        "กระทรวงพาณิชย์, สศค., สบน.",
+        "บทวิเคราะห์หลักทรัพย์"
       ]
     },
     {
@@ -27,10 +25,10 @@
       "side": "left",
       "image": null,
       "items": [
-        "Bank - ธนาคารพันธมิตร · สภาพคล่องและวงเงิน",
-        "Business Partner - ข้อมูลเชิงลึกรายอุตสาหกรรม",
-        "Financial Analysis - บทวิเคราะห์ภายนอก",
-        "Investment Consultant - ที่ปรึกษารับใบอนุญาต"
+        "Bank - วงเงิน, สภาพคล่อง",
+        "Business partner - ข้อมูลอุตสาหกรรม",
+        "Financial analysis - บทวิเคราะห์ภายนอก",
+        "Investment consultant - ที่ปรึกษาที่มีใบอนุญาต"
       ]
     },
     {
@@ -85,12 +83,16 @@
     },
     {
       "id": "sh2-fm8qjq",
-      "title": "Stakeholder ใหม่",
+      "title": "Finance and tax",
       "hue": "partner",
-      "glyph": "S",
+      "glyph": "F",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "บันทึกบัญชีเงินลงทุน",
+        "ภาษีเงินปันผล",
+        "ปิดงบและหมายเหตุประกอบ"
+      ]
     }
   ],
   "layers": [
