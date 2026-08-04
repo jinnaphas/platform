@@ -72,12 +72,16 @@
     },
     {
       "id": "sh1-rafbhx",
-      "title": "Stakeholder ใหม่",
+      "title": "Governance",
       "hue": "admin",
-      "glyph": "S",
+      "glyph": "G",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "คณะกรรมการลงทุน, CFO",
+        "อนุมัติวงเงินและ mandate",
+        "ตรวจสอบภายใน, ผู้สอบบัญชี"
+      ]
     },
     {
       "id": "sh2-fm8qjq",
