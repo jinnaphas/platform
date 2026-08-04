@@ -149,7 +149,9 @@
         },
         {
           "name": "Demand Satisfaction Platform",
-          "chips": []
+          "chips": [
+            "Operation Availability/Reliability"
+          ]
         },
         {
           "name": "Ecosystem Partner",
