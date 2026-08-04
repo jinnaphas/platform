@@ -118,6 +118,13 @@
             "Environment & Emission Control",
             "Smart Control & Integration"
           ]
+        },
+        {
+          "name": "Agentic AI",
+          "chips": [
+            "Colocation Data Center",
+            "AI Open Siurce/AIaaS"
+          ]
         }
       ]
     },
