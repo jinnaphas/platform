@@ -48,10 +48,11 @@
       "image": null,
       "items": [
         "ทำเอกสารซื้อขายระยะสั้น → [Farmer Register]",
-        "ทำสัญญาซื้อขายระยะยาว → [Local Industry, Land Development]",
+        "ทำสัญญาซื้อขายระยะยาวผ่านระบบสัญญาบน Platform → [Local Industry, Land Development]",
         "Carbon Credit → [Environment, Social and Governance]",
         "Land Investor → [Land Improvement]",
-        "บริการ AI Platform→ [ชื่อ Platform ที่รองรับ]"
+        "บริการ AI Platform→ [ชื่อ Platform ที่รองรับ]",
+        "เปรียบเทียบราคาและสเปคของเชื้อเพลิงผ่านระบบ → [E-Marketplace]"
       ]
     },
     {
@@ -139,7 +140,9 @@
         },
         {
           "name": "Ecosystem Partner",
-          "chips": []
+          "chips": [
+            "E-Marketplace"
+          ]
         }
       ]
     },
