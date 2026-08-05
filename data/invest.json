@@ -4,7 +4,7 @@
   "stakeholders": [
     {
       "id": "sh67-q357kg",
-      "title": "Information",
+      "title": "Information / ข้อมูลตลาด",
       "hue": "partner",
       "glyph": "I",
       "side": "left",
@@ -19,7 +19,7 @@
     },
     {
       "id": "sh68-jrosce",
-      "title": "Complementor",
+      "title": "Complementor / ที่ปรึกษา",
       "hue": "comp",
       "glyph": "C",
       "side": "left",
@@ -33,7 +33,7 @@
     },
     {
       "id": "sh70-1xvto8",
-      "title": "Trading Channels",
+      "title": "Trading Channels / ส่งคำสั่งซื้อขาย",
       "hue": "buyer",
       "glyph": "T",
       "side": "right",
@@ -46,9 +46,9 @@
     },
     {
       "id": "sh71-er70d0",
-      "title": "Precise Business",
+      "title": "Precise Business /กำหนดเกณฑ์",
       "hue": "biz",
-      "glyph": "PB",
+      "glyph": "P",
       "side": "right",
       "image": null,
       "items": [
@@ -60,7 +60,7 @@
     },
     {
       "id": "sh72-xc7zpd",
-      "title": "Platform Admin",
+      "title": "Platform Admin / ดูแลสิทธิ์",
       "hue": "admin",
       "glyph": "P",
       "side": "right",
@@ -73,7 +73,7 @@
     },
     {
       "id": "sh1-rafbhx",
-      "title": "Governance",
+      "title": "Governance / อนุมัติวงเงิน",
       "hue": "admin",
       "glyph": "G",
       "side": "right",
@@ -86,7 +86,7 @@
     },
     {
       "id": "sh2-fm8qjq",
-      "title": "Finance and tax",
+      "title": "Finance and tax / บัญชีและภาษี",
       "hue": "partner",
       "glyph": "F",
       "side": "left",
@@ -116,7 +116,7 @@
           "chips": [
             "Cash vs invest : ตัดสินสัดส่วนเงินสดกับเงินลงทุนตามสภาพคล่องธุรกิจ",
             "Portfolio optimization : กำหนดน้ำหนักรายตัว เพดานรายกลุ่ม แผน rebalance",
-            "Order sizing : แปลงน้ำหนักเป็นจำนวนหุ้นและราคาที่จะเข้า",
+            "Order sizing : แปลงน้ำหนักเป็นจำนวนหุ้นและราคาที่จะเข้า @@https://Broker - KSecurities (KS)",
             "Scenario test : ทดสอบผลกระทบเมื่อราคาหรือปันผลเปลี่ยน"
           ]
         },
@@ -130,7 +130,7 @@
           ]
         },
         {
-          "name": "Risk, control and foundation",
+          "name": "Risk and control",
           "chips": [
             "Limit and mandate : คุมเพดานรายตัว รายกลุ่ม และประเภทหลักทรัพย์ที่ลงทุนได้",
             "Approval, audit trail : ขั้นอนุมัติและบันทึกว่าใครทำอะไรเมื่อไหร่",
