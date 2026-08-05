@@ -486,6 +486,20 @@
   #pHint { font-size: 11.5px; color: var(--muted); }
   #presentCtl .pdiv { width: 1px; height: 20px; background: var(--line); }
 
+  /* โหมดลากเส้นเชื่อม Flow */
+  #connectHint {
+    display: none; font-size: 11px; color: var(--team); font-weight: 600;
+    max-width: 210px; line-height: 1.3;
+  }
+  body.link-mode #connectHint { display: inline-block; }
+  body.link-mode .actor li .txt { cursor: crosshair; }
+  body.link-mode .actor li .txt:hover { box-shadow: inset 0 0 0 1.5px var(--team); }
+  body.link-mode .chip, body.link-mode .group h4 { cursor: crosshair; }
+  .txt.connect-src {
+    box-shadow: inset 0 0 0 2px var(--team) !important;
+    background: color-mix(in srgb, var(--team) 12%, transparent) !important;
+  }
+
   /* dock เครื่องมือลอย (อยู่ตลอดแม้ซ่อน header) */
   #dock {
     position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
@@ -661,8 +675,10 @@
     <button class="prio-btn b0" data-prio="0" title="ยางลบ — ล้างสี Priority">⌀</button>
   </div>
   <span class="pdiv"></span>
+  <button class="btn" id="btnConnect" title="โหมดลากเส้นเชื่อม Flow: คลิกบทบาทต้นทาง แล้วคลิก Capability ปลายทาง · Esc ออก">🖇 เชื่อม</button>
   <button class="btn" id="btnFlows" title="แสดง/ซ่อนเส้น Flow ทั้งหมด แยกสีตาม Stakeholder">Flow</button>
   <button class="btn primary" id="btnPresent" title="โหมดนำเสนอเต็มจอ เดินเรื่องทีละ step">▶ นำเสนอ</button>
+  <span id="connectHint">① คลิกบทบาทต้นทาง ② คลิก Capability ปลายทาง</span>
   <span class="pdiv"></span>
   <button class="btn" id="btnHelp" title="วิธีใช้งาน">?</button>
 </div>
@@ -672,6 +688,7 @@
   · แถบ <b>Value Chain</b> บนจอ กำหนดขั้นธุรกิจของทีมเอง<br>
   · Capability พิมพ์ <b>"3|ชื่อ"</b> = ติดหมายเลขขั้น · ใส่ <b>🆕</b> ในชื่อ = ไฮไลต์ของใหม่<br>
   · <b>Priority:</b> คลิกสี <span style="color:var(--p1);font-weight:700">P1 ขาดไม่ได้</span> / <span style="color:var(--p2);font-weight:700">P2 ทำถัดไป</span> / <span style="color:var(--p3);font-weight:700">P3 ทีหลัง</span> แล้วคลิกแต้มลง Capability (⌀ ลบสี · Esc วางปากกา)<br>
+  · <b>🖇 เชื่อม Flow แบบคลิก:</b> กดปุ่ม 🖇 แล้ว ① คลิกบทบาทต้นทาง ② คลิก Capability/ชื่อกลุ่มปลายทาง — ระบบเขียน → [ชื่อ] ให้เองพร้อมโชว์เส้นทันที (เชื่อมต่อได้เรื่อยๆ · Esc ออก)<br>
   · <b>ลิงก์เอกสาร:</b> ชี้เมาส์ที่ Capability หรือบทบาท แล้วกดปุ่ม 🔗 เพื่อแนบลิงก์ — ไอคอน ↗ คือกดเปิดได้<br>
   · <b>รูปประกอบ:</b> ล่างสุดของจอกลาง กด "+ เพิ่มรูป" ได้หลายรูป คลิกรูปเพื่อขยาย<br>
   · ชี้เมาส์ที่รายการที่มี [ชื่อ Platform] = เส้น Flow ไปยัง Capability · ปุ่ม Flow = ทุกเส้นแยกสีตาม Stakeholder<br>
@@ -1167,6 +1184,14 @@ function renderRails(){
         save(); renderRails();
       });
       li.appendChild(span);
+      span.dataset.si = i;
+      span.addEventListener("mousedown", e => {
+        if (!connectMode) return;
+        e.preventDefault();
+        document.querySelectorAll(".connect-src").forEach(x => x.classList.remove("connect-src"));
+        span.classList.add("connect-src");
+        connectSrc = { sh, i };
+      });
       if (link) span.appendChild(makeGoLink(link));
       li.appendChild(makeLnkBtn(link, url => {
         sh.items[i] = withLink(pl.base, url);
@@ -1246,6 +1271,11 @@ function renderPhone(){
       const h4 = document.createElement("h4");
       h4.contentEditable = "true"; h4.spellcheck = false; h4.textContent = gr.name;
       h4.onblur = () => { gr.name = h4.textContent.trim() || gr.name; save(); };
+      h4.addEventListener("mousedown", e => {
+        if (!connectMode || !connectSrc) return;
+        e.preventDefault();
+        completeConnect(gr.name);
+      });
       const gdel = document.createElement("button");
       gdel.className = "hdel"; gdel.textContent = "×"; gdel.title = "ลบกลุ่มนี้";
       gdel.onclick = () => {
@@ -1274,7 +1304,14 @@ function renderPhone(){
           chip.appendChild(b);
         }
         chip.addEventListener("mousedown", e => {
-          if (paintTool === null || e.target.closest(".golink, .lnk, .x")) return;
+          if (e.target.closest(".golink, .lnk, .x")) return;
+          if (connectMode){
+            if (!connectSrc) return;
+            e.preventDefault();
+            completeConnect(label.replace("🆕", "").trim());
+            return;
+          }
+          if (paintTool === null) return;
           e.preventDefault();
           gr.chips[i] = withLink(buildChip(stage, paintTool === "0" ? null : paintTool, label), link);
           save(); renderPhone();
@@ -1371,9 +1408,15 @@ function makeLnkBtn(currentLink, onSet){
 
 /* เครื่องมือระบายสี Priority */
 let paintTool = null;
+function exitPaint(){
+  paintTool = null;
+  document.querySelectorAll(".prio-btn").forEach(b => b.classList.remove("on"));
+  document.body.classList.remove("paint-mode");
+}
 document.querySelectorAll(".prio-btn").forEach(btn => {
   btn.onclick = () => {
     const v = btn.dataset.prio;
+    exitConnect();
     paintTool = (paintTool === v) ? null : v;
     document.querySelectorAll(".prio-btn").forEach(b =>
       b.classList.toggle("on", paintTool !== null && b.dataset.prio === paintTool));
@@ -1381,12 +1424,43 @@ document.querySelectorAll(".prio-btn").forEach(btn => {
   };
 });
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && paintTool !== null){
-    paintTool = null;
-    document.querySelectorAll(".prio-btn").forEach(b => b.classList.remove("on"));
-    document.body.classList.remove("paint-mode");
-  }
+  if (e.key === "Escape"){ if (paintTool !== null) exitPaint(); exitConnect(); }
 });
+
+/* โหมดลากเส้นเชื่อม Flow: คลิกบทบาท → คลิก Capability/ชื่อกลุ่ม */
+let connectMode = false;
+let connectSrc = null;
+function exitConnect(){
+  connectMode = false; connectSrc = null;
+  $("#btnConnect").classList.remove("on");
+  document.body.classList.remove("link-mode");
+  document.querySelectorAll(".connect-src").forEach(x => x.classList.remove("connect-src"));
+}
+$("#btnConnect").onclick = () => {
+  if (connectMode){ exitConnect(); return; }
+  exitPaint();
+  connectMode = true; connectSrc = null;
+  $("#btnConnect").classList.add("on");
+  document.body.classList.add("link-mode");
+};
+function completeConnect(targetName){
+  const { sh, i } = connectSrc;
+  const pl = parseLink(sh.items[i]);
+  /* ตัด [..] เดิมท้ายข้อความออก (ถ้ามี) แล้วต่อปลายทางใหม่ */
+  const base = pl.base.replace(/\s*(?:→|->)?\s*\[[^\]]*\]\s*$/, "").trim();
+  sh.items[i] = withLink(base + " → [" + targetName + "]", pl.link);
+  const shIdx = design().stakeholders.indexOf(sh), si = i;
+  connectSrc = null;
+  save(); renderRails();
+  /* โชว์เส้นที่เพิ่งเชื่อมทันที แล้วค่อยจางไป */
+  requestAnimationFrame(() => {
+    const span = document.querySelector(`.actor[data-sh="${shIdx}"] .txt[data-si="${si}"]`);
+    if (span){
+      highlight(span);
+      setTimeout(() => { if (!activeSource || activeSource === span) clearHighlight(); }, 1800);
+    }
+  });
+}
 
 /* แกลเลอรีรูปประกอบบนจอ */
 function renderGallery(){
