@@ -10,7 +10,7 @@
       "side": "left",
       "image": null,
       "items": [
-        "SET, SETTRADE, ก.ล.ต.",
+        "SET, SETTRADE, ก.ล.ต. → [Dividend calendar : ปฏิทิน XD วันจ่าย จำนวนที่จะได้รับ]",
         "IR ข้อมูลบริษัทจดทะเบียน",
         "ตลท., สมาคมฯ",
         "กระทรวงพาณิชย์, สศค., สบน.",
@@ -39,7 +39,7 @@
       "side": "right",
       "image": null,
       "items": [
-        "Broker - KSecurities (KS)",
+        "Broker - KSecurities (KS) → [Order sizing : แปลงน้ำหนักเป็นจำนวนหุ้นและราคาที่จะเข้า]",
         "ส่งคำสั่งและยืนยันรายการ",
         "ชำระราคาและส่งมอบ"
       ]
@@ -52,9 +52,9 @@
       "side": "right",
       "image": null,
       "items": [
-        "กลยุทธ์การลงทุน  : รายได้จากเงินปันผล และ capital gain",
-        "กรอบหลักการพิจารณาการลงทุนในตลาดหลักทรัพย์ (Investment Decision Framework)\nกำหนดกรอบการวิเคราะห์การลงทุน 3 ระดับ ได้แก่ Conceptual View, Strategic View และ Detail Operation View เพื่อใช้เป็นหลักเกณฑ์ในการตัดสินใจลงทุนอย่างเป็นระบบ ครอบคลุมประเด็นสำคัญ ดังนี้ (1) ลงทุนหรือถือเงินสด (2) เลือก/ออกจากกลุ่มอุตสาหกรรม และ (3) สลับหุ้นเพื่อสร้าง capital gain โดยรักษากระแสเงินปันผลใกล้เคียงเดิม",
-        "Data (Qualitative & Quantitative) → Time Frame → Concept Analysis → Decision Criteria → Investment Action (Buy / Hold / Sell / Rotate)",
+        "กลยุทธ์การลงทุน  : รายได้จากเงินปันผล และ capital gain → [Yield on cost : ผลตอบแทนเทียบต้นทุนจริงรายตัวและรวมพอร์ต]",
+        "กรอบหลักการพิจารณาการลงทุนในตลาดหลักทรัพย์ (Investment Decision Framework)\nกำหนดกรอบการวิเคราะห์การลงทุน 3 ระดับ ได้แก่ Conceptual View, Strategic View และ Detail Operation View เพื่อใช้เป็นหลักเกณฑ์ในการตัดสินใจลงทุนอย่างเป็นระบบ ครอบคลุมประเด็นสำคัญ ดังนี้ (1) ลงทุนหรือถือเงินสด (2) เลือก/ออกจากกลุ่มอุตสาหกรรม และ (3) สลับหุ้นเพื่อสร้าง capital gain โดยรักษากระแสเงินปันผลใกล้เคียงเดิม → [Portfolio optimization : กำหนดน้ำหนักรายตัว เพดานรายกลุ่ม แผน rebalance]",
+        "Data (Qualitative & Quantitative) → Time Frame → Concept Analysis → Decision Criteria → Investment Action (Buy / Hold / Sell / Rotate) → [Market regime : ระบุช่วงตลาดและปรับน้ำหนักเกณฑ์]",
         "เป้าหมายการลงทุนต่อปี"
       ]
     },
@@ -116,7 +116,7 @@
           "chips": [
             "Cash vs invest : ตัดสินสัดส่วนเงินสดกับเงินลงทุนตามสภาพคล่องธุรกิจ",
             "Portfolio optimization : กำหนดน้ำหนักรายตัว เพดานรายกลุ่ม แผน rebalance",
-            "Order sizing : แปลงน้ำหนักเป็นจำนวนหุ้นและราคาที่จะเข้า @@https://Broker - KSecurities (KS)",
+            "Order sizing : แปลงน้ำหนักเป็นจำนวนหุ้นและราคาที่จะเข้า",
             "Scenario test : ทดสอบผลกระทบเมื่อราคาหรือปันผลเปลี่ยน"
           ]
         },
@@ -137,15 +137,6 @@
             "Point-in-time data : เก็บวันที่เปิดเผยข้อมูลคู่กับงวดข้อมูล",
             "Cyber security : สิทธิ์เข้าถึง การเข้ารหัส การสำรองข้อมูล"
           ]
-        }
-      ]
-    },
-    {
-      "title": "Commercial & Management Technology Platform",
-      "groups": [
-        {
-          "name": "Business Generation",
-          "chips": []
         }
       ]
     },
