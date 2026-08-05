@@ -25,7 +25,7 @@
       "side": "left",
       "image": null,
       "items": [
-        "Bank - วงเงิน, สภาพคล่อง",
+        "Bank - วงเงิน, สภาพคล่อง @@https://Decision and allocation",
         "Business partner - ข้อมูลอุตสาหกรรม",
         "Financial analysis - บทวิเคราะห์ภายนอก",
         "Investment consultant - ที่ปรึกษาที่มีใบ"
@@ -39,7 +39,7 @@
       "side": "right",
       "image": null,
       "items": [
-        "Broker - KSecurities (KS) → [Cash vs invest : ตัดสินสัดส่วนเงินสดกับเงินลงทุนตามสภาพคล่องธุรกิจ]",
+        "Broker - KSecurities (KS) → [Cash vs invest : ตัดสินสัดส่วนเงินสดกับเงินลงทุนตามสภาพคล่องธุรกิจ] @@https://Decision and allocation",
         "ส่งคำสั่งและยืนยันรายการ",
         "ชำระราคาและส่งมอบ"
       ]
@@ -66,7 +66,7 @@
       "side": "right",
       "image": null,
       "items": [
-        "PCC Trading AI Assistant : ระบบที่ใช้งานได้ AI assistant",
+        "PCC Trading AI Assistant : ระบบที่ใช้งานได้ AI assistant @@https://Risk, control and foundation",
         "ดูแลเกณฑ์และเวอร์ชัน",
         "สิทธิการเข้าถึงข้อมูล"
       ]
@@ -79,7 +79,7 @@
       "side": "right",
       "image": null,
       "items": [
-        "คณะกรรมการลงทุน, CFO",
+        "คณะกรรมการลงทุน, CFO @@https://Risk, control and foundation",
         "อนุมัติวงเงินและ mandate",
         "ตรวจสอบภายใน, ผู้สอบบัญชี"
       ]
@@ -92,7 +92,7 @@
       "side": "left",
       "image": null,
       "items": [
-        "บันทึกบัญชีเงินลงทุน",
+        "บันทึกบัญชีเงินลงทุน @@https://Monitoring and reporting",
         "ภาษีเงินปันผล",
         "ปิดงบและหมายเหตุประกอบ"
       ]
