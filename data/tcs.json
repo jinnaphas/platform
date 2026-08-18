@@ -115,7 +115,8 @@
         "S&OP เชื่อมข้อมูล PO Received/RRC เข้าสู่ TPS/MIS แบบ\nVertical Line เพื่อวัดผลจริง  →  [S&OP–TPS/MIS Integration Layer]",
         "S&OP ดึงข้อมูล LCC จาก Asset Lifecycle\nมาวิเคราะห์หาโอกาสขายเพิ่ม  →  [Asset Lifecycle Management System]",
         "S&OP จัดทำใบเสนอราคาและสื่อสาร\nValue เพื่อปิดการขาย  →  [Commercial Engine]",
-        "DE บันทึกความต้องการลูกค้าให้ครบตั้งแต่ก้าวแรก → [System Modeling & Requirements]"
+        "DE บันทึกความต้องการลูกค้าให้ครบตั้งแต่ก้าวแรก → [System Modeling & Requirements]",
+        "แตกความต้องการเป็นระบบที่ต้องออกแบบ → [Architecture Design]"
       ]
     }
   ],
