@@ -100,7 +100,8 @@
         "Digital Engineering: เก็บมาตรฐานกลางอ้างอิง → [Standards & Compliance Repository]",
         "Demand Satisfaction: รับ Scope จาก Sales มาแตกเป็นชิ้นงาน → [Architecture Design]",
         "Demand Satisfaction: บริหารโครงการหลายฝ่ายให้ตรง Scope/เวลา/งบ → [Project Management Business Platform]",
-        "Sale : ให้คะแนนและคัดกรองลูกค้าเป้าหมายพร้อมสรุปข้อมูลธุรกิจ/คู่แข่งก่อนเข้าพบ  → [ICP Scoring & Account\nResearch]"
+        "Sale : ให้คะแนนและคัดกรองลูกค้าเป้าหมายพร้อมสรุปข้อมูลธุรกิจ/คู่แข่งก่อนเข้าพบ  → [ICP Scoring & Account\nResearch]",
+        "Sale : ติดตาม Pipeline, Win Rate และพยากรณ์ยอดขาย   → [Pipeline & Forecast\nAnalytics]"
       ]
     },
     {
@@ -175,7 +176,7 @@
             "Sale & Operation Planning Platform",
             "Pricing Strategy Framework",
             "Financing Service",
-            "Commercial Platform",
+            "Commercial Engine",
             "ICP Scoring & Account Research",
             "Pipeline & Forecast Analytics",
             "Negotiation & Contract Management System",
