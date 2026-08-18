@@ -138,12 +138,12 @@
         {
           "name": "Digital Engineering Platform",
           "chips": [
-            "System Modeling & Requirements",
-            "Architecture Design",
+            "p1:System Modeling & Requirements",
+            "p1:Architecture Design",
             "Simulation & Virtual Validation",
             "Integration",
-            "Standards & Compliance Repository",
-            "Technical & Commercial Database",
+            "p1:Standards & Compliance Repository",
+            "p1:Technical & Commercial Database",
             "Spatial Engineering & Fleet Management",
             "Digital Twin & Remote"
           ]
@@ -152,12 +152,12 @@
           "name": "Energy Intelligence Platform (EMS)",
           "chips": [
             "AI Engineering Copilot",
-            "IoT Data Management",
+            "p1:IoT Data Management",
             "Connectivity & Edge Management",
             "Grid Edge / Field Devices",
             "Grid Operations & Control",
             "Energy Procurement Advisory",
-            "Carbon Accounting & Reporting",
+            "p1:Carbon Accounting & Reporting",
             "Monitoring, Reporting & Event Resolution",
             "Digital / Predictive Maintenance"
           ]
@@ -177,24 +177,24 @@
         {
           "name": "Buyer / User Platform",
           "chips": [
-            "Customer Engagement Hub",
+            "p1:Customer Engagement Hub",
             "Digital Commerce Channel",
-            "Buyer Self-Service Portal"
+            "p1:Buyer Self-Service Portal"
           ]
         },
         {
           "name": "Business Generation Platform",
           "chips": [
-            "Stakeholder Mapping Tool",
+            "p1:Stakeholder Mapping Tool",
             "Sale & Operation Planning Platform",
             "Pricing Strategy Framework",
             "Financing Service",
-            "Commercial Engine",
+            "p1:Commercial Engine",
             "ICP Scoring & Account Research",
-            "Pipeline & Forecast Analytics",
+            "p1:Pipeline & Forecast Analytics",
             "Negotiation & Contract Management System",
             "Market & Demand Intelligence Center",
-            "LCC Analysis"
+            "p1:LCC Analysis"
           ]
         },
         {
@@ -202,7 +202,7 @@
           "chips": [
             "ESG & Carbon Commercial Suite",
             "Finance & Revenue Recognition Integration",
-            "Asset Lifecycle Management system"
+            "p1:Asset Lifecycle Management system"
           ]
         },
         {
@@ -223,8 +223,8 @@
         {
           "name": "Shared Foundation",
           "chips": [
-            "OT/IT Cyber Security Framework",
-            "Cloud / SaaS Infrastructure",
+            "p1:OT/IT Cyber Security Framework",
+            "p1:Cloud / SaaS Infrastructure",
             "Embedded AI Capability Layer",
             "Enterprise Data Governance Layer",
             "Knowledge Management System"
