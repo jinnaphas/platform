@@ -22,7 +22,8 @@
         "เชื่อมต่อ Solution ของตน (Financing, Insurance, IoT Sensor, Sub Contractor) → [Partner / 3rd-Party App Ecosystem]",
         "รับดูแลความสัมพันธ์ต่อเนื่อง → [Ecosystem & Services]",
         "ให้บริการเงินทุนแลกค่าคอมมิชชั่น → [Financing Platform]",
-        "รับส่วนแบ่งรายได้ Marketplace Commission → [Ecosystem & Partner]"
+        "รับส่วนแบ่งรายได้ Marketplace Commission → [Ecosystem & Partner]",
+        "ประสานสถานะงานติดตั้ง/ซ่อมบำรุงกับทีมโครงการฝั่ง\nPRECISE ผ่านช่องทางกลาง (ในฐานะ Sub Contractor)  →  [Project Management Business Office]"
       ]
     },
     {
@@ -33,26 +34,26 @@
       "side": "left",
       "image": null,
       "items": [
-        "หน่วยงานภายนอก 20 แห่ง → [Ecosystem & Partner]",
-        "ราชการ/กำกับดูแล: FTI, กระทรวงอุตสาหกรรม, กระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.",
-        "การเงิน/ประกันภัย: ธนาคาร, บริษัทประกันภัย",
+        "หน่วยงานภายนอก 20\nแห่งให้ข้อมูล/มาตรฐานประกอบการดำเนินธุรกิจ  →  [Ecosystem & Services]",
+        "หน่วยงานราชการ/กำกับดูแล (FTI, กระทรวงอุตสาหกรรม,\nกระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.)\nกำหนดกฎเกณฑ์/มาตรฐานที่ระบบต้องอ้างอิงและรายงานตาม Data Standard กลาง  →  [Standards\n& Compliance Repository] และ [Enterprise Data Governance Layer] @@https://Standards & Compliance Repository",
+        "สถาบันการเงิน/บริษัทประกันภัย\nเป็นช่องทางจัดหาเงินทุนและความคุ้มครองให้ลูกค้า  →  [Financing Service]",
         "โลจิสติกส์/ศุลกากร: Freight Forwarder, กรมศุลกากร",
-        "ผู้ตรวจสอบ/รับรองมาตรฐาน: Third Party Inspection, ISO/IEC/ESG/Carbon Certification Body"
+        "ผู้ตรวจสอบ/รับรองมาตรฐาน (Third Party Inspection,\nISO/IEC/ESG/Carbon Certification Body) ตรวจรับรองผลลัพธ์ ESG\nและมาตรฐานงานวิศวกรรม \n→  [ESG & Carbon Commercial Suite] และ [Functional\nSafety & Compliance Traceability]"
       ]
     },
     {
       "id": "sh51-juzgzr",
       "title": "Competitor",
       "hue": "compet",
-      "glyph": "VS",
+      "glyph": "C",
       "side": "left",
       "image": null,
       "items": [
-        "Power Distribution & Transmission: Schneider, Siemens, ABB, Hitachi Energy, LS Electric, Eaton, Mitsubishi Electric, ASEFA, PMK",
-        "High-Quality Power System: Siemens, Hitachi Energy, GE Vernova",
-        "Power Quality: Siemens, Danfoss, Delta Electronics, PQ Team",
-        "Energy Conservation: Schneider, Honeywell, Johnson Controls, Delta Electronics, MFEC",
-        "Renewable Energy: Encom, SCG, Banpu, BGE"
+        "วิเคราะห์คู่แข่งกลุ่ม Power Distribution & Transmission (Schneider,\nSiemens, ABB, Hitachi Energy, LS Electric, Eaton, Mitsubishi Electric, ASEFA,\nPMK Group) ก่อนเข้าพบลูกค้า  →  [Sales Enablement Toolkit (ICP Scoring & Account\nResearch)]",
+        "วิเคราะห์คู่แข่งกลุ่ม High-Quality Power System\n(Siemens, Hitachi Energy, GE Vernova) และ Power Quality (Siemens, Danfoss,\nDelta Electronics, PQ Team) เพื่อหาจุด Differentiate  →  [Market & Demand Intelligence Center]",
+        "วิเคราะห์คู่แข่งกลุ่ม Energy Conservation\n(Schneider, Honeywell, Johnson Controls, Delta Electronics, MFEC)  →  [Market\n& Demand Intelligence Center]",
+        "วิเคราะห์คู่แข่งกลุ่ม Renewable Energy (Encom, SCG,\nBanpu, BGE) เพื่อวางกลยุทธ์ราคาแข่งขัน  →  [Pricing Strategy Framework]",
+        "ติดตามส่วนแบ่งตลาดของคู่แข่งเทียบกับ TCS ในแต่ละ\nPillar อย่างต่อเนื่อง \n→  [Market & Demand Intelligence Center]"
       ]
     },
     {
@@ -80,7 +81,7 @@
       "id": "sh53-zy7id3",
       "title": "Precise Business",
       "hue": "biz",
-      "glyph": "PB",
+      "glyph": "P",
       "side": "right",
       "image": null,
       "items": [
@@ -101,7 +102,7 @@
       "id": "sh54-sa313i",
       "title": "Platform Admin",
       "hue": "admin",
-      "glyph": "A",
+      "glyph": "P",
       "side": "right",
       "image": null,
       "items": [
