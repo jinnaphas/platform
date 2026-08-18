@@ -210,7 +210,7 @@
           "chips": [
             "p1:Project Management Business Office",
             "p2:Sale & Operation Planning System",
-            "p2:S&OP–TPS/MIS Integration Layer",
+            "p3:S&OP–TPS/MIS Integration Layer",
             "p2:Business KPI & 7QC Root-Cause Analytics"
           ]
         }
@@ -227,7 +227,7 @@
             "p1:Cloud / SaaS Infrastructure",
             "p2:Embedded AI Capability Layer",
             "p2:Enterprise Data Governance Layer",
-            "p2:Knowledge Management System"
+            "p1:Knowledge Management System"
           ]
         }
       ]
