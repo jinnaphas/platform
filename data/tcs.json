@@ -35,7 +35,7 @@
       "image": null,
       "items": [
         "หน่วยงานภายนอก 20\nแห่งให้ข้อมูล/มาตรฐานประกอบการดำเนินธุรกิจ  →  [Ecosystem & Services]",
-        "หน่วยงานราชการ/กำกับดูแล (FTI, กระทรวงอุตสาหกรรม,\nกระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.)\nกำหนดกฎเกณฑ์/มาตรฐานที่ระบบต้องอ้างอิงและรายงานตาม Data Standard กลาง  →  [Standards\n& Compliance Repository] และ [Enterprise Data Governance Layer] @@https://Standards & Compliance Repository",
+        "หน่วยงานราชการ/กำกับดูแล (FTI, กระทรวงอุตสาหกรรม,\nกระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.)\nกำหนดกฎเกณฑ์/มาตรฐานที่ระบบต้องอ้างอิงและรายงานตาม Data Standard กลาง  →  [Standards\n& Compliance Repository] และ → [Standards & Compliance Repository]",
         "สถาบันการเงิน/บริษัทประกันภัย\nเป็นช่องทางจัดหาเงินทุนและความคุ้มครองให้ลูกค้า  →  [Financing Service]",
         "โลจิสติกส์/ศุลกากร: Freight Forwarder, กรมศุลกากร",
         "ผู้ตรวจสอบ/รับรองมาตรฐาน (Third Party Inspection,\nISO/IEC/ESG/Carbon Certification Body) ตรวจรับรองผลลัพธ์ ESG\nและมาตรฐานงานวิศวกรรม \n→  [ESG & Carbon Commercial Suite] และ [Functional\nSafety & Compliance Traceability]"
@@ -68,10 +68,10 @@
         "รับการดูแลแบบรู้จักตัวตน → [Customer Engagement Hub]",
         "ติดตามข้อมูลพลังงาน/ต้นทุนเรียลไทม์ → [IoT Data Management]",
         "รับคำแนะนำลดใช้พลังงานตามพฤติกรรมการใช้งานจริง → [Energy Procurement Advisory]",
-        "สั่งซื้ออะไหล่/อุปกรณ์เองได้ → [Digital Commerce Platform]",
-        "เข้าถึงแหล่งทุนเมื่อต้องการอัปเกรด → [Financing Platform]",
+        "สั่งซื้ออะไหล่/อุปกรณ์เองได้ → [Digital Commerce Channel]",
+        "เข้าถึงแหล่งทุนเมื่อต้องการอัปเกรด → [Financing Service]",
         "ขอรายงาน ESG/Carbon Footprint → [Carbon Accounting & Reporting]",
-        "ต่อสัญญา/ขยายขอบเขตเมื่อครบรอบ → [Energy Intelligence Platform (EMS)]",
+        "ต่อสัญญา/ขยายขอบเขตเมื่อครบรอบ → [Asset Lifecycle Management\nSystem]",
         "รับ Alert ล่วงหน้าเมื่อพบความเสี่ยง → [Monitoring, Reporting & Event Resolution]",
         "ยื่นขอ Green Financing / ขายคาร์บอนเครดิต → [ESG & Carbon Commercial Platform]",
         "ใช้ผู้ช่วยออกแบบด้านพลังงาน → [AI Engineering Copilot]"
@@ -159,7 +159,7 @@
           "name": "Buyer / User Platform",
           "chips": [
             "Customer Engagement Hub",
-            "Digital Commerce Platform",
+            "Digital Commerce Channel",
             "Stakeholder Mapping Tool",
             "Buyer Self-Service Portal"
           ]
@@ -170,7 +170,7 @@
             "Stakeholder Platform",
             "Sale & Operation Planning Platform",
             "Pricing Strategy Platform",
-            "Financing Platform",
+            "Financing Service",
             "Commercial Platform",
             "ICP Scoring & Account ResearchNew Capability",
             "Pipeline & Forecast Analytics",
@@ -184,7 +184,8 @@
           "chips": [
             "Market & Demand Intelligence Center",
             "ESG & Carbon Commercial Suite",
-            "Finance & Revenue Recognition Integration"
+            "Finance & Revenue Recognition Integration",
+            "New Capability"
           ]
         },
         {
