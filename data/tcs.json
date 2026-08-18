@@ -140,26 +140,26 @@
           "chips": [
             "p1:System Modeling & Requirements",
             "p1:Architecture Design",
-            "Simulation & Virtual Validation",
-            "Integration",
+            "p1:Simulation & Virtual Validation",
+            "p1:Integration",
             "p1:Standards & Compliance Repository",
             "p1:Technical & Commercial Database",
-            "Spatial Engineering & Fleet Management",
-            "Digital Twin & Remote"
+            "p2:Spatial Engineering & Fleet Management",
+            "p2:Digital Twin & Remote"
           ]
         },
         {
           "name": "Energy Intelligence Platform (EMS)",
           "chips": [
-            "AI Engineering Copilot",
+            "p2:AI Engineering Copilot",
             "p1:IoT Data Management",
-            "Connectivity & Edge Management",
-            "Grid Edge / Field Devices",
-            "Grid Operations & Control",
-            "Energy Procurement Advisory",
+            "p2:Connectivity & Edge Management",
+            "p2:Grid Edge / Field Devices",
+            "p2:Grid Operations & Control",
+            "p2:Energy Procurement Advisory",
             "p1:Carbon Accounting & Reporting",
-            "Monitoring, Reporting & Event Resolution",
-            "Digital / Predictive Maintenance"
+            "p2:Monitoring, Reporting & Event Resolution",
+            "p2:Digital / Predictive Maintenance"
           ]
         }
       ]
@@ -170,15 +170,15 @@
         {
           "name": "Ecosystem & Partner",
           "chips": [
-            "Partner / 3rd-Party App Ecosystem",
-            "Ecosystem & Services"
+            "p2:Partner / 3rd-Party App Ecosystem",
+            "p2:Ecosystem & Services"
           ]
         },
         {
           "name": "Buyer / User Platform",
           "chips": [
             "p1:Customer Engagement Hub",
-            "Digital Commerce Channel",
+            "p2:Digital Commerce Channel",
             "p1:Buyer Self-Service Portal"
           ]
         },
@@ -186,32 +186,32 @@
           "name": "Business Generation Platform",
           "chips": [
             "p1:Stakeholder Mapping Tool",
-            "Sale & Operation Planning Platform",
-            "Pricing Strategy Framework",
-            "Financing Service",
+            "p2:Sale & Operation Planning Platform",
+            "p2:Pricing Strategy Framework",
+            "p2:Financing Service",
             "p1:Commercial Engine",
-            "ICP Scoring & Account Research",
+            "p1:ICP Scoring & Account Research",
             "p1:Pipeline & Forecast Analytics",
-            "Negotiation & Contract Management System",
-            "Market & Demand Intelligence Center",
+            "p2:Negotiation & Contract Management System",
+            "p1:Market & Demand Intelligence Center",
             "p1:LCC Analysis"
           ]
         },
         {
           "name": "Post-Sale Platform",
           "chips": [
-            "ESG & Carbon Commercial Suite",
-            "Finance & Revenue Recognition Integration",
+            "p2:ESG & Carbon Commercial Suite",
+            "p2:Finance & Revenue Recognition Integration",
             "p1:Asset Lifecycle Management system"
           ]
         },
         {
           "name": "Demand Satisfaction Platform",
           "chips": [
-            "Project Management Business Office",
-            "Sale & Operation Planning System",
-            "p3:S&OP–TPS/MIS Integration Layer",
-            "Business KPI & 7QC Root-Cause Analytics"
+            "p1:Project Management Business Office",
+            "p2:Sale & Operation Planning System",
+            "p2:S&OP–TPS/MIS Integration Layer",
+            "p2:Business KPI & 7QC Root-Cause Analytics"
           ]
         }
       ]
@@ -225,9 +225,9 @@
           "chips": [
             "p1:OT/IT Cyber Security Framework",
             "p1:Cloud / SaaS Infrastructure",
-            "Embedded AI Capability Layer",
-            "Enterprise Data Governance Layer",
-            "Knowledge Management System"
+            "p2:Embedded AI Capability Layer",
+            "p2:Enterprise Data Governance Layer",
+            "p2:Knowledge Management System"
           ]
         }
       ]
