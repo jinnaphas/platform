@@ -105,7 +105,17 @@
       "image": null,
       "items": [
         "Sale วิเคราะห์ Stakeholder\nและผู้มีอิทธิพลต่อการตัดสินใจของลูกค้า → [Stakeholder Mapping Tool]",
-        "Sale ให้คะแนนและคัดกรองลูกค้าเป้าหมายพร้อมสรุปข้อมูลธุรกิจ/คู่แข่งก่อนเข้าพบ → [ICP Scoring & Account Research]"
+        "Sale ให้คะแนนและคัดกรองลูกค้าเป้าหมายพร้อมสรุปข้อมูลธุรกิจ/คู่แข่งก่อนเข้าพบ → [ICP Scoring & Account Research]",
+        "S&OP กำหนดกลยุทธ์ราคาให้แข่งขันได้ตามสถานการณ์ตลาด → [Pricing Strategy Framework]",
+        "Sale ติดตาม Pipeline, Win Rate และพยากรณ์ยอดขาย → [Pipeline & Forecast Analytics]",
+        "Sale เจรจาต่อรองและจัดทำสัญญาดิจิทัลพร้อม\ne-Signature ก่อนปิดดีล \n→  [Negotiation & Contract Management System]",
+        "Sale ใช้ข้อมูล Loyalty & Insight วางแผน\nCross-sell/Upsell ข้าม 5 Business Pillars  →  [Customer Engagement Hub]",
+        "S&OP ดึงเอกสารเทคนิคและ BOQ\nมาตรฐานมาจัดทำใบเสนอราคาให้รวดเร็วถูกต้อง → [Technical & Commercial Database]",
+        "S&OP วางแผนให้สอดคล้องระหว่างแผนขาย แผนผลิต/สต๊อก\nและกำลังการติดตั้ง \n→  [Sale & Operation Planning System]",
+        "S&OP เชื่อมข้อมูล PO Received/RRC เข้าสู่ TPS/MIS แบบ\nVertical Line เพื่อวัดผลจริง  →  [S&OP–TPS/MIS Integration Layer]",
+        "S&OP ดึงข้อมูล LCC จาก Asset Lifecycle\nมาวิเคราะห์หาโอกาสขายเพิ่ม  →  [Asset Lifecycle Management System]",
+        "S&OP จัดทำใบเสนอราคาและสื่อสาร\nValue เพื่อปิดการขาย  →  [Commercial Engine]",
+        "DE บันทึกความต้องการลูกค้าให้ครบตั้งแต่ก้าวแรก → [System Modeling & Requirements]"
       ]
     }
   ],
