@@ -85,7 +85,7 @@
       "image": null,
       "items": [
         "Sales: วิเคราะห์ Stakeholders / ผู้มีอิทธิพลตัดสินใจ → [Stakeholder Platform]",
-        "Sales: กำหนดกลยุทธ์ราคาแข่งขัน → [Pricing Strategy Platform]",
+        "Sales: กำหนดกลยุทธ์ราคาแข่งขัน → [New Capability]",
         "Sales: Cross-sell/Upsell จาก Loyalty & Insight → [Customer Engagement Platform]",
         "S&OP: จัดใบเสนอราคาจาก BOM/ราคามาตรฐาน → [Technical Platform]",
         "S&OP: วางแผนสอดคล้องขาย-ผลิต-ติดตั้ง → [Sale & Operation Planning Platform]",
@@ -123,7 +123,7 @@
             "Simulation & Virtual Validation",
             "Integration",
             "Standards & Compliance Repository",
-            "Technical Platform",
+            "Technical & Commercial Database",
             "Spatial Engineering & Fleet Management",
             "Digital Twin & Remote"
           ]
@@ -136,7 +136,7 @@
             "Connectivity & Edge Management",
             "Grid Edge / Field Devices",
             "Grid Operations & Control",
-            "Energy Procurement Platform",
+            "Energy Procurement Advisory",
             "Carbon Accounting & Reporting",
             "Monitoring, Reporting & Event Resolution",
             "Digital / Predictive Maintenance"
@@ -158,7 +158,10 @@
           "name": "Buyer / User Platform",
           "chips": [
             "Customer Engagement Platform",
-            "Digital Commerce Platform"
+            "Digital Commerce Platform",
+            "New Capability",
+            "Stakeholder Mapping Tool",
+            "Buyer Self-Service Portal"
           ]
         },
         {
@@ -168,20 +171,29 @@
             "Sale & Operation Planning Platform",
             "Pricing Strategy Platform",
             "Financing Platform",
-            "Commercial Platform"
+            "Commercial Platform",
+            "ICP Scoring & Account ResearchNew Capability",
+            "Pipeline & Forecast Analytics",
+            "Negotiation & Contract Management System",
+            "Market & Demand Intelligence Center",
+            "LCC Analysis"
           ]
         },
         {
           "name": "Post-Sale Platform",
           "chips": [
-            "Asset Lifecycle Management Platform",
-            "ESG & Carbon Commercial Platform"
+            "Market & Demand Intelligence Center",
+            "ESG & Carbon Commercial Suite",
+            "Finance & Revenue Recognition Integration"
           ]
         },
         {
           "name": "Demand Satisfaction Platform",
           "chips": [
-            "Project Management Business Platform"
+            "Project Management Business Office",
+            "Sale & Operation Planning System",
+            "S&OP–TPS/MIS Integration Layer",
+            "Business KPI & 7QC Root-Cause Analytics"
           ]
         }
       ]
@@ -195,7 +207,9 @@
           "chips": [
             "OT/IT Cyber Security Framework",
             "Cloud / SaaS Infrastructure",
-            "Embedded AI Capability Layer"
+            "Embedded AI Capability Layer",
+            "Enterprise Data Governance Layer",
+            "Knowledge Management System"
           ]
         }
       ]
