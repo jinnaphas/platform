@@ -120,7 +120,14 @@
         "DE ทดลอง/พิสูจน์ความถูกต้องในคอมพิวเตอร์ก่อนลงทุนจริง → [Simulation & Virtual Validation]",
         "DE เชื่อม 3\nฟังก์ชันข้างต้นเป็นระบบนิเวศข้อมูลเดียวข้ามทีม  →  [Integration]",
         "DE สร้างแบบจำลองเสมือนพร้อมเส้นทางข้อมูลต่อเนื่องตลอดวงจรชีวิตผลิตภัณฑ์ → [Digital Twin & Remote]",
-        "DE เก็บมาตรฐาน/สเปกทุกโครงการเป็นฐานข้อมูลกลางเพื่ออ้างอิงในโครงการใหม่ → [Standards & Compliance Repository]"
+        "DE เก็บมาตรฐาน/สเปกทุกโครงการเป็นฐานข้อมูลกลางเพื่ออ้างอิงในโครงการใหม่ → [Standards & Compliance Repository]",
+        "DE ควบคุมโครงข่ายไฟฟ้าของลูกค้าและรักษาเสถียรภาพแบบเรียลไทม์ผ่านห้องควบคุม  →  [Grid Operations & Control]",
+        "Project รับ Scope งานจาก Sales มาแตกเป็นชิ้นงาน → [Architecture Design]",
+        "Project บริหารโครงการหลายฝ่าย\n(PRECISE+EPC+Partner+ลูกค้า) ให้ตรง Scope/เวลา/งบ  →  [Project Management Business Office]",
+        "Project วัดผลลัพธ์ธุรกิจเทียบเป้าหมาย และวิเคราะห์ Root\nCause ด้วย 7QC เมื่อไม่ถึงเป้า  →  [Business KPI & 7QC Root-Cause Analytics]",
+        "Finance เชื่อมข้อมูล PO/Milestone สู่ Invoice\nและรับรู้รายได้ตามมาตรฐานบัญชีอัตโนมัติ  →  [Finance & Revenue Recognition Integration]",
+        "BU วิเคราะห์ Market Size/Growth/Share\nระดับพอร์ตโฟลิโอเพื่อวางแผนกระจายทรัพยากรทั้ง 5 Pillars  →  [Market & Demand Intelligence Center]",
+        "BU สะสมองค์ความรู้จากทุกโครงการ (Case Study, Lessons\nLearned, Win/Loss) เพื่อวางแผนกลยุทธ์ระยะ 3 ปี  →  [Corporate Knowledge Management System]"
       ]
     }
   ],
@@ -193,7 +200,6 @@
         {
           "name": "Post-Sale Platform",
           "chips": [
-            "Market & Demand Intelligence Center",
             "ESG & Carbon Commercial Suite",
             "Finance & Revenue Recognition Integration",
             "Asset Lifecycle Management system"
