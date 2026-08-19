@@ -576,6 +576,71 @@
   .exporting .chip .lnk, .exporting .actor li .lnk,
   .present .chip .lnk, .present .actor li .lnk { display: none !important; }
 
+  /* ---------- ภาพรวม 6 RST (Common Capability Matrix) ---------- */
+  .tab.ov { border-style: dashed; font-weight: 600; }
+  body.overview-mode .rail, body.overview-mode .center { display: none; }
+  body.overview-mode #dock .prio, body.overview-mode #dock .pdiv,
+  body.overview-mode #btnConnect, body.overview-mode #btnFlows,
+  body.overview-mode #btnPresent, body.overview-mode #connectHint,
+  body.overview-mode #btnSave { display: none !important; }
+  #overview { display: none; grid-column: 1 / -1; max-width: 1280px; margin: 0 auto; width: 100%; }
+  body.overview-mode #overview { display: block; }
+
+  #overview .ovtitle { text-align: center; margin: 6px 0 2px; }
+  #overview .ovtitle h1 { margin: 0; font-size: 22px; font-weight: 700; color: var(--team); letter-spacing: -.01em; }
+  #overview .ovtitle p { margin: 4px 0 0; font-size: 12.5px; color: var(--muted); }
+  .ovstats { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 14px 0 18px; }
+  .ovstat {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 18px; text-align: center; box-shadow: var(--shadow);
+  }
+  .ovstat b { display: block; font-size: 22px; color: var(--team); font-variant-numeric: tabular-nums; }
+  .ovstat span { font-size: 11.5px; color: var(--muted); }
+
+  .ovsec { margin-bottom: 20px; }
+  .ovsec > h3 {
+    font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--team); margin: 0 0 8px; display: flex; align-items: center; gap: 8px;
+  }
+  .ovsec > h3::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .ovscroll { overflow-x: auto; border-radius: 12px; box-shadow: var(--shadow); }
+  .ovtable { width: 100%; border-collapse: collapse; background: var(--panel); font-size: 12.5px; }
+  .ovtable th, .ovtable td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .ovtable thead th {
+    background: color-mix(in srgb, var(--team) 8%, var(--panel));
+    font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted);
+    position: sticky; top: 0;
+  }
+  .ovtable th.tc, .ovtable td.tc { text-align: center; width: 52px; }
+  .ovtable td.cnt { text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .ovdot {
+    display: inline-grid; place-items: center; width: 18px; height: 18px;
+    border-radius: 50%; color: #fff; font-size: 10px; font-weight: 800;
+  }
+  .ovdot.off { background: transparent; color: var(--line); border: 1.5px dashed var(--line); }
+  .ovcap { font-weight: 600; }
+  .ovcap small { display: block; font-weight: 400; color: var(--muted); font-size: 11px; }
+  .odoo {
+    display: inline-block; background: color-mix(in srgb, #714B67 14%, var(--panel));
+    color: #714B67; border: 1px solid color-mix(in srgb, #714B67 40%, transparent);
+    border-radius: 999px; padding: 1px 9px; font-size: 11px; font-weight: 600; white-space: nowrap;
+  }
+  :root[data-theme="dark"] .odoo { color: #C79ABC; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .odoo { color: #C79ABC; } }
+  tr.tier-all td { background: color-mix(in srgb, #1B7F4B 7%, var(--panel)); }
+  .ovuni { display: flex; flex-direction: column; gap: 8px; }
+  .ovuni details {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 8px 14px; box-shadow: var(--shadow);
+  }
+  .ovuni summary { cursor: pointer; font-weight: 600; font-size: 13px; }
+  .ovuni .chips { padding: 8px 0 4px; }
+  .ovnote {
+    background: var(--accent-soft); border: 1px solid var(--line); border-radius: 10px;
+    padding: 8px 14px; font-size: 11.5px; color: var(--muted); margin-top: 14px; line-height: 1.7;
+  }
+  .ovloading { text-align: center; color: var(--muted); padding: 60px 0; }
+
   /* ซ่อนแถบเมนูทั้งหมด */
   .hide-chrome .topbar, .hide-chrome .note { display: none; }
   #chromeShow {
@@ -655,6 +720,8 @@
   </section>
 
   <div class="rail" id="railRight"></div>
+
+  <section id="overview"></section>
 </main>
 
 <svg id="flow" aria-hidden="true">
@@ -727,6 +794,8 @@ const TEAMS = [
   { id:"invest",    name:"Investment RST",              color:"#7C4DC4" },
 ];
 const NAMES = ["จินณพัศ","กอล์ฟ","หญิง","ตุลลี่","พี่ท้อป","เบียร์","นัท","ปอ"];
+const OVERVIEW = { id:"overview", name:"ภาพรวม 6 RST", color:"#37475C" };
+const ABBR = { tendering:"TDR", omni:"OMNI", tcs:"TCS", recurring:"RCR", ppa:"PPA", invest:"INV" };
 
 let uidSeq = 1;
 function uid(){ return "sh" + (uidSeq++) + "-" + Math.random().toString(36).slice(2, 8); }
@@ -1025,25 +1094,28 @@ function save(){
   if (!applyingRemote) markDirty();
 }
 function design(){ return store.teams[current]; }
-function teamMeta(){ return TEAMS.find(t => t.id === current); }
+function teamMeta(){ return TEAMS.find(t => t.id === current) || OVERVIEW; }
 
 /* ---------------- render ---------------- */
 const $ = sel => document.querySelector(sel);
 
 function renderTabs(){
   const el = $("#tabs"); el.innerHTML = "";
-  TEAMS.forEach(t => {
+  [...TEAMS, OVERVIEW].forEach(t => {
     const b = document.createElement("button");
-    b.className = "tab" + (t.id === current ? " on" : "");
-    b.textContent = t.name;
-    b.onclick = () => { current = t.id; persist(); renderAll(); if (online()) loadRemote(current); };
+    b.className = "tab" + (t.id === "overview" ? " ov" : "") + (t.id === current ? " on" : "");
+    b.textContent = t.id === "overview" ? "◈ " + t.name : t.name;
+    b.onclick = () => {
+      current = t.id; persist(); renderAll();
+      if (online() && current !== "overview") loadRemote(current);
+    };
     el.appendChild(b);
   });
 }
 
 function renderPresence(){
   const el = $("#presence"); el.innerHTML = "";
-  const idx = TEAMS.findIndex(t => t.id === current);
+  const idx = Math.max(0, TEAMS.findIndex(t => t.id === current));
   const hues = [24, 210, 350, 130];
   for (let i = 0; i < 3; i++){
     const d = document.createElement("span");
@@ -2038,7 +2110,7 @@ async function saveRemote(){
 
 /* poll ทุก 20 วิ: ถ้ามีเวอร์ชันใหม่และเราไม่มีงานค้าง/ไม่ได้กำลังพิมพ์ ให้ดึงมาแสดงเลย */
 setInterval(async () => {
-  if (!online() || dirty || syncBusy || document.hidden || presentState.on) return;
+  if (!online() || dirty || syncBusy || document.hidden || presentState.on || current === "overview") return;
   const ae = document.activeElement;
   if (ae && ae.isContentEditable) return;
   try {
@@ -2066,8 +2138,266 @@ $("#btnLink").onclick = () => {
 };
 function initSync(){
   $("#btnSave").hidden = !online();
-  if (online()) loadRemote(current);
+  if (online() && current !== "overview") loadRemote(current);
+  else if (online()) setSyncStatus("● ออนไลน์", "on");
   else setSyncStatus("ออฟไลน์");
+}
+
+/* ---------------- ภาพรวม 6 RST: Common Capability Matrix ---------------- */
+function cleanCap(raw){
+  const pl = parseLink(raw);
+  const t = parseChip(pl.base);
+  return t.label.replace("🆕", "").trim();
+}
+function normKey(s){
+  return s.toLowerCase().replace(/[()]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+/* เดา Odoo module จากชื่อ capability (เรียงจากเฉพาะเจาะจง → กว้าง) */
+const ODOO_MAP = [
+  [/s&op|sale & operation planning|mps|mrp\b/i, "Odoo Manufacturing (MPS/MRP)"],
+  [/manufactur|mes\b|production|factory|ผลิต/i, "Odoo Manufacturing"],
+  [/inventory|warehouse|wms|stock|สต็อก|คลัง/i, "Odoo Inventory"],
+  [/vendor|purchas|srm\b|supplier|จัดซื้อ|ซัพพลายเออร์/i, "Odoo Purchase"],
+  [/quotation|contract management|pricing|ใบเสนอราคา/i, "Odoo Sales"],
+  [/crm|lead|opportunity|customer relationship|key account|kaip|stakeholder platform|dmu/i, "Odoo CRM"],
+  [/commerce|e-?commerce|website|line oa|facebook|marketplace/i, "Odoo Website / eCommerce"],
+  [/financ|account|บัญชี|invoice|billing|เก็บเงิน|ar\b|ap\b/i, "Odoo Accounting"],
+  [/project management|บริหารโครงการ/i, "Odoo Project"],
+  [/quality|คุณภาพ/i, "Odoo Quality"],
+  [/maintenance|บำรุงรักษา/i, "Odoo Maintenance"],
+  [/plm|engineering design|bom\b/i, "Odoo PLM"],
+  [/logistics|fleet|delivery|ขนส่ง/i, "Odoo Inventory / Fleet"],
+  [/marketing|campaign|loyalty|engagement/i, "Odoo Marketing"],
+  [/satisfaction|after-?sale|helpdesk|service|เคลม|return/i, "Odoo Helpdesk / Field Service"],
+  [/dealer|channel|commission|rewarding/i, "Odoo Sales + Custom Module"],
+  [/dashboard|analytic|forecast|ai\b|copilot|chatbot|intelligence|360/i, "BI / AI Layer (ต่อยอดบน Odoo)"],
+  [/security|cloud|infrastructure|embedded ai/i, "Foundation / IT Infra"],
+];
+function odooFor(name){
+  for (const [re, mod] of ODOO_MAP) if (re.test(name)) return mod;
+  return "";
+}
+
+/* จับกลุ่ม capability ข้ามทีม: ชื่อ normalize ตรงกัน หรือชื่อหนึ่งเป็นส่วนหนึ่งของอีกชื่อ */
+function buildClusters(){
+  const clusters = [];
+  TEAMS.forEach(t => {
+    const d = store.teams[t.id];
+    if (!d) return;
+    (d.layers || []).forEach(l => (l.groups || []).forEach(g => (g.chips || []).forEach(raw => {
+      const label = cleanCap(raw);
+      if (!label) return;
+      const key = normKey(label);
+      let c = clusters.find(c =>
+        c.key === key ||
+        (key.length > 9 && c.key.includes(key)) ||
+        (c.key.length > 9 && key.includes(c.key)));
+      if (!c){
+        c = { name: label, key, teams: {} };
+        clusters.push(c);
+      } else if (label.length < c.name.length){
+        c.name = label; c.key = normKey(label);
+      }
+      (c.teams[t.id] = c.teams[t.id] || []).push({ label, group: g.name });
+    })));
+  });
+  return clusters;
+}
+
+async function renderOverview(){
+  const el = $("#overview");
+  el.innerHTML = "<div class='ovloading'>กำลังรวบรวมข้อมูลล่าสุดของทั้ง 6 ทีม…</div>";
+
+  /* ถ้าออนไลน์ ดึงเวอร์ชันล่าสุดของทุกทีมมาก่อนวิเคราะห์ */
+  if (online()){
+    await Promise.all(TEAMS.map(async t => {
+      try {
+        const r = await fetch(sync.api + "/load?team=" + t.id);
+        if (!r.ok) return;
+        const j = await r.json();
+        if (j.design){
+          applyingRemote = true;
+          if (!Array.isArray(j.design.valueChain)) j.design.valueChain = [];
+          if (!Array.isArray(j.design.images)) j.design.images = [];
+          store.teams[t.id] = j.design;
+          remoteSha[t.id] = j.sha;
+          persist();
+          applyingRemote = false;
+        }
+      } catch(e){}
+    }));
+  }
+  if (current !== "overview") return;
+
+  const clusters = buildClusters().sort((a, b) =>
+    Object.keys(b.teams).length - Object.keys(a.teams).length || a.name.localeCompare(b.name, "th"));
+  const common = clusters.filter(c => Object.keys(c.teams).length >= 2);
+  const unique = clusters.filter(c => Object.keys(c.teams).length === 1);
+  const allSix = common.filter(c => Object.keys(c.teams).length === TEAMS.length).length;
+  const total = clusters.reduce((n, c) => n + Object.values(c.teams).reduce((m, v) => m + v.length, 0), 0);
+
+  el.innerHTML = "";
+  const title = document.createElement("div");
+  title.className = "ovtitle";
+  title.innerHTML = "<h1>ภาพรวม 6 Revenue Stream — Common Capability</h1>" +
+    "<p>รวมทุกทีมใน 1 ภาพ เพื่อหา Capability ที่ใช้ Data / Function Module ร่วมกันได้ สอดคล้องทิศทาง ERP → Odoo</p>";
+  el.appendChild(title);
+
+  const stats = document.createElement("div");
+  stats.className = "ovstats";
+  [[total, "Capability รวมทุกทีม"], [common.length, "ใช้ร่วมได้ (≥2 ทีม)"],
+   [allSix, "ใช้ครบทั้ง 6 ทีม"], [unique.length, "เฉพาะทีมเดียว"]].forEach(([n, t]) => {
+    const s = document.createElement("div");
+    s.className = "ovstat";
+    s.innerHTML = "<b>" + n + "</b><span>" + t + "</span>";
+    stats.appendChild(s);
+  });
+  el.appendChild(stats);
+
+  /* ตาราง Common */
+  const sec = document.createElement("section");
+  sec.className = "ovsec";
+  sec.innerHTML = "<h3>Capability ที่ใช้ร่วมกันได้ — เรียงจาก Common มากสุด</h3>";
+  const scroll = document.createElement("div");
+  scroll.className = "ovscroll";
+  const tbl = document.createElement("table");
+  tbl.className = "ovtable";
+  const thead = document.createElement("thead");
+  const hr = document.createElement("tr");
+  hr.innerHTML = "<th>Capability</th>" +
+    TEAMS.map(t => `<th class="tc" title="${t.name}"><span class="ovdot" style="background:${t.color}">${ABBR[t.id][0]}</span><br>${ABBR[t.id]}</th>`).join("") +
+    "<th class='tc'>ทีม</th><th>Odoo Module ที่รองรับ</th>";
+  thead.appendChild(hr);
+  tbl.appendChild(thead);
+  const tbody = document.createElement("tbody");
+  common.forEach(c => {
+    const n = Object.keys(c.teams).length;
+    const tr = document.createElement("tr");
+    if (n === TEAMS.length) tr.className = "tier-all";
+    const variants = [...new Set(Object.values(c.teams).flat().map(v => v.label))].filter(v => v !== c.name);
+    const tdName = document.createElement("td");
+    tdName.className = "ovcap";
+    tdName.textContent = c.name;
+    if (variants.length){
+      const sm = document.createElement("small");
+      sm.textContent = "ชื่อที่ทีมอื่นใช้: " + variants.join(" · ");
+      tdName.appendChild(sm);
+    }
+    tr.appendChild(tdName);
+    TEAMS.forEach(t => {
+      const td = document.createElement("td");
+      td.className = "tc";
+      const hit = c.teams[t.id];
+      td.innerHTML = hit
+        ? `<span class="ovdot" style="background:${t.color}" title="${hit.map(h => h.group + " › " + h.label).join("\n")}">✓</span>`
+        : `<span class="ovdot off">·</span>`;
+      tr.appendChild(td);
+    });
+    const tdC = document.createElement("td");
+    tdC.className = "cnt"; tdC.textContent = n;
+    tr.appendChild(tdC);
+    const tdO = document.createElement("td");
+    const mod = odooFor(c.name);
+    tdO.innerHTML = mod ? `<span class="odoo">${mod}</span>` : "";
+    tr.appendChild(tdO);
+    tbody.appendChild(tr);
+  });
+  tbl.appendChild(tbody);
+  scroll.appendChild(tbl);
+  sec.appendChild(scroll);
+  el.appendChild(sec);
+
+  /* มุมมองตาม Odoo Module — จับกลุ่มเชิงความหมาย ทนต่อการตั้งชื่อต่างกัน */
+  const modAgg = {};
+  TEAMS.forEach(t => {
+    const d = store.teams[t.id];
+    if (!d) return;
+    (d.layers || []).forEach(l => (l.groups || []).forEach(g => (g.chips || []).forEach(raw => {
+      const label = cleanCap(raw);
+      if (!label) return;
+      const mod = odooFor(label) || "อื่นๆ / ยังไม่เข้ากลุ่ม Odoo";
+      const m = modAgg[mod] = modAgg[mod] || { teams: {} };
+      (m.teams[t.id] = m.teams[t.id] || []).push(label);
+    })));
+  });
+  const modRows = Object.entries(modAgg).sort((a, b) =>
+    Object.keys(b[1].teams).length - Object.keys(a[1].teams).length ||
+    Object.values(b[1].teams).flat().length - Object.values(a[1].teams).flat().length);
+
+  const secM = document.createElement("section");
+  secM.className = "ovsec";
+  secM.innerHTML = "<h3>มุมมองตาม Odoo Module — จับกลุ่มเชิงความหมาย (ทนต่อชื่อที่ต่างกัน)</h3>";
+  const scrollM = document.createElement("div");
+  scrollM.className = "ovscroll";
+  const tblM = document.createElement("table");
+  tblM.className = "ovtable";
+  tblM.innerHTML = "<thead><tr><th>Function Module</th>" +
+    TEAMS.map(t => `<th class="tc" title="${t.name}">${ABBR[t.id]}</th>`).join("") +
+    "<th class='tc'>ทีม</th><th class='tc'>Cap รวม</th></tr></thead>";
+  const tbM = document.createElement("tbody");
+  modRows.forEach(([mod, m]) => {
+    const n = Object.keys(m.teams).length;
+    const totalCaps = Object.values(m.teams).flat().length;
+    const tr = document.createElement("tr");
+    if (n === TEAMS.length) tr.className = "tier-all";
+    const tdN = document.createElement("td");
+    tdN.innerHTML = mod.startsWith("อื่นๆ") ? `<span class="ovcap" style="color:var(--muted)">${mod}</span>` : `<span class="odoo">${mod}</span>`;
+    tr.appendChild(tdN);
+    TEAMS.forEach(t => {
+      const td = document.createElement("td");
+      td.className = "tc";
+      const caps = m.teams[t.id];
+      td.innerHTML = caps
+        ? `<span class="ovdot" style="background:${t.color}" title="${caps.join("\n")}">${caps.length}</span>`
+        : `<span class="ovdot off">·</span>`;
+      tr.appendChild(td);
+    });
+    tr.innerHTML += `<td class="cnt">${n}</td><td class="cnt">${totalCaps}</td>`;
+    tbM.appendChild(tr);
+  });
+  tblM.appendChild(tbM);
+  scrollM.appendChild(tblM);
+  secM.appendChild(scrollM);
+  el.appendChild(secM);
+
+  /* Capability เฉพาะทีมเดียว */
+  const sec2 = document.createElement("section");
+  sec2.className = "ovsec";
+  sec2.innerHTML = "<h3>Capability เฉพาะของแต่ละทีม (Differentiator)</h3>";
+  const uni = document.createElement("div");
+  uni.className = "ovuni";
+  TEAMS.forEach(t => {
+    const mine = unique.filter(c => c.teams[t.id]);
+    if (!mine.length) return;
+    const det = document.createElement("details");
+    const sum = document.createElement("summary");
+    sum.innerHTML = `<span class="ovdot" style="background:${t.color}">${ABBR[t.id][0]}</span> ${t.name} — ${mine.length} รายการ`;
+    det.appendChild(sum);
+    const chips = document.createElement("div");
+    chips.className = "chips";
+    mine.forEach(c => {
+      const ch = document.createElement("span");
+      ch.className = "chip";
+      ch.textContent = c.name;
+      const mod = odooFor(c.name);
+      if (mod) ch.title = mod;
+      chips.appendChild(ch);
+    });
+    det.appendChild(chips);
+    uni.appendChild(det);
+  });
+  sec2.appendChild(uni);
+  el.appendChild(sec2);
+
+  const note = document.createElement("div");
+  note.className = "ovnote";
+  note.innerHTML = "<b>วิธีอ่าน:</b> การจับกลุ่มใช้การเทียบชื่อ (ตรงกัน หรือชื่อหนึ่งเป็นส่วนหนึ่งของอีกชื่อ) — " +
+    "ทีมที่ตั้งชื่อ Capability เดียวกันให้สะกดเหมือนกัน จะยิ่งเห็นภาพ Common แม่นขึ้น · " +
+    "ป้าย Odoo เป็นการแนะนำเบื้องต้นจากชื่อ ใช้เป็นจุดตั้งต้นคุยกับทีม ERP · " +
+    "แถวพื้นเขียว = ใช้ครบทั้ง 6 ทีม (ควรเป็น Shared Module กลางแน่นอน) · " +
+    "ข้อมูลดึงจากเวอร์ชันล่าสุดที่แต่ละทีม Save · Export ภาพได้จากเมนู ⋯ → PNG";
+  el.appendChild(note);
 }
 
 /* เมนู ⋯ */
@@ -2089,8 +2419,12 @@ setInterval(tickClock, 30000);
 tickClock();
 
 function renderAll(){
+  const ov = current === "overview";
+  document.body.classList.toggle("overview-mode", ov);
   document.documentElement.style.setProperty("--team", teamMeta().color);
-  renderTabs(); renderPresence(); renderRails(); renderPhone();
+  renderTabs(); renderPresence();
+  if (ov){ exitPaint(); exitConnect(); clearFlowlines(); clearHighlight(); renderOverview(); return; }
+  renderRails(); renderPhone();
   if (showFlows && !presentState.on) requestAnimationFrame(drawAllFlows);
 }
 renderAll();
