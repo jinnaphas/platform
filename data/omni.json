@@ -152,14 +152,14 @@
           ]
         },
         {
-          "name": "Dealer Management Platform",
+          "name": "Dealer Management Platform (Channel Member)",
           "chips": [
-            "1|Dealer Registration",
-            "2|Target & Performance Management",
-            "3|Ordering & Fulfillment (การซื้อขายและส่งมอบ)",
-            "5|Enablement (พัฒนาศักยภาพและมาตรฐาน)",
-            "5|Rewarding & ระบบแนะนำงาน/Commission",
-            "5|Customer Satisfaction & After-Sale"
+            "1|p1:Dealer Registration",
+            "2|p1:Target & Performance Management",
+            "3|p1:Ordering & Fulfillment (การซื้อขายและส่งมอบ)",
+            "5|p2:Enablement (พัฒนาศักยภาพและมาตรฐาน)",
+            "5|p2:Rewarding & ระบบแนะนำงาน/Commission",
+            "5|p1:Customer Satisfaction & After-Sale"
           ]
         }
       ]
