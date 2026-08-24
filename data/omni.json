@@ -198,15 +198,14 @@
         {
           "name": "Demand Satisfaction Platform",
           "chips": [
-            "4|Sale & Operation Planning Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|Vendor Management Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|Manufacturing Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|Quality Management Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|Engineering Design & PLM Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|Warehouse Management System (WMS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|Logistics & Fleet Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "5|Financial & Accounting Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "5|Returns Management Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
+            "4|p1:Sale & Operation Planning (MRP,MPS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p1:Vendor Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p1:Manufacturing (APS,MES) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p1:Quality Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p2:Engineering Design & PLM @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p1:Warehouse Management System (WMS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p1:Logistics & Fleet @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "5|p2:Financial & Accounting @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
           ]
         }
       ]
