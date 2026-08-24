@@ -147,8 +147,8 @@
             "1|Digital Commerce",
             "1|Line OA",
             "1|Facebook",
-            "1|Website",
-            "5|Customer Satisfaction & After-Sale"
+            "1|Website @@https://precise.co.th/our-business/pdem/",
+            "5|Customer Satisfaction & After-Sale @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
           ]
         },
         {
@@ -187,10 +187,10 @@
         {
           "name": "Business Generation Platform",
           "chips": [
-            "1|Customer Registration",
-            "1|Customer Relationship Management",
-            "1|Lead Management (Lead & Opportunity Pipeline)",
-            "2|Quotation & Contract Management",
+            "1|Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "1|Customer Relationship Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "1|Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "2|Quotation & Contract Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
             "2|Pricing Strategy",
             "1|Marketing/Campaign Management",
             "1|Product Platform",
