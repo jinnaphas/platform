@@ -10,7 +10,9 @@
       "image": null,
       "items": [
         "การจัดการสายพันธุ์ → [Nursery, Planting]",
-        "เกษตรกร/เจ้าของที่ดิน → [Farmer, Land Investor]"
+        "เกษตรกร/เจ้าของที่ดิน → [Farmer, Land Investor]",
+        "ผู้รับเหมาปลูกและเก็บเกี่ยว → [Planting, Harvesting]",
+        "บทบาทใหม่ → [ชื่อ Platform ที่รองรับ]"
       ]
     },
     {
