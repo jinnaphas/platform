@@ -8,7 +8,9 @@
       "glyph": "P",
       "side": "left",
       "image": null,
-      "items": []
+      "items": [
+        "การจัดการสายพันธุ์ → [ชื่อ Platform ที่รองรับ]"
+      ]
     },
     {
       "id": "sh62-evtft6",
