@@ -19,7 +19,7 @@
       "side": "left",
       "image": null,
       "items": [
-        "กลุ่ม Product/Service: Direct Raw Material, Testing & Calibration, Freight Forwarder, Construction Supplier ฯลฯ",
+        "-  Product : Direct Raw Material Supplier - Service :Testing&Calibration Supplier      Freight Forwarder   ,Construction Supplier",
         "Vendor Registration → [Vendor Management Platform]",
         "รับ TOR / RFQ → [Vendor Management Platform]",
         "เสนอ Product / Service",
@@ -39,23 +39,14 @@
       "side": "left",
       "image": null,
       "items": [
-        "หน่วยงานรับรองมาตรฐาน/ห้องทดสอบ: สภาอุตสาหกรรม (MiT), Testing Lab / Type Test Lab (KERI, KEMA, CESI, EEI), สถาบันไฟฟ้า, สมอ., Certification Body (ISO, สิ่งแวดล้อม, ESG)",
-        "ภาครัฐ/กำกับดูแล: กรมบัญชีกลาง — ระเบียบจัดซื้อจัดจ้างภาครัฐ, ระบบ e-GP, ราคากลาง, เงื่อนไขประกวดราคา",
+        "หน่วยงานรับรองมาตรฐาน/ห้องทดสอบ: สภาอุตสาหกรรม (MiT), Testing Lab / Type Test Lab (KERI, KEMA, CESI, EEI), สถาบันไฟฟ้า, สมอ., Certification Body (ISO, สิ่งแวดล้อม, ESG) → [Product Platform]",
+        "ภาครัฐ/กำกับดูแล: กรมบัญชีกลาง — ระเบียบจัดซื้อจัดจ้างภาครัฐ, ระบบ e-GP, ราคากลาง, เงื่อนไขประกวดราคา → [Business Generation Platform  >>CRM]",
         "สถาบันการเงิน: Bank — เงินทุนหมุนเวียน, สินเชื่อโครงการ, LC, TR, Bid Bond",
         "พรรคการเมือง: ทิศทางนโยบาย งบลงทุน โครงการโครงสร้างพื้นฐาน และแผนพัฒนาระบบไฟฟ้า",
         "SET / กลต.: ธรรมาภิบาล การเปิดเผยข้อมูล การระดมทุน ESG และความน่าเชื่อถือของบริษัท",
         "Consultant Company ที่ออก TOR: กำหนด Spec, TOR",
         "สถาบันการศึกษา/วิจัยและพัฒนา, มหาวิทยาลัย: R&D, Testing, Talent, งานวิจัยและนวัตกรรม"
       ]
-    },
-    {
-      "id": "sh3-omni",
-      "title": "Competitor",
-      "hue": "compet",
-      "glyph": "VS",
-      "side": "left",
-      "image": null,
-      "items": []
     },
     {
       "id": "sh4-omni",
@@ -127,8 +118,7 @@
       "image": null,
       "items": [
         "ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]",
-        "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]",
-        "กำกับดูแล Embedded AI ให้ฝังตัวถูกต้อง → [Embedded AI Capability Layer]"
+        "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]"
       ]
     }
   ],
