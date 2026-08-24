@@ -1,11 +1,14 @@
 {
   "phoneTitle": "Omni Channel Platform",
   "valueChain": [
-    "แสดงความต้องการ — TOR / Customer Need",
-    "เสนอราคา — Quotation",
-    "ตกลงซื้อ-ขาย — PO / สัญญา",
-    "ส่งมอบ — Delivery ใน 3-5 วัน",
-    "After-sales — Satisfaction & Recurring"
+    "ลูกค้าแสดงความต้องการ  สนใจ หรือแสดงความสนใจสินค้า— TOR / Customer Need",
+    "เสนอราคา  เจรจา — Quotation",
+    "ตกลงซื้อ-ขาย  — PO / สัญญา",
+    "Supply Chain Planning — แปลงยอดขาย/PO เป็นแผนผลิตและแผนจัดหาวัตถุดิบ (S&OP)",
+    "Manufacturing —ควบคุมการผลิตสินค้า",
+    "Quality Management — ตรวจสอบและรับรองมาตรฐานคุณภาพสินค้าก่อนส่งมอบ",
+    "Logistics & Warehouse — บริหารคลังสินค้าและจัดส่งสินค้าให้ตรงตามกำหนด",
+    "Aftersales— ดูแลหลังการขายและสร้างรายได้ซ้ำ  (Recurring)"
   ],
   "stakeholders": [
     {
@@ -172,10 +175,11 @@
           "chips": [
             "2|p1:Sale Forecasting",
             "2|p1:Chase Sale Operation",
-            "2|p3:Bid/Product Mapping",
+            "2|p2:Bid/Product Mapping",
             "4|p1:Inventory Max-Min Stock",
             "1|p3:AI Chatbot",
-            "p2:Dashboard — Customer 360 Profile, QCDS, POR & RRC"
+            "p2:Dashboard — Customer 360 Profile, QCDS, POR & RRC",
+            "p3:Recurring  Analysis"
           ]
         }
       ]
