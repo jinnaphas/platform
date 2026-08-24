@@ -12,7 +12,7 @@
         "การจัดการสายพันธุ์ → [Nursery, Planting]",
         "เกษตรกร/เจ้าของที่ดิน → [Farmer, Land Investor]",
         "ผู้รับเหมาปลูกและเก็บเกี่ยว → [Planting, Harvesting]",
-        "ผู้ให้บริการขนส่ง → [Transportation]",
+        "ผู้ให้บริการขนส่ง → [Logistics Visibility]",
         "โรงงานแปรรูป → [Bamboo Harvesting and Conversion]",
         "EPC/O&M → [ชื่อ Platform ที่รองรับ]",
         "ผู้ผลิตเครื่องจักร/อะไหล่ สนับสนุการผลิต → [ชื่อ Platform ที่รองรับ]",
@@ -181,7 +181,8 @@
             "Operation Availability/Reliability",
             "Finance/Contract Management",
             "Risk Management",
-            "Competitor Intelligence Module"
+            "Competitor Intelligence Module",
+            "Logistics Visibility"
           ]
         },
         {
