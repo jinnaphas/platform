@@ -145,8 +145,8 @@
           "name": "Customer Engagement Platform",
           "chips": [
             "1|Digital Commerce",
-            "1|Line OA",
-            "1|Facebook",
+            "1|p3:Line OA",
+            "1|p3:Facebook",
             "1|p1:Website @@https://precise.co.th/our-business/pdem/",
             "5|p1:Customer Satisfaction & After-Sale @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
           ]
