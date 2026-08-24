@@ -131,7 +131,10 @@
         },
         {
           "name": "Smart District",
-          "chips": []
+          "chips": [
+            "Online Monitoring",
+            "Clean soil, Clean Water, Clean Air"
+          ]
         }
       ]
     },
