@@ -96,7 +96,8 @@
       "image": null,
       "items": [
         "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]",
-        "ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]"
+        "ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]",
+        "กำกับดูแล Embedded AI ให้ฝังตัวถูกต้อง → [Embedded AI Capability Layer]"
       ]
     }
   ],
