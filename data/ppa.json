@@ -94,7 +94,9 @@
       "glyph": "A",
       "side": "right",
       "image": null,
-      "items": []
+      "items": [
+        "ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]"
+      ]
     }
   ],
   "layers": [
