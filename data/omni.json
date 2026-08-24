@@ -184,16 +184,15 @@
       "title": "Information System Platform : ERP Odoo",
       "groups": [
         {
-          "name": "Business Generation Platform",
+          "name": "Business Generation Platform  >>CRM",
           "chips": [
-            "1|Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "1|Customer Relationship Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "1|Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "2|Quotation & Contract Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "2|Pricing Strategy",
-            "1|Marketing/Campaign Management",
-            "1|Product Platform",
-            "5|Customer Satisfaction & After-Sale"
+            "1|p2:Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "1|p2:Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "2|p2:Quotation & Contract Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "2|p3:Pricing Strategy",
+            "1|p3:Marketing/Campaign Management",
+            "1|p1:Product Platform",
+            "5|p1:Customer Satisfaction & After-Sale"
           ]
         },
         {
