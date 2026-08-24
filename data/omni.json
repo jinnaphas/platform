@@ -80,16 +80,15 @@
       "side": "right",
       "image": null,
       "items": [
-        "ใช้ Process ของแต่ละ Channel ผ่าน [Dealer Management Platform]",
         "Register Channel Member, จัด Tier/Group → [Dealer Registration]",
-        "เห็น KPI ตัวเองเทียบเป้าผ่าน Dashboard/Scorecard → [Target & Performance Management]",
-        "Check Pricelist",
+        "กำหนดTarget  Performance (ให้ Dealer เห็น KPI ตัวเองเทียบ Target)→ [Target & Performance Management]",
+        "Check Pricelist → [Dealer Registration]",
         "Order สั่งซื้อของ, Check Stock → [Ordering & Fulfillment]",
         "ติดตาม Delivery, Order Status และรับสินค้าตามกำหนด",
         "After-sales, Customer Satisfaction → [Customer Satisfaction & After-Sale]",
         "Rewarding → [Rewarding & ระบบแนะนำงาน/Commission]",
         "Training → [Enablement]",
-        "Certification: หนังสือแต่งตั้งเข้างานของการไฟฟ้า",
+        "Certification: หนังสือแต่งตั้งเข้างานของการไฟฟ้า → [Enablement (พัฒนาศักยภาพและมาตรฐาน)]",
         "ระบบกลางที่ให้คนแนะนำงานมาให้ Precise ได้ → [Rewarding & ระบบแนะนำงาน/Commission]"
       ]
     },
