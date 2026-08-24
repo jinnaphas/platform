@@ -170,13 +170,12 @@
         {
           "name": "Analytics & AI",
           "chips": [
-            "2|Sale Forecasting",
-            "2|Chase Sale Operation",
-            "2|Bid/Product Mapping",
-            "4|Forecast Max-Min Stock",
-            "4|Inventory Intelligence Platform",
-            "1|AI Chatbot",
-            "Dashboard — Customer 360 Profile, QCDS, POR & RRC"
+            "2|p1:Sale Forecasting",
+            "2|p1:Chase Sale Operation",
+            "2|p3:Bid/Product Mapping",
+            "4|p1:Inventory Max-Min Stock",
+            "1|p3:AI Chatbot",
+            "p2:Dashboard — Customer 360 Profile, QCDS, POR & RRC"
           ]
         }
       ]
