@@ -59,24 +59,24 @@
     },
     {
       "id": "sh4-omni",
-      "title": "End User (Precise, Direct)",
+      "title": "End User ZPrecise,DealerX",
       "hue": "buyer",
       "glyph": "E",
       "side": "right",
       "image": null,
       "items": [
-        "แสดงความต้องการสินค้า: TOR · Customer Need — เลือก/ค้นหาสินค้าผ่านช่องทางของ Precise → [Digital Commerce]",
-        "รับการดูแลติดต่อเสนอราคา → [Quotation & Contract Management]",
-        "ทำข้อตกลงการซื้อ-ขายสินค้า (PO)",
-        "ติดตาม Delivery, Order Status และรับสินค้าตามกำหนด → [Logistics & Fleet Platform]",
-        "After-sales, Customer Satisfaction → [Customer Satisfaction & After-Sale]"
+        "แสดงความต้องการสินค้า     1.1 TOR     1.2 Customer need - สอบถาม/เลือก/ค้นหาสินค้าผ่านช่องทางของ Precise → [Customer Engagement Platform]",
+        "รับการดูแลติดต่อเสนอราคา  (Quotation) → [Quotation & Contract Management]",
+        "ทำข้อตกลงการซื้อ-ขายสินค้า (PO) → [Quotation & Contract Management]",
+        "ติดตาม Delivery ,Order Status และรับสินค้าตามกำหนด → [Demand Satisfaction Platform]",
+        "After-sales, Customer Satisfaction  บริการหลังการขาย แจ้งปัญหา ข้อร้องเรียน ประเมินความพึงพอใจ"
       ]
     },
     {
       "id": "sh5-omni",
       "title": "Channel Member (Main Contractor · Dealer · Smartshop)",
       "hue": "compet",
-      "glyph": "CM",
+      "glyph": "C",
       "side": "right",
       "image": null,
       "items": [
