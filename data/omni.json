@@ -200,15 +200,15 @@
         {
           "name": "Demand Satisfaction Platform",
           "chips": [
-            "4|Sale & Operation Planning Platform",
-            "4|Vendor Management Platform",
-            "4|Manufacturing Platform",
-            "4|Quality Management Platform",
-            "4|Engineering Design & PLM Platform",
-            "4|Warehouse Management System (WMS)",
-            "4|Logistics & Fleet Platform",
-            "5|Financial & Accounting Platform",
-            "5|Returns Management Platform"
+            "4|Sale & Operation Planning Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|Vendor Management Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|Manufacturing Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|Quality Management Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|Engineering Design & PLM Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|Warehouse Management System (WMS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|Logistics & Fleet Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "5|Financial & Accounting Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "5|Returns Management Platform @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
           ]
         }
       ]
