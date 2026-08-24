@@ -17,8 +17,8 @@
         "EPC/O&M → [ชื่อ Platform ที่รองรับ]",
         "ผู้ผลิตเครื่องจักร/อะไหล่ สนับสนุการผลิต → [ชื่อ Platform ที่รองรับ]",
         "ธนาคาร/นักลงทุน → [ชื่อ Platform ที่รองรับ]",
-        "ประกันภัย → [ชื่อ Platform ที่รองรับ]",
-        "Cloud/Technology partner → [ชื่อ Platform ที่รองรับ]"
+        "ประกันภัย → [Risk Management]",
+        "Cloud/Technology partner → [Colocation Data Center]"
       ]
     },
     {
@@ -175,7 +175,7 @@
           "chips": [
             "Operation Availability/Reliability",
             "Finance/Contract Management",
-            "Risk Manangement"
+            "Risk Management"
           ]
         },
         {
