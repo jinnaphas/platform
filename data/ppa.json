@@ -148,8 +148,11 @@
         {
           "name": "Smart District",
           "chips": [
-            "Smart Monitoring",
-            "Environment Management"
+            "Smart Economy",
+            "Smart Community",
+            "Smart Environment",
+            "Smart Mobility",
+            "Smart Energy"
           ]
         }
       ]
