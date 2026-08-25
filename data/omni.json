@@ -154,10 +154,10 @@
         {
           "name": "Analytics & AI",
           "chips": [
-            "2|p1:Sale Forecasting",
-            "2|p1:Chase Sale Operation",
+            "2|p1:Sale Forecasting @@https://jetniphat400.github.io/sale_forecast/",
+            "2|p1:Chase Sale Operation @@https://jetniphat400.github.io/sale_forecast/",
             "2|p2:Bid/Product Mapping",
-            "4|p1:Inventory Max-Min Stock",
+            "4|p1:Inventory Max-Min Stock @@https://jetniphat400.github.io/sale_forecast/",
             "1|p3:AI Chatbot",
             "p2:Dashboard — Customer 360 Profile, QCDS, POR & RRC",
             "p3:Recurring  Analysis"
