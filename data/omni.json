@@ -21,14 +21,14 @@
       "items": [
         "-  Product : Direct Raw Material Supplier - Service :Testing&Calibration Supplier      Freight Forwarder   ,Construction Supplier",
         "Vendor Registration → [Vendor Management Platform]",
-        "รับ TOR / RFQ → [Vendor Management Platform]",
-        "เสนอ Product / Service",
-        "เสนอราคา (Quotation / Proposal)",
-        "เจรจาต่อรอง",
-        "รับ PO / เซ็นสัญญา → [Vendor Management Platform]",
-        "Update Order Status",
-        "Delivery Product / Service → [Logistics & Fleet Platform]",
-        "วางบิล, รับเงิน → [Financial & Accounting Platform]"
+        "รับ TOR / RFQ → [Vendor Management]",
+        "เสนอ Product / Service → [Vendor Management]",
+        "เสนอราคา (Quotation / Proposal) → [Vendor Management]",
+        "เจรจาต่อรอง → [Vendor Management]",
+        "รับ PO / เซ็นสัญญา → [Vendor Management]",
+        "Update Order Status → [Vendor Management]",
+        "Delivery Product / Service → [Warehouse Management System (WMS)]",
+        "วางบิล, รับเงิน → [Financial & Accounting]"
       ]
     },
     {
