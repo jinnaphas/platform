@@ -30,7 +30,7 @@
       "image": null,
       "items": [
         "กลุ่มเกษตรกร → [Promoting agriculture]",
-        "องค์กรปกครองส่วนท้องถิ่น→ [ที่ดิน ผังเมือง สาธารณูปโภค]",
+        "องค์กรปกครองส่วนท้องถิ่น→ [Land & Infrastructure]",
         "กระทรวง/หน่วยงานด้านเกษตร → [พันธุ์ มาตรฐาน และส่งเสริมเกษตรกร]",
         "Startup/นักพัฒนา AI → [Technology]",
         "มหาวิทยาลัย/วิจัย → [ชื่อ Platform ที่รองรับ]",
@@ -199,7 +199,7 @@
           "name": "Ecosystem Partner",
           "chips": [
             "E-Marketplace",
-            "ที่ดิน ผังเมือง สาธารณูปโภค",
+            "Land & Infrastructure",
             "Investor / Lender",
             "EPC / Technology Partner",
             "Utility / Regulator",
