@@ -14,7 +14,7 @@
         "ผู้รับเหมาปลูกและเก็บเกี่ยว → [Planting, Harvesting]",
         "ผู้ให้บริการขนส่ง → [Logistics Visibility]",
         "โรงงานแปรรูป → [Bamboo Harvesting and Conversion]",
-        "EPC/O&M → [ชื่อ Platform ที่รองรับ]",
+        "EPC/O&M → [EPC / Technology Partner]",
         "ผู้ผลิตเครื่องจักร/อะไหล่ สนับสนุการผลิต → [ชื่อ Platform ที่รองรับ]",
         "ธนาคาร/นักลงทุน → [ชื่อ Platform ที่รองรับ]",
         "ประกันภัย → [Risk Management]",
@@ -199,7 +199,8 @@
           "chips": [
             "E-Marketplace",
             "ที่ดิน ผังเมือง สาธารณูปโภค",
-            "Investor / Lender"
+            "Investor / Lender",
+            "EPC / Technology Partner"
           ]
         }
       ]
