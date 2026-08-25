@@ -3,196 +3,275 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TCS × Gartner Digital Business Technology Platform</title>
+<title>DBTP Explorer — RST × Gartner</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg: #FFFFFF; --panel: #FFFFFF; --ink: #18202E; --muted: #5A6577;
+    --line: #E4E8EF; --soft: #F6F8FB; --brand: #1B4F9C;
+    --cx: #2E9BD6; --eco: #E8742C; --iot: #2B5FA3; --is: #6E7783; --isr: #9AA2AB; --data: #4A9E3F; --fnd: #8A6D1C;
+  }
+  body.dark {
+    --bg: #0F1520; --panel: #171E2C; --ink: #E8ECF4; --muted: #97A2B5;
+    --line: #2A3348; --soft: #1C2434; --brand: #7FA8E8;
+    --is: #A7AFBC; --isr: #6E7783;
+  }
   * { box-sizing: border-box; }
   html, body { margin: 0; }
   body {
-    background: #FFFFFF; color: #18202E;
+    background: var(--bg); color: var(--ink);
     font: 14px/1.55 "IBM Plex Sans Thai", -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+    transition: background .2s;
   }
-  .page { max-width: 1560px; margin: 0 auto; padding: 26px 28px 60px; }
-  header.hd { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-  header.hd h1 { margin: 0; font-size: 26px; font-weight: 700; color: #1B4F9C; letter-spacing: -.01em; }
-  header.hd .sub { color: #5A6577; font-size: 13px; }
-  header.hd a.back {
-    margin-left: auto; font-size: 12.5px; color: #2358C6; text-decoration: none;
-    border: 1px solid #D8DEE8; border-radius: 999px; padding: 5px 14px;
+  .page { max-width: 1620px; margin: 0 auto; padding: 20px 24px 60px; }
+
+  header.hd { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  header.hd h1 { margin: 0 8px 0 0; font-size: 21px; font-weight: 700; color: var(--brand); letter-spacing: -.01em; }
+  .ctl {
+    border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    border-radius: 8px; padding: 6px 10px; font: inherit; font-size: 12.5px; cursor: pointer;
   }
-  header.hd a.back:hover { border-color: #2358C6; }
+  .ctl:hover { border-color: var(--brand); }
+  .ctl.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+  input.ctl { cursor: text; width: 170px; }
+  .spacer { flex: 1; }
+  a.back { font-size: 12px; color: var(--brand); text-decoration: none; }
+  #status { font-size: 11.5px; color: var(--muted); }
 
-  .frame { border: 1px solid #E4E8EF; border-radius: 14px; margin-top: 16px; overflow: hidden; }
-  .frame svg { display: block; width: 100%; height: auto; background: #FFFFFF; }
-
+  .frame { border: 1px solid var(--line); border-radius: 14px; margin-top: 12px; overflow: hidden; background: var(--panel); }
+  .frame svg { display: block; width: 100%; height: auto; }
   .legend {
-    display: flex; gap: 22px; flex-wrap: wrap; align-items: center;
-    padding: 10px 18px; border-top: 1px solid #E4E8EF; background: #FAFBFD;
-    font-size: 12px; color: #5A6577;
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    padding: 9px 14px; border-top: 1px solid var(--line); background: var(--soft);
+    font-size: 12px; color: var(--muted);
   }
-  .legend b { color: #18202E; }
-  .lg { display: inline-flex; align-items: center; gap: 6px; }
-  .dotp { width: 13px; height: 13px; border-radius: 50%; display: inline-block; }
+  .chipf {
+    border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    border-radius: 999px; padding: 3px 12px; font-size: 12px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .chipf .sw { width: 11px; height: 11px; border-radius: 50%; }
+  .chipf.dim { opacity: .38; }
+  .chipf:hover { border-color: var(--brand); }
 
-  h2.sec { font-size: 15px; font-weight: 700; color: #1B4F9C; margin: 34px 0 10px; }
-  .mapwrap { overflow-x: auto; border: 1px solid #E4E8EF; border-radius: 12px; }
-  table.map { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  table.map th, table.map td { padding: 8px 12px; border-bottom: 1px solid #EDF0F5; text-align: left; vertical-align: top; }
-  table.map thead th { background: #F3F6FB; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #5A6577; }
-  table.map td.plat { font-weight: 700; white-space: nowrap; }
-  .pill { display: inline-block; border-radius: 6px; padding: 1px 8px; margin: 1px 2px 1px 0; font-size: 11.5px; background: #F0F3F8; }
-  .note {
-    margin-top: 16px; background: #EFF4FC; border: 1px solid #D8E2F2; border-radius: 10px;
-    padding: 10px 16px; font-size: 12px; color: #455061; line-height: 1.8;
+  /* tooltip + side panel */
+  #tip {
+    position: fixed; z-index: 50; pointer-events: none; display: none;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    box-shadow: 0 10px 32px rgba(10,16,28,.18); padding: 9px 12px; font-size: 12px;
+    max-width: 300px; line-height: 1.6;
   }
-  @media print { header.hd a.back { display: none; } }
+  #tip b { font-size: 12.5px; }
+  #tip .m { color: var(--muted); }
+  #panel {
+    position: fixed; top: 0; right: -420px; width: 400px; height: 100vh; z-index: 60;
+    background: var(--panel); border-left: 1px solid var(--line);
+    box-shadow: -12px 0 40px rgba(10,16,28,.15); padding: 18px 20px; overflow-y: auto;
+    transition: right .22s ease;
+  }
+  #panel.open { right: 0; }
+  #panel h3 { margin: 0 30px 2px 0; font-size: 17px; color: var(--brand); }
+  #panel .meta { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  #panel .tag { display: inline-block; border-radius: 6px; padding: 1px 8px; font-size: 11px; background: var(--soft); border: 1px solid var(--line); margin: 2px 3px 2px 0; }
+  #panel h4 { margin: 14px 0 6px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  #panel .act { border-left: 3px solid var(--line); padding: 3px 10px; margin-bottom: 7px; font-size: 12.5px; }
+  #panel .act .who { font-size: 11px; color: var(--muted); }
+  #panel a.doc { color: var(--brand); font-size: 12.5px; }
+  #pClose { position: absolute; top: 12px; right: 12px; border: none; background: var(--soft); border-radius: 50%; width: 28px; height: 28px; cursor: pointer; color: var(--ink); }
+
+  /* svg node styling */
+  .node { cursor: pointer; }
+  .node text { user-select: none; }
+  .dimmed { opacity: .13; transition: opacity .18s; }
+  .lit circle.dot { filter: drop-shadow(0 0 6px rgba(255,190,40,.9)); }
+  .cornerline { fill: none; stroke-width: 1.6; opacity: .55; pointer-events: none; }
+  .corner { cursor: pointer; }
+
+  table.auto { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 8px; }
+  table.auto th, table.auto td { padding: 7px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  table.auto thead th { background: var(--soft); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .pill { display: inline-block; border-radius: 6px; padding: 1px 8px; margin: 1px 2px 1px 0; font-size: 11.5px; background: var(--soft); border: 1px solid var(--line); }
+  h2.sec { font-size: 15px; font-weight: 700; color: var(--brand); margin: 30px 0 6px; }
+  .note { margin-top: 14px; background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 9px 14px; font-size: 12px; color: var(--muted); line-height: 1.8; }
+  @media print { header.hd, .legend, #panel { display: none !important; } }
 </style>
 </head>
 <body>
 <div class="page">
   <header class="hd">
-    <h1>TCS — Digital Business Technology Platform</h1>
-    <span class="sub">จับคู่ Capability ของ TCS Revenue Stream ลงกรอบ 5 Platform ตามทฤษฎี Gartner DBTP (2017)</span>
-    <a class="back" href="index.html">← กลับ RST Architecture Studio</a>
+    <h1>DBTP Explorer</h1>
+    <select id="team" class="ctl"></select>
+    <select id="overlay" class="ctl" title="ซ้อนเทียบกับอีกทีม"><option value="">— ไม่เทียบ —</option></select>
+    <input id="search" class="ctl" placeholder="🔍 ค้นหา Capability…">
+    <button id="vw2d" class="ctl on">2D Gartner</button>
+    <button id="vwiso" class="ctl">2.5D Isometric</button>
+    <button id="btnTour" class="ctl" title="ไล่ไฮไลต์ทีละ Platform">▶ เดินเรื่อง</button>
+    <button id="btnPng" class="ctl">📷 PNG</button>
+    <button id="btnDark" class="ctl">🌙</button>
+    <span class="spacer"></span>
+    <span id="status"></span>
+    <a class="back" href="index.html">← กลับ Studio</a>
   </header>
 
   <div class="frame">
-    <svg id="cv" viewBox="0 0 2000 1250" xmlns="http://www.w3.org/2000/svg" aria-label="TCS Digital Business Technology Platform diagram"></svg>
-    <div class="legend">
-      <span><b>Priority ของ TCS:</b></span>
-      <span class="lg"><span class="dotp" style="background:#1B4F9C"></span> P1 ขาดไม่ได้ (จุดทึบ)</span>
-      <span class="lg"><span class="dotp" style="background:#fff;border:3px solid #1B4F9C"></span> P2 ทำถัดไป (จุดกลวง)</span>
-      <span class="lg"><span class="dotp" style="background:#fff;border:2px dashed #9AA2AB"></span> P3 ทีหลัง (จุดประ)</span>
-      <span style="margin-left:auto">สีของจุด = Platform ตาม Gartner · จุดที่อยู่ในพื้นที่ซ้อน = Capability ที่คร่อมสอง Platform</span>
-    </div>
+    <svg id="cv" viewBox="0 0 2000 1250" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="legend" id="legend"></div>
   </div>
 
-  <h2 class="sec">ตาราง Matching — Gartner Platform ⟷ TCS Capability (44 รายการ จากข้อมูลล่าสุดของทีม)</h2>
-  <div class="mapwrap">
-    <table class="map">
-      <thead><tr><th style="width:250px">Gartner Platform</th><th>TCS Capability (Sub-Platform ต้นทาง)</th><th style="width:330px">เหตุผลการจับคู่</th></tr></thead>
-      <tbody>
-        <tr>
-          <td class="plat" style="color:#2E9BD6">Customer Experience Platform</td>
-          <td><span class="pill">Customer Engagement Hub</span><span class="pill">Digital Commerce Channel</span><span class="pill">Buyer Self-Service Portal</span> <i>(Buyer / User Platform)</i></td>
-          <td>ช่องทางที่ลูกค้า (การไฟฟ้า/อุตสาหกรรม) สัมผัสตรง — เทียบ Customer Portal & Apps, Multichannel Commerce ของ Gartner</td>
-        </tr>
-        <tr>
-          <td class="plat" style="color:#E8742C">Ecosystems Platform</td>
-          <td><span class="pill">Partner / 3rd-Party App Ecosystem</span><span class="pill">Ecosystem & Services</span> <i>(Ecosystem & Partner)</i> · คร่อม CX: <span class="pill">Financing Service</span></td>
-          <td>เปิดให้พันธมิตรเสียบบริการเข้ามา — เทียบ Enterprise-run Ecosystems / Partner APIs; Financing เป็นบริการพันธมิตรที่เสิร์ฟลูกค้า จึงวางในพื้นที่ซ้อน CX∩Ecosystems</td>
-        </tr>
-        <tr>
-          <td class="plat" style="color:#4A9E3F">Data & Analytics Platform</td>
-          <td>แกนกลาง: <span class="pill">Embedded AI Capability Layer</span><span class="pill">AI Engineering Copilot</span><span class="pill">Enterprise Data Governance Layer</span><span class="pill">Market & Demand Intelligence Center</span> · คร่อม CX: <span class="pill">ICP Scoring & Account Research</span><span class="pill">Stakeholder Mapping Tool</span><span class="pill">Energy Procurement Advisory</span> · คร่อม IS: <span class="pill">Pipeline & Forecast Analytics</span><span class="pill">Carbon Accounting & Reporting</span><span class="pill">LCC Analysis</span><span class="pill">Business KPI & 7QC Root-Cause Analytics</span><span class="pill">Simulation & Virtual Validation</span> · คร่อม IoT: <span class="pill">Digital Twin & Remote</span><span class="pill">Monitoring, Reporting & Event Resolution</span><span class="pill">Digital / Predictive Maintenance</span></td>
-          <td>หัวใจของ DBTP — Algorithm & AI Engines + Analytics ทุกมุม: ฝั่งลูกค้า (Customer Analytics), ฝั่งปฏิบัติการ (Business & Operational Analytics) และฝั่งอุปกรณ์ (IoT Analytics) ตามตำแหน่งซ้อนของ Gartner</td>
-        </tr>
-        <tr>
-          <td class="plat" style="color:#2B5FA3">IoT Platform</td>
-          <td><span class="pill">IoT Data Management</span><span class="pill">Connectivity & Edge Management</span><span class="pill">Grid Edge / Field Devices</span><span class="pill">Grid Operations & Control</span> <i>(EMS)</i></td>
-          <td>เชื่อม "Things" ของ TCS = อุปกรณ์ไฟฟ้า, Sensor, Grid Asset — เทียบ Connected Things / OT Systems ของ Gartner</td>
-        </tr>
-        <tr>
-          <td class="plat" style="color:#6E7783">Information Systems Platform</td>
-          <td>Engineering: <span class="pill">System Modeling & Requirements</span><span class="pill">Architecture Design</span><span class="pill">Integration</span><span class="pill">Standards & Compliance Repository</span><span class="pill">Technical & Commercial Database</span> · Commercial: <span class="pill">Sale & Operation Planning Platform</span><span class="pill">Sale & Operation Planning System</span><span class="pill">S&OP–TPS/MIS Integration Layer</span><span class="pill">Pricing Strategy Framework</span><span class="pill">Commercial Engine</span><span class="pill">Negotiation & Contract Management System</span> · Back-office: <span class="pill">Project Management Business Office</span><span class="pill">Finance & Revenue Recognition Integration</span><span class="pill">ESG & Carbon Commercial Suite</span><span class="pill">Knowledge Management System</span> · คร่อม IoT: <span class="pill">Spatial Engineering & Fleet Management</span><span class="pill">Asset Lifecycle Management system</span></td>
-          <td>ระบบงานหลักที่พนักงาน Precise ใช้ (Core / Back-Office Systems ของ Gartner) — งานที่ผูกกับตัวอุปกรณ์ตลอดอายุ (Fleet, Asset Lifecycle) วางในพื้นที่ซ้อน IoT∩IS ตามตำแหน่ง Endpoint Computing</td>
-        </tr>
-        <tr>
-          <td class="plat" style="color:#8A6D1C">Foundation (Cross-cutting)</td>
-          <td><span class="pill">OT/IT Cyber Security Framework</span><span class="pill">Cloud / SaaS Infrastructure</span></td>
-          <td>Gartner DBTP ไม่มีวง Foundation แยก — สองตัวนี้เป็นโครงสร้างพื้นฐานรองรับทุกวง จึงแสดงเป็นแถบล่าง (ส่วน Embedded AI และ Data Governance ยกขึ้นไปเป็นแกนของ Data & Analytics)</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h2 class="sec">ตาราง Matching (สร้างอัตโนมัติจากข้อมูลล่าสุด)</h2>
+  <div style="overflow-x:auto"><table class="auto" id="tbl"></table></div>
 
-  <div class="note">
-    <b>วิธีอ่าน/ที่มา:</b> โครง 5 วงและตำแหน่งมุม (Customers · Partners · Things · Employees) อ้างอิงแผนภาพ Digital Business Technology Platform, Gartner 2017 —
-    เนื้อในทั้ง 44 Capability ดึงจากผัง TCS เวอร์ชันล่าสุดที่ทีม Save ใน RST Architecture Studio (data/tcs.json) พร้อมระดับ Priority ที่ทีมแต้มไว้ ·
-    ตำแหน่งในพื้นที่ซ้อนตีความจากบทบาทของ Capability (เช่น Analytics ฝั่งลูกค้า = CX∩Data เทียบ Customer Analytics ของต้นฉบับ) ·
-    มุม "Things" ของ TCS หมายถึงอุปกรณ์ไฟฟ้า/Sensor/Grid Asset ที่ EMS เชื่อมต่อ · หน้านี้ Print/Save เป็น PDF ได้จากเบราว์เซอร์โดยตรง
-  </div>
+  <div class="note"><b>ที่มาข้อมูล:</b> ดึงสดจากระบบกลางทุกครั้งที่เปิด (Worker → ไฟล์ใน repo → ข้อมูลในเครื่อง → snapshot สำรอง ตามลำดับ) —
+    ทีมกด Save ใน Studio แล้วหน้านี้อัปเดตเอง · <b>ขนาดจุด</b> = จำนวนบทบาท Stakeholder ที่เชื่อมเข้า (เส้น Flow) ·
+    <b>จุดทึบ/กลวง/เส้นประ</b> = Priority P1/P2/P3 · คลิกจุดเพื่อดูรายละเอียด+ผู้ใช้งาน · คลิกชื่อวงเพื่อ isolate · คลิกมุม (Customers/Partners/Employees) เพื่อดูเส้นการใช้งาน ·
+    Capability ที่ระบบยังไม่รู้ตำแหน่งจะถูกจัดวงด้วย keyword อัตโนมัติ · โครงอ้างอิง: Gartner Digital Business Technology Platform (2017)</div>
 </div>
+
+<div id="tip"></div>
+<div id="panel"><button id="pClose">✕</button><div id="pBody"></div></div>
 
 <script>
 "use strict";
-/* ---------- โครง 5 วงแบบ Gartner ---------- */
+/* ================= config ================= */
+const TEAMS = [
+  { id:"tendering", name:"Tendering RST" }, { id:"omni", name:"Omni Channel RST" },
+  { id:"tcs", name:"TCS RST" }, { id:"recurring", name:"Recurring RST" },
+  { id:"ppa", name:"PPA / Long-term RST" }, { id:"invest", name:"Investment RST" },
+];
 const RINGS = {
-  cx:  { x:290,  y:270, w:900,  h:450, color:"#2E9BD6", label:"Customer Experience Platform",  lx:620,  ly:352 },
-  eco: { x:840,  y:270, w:890,  h:290, color:"#E8742C", label:"Ecosystems Platform",           lx:1420, ly:352 },
-  iot: { x:290,  y:470, w:900,  h:450, color:"#2B5FA3", label:"IoT Platform",                  lx:480,  ly:860 },
-  is:  { x:750,  y:440, w:980,  h:520, rx:120, color:"#9AA2AB", label:"Information Systems Platform",  lx:1520, ly:578 },
-  data:{ x:640,  y:430, w:730,  h:310, color:"#4A9E3F", label:"Data & Analytics Platform",     lx:1005, ly:412 },
+  cx:  { x:290, y:270, w:900, h:450, color:"var(--cx)",  raw:"#2E9BD6", label:"Customer Experience Platform", lx:620, ly:352 },
+  eco: { x:840, y:270, w:890, h:290, color:"var(--eco)", raw:"#E8742C", label:"Ecosystems Platform", lx:1420, ly:352 },
+  iot: { x:290, y:470, w:900, h:450, color:"var(--iot)", raw:"#2B5FA3", label:"IoT Platform", lx:435, ly:520 },
+  is:  { x:750, y:440, w:980, h:520, rx:120, color:"var(--isr)", raw:"#9AA2AB", label:"Information Systems Platform", lx:1500, ly:508 },
+  data:{ x:640, y:430, w:730, h:310, color:"var(--data)", raw:"#4A9E3F", label:"Data & Analytics Platform", lx:1005, ly:412 },
 };
-const RING_TXT = { cx:"#7FC4E8", eco:"#F2A97E", iot:"#8FB4DF", is:"#B9C0C9", data:"#9CCB8F" };
-
-/* ---------- Capability nodes (x, y, สีตามวงหลัก, priority) ---------- */
-const N = [
-  /* CX */
-  { x:560,  y:270, c:"cx", p:1, t:["Customer","Engagement Hub"], a:"top" },
-  { x:360,  y:390, c:"cx", p:1, t:["Digital Commerce","Channel"], a:"left" },
-  { x:395,  y:600, c:"cx", p:2, t:["Buyer Self-Service","Portal"], a:"left" },
-  /* CX ∩ Ecosystems */
-  { x:1013, y:270, c:"eco", p:2, t:["Financing Service"], a:"top" },
-  /* Ecosystems */
-  { x:1330, y:270, c:"eco", p:2, t:["Partner / 3rd-Party","App Ecosystem"], a:"top" },
-  { x:1540, y:330, c:"eco", p:3, t:["Ecosystem","& Services"], a:"right" },
-  /* CX ∩ Data */
-  { x:800,  y:495, c:"data", p:1, t:["Stakeholder","Mapping Tool"], a:"left" },
-  { x:960,  y:463, c:"data", p:1, t:["ICP Scoring &","Account Research"], a:"bot" },
-  { x:735,  y:585, c:"data", p:2, t:["Energy Procurement","Advisory"], a:"left" },
-  /* Data core */
-  { x:1005, y:575, c:"data", p:1, t:["Embedded AI","Capability Layer"], a:"right" },
-  { x:930,  y:630, c:"data", p:1, t:["AI Engineering","Copilot"], a:"bot" },
-  { x:1090, y:625, c:"data", p:2, t:["Enterprise Data","Governance Layer"], a:"bot" },
-  { x:1115, y:515, c:"data", p:2, t:["Market & Demand","Intelligence Center"], a:"top" },
-  /* Data ∩ IS */
-  { x:1255, y:478, c:"data", p:1, t:["Pipeline & Forecast","Analytics"], a:"bot" },
-  { x:1240, y:545, c:"data", p:2, t:["Carbon Accounting","& Reporting"], a:"left" },
-  { x:1195, y:600, c:"data", p:2, t:["LCC Analysis"], a:"left" },
-  { x:1310, y:655, c:"data", p:1, t:["Business KPI & 7QC","Root-Cause Analytics"], a:"bot" },
-  { x:1150, y:715, c:"data", p:1, t:["Simulation &","Virtual Validation"], a:"bot" },
-  /* IoT ∩ Data */
-  { x:760,  y:690, c:"iot", p:1, t:["Digital Twin","& Remote"], a:"left" },
-  { x:880,  y:748, c:"iot", p:1, t:["Monitoring, Reporting","& Event Resolution"], a:"bot" },
-  { x:680,  y:640, c:"iot", p:2, t:["Digital / Predictive","Maintenance"], a:"left" },
-  /* IoT */
-  { x:540,  y:770, c:"iot", p:1, t:["IoT Data","Management"], a:"left" },
-  { x:760,  y:866, c:"iot", p:2, t:["Connectivity & Edge","Management"], a:"bot" },
-  { x:375,  y:840, c:"iot", p:2, t:["Grid Edge /","Field Devices"], a:"left" },
-  { x:530,  y:905, c:"iot", p:2, t:["Grid Operations","& Control"], a:"bot" },
-  /* IoT ∩ IS */
-  { x:1010, y:855, c:"is", p:2, t:["Spatial Engineering","& Fleet Management"], a:"left" },
-  { x:1135, y:905, c:"is", p:1, t:["Asset Lifecycle","Management"], a:"left" },
-  /* IS — Engineering (แถวบนขวา) */
-  { x:1450, y:600, c:"is", p:1, t:["System Modeling","& Requirements"], a:"bot" },
-  { x:1665, y:600, c:"is", p:1, t:["Architecture","Design"], a:"bot" },
-  { x:1420, y:700, c:"is", p:1, t:["Integration"], a:"bot" },
-  { x:1565, y:700, c:"is", p:1, t:["Technical & Commercial","Database"], a:"bot" },
-  { x:1705, y:700, c:"is", p:2, t:["Standards & Compliance","Repository"], a:"right" },
-  /* IS — Commercial (แถวกลาง) */
-  { x:1245, y:780, c:"is", p:1, t:["S&OP Platform","(Business Gen)"], a:"bot" },
-  { x:1385, y:780, c:"is", p:1, t:["S&OP System","(Demand Sat)"], a:"bot" },
-  { x:1525, y:780, c:"is", p:2, t:["S&OP–TPS/MIS","Integration Layer"], a:"bot" },
-  { x:1665, y:780, c:"is", p:2, t:["Commercial","Engine"], a:"bot" },
-  /* IS — Back-office (แถวล่าง) */
-  { x:1245, y:870, c:"is", p:1, t:["Project Management","Business Office"], a:"bot" },
-  { x:1390, y:870, c:"is", p:2, t:["Finance & Revenue","Recognition"], a:"bot" },
-  { x:1540, y:870, c:"is", p:1, t:["Negotiation & Contract","Management"], a:"bot" },
-  { x:1690, y:870, c:"is", p:2, t:["Pricing Strategy","Framework"], a:"bot" },
-  { x:1245, y:935, c:"is", p:2, t:["ESG & Carbon Commercial Suite"], a:"right" },
-  { x:1600, y:935, c:"is", p:3, t:["Knowledge Management"], a:"right" },
-];
-
-const CORNERS = [
-  { x:250,  y:215, name:"Customers", sub:"การไฟฟ้า · ลูกค้าอุตสาหกรรม", anchor:"start" },
-  { x:1750, y:215, name:"Partners",  sub:"Partner · Complementor · สถาบันการเงิน", anchor:"end" },
-  { x:250,  y:985, name:"Things",    sub:"อุปกรณ์ไฟฟ้า · Sensor · Grid Asset", anchor:"start" },
-  { x:1750, y:1010, name:"Employees", sub:"ทีม Precise — Sales · Engineering · S&OP · PM", anchor:"end" },
-];
-
+/* โซนวาง (พื้นที่ + วงที่สังกัด + วงหลักสำหรับสี/ชั้น iso) */
+const ZONES = {
+  cx:      { x:330,  y:330, w:300, h:330, rings:["cx"],        main:"cx" },
+  cxeco:   { x:880,  y:288, w:260, h:60,  rings:["cx","eco"],  main:"eco" },
+  eco:     { x:1240, y:365, w:450, h:80,  rings:["eco"],       main:"eco" },
+  cxdata:  { x:680,  y:452, w:330, h:105, rings:["cx","data"], main:"data" },
+  data:    { x:830,  y:565, w:350, h:120, rings:["data"],      main:"data" },
+  datais:  { x:1140, y:452, w:220, h:280, rings:["data","is"], main:"data" },
+  iotdata: { x:655,  y:610, w:225, h:125, rings:["iot","data"],main:"iot" },
+  iot:     { x:330,  y:748, w:440, h:150, rings:["iot"],       main:"iot" },
+  iotis:   { x:920,  y:815, w:260, h:110, rings:["iot","is"],  main:"is" },
+  is:      { x:1240, y:585, w:465, h:345, rings:["is"],        main:"is" },
+  fnd:     { strip:true, rings:[], main:"fnd" },
+};
+/* mapping ชื่อ TCS → โซน (เทียบแบบ normalize/contains) */
+const EXPLICIT = {
+  "customer engagement hub":"cx","digital commerce channel":"cx","buyer self-service portal":"cx",
+  "financing service":"cxeco",
+  "partner / 3rd-party app ecosystem":"eco","ecosystem & services":"eco",
+  "stakeholder mapping tool":"cxdata","icp scoring & account research":"cxdata","energy procurement advisory":"cxdata",
+  "embedded ai capability layer":"data","ai engineering copilot":"data","enterprise data governance layer":"data","market & demand intelligence center":"data",
+  "pipeline & forecast analytics":"datais","carbon accounting & reporting":"datais","lcc analysis":"datais",
+  "business kpi & 7qc root-cause analytics":"datais","simulation & virtual validation":"datais",
+  "digital twin & remote":"iotdata","monitoring, reporting & event resolution":"iotdata","digital / predictive maintenance":"iotdata",
+  "iot data management":"iot","connectivity & edge management":"iot","grid edge / field devices":"iot","grid operations & control":"iot",
+  "spatial engineering & fleet management":"iotis","asset lifecycle management":"iotis",
+  "ot/it cyber security framework":"fnd","cloud / saas infrastructure":"fnd",
+};
+function classify(name){
+  const n = name.toLowerCase();
+  for (const k in EXPLICIT) if (n === k || n.includes(k) || k.includes(n)) return EXPLICIT[k];
+  if (/security|cyber|cloud|infrastructure/.test(n)) return "fnd";
+  if (/predictive maintenance|monitoring|digital twin/.test(n)) return "iotdata";
+  if (/\biot\b|sensor|\bedge\b|\bgrid\b|device|connectivity|scada|\bfleet\b/.test(n)) return "iot";
+  if (/analytic|forecast|dashboard|intelligen|scoring|\bai\b|copilot|chatbot|simulation|\bdata\b|360|carbon accounting|insight/.test(n)) return "data";
+  if (/customer|commerce|portal|engagement|website|line oa|facebook|self-service|satisfaction|after-sale|loyalty/.test(n)) return "cx";
+  if (/partner|ecosystem|dealer|complementor|\bapi\b|rewarding|enablement|commission/.test(n)) return "eco";
+  return "is";
+}
+/* ================= data loading ================= */
+const norm = s => s.toLowerCase().replace(/[()]/g," ").replace(/\s+/g," ").trim();
+function parseChip(raw){
+  const lm = /\s@@(\S+)\s*$/.exec(raw);
+  const base = lm ? raw.slice(0, lm.index) : raw;
+  const m = /^(?:([1-9])\|)?(?:[pP]([123]):)?\s*(.*)$/.exec(base);
+  return { stage:m[1]||null, prio:m[2]?+m[2]:null, label:m[3].replace("🆕","").trim(),
+           isNew:m[3].includes("🆕"), link:lm?lm[1]:null };
+}
+function parseAct(raw){
+  const lm = /\s@@(\S+)\s*$/.exec(raw);
+  const base = lm ? raw.slice(0, lm.index) : raw;
+  const t = /\[([^\]]+)\]/.exec(base);
+  return { desc: base.replace(/\s*(?:→|->)?\s*\[[^\]]+\]\s*/g," ").trim(),
+           target: t ? t[1].trim() : null };
+}
+const EMBED_TCS = {"phoneTitle":"TCS Platform","valueChain":["คัดเลือกลูกค้า","เตรียมข้อมูลก่อนเข้าพบ","เข้าพบลูกค้า & Discovery","บันทึกข้อมูล & Pipeline","ออกแบบโซลูชัน & นำเสนอ","เจรจาต่อรอง & ปิดการขาย","ส่งมอบงาน & รับรู้รายได้","ส่งมอบงาน & รับรู้รายได้"],"stakeholders":[{"id":"sh49-vefj0n","title":"Partners / Supplier / Ecosystem","hue":"partner","glyph":"P","side":"left","image":null,"items":["เชื่อมต่อ Solution ของตน (Financing, Insurance, IoT Sensor, Sub Contractor) → [Partner / 3rd-Party App Ecosystem]","รับดูแลความสัมพันธ์ต่อเนื่อง → [Ecosystem & Services]","ให้บริการเงินทุนแลกค่าคอมมิชชั่น → [Financing Platform]","รับส่วนแบ่งรายได้ Marketplace Commission → [Ecosystem & Partner]","ประสานสถานะงานติดตั้ง/ซ่อมบำรุงกับทีมโครงการฝั่ง\nPRECISE ผ่านช่องทางกลาง (ในฐานะ Sub Contractor)  →  [Project Management Business Office]"]},{"id":"sh50-7qwka8","title":"Complementor","hue":"comp","glyph":"C","side":"left","image":null,"items":["หน่วยงานภายนอก 20\nแห่งให้ข้อมูล/มาตรฐานประกอบการดำเนินธุรกิจ  →  [Ecosystem & Services]","หน่วยงานราชการ/กำกับดูแล (FTI, กระทรวงอุตสาหกรรม,\nกระทรวงพลังงาน, IEAT, MEA, PEA, EGAT, ERC, depa, BOI, EEI, สมอ.)\nกำหนดกฎเกณฑ์/มาตรฐานที่ระบบต้องอ้างอิงและรายงานตาม Data Standard กลาง  →  [Standards\n& Compliance Repository] และ → [Standards & Compliance Repository]","สถาบันการเงิน/บริษัทประกันภัย\nเป็นช่องทางจัดหาเงินทุนและความคุ้มครองให้ลูกค้า  →  [Financing Service]","โลจิสติกส์/ศุลกากร: Freight Forwarder, กรมศุลกากร","ผู้ตรวจสอบ/รับรองมาตรฐาน (Third Party Inspection,\nISO/IEC/ESG/Carbon Certification Body) ตรวจรับรองผลลัพธ์ ESG\nและมาตรฐานงานวิศวกรรม \n→  [ESG & Carbon Commercial Suite] และ [Functional\nSafety & Compliance Traceability]"]},{"id":"sh51-juzgzr","title":"Competitor","hue":"compet","glyph":"C","side":"left","image":null,"items":["วิเคราะห์คู่แข่งกลุ่ม Power Distribution & Transmission (Schneider,\nSiemens, ABB, Hitachi Energy, LS Electric, Eaton, Mitsubishi Electric, ASEFA,\nPMK Group) ก่อนเข้าพบลูกค้า  →  [Sales Enablement Toolkit (ICP Scoring & Account\nResearch)]","วิเคราะห์คู่แข่งกลุ่ม High-Quality Power System\n(Siemens, Hitachi Energy, GE Vernova) และ Power Quality (Siemens, Danfoss,\nDelta Electronics, PQ Team) เพื่อหาจุด Differentiate  →  [Market & Demand Intelligence Center]","วิเคราะห์คู่แข่งกลุ่ม Energy Conservation\n(Schneider, Honeywell, Johnson Controls, Delta Electronics, MFEC)  →  [Market\n& Demand Intelligence Center]","วิเคราะห์คู่แข่งกลุ่ม Renewable Energy (Encom, SCG,\nBanpu, BGE) เพื่อวางกลยุทธ์ราคาแข่งขัน  →  [Pricing Strategy Framework]","ติดตามส่วนแบ่งตลาดของคู่แข่งเทียบกับ TCS ในแต่ละ\nPillar อย่างต่อเนื่อง \n→  [Market & Demand Intelligence Center]"]},{"id":"sh52-lq1myo","title":"Buyer","hue":"buyer","glyph":"B","side":"right","image":null,"items":["ส่ง Requirement เริ่มต้นก่อนเริ่มโครงการ → [System Modeling & Requirements]","รับการดูแลแบบรู้จักตัวตน → [Customer Engagement Hub]","ติดตามข้อมูลพลังงาน/ต้นทุนเรียลไทม์ → [IoT Data Management]","รับคำแนะนำลดใช้พลังงานตามพฤติกรรมการใช้งานจริง → [Energy Procurement Advisory]","สั่งซื้ออะไหล่/อุปกรณ์เองได้ → [Digital Commerce Channel]","เข้าถึงแหล่งทุนเมื่อต้องการอัปเกรด → [Financing Service]","ขอรายงาน ESG/Carbon Footprint → [Carbon Accounting & Reporting]","ต่อสัญญา/ขยายขอบเขตเมื่อครบรอบ → [Energy Intelligence Platform (EMS)]","รับ Alert ล่วงหน้าเมื่อพบความเสี่ยง → [Monitoring, Reporting & Event Resolution]","ยื่นขอ Green Financing / ขายคาร์บอนเครดิต → [ESG & Carbon Commercial Platform]","ใช้ผู้ช่วยออกแบบด้านพลังงาน → [AI Engineering Copilot]","ตัดสินใจแก้ปัญหาหน้างานได้เองแม้สื่อสารกับศูนย์กลางขาด   → [Grid Edge / Field Devices]","ซ่อม/แก้ปัญหาแล้วบันทึกผลกลับเข้าระบบ  → [Digital / Predictive\nMaintenance]","ตรวจสอบสถานะเซ็นเซอร์/มิเตอร์ให้เชื่อมต่อและส่งข้อมูลต่อเนื่อง  → [Connectivity & Edge\nManagement]","เข้าถึงทุกจุดสัมผัสข้างต้น (พลังงาน, ESG, สั่งซื้อ,\nFinancing, ต่อสัญญา) ผ่านหน้าจอเดียว ไม่ต้องสลับระบบ  → [Buyer Self-Service Portal]","ติดตามการขนส่ง → [Spatial Engineering & Fleet management]"]},{"id":"sh54-sa313i","title":"Platform Admin","hue":"admin","glyph":"P","side":"right","image":null,"items":["ป้องกัน-ตรวจจับ-ตอบสนองภัยไซเบอร์ → [OT/IT Cyber Security Framework]","ดูแล Cloud/SaaS Infrastructure ให้ Scalable → [Cloud / SaaS Infrastructure]","กำกับดูแล Embedded AI ให้ฝังตัวถูกต้อง → [Embedded AI Capability Layer]","กำหนดและควบคุม Data Standard/Master Data Management\nระดับทั้งองค์กร \n→  [Enterprise Data Governance Layer]","ดูแลรักษาคลังความรู้กลางขององค์กรให้ทันสมัยและเข้าถึงได้ทุกทีม  →  [Corporate\nKnowledge Management System]"]},{"id":"sh1-5azrvm","title":"Precise Business","hue":"admin","glyph":"P","side":"right","image":null,"items":["Sale วิเคราะห์ Stakeholder\nและผู้มีอิทธิพลต่อการตัดสินใจของลูกค้า → [Stakeholder Mapping Tool]","Sale ให้คะแนนและคัดกรองลูกค้าเป้าหมายพร้อมสรุปข้อมูลธุรกิจ/คู่แข่งก่อนเข้าพบ → [ICP Scoring & Account Research]","S&OP กำหนดกลยุทธ์ราคาให้แข่งขันได้ตามสถานการณ์ตลาด → [Pricing Strategy Framework]","Sale ติดตาม Pipeline, Win Rate และพยากรณ์ยอดขาย → [Pipeline & Forecast Analytics]","Sale เจรจาต่อรองและจัดทำสัญญาดิจิทัลพร้อม\ne-Signature ก่อนปิดดีล \n→  [Negotiation & Contract Management System]","Sale ใช้ข้อมูล Loyalty & Insight วางแผน\nCross-sell/Upsell ข้าม 5 Business Pillars  →  [Customer Engagement Hub]","S&OP ดึงเอกสารเทคนิคและ BOQ\nมาตรฐานมาจัดทำใบเสนอราคาให้รวดเร็วถูกต้อง → [Technical & Commercial Database]","S&OP วางแผนให้สอดคล้องระหว่างแผนขาย แผนผลิต/สต๊อก\nและกำลังการติดตั้ง \n→  [Sale & Operation Planning System]","S&OP เชื่อมข้อมูล PO Received/RRC เข้าสู่ TPS/MIS แบบ\nVertical Line เพื่อวัดผลจริง  →  [S&OP–TPS/MIS Integration Layer]","S&OP ดึงข้อมูล LCC จาก Asset Lifecycle\nมาวิเคราะห์หาโอกาสขายเพิ่ม  →  [Asset Lifecycle Management System]","S&OP จัดทำใบเสนอราคาและสื่อสาร\nValue เพื่อปิดการขาย  →  [Commercial Engine]","DE บันทึกความต้องการลูกค้าให้ครบตั้งแต่ก้าวแรก → [System Modeling & Requirements]","DE วิเคราะห์ความต้องการเป็นระบบที่ต้องออกแบบ → [Architecture Design]","DE ทดลอง/พิสูจน์ความถูกต้องในคอมพิวเตอร์ก่อนลงทุนจริง → [Simulation & Virtual Validation]","DE เชื่อม 3\nฟังก์ชันข้างต้นเป็นระบบนิเวศข้อมูลเดียวข้ามทีม  →  [Integration]","DE สร้างแบบจำลองเสมือนพร้อมเส้นทางข้อมูลต่อเนื่องตลอดวงจรชีวิตผลิตภัณฑ์ → [Digital Twin & Remote]","DE เก็บมาตรฐาน/สเปกทุกโครงการเป็นฐานข้อมูลกลางเพื่ออ้างอิงในโครงการใหม่ → [Standards & Compliance Repository]","DE ควบคุมโครงข่ายไฟฟ้าของลูกค้าและรักษาเสถียรภาพแบบเรียลไทม์ผ่านห้องควบคุม  →  [Grid Operations & Control]","Project รับ Scope งานจาก Sales มาแตกเป็นชิ้นงาน → [Architecture Design]","Project บริหารโครงการหลายฝ่าย\n(PRECISE+EPC+Partner+ลูกค้า) ให้ตรง Scope/เวลา/งบ  →  [Project Management Business Office]","Project วัดผลลัพธ์ธุรกิจเทียบเป้าหมาย และวิเคราะห์ Root\nCause ด้วย 7QC เมื่อไม่ถึงเป้า  →  [Business KPI & 7QC Root-Cause Analytics]","Finance เชื่อมข้อมูล PO/Milestone สู่ Invoice\nและรับรู้รายได้ตามมาตรฐานบัญชีอัตโนมัติ  →  [Finance & Revenue Recognition Integration]","BU วิเคราะห์ Market Size/Growth/Share\nระดับพอร์ตโฟลิโอเพื่อวางแผนกระจายทรัพยากรทั้ง 5 Pillars  →  [Market & Demand Intelligence Center]","BU สะสมองค์ความรู้จากทุกโครงการ (Case Study, Lessons\nLearned, Win/Loss) เพื่อวางแผนกลยุทธ์ระยะ 3 ปี  →  [Corporate Knowledge Management System]"]}],"layers":[{"title":"Technology Platform","groups":[{"name":"Digital Engineering Platform","chips":["p1:System Modeling & Requirements","p1:Architecture Design","p1:Simulation & Virtual Validation","p1:Integration","p1:Standards & Compliance Repository","p1:Technical & Commercial Database","p2:Spatial Engineering & Fleet Management","p2:Digital Twin & Remote"]},{"name":"Energy Intelligence Platform (EMS)","chips":["p2:AI Engineering Copilot","p1:IoT Data Management","p2:Connectivity & Edge Management","p2:Grid Edge / Field Devices","p2:Grid Operations & Control","p2:Energy Procurement Advisory","p1:Carbon Accounting & Reporting","p2:Monitoring, Reporting & Event Resolution","p2:Digital / Predictive Maintenance"]}]},{"title":"Commercial & Management Technology Platform","groups":[{"name":"Ecosystem & Partner","chips":["p2:Partner / 3rd-Party App Ecosystem","p2:Ecosystem & Services"]},{"name":"Buyer / User Platform","chips":["p1:Customer Engagement Hub","p2:Digital Commerce Channel","p1:Buyer Self-Service Portal"]},{"name":"Business Generation Platform","chips":["p1:Stakeholder Mapping Tool","p2:Sale & Operation Planning Platform","p2:Pricing Strategy Framework","p2:Financing Service","p1:Commercial Engine","p1:ICP Scoring & Account Research","p1:Pipeline & Forecast Analytics","p2:Negotiation & Contract Management System","p1:Market & Demand Intelligence Center","p1:LCC Analysis"]},{"name":"Post-Sale Platform","chips":["p2:ESG & Carbon Commercial Suite","p2:Finance & Revenue Recognition Integration","p1:Asset Lifecycle Management system"]},{"name":"Demand Satisfaction Platform","chips":["p1:Project Management Business Office","p2:Sale & Operation Planning System","p3:S&OP–TPS/MIS Integration Layer","p2:Business KPI & 7QC Root-Cause Analytics"]}]},{"title":"Foundation Platform","foundation":true,"groups":[{"name":"Shared Foundation","chips":["p1:OT/IT Cyber Security Framework","p1:Cloud / SaaS Infrastructure","p2:Embedded AI Capability Layer","p2:Enterprise Data Governance Layer","p1:Knowledge Management System"]}]}]};
+function getApi(){
+  const q = new URLSearchParams(location.search).get("api");
+  if (q) return q.replace(/\/+$/,"");
+  try { return (JSON.parse(localStorage.getItem("rst-sync-v1")||"{}").api||"").replace(/\/+$/,"") || null; } catch(e){ return null; }
+}
+async function loadTeam(id){
+  const api = getApi();
+  if (api){
+    try { const r = await fetch(api + "/load?team=" + id);
+      if (r.ok){ const j = await r.json(); if (j.design) return { d:j.design, src:"ระบบกลาง (สดล่าสุด)" }; } } catch(e){}
+  }
+  try { const r = await fetch("../data/" + id + ".json");
+    if (r.ok) return { d:await r.json(), src:"ไฟล์ repo (GitHub Pages)" }; } catch(e){}
+  try { const s = JSON.parse(localStorage.getItem("rst-arch-studio-v2"));
+    if (s && s.teams && s.teams[id]) return { d:s.teams[id], src:"ข้อมูลในเครื่อง (Studio)" }; } catch(e){}
+  if (id === "tcs" && EMBED_TCS) return { d:EMBED_TCS, src:"snapshot สำรอง" };
+  return null;
+}
+function buildModel(design, teamId){
+  const caps = [];
+  (design.layers||[]).forEach(l => (l.groups||[]).forEach(g => (g.chips||[]).forEach(raw => {
+    const c = parseChip(raw);
+    if (!c.label) return;
+    caps.push({ name:c.label, key:norm(c.label), sub:g.name, layer:l.title, prio:c.prio,
+                isNew:c.isNew, link:c.link, zone:classify(c.label), degree:0, acts:[], team:teamId });
+  })));
+  (design.stakeholders||[]).forEach(sh => (sh.items||[]).forEach(raw => {
+    const a = parseAct(raw);
+    if (!a.target) return;
+    const t = norm(a.target);
+    caps.forEach(c => {
+      if (t === c.key || t.includes(c.key) || c.key.includes(t)){
+        c.degree++; c.acts.push({ who: sh.title, what: a.desc });
+      }
+    });
+  }));
+  return caps;
+}
+/* ================= layout ================= */
+function wrap(name){
+  if (name.length <= 20) return [name];
+  const words = name.split(" ");
+  let l1 = "", i = 0;
+  while (i < words.length && (l1 + " " + words[i]).trim().length <= Math.max(14, name.length/2)) l1 = (l1 + " " + words[i++]).trim();
+  let l2 = words.slice(i).join(" ");
+  if (!l1){ l1 = l2.slice(0, 20); l2 = l2.slice(20); }
+  if (l2.length > 24) l2 = l2.slice(0, 23) + "…";
+  if (l1.length > 24) l1 = l1.slice(0, 23) + "…";
+  return l2 ? [l1, l2] : [l1];
+}
+function layout2D(caps){
+  const byZone = {};
+  caps.forEach(c => { (byZone[c.zone] = byZone[c.zone] || []).push(c); });
+  for (const z in byZone){
+    const Z = ZONES[z] || ZONES.is;
+    if (Z.strip) continue;
+    const list = byZone[z];
+    list.sort((a,b) => a.sub.localeCompare(b.sub) || a.name.localeCompare(b.name));
+    const cols = Math.max(1, Math.min(list.length, Math.round(Z.w / 165)));
+    const rows = Math.ceil(list.length / cols);
+    const cw = Z.w / cols, rh = Z.h / rows;
+    list.forEach((c, i) => {
+      c.x = Z.x + (i % cols + .5) * cw + ((Math.floor(i/cols) % 2) ? 14 : -14);
+      c.y = Z.y + (Math.floor(i / cols) + .45) * rh;
+      c.small = rh < 62;
+    });
+  }
+}
+/* ================= render ================= */
 const svg = document.getElementById("cv");
 const NS = "http://www.w3.org/2000/svg";
 function el(tag, attrs, parent){
@@ -201,68 +280,329 @@ function el(tag, attrs, parent){
   (parent || svg).appendChild(e);
   return e;
 }
+let MODEL = [], MODEL_B = null, VIEW = "2d", TEAM = "tcs", ISO_GAP = 120;
+let filterPrio = new Set([1,2,3,0]), isoRing = null;
 
-/* หัวเรื่องในภาพ */
-el("text", { x:60, y:80, "font-size":40, "font-weight":700, fill:"#1B4F9C" }).textContent =
-  "TCS — Digital Business Technology Platform";
-el("text", { x:60, y:116, "font-size":17, fill:"#5A6577" }).textContent =
-  "Total Customer Solution · 44 Capabilities จับคู่ลง 5 Platforms ตามกรอบ Gartner DBTP";
-
-/* วงทั้ง 5 (dotted rounded-rect แบบต้นฉบับ) */
-for (const key of ["cx","eco","iot","is","data"]){
-  const r = RINGS[key];
-  el("rect", {
-    x:r.x, y:r.y, width:r.w, height:r.h, rx:r.rx || Math.min(r.h/2, 200),
-    fill:"none", stroke:r.color, "stroke-width":4,
-    "stroke-dasharray":"0.1 14", "stroke-linecap":"round", opacity:.85,
-  });
-  el("text", {
-    x:r.lx, y:r.ly, "font-size":26, "font-weight":600,
-    fill:RING_TXT[key], "text-anchor":"middle", "letter-spacing":".01em",
-  }).textContent = r.label;
+function nodeDot(g, c, x, y, r, color){
+  if (c.prio === 1 || c.prio === null)
+    el("circle", { class:"dot", cx:x, cy:y, r:r, fill:color, stroke:"var(--panel)", "stroke-width":2 }, g);
+  else if (c.prio === 2)
+    el("circle", { class:"dot", cx:x, cy:y, r:r-1, fill:"var(--panel)", stroke:color, "stroke-width":4 }, g);
+  else
+    el("circle", { class:"dot", cx:x, cy:y, r:r-1, fill:"var(--panel)", stroke:color, "stroke-width":2.5, "stroke-dasharray":"3 3" }, g);
 }
-
-/* มุมทั้ง 4 */
-for (const c of CORNERS){
-  el("text", { x:c.x, y:c.y, "font-size":30, "font-weight":600, fill:"#8B93A1", "text-anchor":c.anchor }).textContent = c.name;
-  el("text", { x:c.x, y:c.y+26, "font-size":14, fill:"#9AA2AB", "text-anchor":c.anchor }).textContent = c.sub;
+function visible(c){
+  const p = c.prio || 0;
+  if (!filterPrio.has(p === 0 ? 0 : p)) return false;
+  if (isoRing && !(ZONES[c.zone] || ZONES.is).rings.includes(isoRing)) return false;
+  const q = document.getElementById("search").value.trim().toLowerCase();
+  if (q && !c.name.toLowerCase().includes(q)) return false;
+  return true;
 }
-
-/* จุด Capability + ป้ายชื่อ */
-for (const n of N){
-  const color = RINGS[n.c].color;
-  const g = el("g", {});
-  if (n.p === 1){
-    el("circle", { cx:n.x, cy:n.y, r:10, fill:color, stroke:"#fff", "stroke-width":2 }, g);
-  } else if (n.p === 2){
-    el("circle", { cx:n.x, cy:n.y, r:9, fill:"#fff", stroke:color, "stroke-width":4 }, g);
-  } else {
-    el("circle", { cx:n.x, cy:n.y, r:9, fill:"#fff", stroke:color, "stroke-width":2.5, "stroke-dasharray":"3 3" }, g);
+function render(){
+  svg.innerHTML = "";
+  if (VIEW === "2d") render2D(); else renderIso();
+  renderLegend(); renderTable();
+}
+function render2D(){
+  el("text", { x:60, y:78, "font-size":38, "font-weight":700, fill:"var(--brand)" }).textContent =
+    (TEAMS.find(t=>t.id===TEAM)||{}).name + " — Digital Business Technology Platform" + (MODEL_B ? "  (ซ้อนเทียบ)" : "");
+  el("text", { x:60, y:112, "font-size":16, fill:"var(--muted)" }).textContent =
+    MODEL.length + " capabilities · ขนาดจุดตามจำนวนเส้น Flow ที่เชื่อมเข้า · อ้างอิงกรอบ Gartner DBTP 2017";
+  for (const key of ["cx","eco","iot","is","data"]){
+    const r = RINGS[key];
+    el("rect", { x:r.x, y:r.y, width:r.w, height:r.h, rx:r.rx || Math.min(r.h/2,200), fill:"none",
+      stroke:r.color, "stroke-width":4, "stroke-dasharray":"0.1 14", "stroke-linecap":"round",
+      opacity: isoRing && isoRing !== key ? .18 : .85 });
+    const lt = el("text", { x:r.lx, y:r.ly, "font-size":26, "font-weight":600, fill:r.color,
+      "text-anchor":"middle", opacity:.55, style:"cursor:pointer" });
+    lt.textContent = r.label;
+    lt.addEventListener("click", () => { isoRing = isoRing === key ? null : key; render(); });
   }
-  const gap = 16;
-  let tx = n.x, anchor = "middle", ty;
-  if (n.a === "left"){ tx = n.x - gap; anchor = "end"; }
-  if (n.a === "right"){ tx = n.x + gap; anchor = "start"; }
-  const lines = n.t;
-  if (n.a === "top") ty = n.y - gap - (lines.length - 1) * 17 - 4;
-  else if (n.a === "bot") ty = n.y + gap + 12;
-  else ty = n.y - ((lines.length - 1) * 17) / 2 + 4;
-  const txt = el("text", { x:tx, y:ty, "font-size":15.5, "font-weight":600, fill:color, "text-anchor":anchor }, g);
-  lines.forEach((ln, i) => {
-    el("tspan", { x:tx, dy:i === 0 ? 0 : 17 }, txt).textContent = ln;
+  const CORNERS = [
+    { x:250, y:215, name:"Customers", sub:"การไฟฟ้า · ลูกค้าอุตสาหกรรม", a:"start", re:/buyer|end user|ลูกค้า|customer/i },
+    { x:1750, y:215, name:"Partners", sub:"Partner · Complementor · Supplier", a:"end", re:/partner|supplier|complementor|ซัพพลาย|พันธมิตร|channel/i },
+    { x:250, y:1000, name:"Things", sub:"อุปกรณ์ไฟฟ้า · Sensor · Grid Asset", a:"start", ring:"iot" },
+    { x:1750, y:1000, name:"Employees", sub:"ทีม Precise", a:"end", re:/precise|admin/i },
+  ];
+  CORNERS.forEach(cn => {
+    const g = el("g", { class:"corner" });
+    el("text", { x:cn.x, y:cn.y, "font-size":30, "font-weight":600, fill:"var(--muted)", "text-anchor":cn.a }, g).textContent = cn.name;
+    el("text", { x:cn.x, y:cn.y+26, "font-size":14, fill:"var(--muted)", opacity:.8, "text-anchor":cn.a }, g).textContent = cn.sub;
+    g.addEventListener("click", () => cornerFlows(cn));
   });
+  layout2D(MODEL);
+  const capsAll = MODEL_B ? MODEL.concat(markOverlay()) : MODEL;
+  if (MODEL_B) layout2D(capsAll.filter(c => !c._shared));
+  capsAll.filter(c => c.zone !== "fnd" && c.x != null).forEach(drawNode);
+  /* foundation strip */
+  const fnd = capsAll.filter(c => c.zone === "fnd");
+  el("rect", { x:290, y:1085, width:1440, height:70, rx:16, fill:"none", stroke:"var(--fnd)", "stroke-width":3, "stroke-dasharray":"0.1 12", "stroke-linecap":"round" });
+  el("text", { x:1010, y:1113, "font-size":18, "font-weight":700, fill:"var(--fnd)", "text-anchor":"middle" }).textContent = "Foundation — Cross-cutting Infrastructure";
+  const ft = el("text", { x:1010, y:1139, "font-size":15, fill:"var(--fnd)", "text-anchor":"middle" });
+  ft.textContent = fnd.map(c => c.name).join("  ·  ") || "—";
+  el("text", { x:1940, y:1225, "font-size":12, fill:"var(--muted)", "text-anchor":"end" }).textContent =
+    "โครงอ้างอิง: Gartner DBTP (2017) · ข้อมูล: RST Architecture Studio (สดจากระบบ)";
 }
-
-/* แถบ Foundation ล่างสุด */
-el("rect", { x:290, y:1085, width:1440, height:70, rx:16, fill:"none", stroke:"#B98F2C", "stroke-width":3, "stroke-dasharray":"0.1 12", "stroke-linecap":"round" });
-el("text", { x:1010, y:1117, "font-size":19, "font-weight":700, fill:"#8A6D1C", "text-anchor":"middle" }).textContent =
-  "Foundation — Cross-cutting Infrastructure";
-el("text", { x:1010, y:1141, "font-size":15, fill:"#8A6D1C", "text-anchor":"middle" }).textContent =
-  "OT/IT Cyber Security Framework  ·  Cloud / SaaS Infrastructure  (รองรับทุก Platform ด้านบน)";
-
-/* เครดิตมุมภาพ */
-el("text", { x:1940, y:1220, "font-size":12, fill:"#9AA2AB", "text-anchor":"end" }).textContent =
-  "โครงอ้างอิง: Gartner Digital Business Technology Platform (2017) · เนื้อหา: TCS RST — RST Architecture Studio";
+function markOverlay(){
+  const keys = new Set(MODEL.map(c => c.key));
+  MODEL.forEach(c => { c._shared = MODEL_B.some(b => b.key === c.key || (c.key.length>9 && b.key.includes(c.key)) || (b.key.length>9 && c.key.includes(b.key))); });
+  return MODEL_B.filter(b => !keys.has(b.key)).map(b => ({ ...b, _b:true }));
+}
+function drawNode(c){
+  const Z = ZONES[c.zone] || ZONES.is;
+  const ring = RINGS[Z.main] || RINGS.is;
+  const color = c._b ? "#B04ACB" : ring.color;
+  const r = 8 + Math.min(9, (c.degree||0) * 1.7);
+  const g = el("g", { class:"node" + (visible(c) ? "" : " dimmed") });
+  if (c._shared && MODEL_B) el("circle", { cx:c.x, cy:c.y, r:r+6, fill:"none", stroke:"#B04ACB", "stroke-width":2.5, "stroke-dasharray":"4 4" }, g);
+  nodeDot(g, c, c.x, c.y, r, color);
+  if (c.isNew) el("circle", { cx:c.x+r, cy:c.y-r, r:4, fill:"#E0A82E" }, g);
+  const lines = wrap(c.name);
+  const fs = c.small ? 11.5 : 13.5;
+  const t = el("text", { x:c.x, y:c.y + r + fs + 2, "font-size":fs, "font-weight":600, fill:color, "text-anchor":"middle" }, g);
+  lines.forEach((ln, i) => { el("tspan", { x:c.x, dy:i ? fs + 2 : 0 }, t).textContent = ln; });
+  g.addEventListener("mousemove", e => showTip(e, c));
+  g.addEventListener("mouseleave", hideTip);
+  g.addEventListener("click", () => showPanel(c));
+}
+/* corner flows */
+function cornerFlows(cn){
+  svg.querySelectorAll(".cornerline").forEach(x => x.remove());
+  if (cn.ring){ isoRing = isoRing === cn.ring ? null : cn.ring; render(); return; }
+  if (cn._on){ cn._on = false; render(); return; }
+  const hits = MODEL.filter(c => c.x != null && c.acts.some(a => cn.re.test(a.who)));
+  hits.forEach(c => {
+    el("path", { class:"cornerline", stroke:"var(--brand)",
+      d:`M ${cn.x} ${cn.y+8} C ${(cn.x+c.x)/2} ${cn.y}, ${(cn.x+c.x)/2} ${c.y}, ${c.x} ${c.y}` });
+  });
+  cn._on = true;
+}
+/* ================= isometric ================= */
+const ISO_LAYERS = [
+  { key:"cx",  label:"Customer Experience" }, { key:"eco", label:"Ecosystems" },
+  { key:"data",label:"Data & Analytics" },   { key:"iot", label:"IoT" },
+  { key:"is",  label:"Information Systems" },{ key:"fnd", label:"Foundation" },
+];
+function iso(px, py, li){
+  const s = .62, ox = 1000, oy = 105;
+  return [ ox + (px - py) * .866 * s, oy + (px + py) * .5 * s * .58 + li * ISO_GAP ];
+}
+function renderIso(){
+  el("text", { x:60, y:78, "font-size":38, "font-weight":700, fill:"var(--brand)" }).textContent =
+    (TEAMS.find(t=>t.id===TEAM)||{}).name + " — DBTP Exploded View (2.5D)";
+  el("text", { x:60, y:112, "font-size":16, fill:"var(--muted)" }).textContent =
+    "สถาปัตยกรรมแยกชั้น · เส้นดิ่ง = Capability ที่คร่อมสอง Platform · ปุ่ม กาง/ยุบ ด้านล่าง";
+  const W = 900, H = 340;
+  const byLayer = {};
+  MODEL.forEach(c => {
+    const Z = ZONES[c.zone] || ZONES.is;
+    (byLayer[Z.main] = byLayer[Z.main] || []).push(c);
+  });
+  const pos = {};
+  ISO_LAYERS.forEach((L, li) => {
+    const corners = [[0,0],[W,0],[W,H],[0,H]].map(p => iso(p[0], p[1], li));
+    const ring = RINGS[L.key] || { color:"var(--fnd)" };
+    el("path", { d:"M" + corners.map(p => p.join(",")).join("L") + "Z",
+      fill:ring.color || "var(--fnd)", opacity:.10 });
+    el("path", { d:"M" + corners.map(p => p.join(",")).join("L") + "Z",
+      fill:"none", stroke:ring.color || "var(--fnd)", "stroke-width":2.5, "stroke-dasharray":"0.1 10", "stroke-linecap":"round" });
+    const lp = iso(-30, H, li);
+    el("text", { x:lp[0]-10, y:lp[1], "font-size":22, "font-weight":700, fill:ring.color || "var(--fnd)", "text-anchor":"end" }).textContent = L.label;
+    const list = byLayer[L.key] || [];
+    const cols = Math.max(1, Math.ceil(Math.sqrt(list.length * (W/H))));
+    list.forEach((c, i) => {
+      const gx = (i % cols + .5) * (W / cols), gy = (Math.floor(i / cols) + .5) * (H / Math.ceil(list.length / cols));
+      pos[c.key + (c.team||"")] = { p: iso(gx, gy, li), li };
+      c._iso = { gx, gy, li };
+    });
+  });
+  /* เส้นดิ่งชั้นรอง */
+  MODEL.forEach(c => {
+    const Z = ZONES[c.zone] || ZONES.is;
+    if (Z.rings.length < 2 || !c._iso) return;
+    const other = Z.rings.find(r => r !== Z.main);
+    const li2 = ISO_LAYERS.findIndex(L => L.key === other);
+    if (li2 < 0) return;
+    const a = iso(c._iso.gx, c._iso.gy, c._iso.li), b = iso(c._iso.gx, c._iso.gy, li2);
+    el("line", { x1:a[0], y1:a[1], x2:b[0], y2:b[1], stroke:(RINGS[other]||{}).color || "var(--fnd)",
+      "stroke-width":1.4, "stroke-dasharray":"4 5", opacity:.5 });
+  });
+  MODEL.forEach(c => {
+    if (!c._iso) return;
+    const [x, y] = iso(c._iso.gx, c._iso.gy, c._iso.li);
+    const Z = ZONES[c.zone] || ZONES.is;
+    const color = (RINGS[Z.main]||{}).color || "var(--fnd)";
+    const g = el("g", { class:"node" + (visible(c) ? "" : " dimmed") });
+    const r = 6 + Math.min(6, (c.degree||0) * 1.2);
+    nodeDot(g, c, x, y, r, color);
+    const nm = c.name.length > 22 ? c.name.slice(0, 21) + "…" : c.name;
+    el("text", { x:x, y:y + r + 12, "font-size":10.5, "font-weight":600, fill:color, "text-anchor":"middle" }, g).textContent = nm;
+    g.addEventListener("mousemove", e => showTip(e, c));
+    g.addEventListener("mouseleave", hideTip);
+    g.addEventListener("click", () => showPanel(c));
+  });
+  /* ปุ่มกาง/ยุบ */
+  const btn = el("g", { style:"cursor:pointer" });
+  el("rect", { x:60, y:1180, width:170, height:44, rx:22, fill:"var(--soft)", stroke:"var(--line)" }, btn);
+  el("text", { x:145, y:1208, "font-size":17, "font-weight":600, fill:"var(--brand)", "text-anchor":"middle" }, btn).textContent =
+    ISO_GAP > 80 ? "⇊ ยุบชั้นเข้า" : "⇈ กางชั้นออก";
+  btn.addEventListener("click", () => animateGap(ISO_GAP > 80 ? 55 : 120));
+}
+function animateGap(target){
+  const from = ISO_GAP, t0 = performance.now();
+  const step = now => {
+    const k = Math.min(1, (now - t0) / 350);
+    ISO_GAP = from + (target - from) * (k < .5 ? 2*k*k : 1 - Math.pow(-2*k+2, 2)/2);
+    svg.innerHTML = ""; renderIso();
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+/* ================= interactions ================= */
+const tip = document.getElementById("tip");
+function showTip(e, c){
+  tip.style.display = "block";
+  tip.style.left = Math.min(innerWidth - 320, e.clientX + 14) + "px";
+  tip.style.top = (e.clientY + 14) + "px";
+  tip.innerHTML = "<b>" + esc(c.name) + "</b>" + (c._b ? " <span style='color:#B04ACB'>(ทีมเทียบ)</span>" : "") +
+    "<br><span class='m'>" + esc(c.sub) + " · " + esc(c.layer) + "</span>" +
+    "<br>Priority: " + (c.prio ? "P" + c.prio : "—") + " · เชื่อมจาก " + c.degree + " บทบาท" +
+    (c.link ? "<br><span class='m'>🔗 มีเอกสารแนบ (คลิกจุดเพื่อเปิด)</span>" : "") +
+    "<br><span class='m'>คลิกเพื่อดูรายละเอียด</span>";
+}
+function hideTip(){ tip.style.display = "none"; }
+const esc = s => (s||"").replace(/[<>&]/g, m => ({"<":"&lt;",">":"&gt;","&":"&amp;"}[m]));
+function showPanel(c){
+  const p = document.getElementById("panel"), b = document.getElementById("pBody");
+  b.innerHTML = "<h3>" + esc(c.name) + "</h3>" +
+    "<div class='meta'>" + esc(c.layer) + " › " + esc(c.sub) + "</div>" +
+    "<span class='tag'>Priority: " + (c.prio ? "P" + c.prio : "ไม่ระบุ") + "</span>" +
+    "<span class='tag'>Platform: " + ((ZONES[c.zone]||ZONES.is).rings.map(r => RINGS[r] ? RINGS[r].label.replace(" Platform","") : "Foundation").join(" ∩ ") || "Foundation") + "</span>" +
+    (c.isNew ? "<span class='tag'>🆕 โมดูลใหม่</span>" : "") +
+    (c.link ? "<div style='margin-top:8px'><a class='doc' target='_blank' rel='noopener' href='" + esc(c.link) + "'>↗ เปิดเอกสารแนบ</a></div>" : "") +
+    "<h4>ใครใช้ (" + c.acts.length + " บทบาท)</h4>" +
+    (c.acts.length ? c.acts.map(a => "<div class='act'>" + esc(a.what) + "<div class='who'>— " + esc(a.who) + "</div></div>").join("")
+                   : "<div class='meta'>ยังไม่มีบทบาท Stakeholder เชื่อมเข้า capability นี้ (ไปเชื่อมได้ในโหมด 🖇 ของ Studio)</div>");
+  p.classList.add("open");
+}
+document.getElementById("pClose").onclick = () => document.getElementById("panel").classList.remove("open");
+document.addEventListener("keydown", e => { if (e.key === "Escape") document.getElementById("panel").classList.remove("open"); });
+/* legend */
+function renderLegend(){
+  const lg = document.getElementById("legend");
+  lg.innerHTML = "";
+  const mk = (html, on, fn, title) => {
+    const b = document.createElement("button");
+    b.className = "chipf" + (on ? "" : " dim");
+    b.innerHTML = html; b.title = title || ""; b.onclick = fn;
+    lg.appendChild(b);
+  };
+  [[1,"P1 ขาดไม่ได้"],[2,"P2 ถัดไป"],[3,"P3 ทีหลัง"],[0,"ไม่ระบุ"]].forEach(([p, t]) =>
+    mk(t, filterPrio.has(p), () => { filterPrio.has(p) ? filterPrio.delete(p) : filterPrio.add(p); render(); }, "กรองตาม Priority"));
+  const sep = document.createElement("span"); sep.style.cssText = "width:1px;height:18px;background:var(--line)"; lg.appendChild(sep);
+  for (const k of ["cx","eco","data","iot","is"])
+    mk("<span class='sw' style='background:" + RINGS[k].raw + "'></span>" + RINGS[k].label.replace(" Platform",""),
+       !isoRing || isoRing === k, () => { isoRing = isoRing === k ? null : k; render(); }, "คลิกเพื่อ isolate วงนี้");
+  if (isoRing || document.getElementById("search").value || filterPrio.size < 4)
+    mk("↺ ล้างตัวกรอง", true, () => { isoRing = null; filterPrio = new Set([1,2,3,0]); document.getElementById("search").value = ""; render(); });
+}
+/* auto table */
+function renderTable(){
+  const tbl = document.getElementById("tbl");
+  const byRing = {};
+  MODEL.forEach(c => {
+    const Z = ZONES[c.zone] || ZONES.is;
+    const key = Z.rings.length ? Z.rings.join("∩") : "foundation";
+    (byRing[key] = byRing[key] || []).push(c);
+  });
+  tbl.innerHTML = "<thead><tr><th style='width:280px'>Platform / โซนซ้อน</th><th>Capabilities</th></tr></thead>";
+  const tb = document.createElement("tbody");
+  Object.entries(byRing).sort((a,b) => b[1].length - a[1].length).forEach(([k, list]) => {
+    const name = k === "foundation" ? "Foundation (Cross-cutting)"
+      : k.split("∩").map(r => RINGS[r].label.replace(" Platform","")).join(" ∩ ");
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td style='font-weight:700'>" + name + " <span style='color:var(--muted);font-weight:400'>(" + list.length + ")</span></td>" +
+      "<td>" + list.map(c => "<span class='pill'>" + esc(c.name) + (c.prio ? " · P" + c.prio : "") + "</span>").join("") + "</td>";
+    tb.appendChild(tr);
+  });
+  tbl.appendChild(tb);
+}
+/* ================= chrome ================= */
+async function boot(){
+  const sel = document.getElementById("team"), ov = document.getElementById("overlay");
+  TEAMS.forEach(t => {
+    sel.add(new Option(t.name, t.id));
+    ov.add(new Option("เทียบ: " + t.name, t.id));
+  });
+  sel.value = TEAM;
+  sel.onchange = () => { TEAM = sel.value; MODEL_B = null; ov.value = ""; reload(); };
+  ov.onchange = () => reload();
+  document.getElementById("search").oninput = () => render();
+  document.getElementById("vw2d").onclick = () => { VIEW = "2d"; setViewBtns(); render(); };
+  document.getElementById("vwiso").onclick = () => { VIEW = "iso"; setViewBtns(); render(); };
+  document.getElementById("btnDark").onclick = () => document.body.classList.toggle("dark");
+  document.getElementById("btnPng").onclick = exportPNG;
+  document.getElementById("btnTour").onclick = tour;
+  await reload();
+}
+function setViewBtns(){
+  document.getElementById("vw2d").classList.toggle("on", VIEW === "2d");
+  document.getElementById("vwiso").classList.toggle("on", VIEW === "iso");
+}
+async function reload(){
+  const st = document.getElementById("status");
+  st.textContent = "กำลังโหลด…";
+  const r = await loadTeam(TEAM);
+  if (!r){ st.textContent = "โหลดข้อมูลไม่ได้"; return; }
+  MODEL = buildModel(r.d, TEAM);
+  const ovSel = document.getElementById("overlay").value;
+  MODEL_B = null;
+  if (ovSel && ovSel !== TEAM){
+    const rb = await loadTeam(ovSel);
+    if (rb) MODEL_B = buildModel(rb.d, ovSel);
+  }
+  st.textContent = "ข้อมูล: " + r.src + " · " + MODEL.length + " caps";
+  render();
+}
+let tourIdx = -1;
+function tour(){
+  const seq = ["cx","eco","data","iot","is", null];
+  tourIdx = (tourIdx + 1) % seq.length;
+  isoRing = seq[tourIdx];
+  render();
+}
+function exportPNG(){
+  const clone = svg.cloneNode(true);
+  /* แปลง CSS var เป็นสีจริงเพื่อ export */
+  const cs = getComputedStyle(document.body);
+  const fix = s => s.replace(/var\((--[a-z]+)\)/g, (m, v) => cs.getPropertyValue(v).trim() || "#888");
+  clone.querySelectorAll("*").forEach(n => {
+    for (const at of ["fill","stroke"]){
+      const v = n.getAttribute(at);
+      if (v && v.includes("var(")) n.setAttribute(at, fix(v));
+    }
+  });
+  clone.setAttribute("style", "background:" + cs.getPropertyValue("--panel"));
+  clone.setAttribute("width", 2000); clone.setAttribute("height", 1250);
+  const str = new XMLSerializer().serializeToString(clone);
+  const url = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(
+    str.replace("<svg", "<svg style=\"font-family:'IBM Plex Sans Thai',sans-serif;background:" + cs.getPropertyValue("--panel") + "\""));
+  const img = new Image();
+  img.onload = () => {
+    const cv = document.createElement("canvas");
+    cv.width = 4000; cv.height = 2500;
+    const ctx = cv.getContext("2d");
+    ctx.fillStyle = cs.getPropertyValue("--panel"); ctx.fillRect(0, 0, 4000, 2500);
+    ctx.drawImage(img, 0, 0, 4000, 2500);
+    const a = document.createElement("a");
+    a.href = cv.toDataURL("image/png");
+    a.download = TEAM + "-dbtp.png";
+    a.click();
+  };
+  img.src = url;
+}
+boot();
 </script>
 </body>
 </html>
