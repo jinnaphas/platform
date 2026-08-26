@@ -79,7 +79,9 @@
         "ซ่อม/แก้ปัญหาแล้วบันทึกผลกลับเข้าระบบ  → [Digital / Predictive\nMaintenance]",
         "ตรวจสอบสถานะเซ็นเซอร์/มิเตอร์ให้เชื่อมต่อและส่งข้อมูลต่อเนื่อง  → [Connectivity & Edge\nManagement]",
         "เข้าถึงทุกจุดสัมผัสข้างต้น (พลังงาน, ESG, สั่งซื้อ,\nFinancing, ต่อสัญญา) ผ่านหน้าจอเดียว ไม่ต้องสลับระบบ  → [Buyer Self-Service Portal]",
-        "ติดตามการขนส่ง → [Spatial Engineering & Fleet management]"
+        "ติดตามการขนส่ง → [Spatial Engineering & Fleet management]",
+        "ค้นหาความรู้/แนวทางแก้ปัญหาพลังงาน จนพบ Precise เอง (Attract) → [Technical Content Hub]",
+        "ทดลองเครื่องมือประเมินการประหยัดพลังงานฟรี แลกข้อมูลติดต่อ (Convert) → [Energy Saving Calculator (Lead Magnet)]"
       ]
     },
     {
@@ -128,7 +130,9 @@
         "Project วัดผลลัพธ์ธุรกิจเทียบเป้าหมาย และวิเคราะห์ Root\nCause ด้วย 7QC เมื่อไม่ถึงเป้า  →  [Business KPI & 7QC Root-Cause Analytics]",
         "Finance เชื่อมข้อมูล PO/Milestone สู่ Invoice\nและรับรู้รายได้ตามมาตรฐานบัญชีอัตโนมัติ  →  [Finance & Revenue Recognition Integration]",
         "BU วิเคราะห์ Market Size/Growth/Share\nระดับพอร์ตโฟลิโอเพื่อวางแผนกระจายทรัพยากรทั้ง 5 Pillars  →  [Market & Demand Intelligence Center]",
-        "BU สะสมองค์ความรู้จากทุกโครงการ (Case Study, Lessons\nLearned, Win/Loss) เพื่อวางแผนกลยุทธ์ระยะ 3 ปี  →  [Corporate Knowledge Management System]"
+        "BU สะสมองค์ความรู้จากทุกโครงการ (Case Study, Lessons\nLearned, Win/Loss) เพื่อวางแผนกลยุทธ์ระยะ 3 ปี  →  [Corporate Knowledge Management System]",
+        "Marketing: ผลิต Case Study/บทความจากงานจริง ดึงลูกค้าเข้าหา (Inbound) → [Technical Content Hub]",
+        "Marketing: Nurture lead อัตโนมัติจนพร้อมส่งต่อ Sales (MQL→SQL) → [Marketing Automation & Nurturing]"
       ]
     }
   ],
@@ -213,6 +217,21 @@
             "p2:Sale & Operation Planning System",
             "p3:S&OP–TPS/MIS Integration Layer",
             "p2:Business KPI & 7QC Root-Cause Analytics"
+          ]
+        },
+        {
+          "name": "Inbound Marketing Platform",
+          "chips": [
+            "1|p2:🆕 Technical Content Hub",
+            "1|p2:🆕 SEO & Search Visibility",
+            "1|p1:🆕 Energy Saving Calculator (Lead Magnet)",
+            "1|p2:🆕 Landing Page & Lead Capture",
+            "1|p3:🆕 Webinar & Knowledge Events",
+            "1|p3:🆕 Social Thought Leadership",
+            "4|p1:🆕 Lead Scoring & MQL Engine",
+            "4|p2:🆕 Marketing Automation & Nurturing",
+            "4|p2:🆕 Campaign & Attribution Analytics",
+            "1|p3:🆕 Partner Co-Marketing & Referral"
           ]
         }
       ]
