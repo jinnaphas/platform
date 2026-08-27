@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grab Ecosystem Capitalism</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* หน้าสอนธีมสว่างเดียว — โทนเขียว Grab */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: #F6F9F7; color: #142019;
+    font: 15px/1.65 "IBM Plex Sans Thai", -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+  }
+  .page { max-width: 1560px; margin: 0 auto; padding: 22px 26px 60px; }
+  header.hd { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header.hd h1 { margin: 0; font-size: 26px; font-weight: 700; color: #0B3D23; letter-spacing: -.01em; }
+  header.hd .sub { color: #5F6E65; font-size: 14px; }
+  a.back {
+    margin-left: auto; font-size: 13px; color: #00875A; text-decoration: none;
+    border: 1px solid #DDE6E0; border-radius: 999px; padding: 5px 14px; background: #fff;
+  }
+  .row { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+  .card {
+    background: #FFFFFF; border: 1px solid #DDE6E0; border-radius: 16px;
+    padding: 18px 24px; flex: 1 1 340px;
+  }
+  .card h2 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: #0B3D23; }
+  .card h2 .tag {
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: #00875A; background: #E3F5EC;
+    border-radius: 999px; padding: 2px 10px; margin-right: 8px; vertical-align: 2px;
+  }
+  table.map { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.map td { padding: 8px 4px; border-bottom: 1px solid #ECF2EE; vertical-align: top; }
+  table.map td:first-child { color: #5F6E65; white-space: nowrap; padding-right: 16px; font-size: 13px; }
+  table.map b { color: #0B3D23; }
+  ul.diff { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.9; }
+  ul.diff b { color: #00875A; }
+  .bridge {
+    margin-top: 16px; background: #0B3D23; color: #E7F2EB;
+    border-radius: 16px; padding: 18px 26px; font-size: 14.5px; line-height: 1.95;
+  }
+  .bridge b { color: #6FE3A5; }
+  .bridge a { color: #9CD8FF; }
+
+  .frame { background: #FFFFFF; border: 1px solid #DDE6E0; border-radius: 16px; margin-top: 16px; overflow: hidden; }
+  .frame:fullscreen { border-radius: 0; overflow-y: auto; }
+  .toolbar {
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    padding: 10px 16px; border-bottom: 1px solid #DDE6E0; background: #F8FBF9;
+  }
+  .toolbar .tl { font-weight: 700; font-size: 15px; margin-right: 6px; }
+  .btn {
+    border: 1px solid #DDE6E0; background: #fff; color: #142019;
+    border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 13.5px; cursor: pointer;
+  }
+  .btn:hover { border-color: #00875A; color: #00875A; }
+  .btn.primary { background: #00B14F; border-color: #00B14F; color: #fff; }
+  .btn.primary:hover { color: #fff; filter: brightness(1.06); }
+  #stepLabel { font-size: 13.5px; color: #00875A; font-weight: 600; min-width: 240px; }
+  .toolbar .sp { flex: 1; }
+  .frame svg { display: block; width: 100%; height: auto; cursor: grab; touch-action: none; }
+  .frame svg.panning { cursor: grabbing; }
+  .step { transition: opacity .3s; }
+  .legend {
+    display: flex; gap: 20px; flex-wrap: wrap; align-items: center;
+    padding: 10px 18px; border-top: 1px solid #DDE6E0; background: #F8FBF9;
+    font-size: 13.5px; color: #46584D;
+  }
+  .lg { display: inline-flex; align-items: center; gap: 7px; }
+  .sw { width: 26px; height: 0; border-top: 3.5px solid; border-radius: 2px; }
+  @media print { header.hd a.back, .toolbar { display: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hd">
+    <h1>Grab — ตัวอย่าง Ecosystem Capitalism (ยุคถัดจาก Platform)</h1>
+    <span class="sub">จาก "แอปเรียกรถ" → Super-App ที่หลายธุรกิจอยู่บนแกนร่วมเดียว — Ecosystem = Advantage</span>
+    <a class="back" href="index.html">← กลับ RST Architecture Studio</a>
+  </header>
+
+  <!-- คำอธิบายด้านบน แผนภาพด้านล่าง -->
+  <div class="row">
+    <div class="card">
+      <h2><span class="tag">ถอดบทเรียน</span>ทำไม Grab = Ecosystem Capitalism (ศัพท์จากสไลด์ Evolution)</h2>
+      <table class="map">
+        <tr><td>Advantage</td><td><b>Ecosystem</b> — คุณค่าเกิดจาก "ผลคูณข้ามบริการ" ไม่ใช่บริการเดี่ยว</td></tr>
+        <tr><td>Focus</td><td><b>สร้างและขยายระบบนิเวศ</b> — เพิ่มบริการ/พาร์ตเนอร์เข้ามาเสียบบนแกนเดิมเรื่อยๆ</td></tr>
+        <tr><td>Value Chain</td><td><b>แบบ Ecosystem</b> — หลายแพลตฟอร์มแชร์ Single ID · Wallet · เครือข่ายคนขับ · Data ร่วมกัน</td></tr>
+        <tr><td>Key Resource</td><td><b>พาร์ตเนอร์ มาตรฐาน ความเชื่อมั่น</b> — ธนาคาร ประกัน ร้านค้า สายการบิน เข้ามาต่อเพราะเชื่อระบบ</td></tr>
+        <tr><td>วิธีหารายได้</td><td><b>หลายก้อน</b> — ค่าคอมทุกบริการ + การเงิน (สินเชื่อ/ประกัน/PayLater) + โฆษณา GrabAds + สมาชิก GrabUnlimited</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2><span class="tag">เทียบยุค</span>ต่างจาก Uber (Platform Capitalism) ตรงไหน</h2>
+      <ul class="diff">
+        <li>Uber = <b>1 แพลตฟอร์มจับคู่ 2 ฝั่ง</b> (ผู้โดยสาร ↔ คนขับ) — เก่งเรื่องเดียวให้สุด</li>
+        <li>Grab = <b>หลายแพลตฟอร์มบนแกนร่วมเดียว</b> — เรียกรถ อาหาร ของสด พัสดุ การเงิน ใช้ ID/Wallet/คนขับ/ข้อมูล ชุดเดียวกัน</li>
+        <li>ลูกค้าเข้ามาด้วยบริการเดียว แต่ถูก <b>Cross-sell จนใช้ 3-4 บริการ</b> — ต้นทุนหาลูกค้าของบริการใหม่ ≈ 0</li>
+        <li>แต้ม + Wallet ผูกทุกบริการ = <b>Lock-in ทั้งระบบนิเวศ</b> เลิกใช้ทีเดียวเสียหมด</li>
+        <li>ข้อมูลข้ามบริการสร้างธุรกิจใหม่ที่คู่แข่งทำไม่ได้ เช่น <b>ปล่อยสินเชื่อจากข้อมูลรายได้จริง</b> ของคนขับ/ร้านค้า</li>
+      </ul>
+      <svg id="loop" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin-top:6px"></svg>
+    </div>
+  </div>
+
+  <div class="bridge">
+    <b>สะพานกลับมาที่ Precise:</b> นี่คือภาพของ <b>Phase 3 — Ecosystem Expansion (2031–2035)</b> ใน Roadmap ของเราเอง:
+    11 Smart Segments = "หลายบริการ" ของ Grab · Common Database / Foundation Platform = <b>Single ID & Wallet ของเรา</b> ·
+    Partner/Complementor ที่มาเสียบ = ธนาคาร-ประกัน-สายการบินของ Grab —
+    คำถามชวนคิด: <b>"อะไรคือ GrabRewards ของเรา ที่ทำให้ลูกค้าใช้ Segment ที่ 2, 3, 4 โดยไม่ไปไหน?"</b> ·
+    ย้อนดูยุคก่อนหน้า <a href="uber-example.html">Uber — Platform Capitalism</a>
+  </div>
+
+  <div class="frame" id="frame">
+    <div class="toolbar">
+      <span class="tl">แผนภาพ: Ecosystem ของ Grab</span>
+      <button class="btn primary" id="btnPlay">▶ เล่นทีละขั้น</button>
+      <button class="btn" id="btnNext">ขั้นถัดไป ⏭</button>
+      <span id="stepLabel">พร้อมเล่าเรื่อง — กดเล่นหรือหมุนล้อเมาส์เพื่อซูม</span>
+      <span class="sp"></span>
+      <button class="btn" id="zIn">ซูม +</button>
+      <button class="btn" id="zOut">ซูม −</button>
+      <button class="btn" id="zFit">↺ พอดีจอ</button>
+      <button class="btn" id="zFull">⛶ เต็มจอ</button>
+    </div>
+    <svg id="cv" viewBox="0 0 2000 1210" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="legend">
+      <span><b>เส้นทางของระบบนิเวศ (ตามเลข ①–⑧):</b></span>
+      <span class="lg"><span class="sw" style="border-color:#1668B8"></span> การใช้บริการ</span>
+      <span class="lg"><span class="sw" style="border-color:#00875A"></span> เงิน</span>
+      <span class="lg"><span class="sw" style="border-color:#7C4DC4; border-top-style:dashed"></span> ข้อมูลข้ามบริการ</span>
+      <span style="margin-left:auto">ลากเพื่อเลื่อน · หมุนล้อเมาส์เพื่อซูม · คลิกเลขเพื่อกระโดดไปขั้นนั้น</span>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("cv");
+function el(tag, attrs, parent){
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  (parent || svg).appendChild(e);
+  return e;
+}
+function txt(x, y, size, weight, fill, anchor, lines, parent, lh){
+  const t = el("text", { x, y, "font-size":size, "font-weight":weight, fill, "text-anchor":anchor||"start" }, parent);
+  (Array.isArray(lines) ? lines : [lines]).forEach((ln, i) => {
+    el("tspan", { x, dy: i ? (lh || size * 1.35) : 0 }, t).textContent = ln;
+  });
+  return t;
+}
+const C = {
+  ink:"#142019", muted:"#5F6E65", line:"#DDE6E0",
+  service:"#1668B8", money:"#00875A", data:"#7C4DC4",
+  user:"#1668B8", driver:"#E8742C", merchant:"#00875A",
+  fin:"#8A6D1C", strat:"#2F4B9E", reg:"#6E7783", compet:"#7C4DC4",
+  grab:"#00B14F", grabDark:"#0B3D23",
+};
+function card(x, y, w, h, color, glyph, title, bullets){
+  el("rect", { x, y, width:w, height:h, rx:14, fill:"#FFFFFF", stroke:C.line });
+  el("rect", { x, y, width:w, height:5, rx:2.5, fill:color });
+  el("circle", { cx:x+32, cy:y+37, r:17, fill:color });
+  txt(x+32, y+43, 15, 700, "#fff", "middle", glyph);
+  txt(x+58, y+43, 19, 700, color, "start", title);
+  let yy = y + 76;
+  bullets.forEach(b => {
+    el("circle", { cx:x+28, cy:yy-6, r:3, fill:C.muted });
+    txt(x+44, yy, 15.5, 400, C.ink, "start", b, null, 22);
+    yy += (Array.isArray(b) ? b.length : 1) * 22 + 10;
+  });
+}
+const STEP_NAMES = ["ภาพรวมทั้งหมด",
+  "① ลูกค้าเข้ามาด้วยบริการเดียว — เรียกรถ",
+  "② ผูก Single ID + GrabPay Wallet ครั้งเดียว ใช้ได้ทุกบริการ",
+  "③ Cross-sell: แอปชวนใช้ Food / Mart — ต้นทุนหาลูกค้า ≈ 0",
+  "④ คนขับคนเดิม รับงานได้หลายประเภท — รายได้เต็มวัน",
+  "⑤ เงินหมุนในระบบ — Grab เก็บค่าคอมจากทุกบริการ",
+  "⑥ ข้อมูลข้ามบริการ → ปล่อยสินเชื่อให้คนขับ/ร้านค้า (ธุรกิจใหม่จากข้อมูล)",
+  "⑦ พาร์ตเนอร์ภายนอกเข้ามาเสียบ — ธนาคาร บัตรเครดิต สายการบิน",
+  "⑧ แต้ม GrabRewards ผูกทุกบริการ = Lock-in ทั้งระบบนิเวศ"];
+let stepGroups = [];
+function stepG(n){
+  const g = el("g", { class:"step", "data-step":n });
+  stepGroups.push(g);
+  return g;
+}
+function arrow(g, d, color, dash, width){
+  el("path", { d, fill:"none", stroke:color, "stroke-width":width||3.6,
+    "stroke-dasharray": dash ? "8 8" : "none", "marker-end":"url(#ar-"+color.slice(1)+")" }, g);
+}
+function badge(g, x, y, n, label, color, anchor){
+  const bg = el("g", { style:"cursor:pointer" }, g);
+  el("circle", { cx:x, cy:y, r:17, fill:color }, bg);
+  txt(x, y+6, 17, 700, "#fff", "middle", "" + n, bg);
+  if (label) txt(anchor === "end" ? x - 24 : x + 24, y + 5.5, 15.5, 600, color, anchor || "start", label, bg);
+  bg.addEventListener("click", () => setStep(n));
+}
+const defs = el("defs", {});
+[C.service, C.money, C.data, C.driver, C.strat, C.grab].forEach(c => {
+  const m = el("marker", { id:"ar-"+c.slice(1), viewBox:"0 0 10 10", refX:8, refY:5,
+    markerWidth:6.5, markerHeight:6.5, orient:"auto-start-reverse" }, defs);
+  el("path", { d:"M0,0 L10,5 L0,10 z", fill:c }, m);
+});
+
+txt(70, 82, 40, 700, C.grabDark, "start", "GRAB ในมุม Ecosystem Capitalism");
+txt(70, 120, 18, 400, C.muted, "start", "Super-App: หลายธุรกิจอยู่บนแกนร่วมเดียว (ID · Wallet · เครือข่ายคนขับ · Data) — ยิ่งเสียบมาก ยิ่งแข็งแรง");
+
+/* ---------- มือถือ Super-App กลางภาพ ---------- */
+const P = { x:790, y:170, w:420, h:930 };
+el("rect", { x:P.x-10, y:P.y-10, width:P.w+20, height:P.h+20, rx:52, fill:C.grabDark });
+el("rect", { x:P.x+8, y:P.y+8, width:P.w-16, height:P.h-16, rx:38, fill:"#FFFFFF" });
+el("rect", { x:P.x+P.w/2-55, y:P.y+22, width:110, height:18, rx:9, fill:C.grabDark });
+txt(P.x+P.w/2, P.y+86, 28, 700, C.grabDark, "middle", "Grab Super-App");
+txt(P.x+P.w/2, P.y+112, 13.5, 400, C.muted, "middle", "หลายธุรกิจ · หนึ่งแอป · หนึ่งตัวตน");
+
+/* บริการ 6 ช่องแบบตาราง (หน้าตา super-app) */
+const tiles = [
+  ["🚗", "GrabCar / Bike", "เรียกรถ — จุดเริ่มของทุกอย่าง"],
+  ["🍜", "GrabFood", "สั่งอาหาร — บริการที่ 2"],
+  ["🛒", "GrabMart", "ของสด/ของใช้"],
+  ["📦", "GrabExpress", "ส่งพัสดุ"],
+  ["💳", "GrabPay", "กระเป๋าเงินกลาง"],
+  ["🏦", "GrabFin", "สินเชื่อ · ประกัน · PayLater"],
+];
+const TW = (P.w - 56 - 14) / 2, TH = 104;
+tiles.forEach(([ic, name, desc], i) => {
+  const tx = P.x + 28 + (i % 2) * (TW + 14);
+  const ty = P.y + 140 + Math.floor(i / 2) * (TH + 14);
+  el("rect", { x:tx, y:ty, width:TW, height:TH, rx:14, fill:"#F2F8F4", stroke:C.line });
+  txt(tx + 16, ty + 40, 26, 400, C.ink, "start", ic);
+  txt(tx + 56, ty + 36, 16.5, 700, C.grabDark, "start", name);
+  txt(tx + 16, ty + 72, 12, 400, C.muted, "start", desc);
+});
+/* แกนร่วม (หัวใจของ Ecosystem) */
+const coreY = P.y + 140 + 3 * (TH + 14) + 6;
+el("rect", { x:P.x+28, y:coreY, width:P.w-56, height:120, rx:14, fill:C.grabDark });
+txt(P.x+P.w/2, coreY+34, 17.5, 700, "#FFFFFF", "middle", "แกนร่วมทุกบริการ (Shared Core)");
+txt(P.x+P.w/2, coreY+62, 13.5, 400, "#A9D8BD", "middle", "Single ID · Wallet · Map & เครือข่ายคนขับ", null, 20);
+txt(P.x+P.w/2, coreY+88, 13.5, 400, "#A9D8BD", "middle", "Data & AI ข้ามบริการ — เห็นลูกค้าครบทุกมุม");
+/* แถบแต้ม */
+const rwY = coreY + 134;
+el("rect", { x:P.x+28, y:rwY, width:P.w-56, height:64, rx:14, fill:C.grab });
+txt(P.x+P.w/2, rwY+28, 16.5, 700, "#fff", "middle", "GrabRewards · GrabUnlimited");
+txt(P.x+P.w/2, rwY+50, 12.5, 400, "#DFF6E8", "middle", "แต้มเดียวใช้ได้ทุกบริการ — ยิ่งใช้หลายอย่าง ยิ่งออกยาก");
+
+/* ---------- การ์ดรอบนอก (7 กลุ่ม) ---------- */
+card(100, 190, 540, 265, C.user, "U", "ผู้ใช้ 1 คน = ลูกค้าหลายธุรกิจ", [
+  "เข้ามาครั้งแรกเพื่อเรียกรถ เท่านั้น",
+  "แต่จบวันเดียวกัน: สั่งข้าวเที่ยง ส่งเอกสาร จ่ายบิล",
+  "ทุกบริการใช้ ID + Wallet เดียว ไม่ต้องสมัครใหม่",
+]);
+card(100, 505, 540, 265, C.driver, "D", "Driver-Partner (คนเดียว หลายงาน)", [
+  "เช้าส่งคน · เที่ยงส่งอาหาร · บ่ายส่งพัสดุ",
+  "เครือข่ายคนขับชุดเดียว เสิร์ฟทุกธุรกิจ = Utilization สูง",
+  "ประวัติรายได้ในระบบ → ขอสินเชื่อ GrabFin ได้",
+]);
+card(100, 820, 540, 240, C.merchant, "M", "ร้านค้า / SME", [
+  "ร้านอาหาร ร้านของสด เข้าถึงลูกค้า Grab ทั้งหมด",
+  "รับเงินผ่าน GrabPay — ยอดขายกลายเป็นข้อมูลเครดิต",
+  "กู้เงินขยายร้านจากข้อมูลขายจริง ไม่ต้องมีหลักทรัพย์",
+]);
+card(1360, 175, 530, 240, C.fin, "F", "พาร์ตเนอร์การเงิน", [
+  "ธนาคาร (JV GrabFin) · บริษัทประกัน",
+  "ใช้ Grab เป็นช่องทางขายสินเชื่อ/ประกันรายย่อย",
+  "ได้ Credit Scoring จากข้อมูลจริงที่ธนาคารไม่มี",
+]);
+card(1360, 455, 530, 240, C.strat, "S", "พาร์ตเนอร์เชิงกลยุทธ์", [
+  "Toyota · Microsoft · บัตรเครดิต Co-brand",
+  "สายการบิน/โรงแรม แลกแต้มข้ามระบบนิเวศ",
+  "เข้ามาเสียบเพราะ มาตรฐาน + ฐานผู้ใช้ + ความเชื่อมั่น",
+]);
+card(1360, 735, 530, 165, C.reg, "G", "ภาครัฐ / Regulator", [
+  "ธปท. (e-Wallet/สินเชื่อ) · กรมขนส่ง · คุ้มครองข้อมูล",
+  "ยิ่งขยายหลายธุรกิจ ยิ่งถูกกำกับหลายด้าน",
+]);
+card(1360, 935, 530, 130, C.compet, "VS", "คู่แข่ง", [
+  "LINE MAN Wongnai · Bolt · ShopeeFood — แข่งกันสร้างระบบนิเวศ ไม่ใช่แข่งรายบริการ",
+]);
+
+/* ---------- เส้นเล่าเรื่อง ①–⑧ ---------- */
+let g;
+g = stepG(1);
+arrow(g, `M 640 280 C 715 285, 740 300, 782 320`, C.service);
+badge(g, 700, 252, 1, "เข้ามาเพื่อเรียกรถ", C.service);
+g = stepG(2);
+arrow(g, `M 640 330 C 720 360, 745 620, 785 ${coreY+40}`, C.service, false, 3);
+badge(g, 712, 470, 2, "ผูก ID + Wallet ครั้งเดียว", C.service, "end");
+g = stepG(3);
+arrow(g, `M 785 300 C 735 330, 735 380, 782 415`, C.grab, false, 3.4);
+badge(g, 742, 358, 3, "Cross-sell ไป Food/Mart", C.grab, "end");
+g = stepG(4);
+arrow(g, `M 640 600 C 715 590, 740 560, 782 520`, C.driver);
+badge(g, 700, 632, 4, "คนเดียวรับได้ทุกงาน", C.driver, "start");
+g = stepG(5);
+arrow(g, `M 640 880 C 720 860, 745 780, 788 ${rwY-30}`, C.money);
+badge(g, 712, 905, 5, "ค่าคอมทุกบริการ", C.money, "start");
+g = stepG(6);
+arrow(g, `M 1212 ${coreY+60} C 1275 ${coreY+50}, 1300 460, 1355 330`, C.data, true, 2.8);
+arrow(g, `M 1212 ${coreY+90} C 1290 ${coreY+120}, 1300 980, 645 700`, C.data, true, 2.8);
+badge(g, 1290, 470, 6, "ข้อมูล → สินเชื่อ", C.data, "start");
+g = stepG(7);
+arrow(g, `M 1360 560 C 1290 560, 1255 480, 1213 420`, C.strat);
+badge(g, 1300, 706, 7, "พาร์ตเนอร์มาเสียบ", C.strat, "start");
+g = stepG(8);
+arrow(g, `M 788 ${rwY+30} C 700 ${rwY+40}, 660 1010, 620 770`, C.grab, false, 3.4);
+badge(g, 690, 1035, 8, "แต้มผูกทุกบริการ = Lock-in", C.grab, "end");
+
+txt(70, 1160, 16.5, 600, C.muted, "start",
+  "จุดที่ต้องชี้ตอนเล่า: Uber เก่ง “การจับคู่ 1 เรื่อง” แต่ Grab ชนะด้วย “แกนร่วม” — ลูกค้า คนขับ เงิน และข้อมูล ถูกใช้ซ้ำทุกธุรกิจ ทำให้บริการใหม่เกิดได้แทบฟรี และออกจากระบบยากขึ้นทุกวัน");
+
+/* ================= โหมดเล่าเรื่อง ================= */
+let curStep = 0, playTimer = null;
+function setStep(k){
+  curStep = k;
+  stepGroups.forEach(gr => {
+    const n = +gr.dataset.step;
+    gr.style.opacity = k === 0 ? 1 : (n === k ? 1 : (n < k ? .5 : .07));
+  });
+  document.getElementById("stepLabel").textContent = STEP_NAMES[k];
+}
+function stopPlay(){
+  if (playTimer){ clearInterval(playTimer); playTimer = null; }
+  document.getElementById("btnPlay").textContent = "▶ เล่นทีละขั้น";
+}
+document.getElementById("btnPlay").onclick = () => {
+  if (playTimer){ stopPlay(); return; }
+  setStep(1);
+  document.getElementById("btnPlay").textContent = "⏸ หยุด";
+  playTimer = setInterval(() => {
+    if (curStep >= 8){ stopPlay(); setStep(0); return; }
+    setStep(curStep + 1);
+  }, 2400);
+};
+document.getElementById("btnNext").onclick = () => { stopPlay(); setStep(curStep >= 8 ? 0 : curStep + 1); };
+
+/* ================= ซูม / แพน / เต็มจอ ================= */
+const VB0 = { x:0, y:0, w:2000, h:1210 };
+let VB = { ...VB0 };
+function applyVB(){ svg.setAttribute("viewBox", `${VB.x} ${VB.y} ${VB.w} ${VB.h}`); }
+function zoomAt(f, cx, cy){
+  const nw = Math.min(VB0.w * 1.15, Math.max(VB0.w * .18, VB.w * f));
+  const nh = nw * (VB0.h / VB0.w);
+  cx = cx ?? VB.x + VB.w / 2; cy = cy ?? VB.y + VB.h / 2;
+  VB.x = cx - (cx - VB.x) * (nw / VB.w);
+  VB.y = cy - (cy - VB.y) * (nh / VB.h);
+  VB.w = nw; VB.h = nh;
+  applyVB();
+}
+function toSvg(e){
+  const r = svg.getBoundingClientRect();
+  return [ VB.x + (e.clientX - r.left) / r.width * VB.w,
+           VB.y + (e.clientY - r.top) / r.height * VB.h ];
+}
+svg.addEventListener("wheel", e => {
+  e.preventDefault();
+  const [sx, sy] = toSvg(e);
+  zoomAt(e.deltaY > 0 ? 1.18 : 0.85, sx, sy);
+}, { passive:false });
+let pan = null;
+svg.addEventListener("pointerdown", e => {
+  pan = { x:e.clientX, y:e.clientY, vx:VB.x, vy:VB.y };
+  svg.classList.add("panning");
+  svg.setPointerCapture(e.pointerId);
+});
+svg.addEventListener("pointermove", e => {
+  if (!pan) return;
+  const r = svg.getBoundingClientRect();
+  VB.x = pan.vx - (e.clientX - pan.x) / r.width * VB.w;
+  VB.y = pan.vy - (e.clientY - pan.y) / r.height * VB.h;
+  applyVB();
+});
+svg.addEventListener("pointerup", () => { pan = null; svg.classList.remove("panning"); });
+document.getElementById("zIn").onclick = () => zoomAt(0.78);
+document.getElementById("zOut").onclick = () => zoomAt(1.28);
+document.getElementById("zFit").onclick = () => { VB = { ...VB0 }; applyVB(); };
+document.getElementById("zFull").onclick = () => {
+  const f = document.getElementById("frame");
+  document.fullscreenElement ? document.exitFullscreen() : f.requestFullscreen();
+};
+
+/* ---------- วงล้อ Cross-Service Flywheel ---------- */
+const lp = document.getElementById("loop");
+function lel(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); lp.appendChild(e); return e; }
+function ltxt(x, y, size, weight, fill, anchor, lines){
+  const t = lel("text", { x, y, "font-size":size, "font-weight":weight, fill, "text-anchor":anchor });
+  (Array.isArray(lines)?lines:[lines]).forEach((ln,i)=>{ const s=document.createElementNS(NS,"tspan"); s.setAttribute("x",x); s.setAttribute("dy",i?size*1.25:0); s.textContent=ln; t.appendChild(s); });
+}
+const ld = lel("defs", {});
+const lm = document.createElementNS(NS, "marker");
+["id","viewBox","refX","refY","markerWidth","markerHeight","orient"].forEach((k,i)=>lm.setAttribute(k,["lar","0 0 10 10",8,5,7,7,"auto"][i]));
+const lmp = document.createElementNS(NS,"path"); lmp.setAttribute("d","M0,0 L10,5 L0,10 z"); lmp.setAttribute("fill","#00875A");
+lm.appendChild(lmp); ld.appendChild(lm);
+const nodes = [
+  [90, 70,  ["ใช้บริการ", "แรก"]],
+  [320, 45, ["แต้ม/Wallet", "ชวนใช้ต่อ"]],
+  [550, 70, ["ใช้ 3-4", "บริการ"]],
+  [550, 195,["ออกยาก", "(Lock-in)"]],
+  [320, 222,["พาร์ตเนอร์", "อยากเสียบ"]],
+  [90, 195, ["บริการยิ่ง", "หลากหลาย"]],
+];
+nodes.forEach(([x, y, lines]) => {
+  lel("circle", { cx:x, cy:y, r:40, fill:"#E3F5EC", stroke:"#00875A", "stroke-width":2 });
+  ltxt(x, y-2, 12, 600, "#0B5A38", "middle", lines);
+});
+[[128,58,282,50],[358,50,512,58],[550,112,550,153],[512,207,358,217],[282,219,128,207],[90,153,90,112]].forEach(([x1,y1,x2,y2]) => {
+  lel("path", { d:`M ${x1} ${y1} L ${x2} ${y2}`, fill:"none", stroke:"#00875A", "stroke-width":2.6, "marker-end":"url(#lar)" });
+});
+</script>
+</body>
+</html>
