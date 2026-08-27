@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uber Platform Capitalism</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* หน้าเดียวจบสำหรับสอน — จงใจเป็นธีมสว่างเดียว ระบายสีชัดเจนทุกจุด */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: #F7F8FA; color: #16181C;
+    font: 14px/1.6 "IBM Plex Sans Thai", -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+  }
+  .page { max-width: 1560px; margin: 0 auto; padding: 22px 26px 60px; }
+  header.hd { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header.hd h1 { margin: 0; font-size: 24px; font-weight: 700; color: #101216; letter-spacing: -.01em; }
+  header.hd .sub { color: #6B7280; font-size: 13px; }
+  a.back {
+    margin-left: auto; font-size: 12.5px; color: #276EF1; text-decoration: none;
+    border: 1px solid #E2E5EA; border-radius: 999px; padding: 5px 14px; background: #fff;
+  }
+  .frame { background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 16px; margin-top: 14px; overflow: hidden; }
+  .frame svg { display: block; width: 100%; height: auto; }
+  .legend {
+    display: flex; gap: 20px; flex-wrap: wrap; align-items: center;
+    padding: 10px 18px; border-top: 1px solid #E2E5EA; background: #FAFBFC;
+    font-size: 12.5px; color: #454B57;
+  }
+  .lg { display: inline-flex; align-items: center; gap: 7px; }
+  .sw { width: 26px; height: 0; border-top: 3px solid; border-radius: 2px; }
+
+  .row { display: flex; gap: 16px; margin-top: 18px; flex-wrap: wrap; }
+  .card {
+    background: #FFFFFF; border: 1px solid #E2E5EA; border-radius: 16px;
+    padding: 18px 22px; flex: 1 1 340px;
+  }
+  .card h2 { margin: 0 0 10px; font-size: 15.5px; font-weight: 700; color: #101216; }
+  .card h2 .tag {
+    display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: #0E8A4F; background: #E7F6EE;
+    border-radius: 999px; padding: 2px 10px; margin-right: 8px; vertical-align: 2px;
+  }
+  table.map { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.map td { padding: 7px 4px; border-bottom: 1px solid #EEF0F3; vertical-align: top; }
+  table.map td:first-child { color: #6B7280; white-space: nowrap; padding-right: 16px; font-size: 12px; }
+  table.map b { color: #101216; }
+  .bridge {
+    margin-top: 16px; background: #101216; color: #E9ECF1;
+    border-radius: 16px; padding: 18px 24px; font-size: 13.5px; line-height: 1.9;
+  }
+  .bridge b { color: #5CC98F; }
+  .bridge a { color: #8AB4F8; }
+  @media print { header.hd a.back { display: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hd">
+    <h1>Uber — ตัวอย่าง Platform Capitalism ที่เข้าใจง่ายที่สุด</h1>
+    <span class="sub">บริษัทขนส่งที่ใหญ่ที่สุดในโลก โดยไม่มีรถของตัวเองแม้แต่คันเดียว — Platform = Asset</span>
+    <a class="back" href="index.html">← กลับ RST Architecture Studio</a>
+  </header>
+
+  <div class="frame">
+    <svg id="cv" viewBox="0 0 2000 1120" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="legend">
+      <span><b>เส้นทางของ 1 เที่ยว (ตามเลข ①–⑧):</b></span>
+      <span class="lg"><span class="sw" style="border-color:#276EF1"></span> การใช้บริการ</span>
+      <span class="lg"><span class="sw" style="border-color:#0E8A4F"></span> เงิน</span>
+      <span class="lg"><span class="sw" style="border-color:#7C4DC4; border-top-style:dashed"></span> ข้อมูล (ไหลกลับเข้าแกน AI ทุกเที่ยว)</span>
+      <span style="margin-left:auto">ทุกฝ่ายเชื่อมกันผ่านจอเดียว — Uber ยืนอยู่ตรงกลางและเก็บค่าผ่านทาง</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card">
+      <h2><span class="tag">เครื่องยนต์การเติบโต</span>Network Effects — วงล้อที่หมุนเอง</h2>
+      <svg id="loop" viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto"></svg>
+    </div>
+    <div class="card">
+      <h2><span class="tag">ถอดบทเรียน</span>ทำไม Uber = Platform Capitalism (ศัพท์เดียวกับสไลด์ Evolution)</h2>
+      <table class="map">
+        <tr><td>Asset</td><td><b>ตัวแพลตฟอร์ม</b> — ไม่ใช่รถ ไม่ใช่คนขับ (ทั้งสองเป็นของคนอื่น)</td></tr>
+        <tr><td>Focus</td><td><b>สร้างแพลตฟอร์มเชื่อมต่อผู้ใช้</b> สองข้างตลาด (ผู้โดยสาร ↔ คนขับ) ให้เจอกันเร็ว-ถูก-เชื่อใจได้</td></tr>
+        <tr><td>Value Chain</td><td><b>แบบ Platform</b> — ไม่ใช่เส้นตรงผลิต-ขาย แต่เป็นการจับคู่ + ทำธุรกรรมซ้ำๆ บนโครงเดียว</td></tr>
+        <tr><td>Key Resource</td><td><b>ข้อมูล เครือข่าย ซอฟต์แวร์</b> — ทุกเที่ยวป้อนข้อมูลให้ Matching/ราคาแม่นขึ้น คู่แข่งตามยากขึ้นทุกวัน</td></tr>
+        <tr><td>วิธีหารายได้</td><td><b>ค่าคอมมิชชั่น ~25%</b> ของทุกธุรกรรม + Dynamic Pricing — ยิ่งคนใช้มาก ยิ่งได้มาก โดยต้นทุนแทบไม่โต</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="bridge">
+    <b>สะพานกลับมาที่ Precise:</b> อ่านภาพนี้แล้วลอง "แทนค่า" — Uber → <b>RST Platform ของเรา</b> ·
+    ผู้โดยสาร → ลูกค้าการไฟฟ้า/อุตสาหกรรม · คนขับ (เจ้าของรถ) → Partner/Supplier ที่นำทรัพยากรเข้าระบบ ·
+    ร้านอาหาร → Complementor ที่มาเสียบต่อยอด · แกน Data & AI → Data Analytics & AI Platform ของทุก RST —
+    คำถามชวนคิดปิดท้าย: <b>"อะไรคือค่าคอมมิชชั่น 25% ของเรา?"</b> · ดูผังจริงของแต่ละทีมได้ที่ <a href="index.html">RST Architecture Studio</a>
+  </div>
+</div>
+
+<script>
+"use strict";
+const NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("cv");
+function el(tag, attrs, parent){
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  (parent || svg).appendChild(e);
+  return e;
+}
+function txt(x, y, size, weight, fill, anchor, lines, parent, lh){
+  const t = el("text", { x, y, "font-size":size, "font-weight":weight, fill, "text-anchor":anchor||"start" }, parent);
+  (Array.isArray(lines) ? lines : [lines]).forEach((ln, i) => {
+    el("tspan", { x, dy: i ? (lh || size * 1.35) : 0 }, t).textContent = ln;
+  });
+  return t;
+}
+
+/* ---------- โทนสี ---------- */
+const C = {
+  ink:"#16181C", muted:"#6B7280", line:"#E2E5EA",
+  service:"#276EF1", money:"#0E8A4F", data:"#7C4DC4",
+  rider:"#276EF1", driver:"#E8742C", merchant:"#0E8A4F",
+  comp:"#2F4B9E", reg:"#6E7783", compet:"#7C4DC4",
+};
+
+/* ---------- การ์ด Stakeholder ---------- */
+function card(x, y, w, h, color, glyph, title, bullets){
+  el("rect", { x, y, width:w, height:h, rx:14, fill:"#FFFFFF", stroke:C.line });
+  el("rect", { x, y, width:w, height:5, rx:2.5, fill:color });
+  el("circle", { cx:x+30, cy:y+34, r:15, fill:color });
+  txt(x+30, y+39, 13, 700, "#fff", "middle", glyph);
+  txt(x+54, y+39, 16.5, 700, color, "start", title);
+  let yy = y + 68;
+  bullets.forEach(b => {
+    el("circle", { cx:x+26, cy:yy-5, r:2.5, fill:C.muted });
+    txt(x+40, yy, 13.5, 400, C.ink, "start", b, null, 19);
+    yy += (Array.isArray(b) ? b.length : 1) * 19 + 9;
+  });
+}
+/* ---------- ลูกศร + เลขเล่าเรื่อง ---------- */
+function arrow(d, color, dash, width){
+  el("path", { d, fill:"none", stroke:color, "stroke-width":width||3.2,
+    "stroke-dasharray": dash ? "7 7" : "none", "marker-end":"url(#ar-"+color.slice(1)+")" });
+}
+function badge(x, y, n, label, color, anchor){
+  el("circle", { cx:x, cy:y, r:15, fill:color });
+  txt(x, y+5.5, 15, 700, "#fff", "middle", "" + n);
+  if (label) txt(anchor === "end" ? x - 22 : x + 22, y + 5, 13.5, 600, color, anchor || "start", label);
+}
+const defs = el("defs", {});
+[C.service, C.money, C.data, C.driver].forEach(c => {
+  const m = el("marker", { id:"ar-"+c.slice(1), viewBox:"0 0 10 10", refX:8, refY:5,
+    markerWidth:6.5, markerHeight:6.5, orient:"auto-start-reverse" }, defs);
+  el("path", { d:"M0,0 L10,5 L0,10 z", fill:c }, m);
+});
+
+/* ---------- หัวภาพ ---------- */
+txt(70, 78, 36, 700, C.ink, "start", "UBER ในมุม Platform Capitalism");
+txt(70, 112, 16, 400, C.muted, "start", "แพลตฟอร์มอยู่ตรงกลาง · Stakeholder ทุกฝ่ายล้อมรอบ · มูลค่าไหลผ่านจอเดียว");
+
+/* ---------- มือถือกลางภาพ ---------- */
+const P = { x:810, y:150, w:380, h:880 };
+el("rect", { x:P.x-10, y:P.y-10, width:P.w+20, height:P.h+20, rx:52, fill:"#101216" });
+el("rect", { x:P.x+8, y:P.y+8, width:P.w-16, height:P.h-16, rx:38, fill:"#FFFFFF" });
+el("rect", { x:P.x+P.w/2-55, y:P.y+22, width:110, height:18, rx:9, fill:"#101216" });
+txt(P.x+P.w/2, P.y+82, 26, 700, C.ink, "middle", "Uber Platform");
+txt(P.x+P.w/2, P.y+108, 12.5, 400, C.muted, "middle", "มูลค่าทุกอย่างส่งมอบผ่านหน้าจอเดียว");
+
+const chips = [
+  ["Matching Engine", "จับคู่ผู้โดยสาร ↔ คนขับ ในไม่กี่วินาที", C.service],
+  ["Dynamic Pricing (Surge)", "ราคาขยับตามอุปสงค์-อุปทาน เรียลไทม์", C.service],
+  ["GPS Routing & ETA", "เส้นทาง เวลาถึง ติดตามสด", C.service],
+  ["Payment & Wallet", "ตัดเงินอัตโนมัติ ไร้เงินสด", C.money],
+  ["Rating & Trust (2 ทาง)", "รีวิวแทนกฎหมาย สร้างความเชื่อใจระหว่างคนแปลกหน้า", C.driver],
+  ["Data & AI Core", "ทุกเที่ยวป้อนข้อมูลกลับมา ทำให้ระบบฉลาดขึ้นทุกวัน", C.data],
+];
+let cy = P.y + 140;
+chips.forEach(([name, desc, color], i) => {
+  const last = i === chips.length - 1;
+  el("rect", { x:P.x+30, y:cy, width:P.w-60, height:92, rx:12,
+    fill: last ? "#101216" : "#F4F6F9", stroke: last ? "#101216" : C.line });
+  el("rect", { x:P.x+30, y:cy, width:5, height:92, rx:2.5, fill:color });
+  txt(P.x+48, cy+34, 16, 700, last ? "#FFFFFF" : C.ink, "start", name);
+  txt(P.x+48, cy+60, 12, 400, last ? "#B9C2CF" : C.muted, "start", desc, null, 16);
+  cy += 112;
+});
+/* ป้ายค่าคอมมิชชั่น */
+el("rect", { x:P.x+P.w/2-120, y:P.y+P.h-42, width:240, height:56, rx:28, fill:"#0E8A4F" });
+txt(P.x+P.w/2, P.y+P.h-18, 16.5, 700, "#fff", "middle", "Uber เก็บ ~25% ของทุกเที่ยว");
+txt(P.x+P.w/2, P.y+P.h+2, 11, 400, "#D2F0DF", "middle", "ต้นทุนแทบไม่โตตามจำนวนธุรกรรม");
+
+/* ---------- การ์ดรอบนอก ---------- */
+card(120, 190, 520, 260, C.rider, "R", "ผู้โดยสาร (Demand)", [
+  "เปิดแอปเรียกรถ / สั่งอาหาร — เห็นราคาก่อนตัดสินใจ",
+  "ไม่ต้องรู้จักคนขับ ไม่ต้องต่อรอง ไม่ต้องพกเงินสด",
+  "จ่ายเงินผ่านแอป แล้วให้คะแนนคนขับ",
+  "ยิ่งใช้บ่อย ระบบยิ่งรู้ใจ (ที่ประจำ เวลาเดิม)",
+]);
+card(120, 640, 520, 300, C.driver, "D", "คนขับ / เจ้าของรถ (Supply)", [
+  "นำรถ + เวลาของตัวเองเข้าระบบ — Uber ไม่ต้องลงทุนสักบาท",
+  "รับงานจาก Matching Engine ไม่ต้องวิ่งหาผู้โดยสารเอง",
+  "รับรายได้ ~75% ของค่าโดยสาร โอนอัตโนมัติ",
+  "คะแนนรีวิวคือใบอนุญาตทำงาน — ต่ำกว่าเกณฑ์ = หลุดจากระบบ",
+]);
+card(1360, 165, 520, 215, C.merchant, "M", "ร้านอาหาร / Merchant (Uber Eats)", [
+  "เสียบเข้าแพลตฟอร์มเพื่อเข้าถึงลูกค้าหลายล้านคนทันที",
+  "ยอมจ่ายค่าคอม ~30% แลกกับ Demand ที่หาเองไม่ได้",
+  "ตัวอย่างการ ขยายวง จาก 1 บริการ → Ecosystem",
+]);
+card(1360, 420, 520, 195, C.comp, "C", "Complementor / ผู้เสริมระบบ", [
+  "Google Maps · Payment Gateway · บริษัทประกันภัย",
+  "Uber ไม่สร้างเอง แต่ต่อท่อใช้ของที่ดีที่สุดในตลาด",
+  "ทำให้แพลตฟอร์มโตเร็วโดยไม่ต้องเก่งทุกเรื่อง",
+]);
+card(1360, 655, 520, 160, C.reg, "G", "ภาครัฐ / Regulator", [
+  "ใบอนุญาต กติกาแรงงาน ภาษี — ผู้กำหนดสนามแข่ง",
+  "ความเสี่ยงใหญ่สุดของโมเดล (หลายเมืองเคยแบน Uber)",
+]);
+card(1360, 855, 520, 160, C.compet, "VS", "คู่แข่ง", [
+  "Grab · Bolt · Lyft — แข่งกันที่ Network Effects",
+  "สงครามแพลตฟอร์ม: ผู้ชนะกินเกือบทั้งตลาด (Winner-takes-most)",
+]);
+
+/* ---------- เส้นเล่าเรื่อง ①–⑧ ---------- */
+/* ① ผู้โดยสารเรียกรถ */
+arrow(`M 640 265 C 730 265, 750 300, 800 320`, C.service);
+badge(700, 240, 1, "เรียกรถ / สั่งอาหาร", C.service);
+/* ② คนขับนำรถเข้าระบบ */
+arrow(`M 640 740 C 730 740, 750 700, 800 660`, C.driver);
+badge(700, 780, 2, "นำรถเข้าระบบ", C.driver, "start");
+/* ③ Matching ส่งงานให้คนขับ */
+arrow(`M 800 520 C 740 560, 720 640, 655 700`, C.service);
+badge(755, 585, 3, "จับคู่-ส่งงาน", C.service, "end");
+/* ④ ให้บริการเดินทาง (ตรงระหว่างสองฝั่ง ไม่ผ่านจอ) */
+arrow(`M 330 640 C 300 560, 300 520, 330 455`, C.service, false, 4);
+badge(305, 548, 4, "ให้บริการเดินทาง", C.service, "start");
+/* ⑤ จ่ายเงิน 100% เข้าแพลตฟอร์ม */
+arrow(`M 640 380 C 740 400, 760 480, 802 545`, C.money);
+badge(712, 425, 5, "จ่าย 100%", C.money);
+/* ⑥ แพลตฟอร์มโอน ~75% ให้คนขับ */
+arrow(`M 802 880 C 745 880, 720 850, 655 820`, C.money);
+badge(745, 912, 6, "โอน ~75% ให้คนขับ", C.money, "end");
+/* ⑦ Merchant เสียบเข้า Ecosystem */
+arrow(`M 1360 270 C 1280 280, 1250 320, 1198 355`, C.merchant);
+badge(1290, 250, 7, "เสียบเข้า Ecosystem", C.merchant, "end");
+/* ⑧ ข้อมูลไหลกลับเข้าแกน AI จากทุกทิศ */
+arrow(`M 620 480 C 700 620, 740 800, 800 905`, C.data, true, 2.4);
+arrow(`M 1370 500 C 1290 660, 1260 820, 1200 905`, C.data, true, 2.4);
+badge(1268, 745, 8, "ข้อมูลทุกเที่ยว → AI", C.data, "end");
+
+/* มุมล่าง: ประเด็นทอง */
+txt(70, 1075, 15, 600, C.muted, "start",
+  "จุดที่ต้องชี้ตอนเล่า: Uber ไม่ได้เป็นเจ้าของรถ (Supply) หรือผู้โดยสาร (Demand) — เป็นเจ้าของ “จุดที่ทั้งสองฝ่ายต้องมาเจอกัน” แล้วเก็บค่าผ่านทางจากทุกธุรกรรม");
+
+/* ---------- วงล้อ Network Effects ---------- */
+const lp = document.getElementById("loop");
+function lel(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); lp.appendChild(e); return e; }
+function ltxt(x, y, size, weight, fill, anchor, lines){
+  const t = lel("text", { x, y, "font-size":size, "font-weight":weight, fill, "text-anchor":anchor });
+  (Array.isArray(lines)?lines:[lines]).forEach((ln,i)=>{ const s=document.createElementNS(NS,"tspan"); s.setAttribute("x",x); s.setAttribute("dy",i?size*1.3:0); s.textContent=ln; t.appendChild(s); });
+}
+const ld = lel("defs", {});
+const lm = document.createElementNS(NS, "marker");
+["id","viewBox","refX","refY","markerWidth","markerHeight","orient"].forEach((k,i)=>lm.setAttribute(k,["lar","0 0 10 10",8,5,7,7,"auto"][i]));
+const lmp = document.createElementNS(NS,"path"); lmp.setAttribute("d","M0,0 L10,5 L0,10 z"); lmp.setAttribute("fill","#0E8A4F");
+lm.appendChild(lmp); ld.appendChild(lm);
+const steps = [
+  [320, 52,  ["ผู้โดยสาร","มากขึ้น"]],
+  [540, 165, ["คนขับเข้ามา","มากขึ้น"]],
+  [320, 278, ["รอสั้นลง ·","ครอบคลุมขึ้น"]],
+  [100, 165, ["ประสบการณ์ดี","ราคาแข่งได้"]],
+];
+steps.forEach(([x, y, lines]) => {
+  lel("circle", { cx:x, cy:y, r:44, fill:"#E7F6EE", stroke:"#0E8A4F", "stroke-width":2 });
+  ltxt(x, y-3, 12.5, 600, "#0E5F38", "middle", lines);
+});
+[[352,88,508,132],[508,200,352,244],[288,244,132,200],[132,132,288,88]].forEach(([x1,y1,x2,y2]) => {
+  lel("path", { d:`M ${x1} ${y1} Q ${(x1+x2)/2 + (y1<y2? 24:-24)} ${(y1+y2)/2} ${x2} ${y2}`,
+    fill:"none", stroke:"#0E8A4F", "stroke-width":2.6, "marker-end":"url(#lar)" });
+});
+ltxt(320, 168, 13, 700, "#0E8A4F", "middle", ["วงล้อหมุนเอง", "โตแบบทบต้น"]);
+</script>
+</body>
+</html>
