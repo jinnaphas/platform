@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DBTP Executive View</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F2F5F7; --panel:#FFFFFF; --ink:#17232F; --muted:#5B6B7A; --line:#DCE4EA;
+    --cx:#2358C6; --eco:#D96C2C; --iot:#7C4DC4; --is:#4E9F3D; --da:#10243E;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:'Sarabun',-apple-system,'Segoe UI',sans-serif;font-size:15px}
+  header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:16px 22px 6px}
+  header h1{margin:0;font-size:21px;font-weight:800}
+  header .sub{color:var(--muted);font-size:14px}
+  header a.back{margin-left:auto;color:var(--muted);font-size:13.5px;text-decoration:none;
+       border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--panel)}
+  .bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 22px 12px}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap}
+  .tab{border:1.5px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;
+       padding:7px 15px;font:600 14.5px 'Sarabun',sans-serif;cursor:pointer}
+  .tab.on{color:#fff;border-color:transparent}
+  .spacer{flex:1}
+  .btn{border:1.5px solid var(--line);background:var(--panel);color:var(--ink);border-radius:9px;
+       padding:6px 12px;font:600 13.5px 'Sarabun',sans-serif;cursor:pointer}
+  .btn:hover,.tab:hover{border-color:#B7C4CE}
+  .hint{color:var(--muted);font-size:12.5px;padding:0 22px 6px}
+  #frame{margin:0 22px 22px;background:var(--panel);border:1px solid var(--line);border-radius:16px;
+       overflow:hidden;position:relative}
+  #frame:fullscreen{background:var(--panel)}
+  svg{display:block;width:100%;height:auto;cursor:grab;user-select:none}
+  svg.panning{cursor:grabbing}
+  svg text{font-family:'Sarabun',-apple-system,sans-serif}
+  .ring{cursor:pointer;transition:opacity .25s}
+  .shcard{transition:opacity .25s}
+  .dim{opacity:.14}
+</style>
+</head>
+<body>
+<header>
+  <h1>ภาพรวมอย่างย่อ — Business Architecture × DBTP</h1>
+  <span class="sub">มือถือ 1 เครื่อง · 5 ห่วง Gartner DBTP · Stakeholder รอบข้าง (นิติบุคคลหลัก) — ไม่ลงรายละเอียด Activity</span>
+  <a class="back" href="index.html">← กลับ RST Architecture Studio</a>
+</header>
+<div class="bar">
+  <div class="tabs" id="tabs"></div>
+  <span class="spacer"></span>
+  <button class="btn" id="zIn">ซูม +</button>
+  <button class="btn" id="zOut">ซูม −</button>
+  <button class="btn" id="zFit">↺ พอดีจอ</button>
+  <button class="btn" id="zFull">⛶ เต็มจอ</button>
+</div>
+<div class="hint">ลูกเล่น: คลิกที่ห่วงเพื่อโฟกัสทีละ Platform · หมุนล้อเมาส์เพื่อซูมตรงจุดที่ชี้ · ลากเพื่อเลื่อน</div>
+<div id="frame"><svg id="cv" viewBox="0 0 1900 1240" role="img" aria-label="แผนภาพย่อ: มือถือที่มี 5 ห่วง DBTP ตรงกลาง และ Stakeholder รอบข้าง"></svg></div>
+
+<script>
+"use strict";
+/* ===== ห่วง DBTP (สีคงที่ทุกทีม) ===== */
+const RING_DEF = {
+  cx : {th:"Customer Experience", en:"ช่องทางและประสบการณ์ลูกค้า",   color:"#2358C6"},
+  eco: {th:"Ecosystem",           en:"พาร์ตเนอร์และระบบนิเวศ",        color:"#D96C2C"},
+  iot: {th:"IoT",                 en:"อุปกรณ์ · เซ็นเซอร์ · หน้างาน",  color:"#7C4DC4"},
+  is : {th:"Information System",  en:"ระบบงานหลักขององค์กร (ERP)",   color:"#4E9F3D"},
+  da : {th:"Data & Analytics",    en:"ข้อมูลและการวิเคราะห์ (ศูนย์กลาง)", color:"#10243E"},
+};
+const HUE = {buyer:"#2358C6", partner:"#0E8074", comp:"#B07C10", compet:"#B23A3A", biz:"#17232F", admin:"#5B6B7A"};
+
+/* ===== ข้อมูลย่อ (Curated จาก data/*.json ณ ก.ย. 2026 — หัวข้อระดับ Platform เท่านั้น) ===== */
+const DATA = {
+tendering:{ name:"Tendering", color:"#0E8074", phone:"Tendering Platform",
+  rings:{
+    cx :["Business Generation","Key Account CRM","TOR Early-Warning"],
+    eco:["SRM — Supplier Mgmt","CECP — Complementor","JV / Bank Guarantee"],
+    iot:["Factory 4.0 (Real-time)","Logistics Visibility"],
+    is :["Demand Satisfaction","AI Tendering Document","Quotation Optimization"],
+    da :["KAIP — Key Account Intel","CIP — Competitor Intel","Policy & Budget Intel"]},
+  sh:[
+    {side:"L",hue:"partner",title:"Suppliers / ซัพพลายเออร์",ents:["ผู้ผลิตวัตถุดิบ / ชิ้นส่วน","OEM Partner","ผู้ให้บริการโลจิสติกส์"]},
+    {side:"L",hue:"comp",title:"Complementor / พันธมิตรเสริม",ents:["ธนาคาร — Bank Guarantee","บริษัทประกันภัย","สมอ. · IEC · ISO Body","สมาคมการค้า · ที่ปรึกษา TOR"]},
+    {side:"L",hue:"compet",title:"Competitor",ents:["ผู้ผลิต / ผู้รับเหมาคู่แข่ง","ในสนามประมูลภาครัฐ"]},
+    {side:"R",hue:"buyer",title:"Buyer / ผู้ซื้อ",ents:["การไฟฟ้า: EGAT · MEA · PEA","รัฐวิสาหกิจ / หน่วยงานรัฐ"]},
+    {side:"R",hue:"biz",title:"Precise Business",ents:["ทีม Sales · S&OP · Post-Sale"]},
+    {side:"R",hue:"admin",title:"Platform Admin",ents:["ทีมกำกับ Common Database"]}]},
+omni:{ name:"Omni Channel", color:"#D96C2C", phone:"Omni Channel Platform",
+  rings:{
+    cx :["Website · LINE OA · Facebook","Customer Engagement","After-Sales & Satisfaction"],
+    eco:["Dealer Management Platform","Rewarding & Commission","Enablement / Training"],
+    iot:[],
+    is :["Business Generation ›› CRM","Demand Satisfaction","ERP Odoo"],
+    da :["Sale Forecasting","Chase Sale / Inventory","AI Chatbot"]},
+  sh:[
+    {side:"L",hue:"partner",title:"Supplier / ซัพพลายเออร์",ents:["Raw Material Supplier","Testing & Calibration","Freight Forwarder · Construction"]},
+    {side:"L",hue:"comp",title:"Complementor / พันธมิตรเสริม",ents:["MiT · Testing Lab (KERI · KEMA · CESI · EEI)","สถาบันไฟฟ้า · สมอ.","กรมบัญชีกลาง (e-GP)","Bank · SET / กลต. · มหาวิทยาลัย"]},
+    {side:"L",hue:"admin",title:"Platform Admin",ents:["ทีม IT / Cyber Security"]},
+    {side:"R",hue:"buyer",title:"End User",ents:["ZPrecise · DealerX"]},
+    {side:"R",hue:"compet",title:"Channel Member",ents:["Main Contractor","Dealer","Smartshop"]},
+    {side:"R",hue:"biz",title:"Precise Business",ents:["ทีม Omni Channel","(Target GP 540 mb ภายในปี 2573)"]}]},
+tcs:{ name:"TCS", color:"#2358C6", phone:"TCS Platform",
+  rings:{
+    cx :["Buyer Self-Service Portal","Customer Engagement Hub","Inbound Marketing","Digital Commerce"],
+    eco:["Ecosystem & Partner","Financing / Insurance","Marketplace Commission"],
+    iot:["Energy Intelligence (EMS)","IoT Data / Grid Edge","Predictive Maintenance"],
+    is :["Business Generation","Demand Satisfaction","Digital Engineering (PLM)","ERP Odoo (Foundation)"],
+    da :["Market & Demand Intel","Pipeline & Forecast","ESG / Carbon Analytics","AI Copilot"]},
+  sh:[
+    {side:"L",hue:"partner",title:"Partners / Supplier / Ecosystem",ents:["Financing · Insurance Partner","ผู้ผลิต IoT Sensor","Sub-Contractor"]},
+    {side:"L",hue:"comp",title:"Complementor",ents:["FTI · IEAT · BOI · depa","กระทรวงอุตฯ / พลังงาน · ERC","MEA · PEA · EGAT · สมอ.","ธนาคาร / ประกัน · กรมศุลกากร"]},
+    {side:"L",hue:"compet",title:"Competitor",ents:["Schneider · Siemens · ABB","Hitachi Energy · LS Electric","SCG · Banpu (Renewable)"]},
+    {side:"R",hue:"buyer",title:"Buyer",ents:["โรงงานอุตสาหกรรม · อาคาร","ลูกค้าโซลูชันพลังงาน 5 Pillars"]},
+    {side:"R",hue:"biz",title:"Precise Business",ents:["Sale · S&OP · DE","Project · BU · Marketing"]},
+    {side:"R",hue:"admin",title:"Platform Admin",ents:["IT/OT Security · Data Governance"]}]},
+recurring:{ name:"Recurring", color:"#4E9F3D", phone:"Recurring RST Platform",
+  rings:{
+    cx :["Customer Portal","LINE OA / LIFF","Catalog & Package Pricing"],
+    eco:["O&M Outsourcing","Partner & Ecosystem Registry","Spare Parts Subscription"],
+    iot:["Remote Monitoring 24/7","Digital Twin","Predictive Maintenance"],
+    is :["Contract & Entitlement","Case, Work & SLA","Governance & Audit"],
+    da :["Asset Health Analytics","AI & Energy Optimization","MRR / Renewal Analytics","Carbon Accounting"]},
+  sh:[
+    {side:"L",hue:"partner",title:"Partners / Supplier / Ecosystem",ents:["ช่าง / ผู้รับเหมา O&M","ผู้ผลิต Sensor · Gateway","Software License Vendor"]},
+    {side:"L",hue:"comp",title:"Complementor",ents:["ธนาคาร / Leasing","บริษัทประกันภัย","Utility / Aggregator","Certification Body · Carbon Registry"]},
+    {side:"L",hue:"compet",title:"Competitor",ents:["ผู้ให้บริการ Managed Service","/ Subscription รายอื่น"]},
+    {side:"R",hue:"buyer",title:"Buyer / Customer",ents:["ลูกค้าสัญญาบริการรายเดือน / รายปี","ทุก Site & Asset"]},
+    {side:"R",hue:"biz",title:"Precise Business / Recurring Team",ents:["ออกแบบ Recurring ร่วมกับ","5 RST ต้นทาง"]},
+    {side:"R",hue:"admin",title:"Platform Admin",ents:["Tenant / Access · Data Contract"]}]},
+ppa:{ name:"PPA", color:"#A8821C", phone:"PPA / Long-term Contract Platform",
+  rings:{
+    cx :["Farmer Register","E-Marketplace","Buyer Portal (PPA)"],
+    eco:["เครือข่ายเกษตรกร / เจ้าของที่ดิน","EPC / Technology Partner","Investor / Lender"],
+    iot:["Smart District","โรงไฟฟ้า CCHP Monitoring","Logistics Visibility"],
+    is :["Power Purchase Agreement","Finance / Contract Mgmt","Land Development"],
+    da :["Feasibility Study","Agentic AI / AIaaS","Market Intelligence"]},
+  sh:[
+    {side:"L",hue:"partner",title:"Partners / Supplier / Ecosystem",ents:["เกษตรกร · เจ้าของที่ดิน","ผู้รับเหมาปลูก-เก็บเกี่ยว · โรงงานแปรรูป","EPC/O&M · ธนาคาร · ประกันภัย","Cloud / Technology Partner"]},
+    {side:"L",hue:"comp",title:"Complementor",ents:["อปท. · กระทรวงเกษตรฯ","มหาวิทยาลัย / สถาบันวิจัย","กกพ. / หน่วยงานพลังงาน","Startup / นักพัฒนา AI"]},
+    {side:"L",hue:"compet",title:"Competitor",ents:["SUPER · GUNKUL · SPCG","BCPG · GULF · TPIPP","เชื้อเพลิงทางเลือก: แกลบ · RDF"]},
+    {side:"R",hue:"buyer",title:"Buyer",ents:["คู่สัญญา PPA / ผู้ซื้อไฟฟ้า","ผู้ซื้อ Carbon Credit","Land Investor"]},
+    {side:"R",hue:"biz",title:"Precise Business",ents:["Sale · นักส่งเสริม · Production"]},
+    {side:"R",hue:"admin",title:"Platform Admin",ents:["Cloud/SaaS · Cyber Security"]}]},
+invest:{ name:"Investment", color:"#7C4DC4", phone:"Investment RST Platform",
+  rings:{
+    cx :["Investment Dashboard","Quarterly Report","Dividend Calendar"],
+    eco:["Broker Connect (KS)","Bank / ที่ปรึกษาการลงทุน"],
+    iot:[],
+    is :["Decision & Allocation","Risk & Control","Shared Foundation"],
+    da :["Screening & Valuation","Market Regime","Scenario Test","Portfolio Optimization"]},
+  sh:[
+    {side:"L",hue:"partner",title:"Information / ข้อมูลตลาด",ents:["SET · SETTRADE · ก.ล.ต.","ตลท. · สมาคมฯ · IR บจ.","กระทรวงพาณิชย์ · สศค. · สบน."]},
+    {side:"L",hue:"comp",title:"Complementor / ที่ปรึกษา",ents:["Bank","Business Partner","Investment Consultant (มีใบอนุญาต)"]},
+    {side:"L",hue:"partner",title:"Finance & Tax",ents:["ฝ่ายบัญชีและภาษี"]},
+    {side:"R",hue:"buyer",title:"Trading Channels",ents:["Broker: KSecurities (KS)"]},
+    {side:"R",hue:"admin",title:"Governance",ents:["คณะกรรมการอนุมัติวงเงิน"]},
+    {side:"R",hue:"biz",title:"Precise Business",ents:["ทีมกำหนดเกณฑ์","Investment Decision Framework"]},
+    {side:"R",hue:"admin",title:"Platform Admin",ents:["ดูแลสิทธิ์การเข้าถึง"]}]},
+};
+const ORDER = ["tendering","omni","tcs","recurring","ppa","invest"];
+
+/* ===== SVG helpers ===== */
+const NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("cv");
+function el(parent, tag, attrs){ const n=document.createElementNS(NS,tag);
+  for(const k in attrs) n.setAttribute(k, attrs[k]); parent.appendChild(n); return n; }
+function txt(parent, x, y, s, size, fill, weight, anchor){
+  const t=el(parent,"text",{x,y,"font-size":size,fill,"font-weight":weight||500,
+    "text-anchor":anchor||"middle"}); t.textContent=s; return t; }
+function tint(hex, a){ const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`; }
+function wrap(s, max){ if(s.length<=max) return [s];
+  const i=s.lastIndexOf(" ",max); if(i<8) return [s];
+  return [s.slice(0,i), ...wrap(s.slice(i+1),max)]; }
+
+/* ===== วาดทั้งภาพของ 1 ทีม ===== */
+let curTeam = "tcs", focusRing = null;
+function render(){
+  svg.innerHTML=""; focusRing=null;
+  const T = DATA[curTeam];
+  const root = el(svg,"g",{});
+  el(root,"rect",{x:0,y:0,width:1900,height:1240,fill:"#FFFFFF"});
+
+  txt(root, 40, 46, `${T.name} — มุมมองอย่างย่อ (Gartner DBTP)`, 24, T.color, 800, "start");
+  txt(root, 1860, 46, "หัวข้อระดับ Platform เท่านั้น · ไม่ลง Activity", 14.5, "#5B6B7A", 500, "end");
+
+  /* ----- มือถือ ----- */
+  const P = {x:590, y:70, w:720, h:1110, rx:46};
+  el(root,"rect",{x:P.x,y:P.y,width:P.w,height:P.h,rx:P.rx,fill:"#10243E"});
+  txt(root, 950, P.y+46, T.phone, 23, "#FFFFFF", 700);
+  txt(root, 950, P.y+74, "1 มือถือ = 1 Platform · ข้างในคือ 5 ห่วง DBTP", 14, "#9FB2C8", 500);
+  const S = {x:P.x+22, y:P.y+92, w:P.w-44, h:P.h-116};
+  el(root,"rect",{x:S.x,y:S.y,width:S.w,height:S.h,rx:26,fill:"#F7FAFC",stroke:"#2C3F58","stroke-width":1});
+  el(root,"rect",{x:950-56,y:P.y+16,width:112,height:10,rx:5,fill:"#2C3F58"});
+
+  /* ----- 5 ห่วง: 4 มุม + ตรงกลาง ----- */
+  const R=168, RC=150;
+  const pos = { cx:[782,418], eco:[1118,418], iot:[782,938], is:[1118,938], da:[950,678] };
+  const gRings = el(root,"g",{});
+  for(const key of ["cx","eco","iot","is","da"]){
+    const def=RING_DEF[key], [cx0,cy0]=pos[key], center=(key==="da");
+    const g = el(gRings,"g",{class:"ring","data-ring":key});
+    el(g,"circle",{cx:cx0,cy:cy0,r:center?RC:R,
+      fill:center?def.color:tint(def.color,.07),
+      stroke:def.color,"stroke-width":center?0:3.5});
+    const topics = T.rings[key];
+    let lines=[]; topics.forEach(tp=>{ lines.push(...wrap(tp,24)); });
+    if(!topics.length) lines=["— ยังไม่มี —"];
+    const inkC = center? "#FFFFFF" : "#21313F";
+    const lh=27, blockH = 58 + lines.length*lh;
+    let y = cy0 - blockH/2 + 24;
+    txt(g, cx0, y, def.th, center?21:21.5, center?"#FFFFFF":def.color, 800); y+=20;
+    txt(g, cx0, y+2, def.en, 13, center?"#9FB2C8":tint(def.color,.8), 600);
+    y+=14; el(g,"line",{x1:cx0-52,y1:y,x2:cx0+52,y2:y,stroke:center?"#3D5470":tint(def.color,.4),"stroke-width":1.5});
+    y+=24;
+    for(const ln of lines){
+      const t = txt(g, cx0, y, ln, 17.5, topics.length?inkC:"#8A97A3", topics.length?600:500);
+      if(!topics.length) t.setAttribute("font-style","italic");
+      y+=lh;
+    }
+    g.addEventListener("click", ()=>toggleFocus(key));
+  }
+
+  /* ----- Stakeholder รอบข้าง ----- */
+  const colX = {L:30, R:1370}, W=500;
+  const ys = {L:86, R:86};
+  for(const s of T.sh){
+    const h = 58 + s.ents.length*30 + 14;
+    const x = colX[s.side], y = ys[s.side]; ys[s.side] += h + 26;
+    const hue = HUE[s.hue]||"#5B6B7A";
+    const g = el(root,"g",{class:"shcard"});
+    /* เส้นเชื่อมเข้ามือถือ */
+    const x1 = s.side==="L" ? x+W : x, x2 = s.side==="L" ? P.x : P.x+P.w, my=y+h/2;
+    el(g,"path",{d:`M${x1} ${my} C ${x1+(x2-x1)*.45} ${my}, ${x2+(x1-x2)*.45} ${my}, ${x2} ${my}`,
+      fill:"none",stroke:"#C4CFD8","stroke-width":1.8});
+    el(g,"circle",{cx:x2,cy:my,r:5,fill:hue});
+    el(g,"rect",{x,y,width:W,height:h,rx:14,fill:"#FFFFFF",stroke:"#DCE4EA","stroke-width":1.5});
+    el(g,"rect",{x,y,width:7,height:h,rx:3.5,fill:hue});
+    txt(g, x+26, y+37, s.title, 20, "#17232F", 800, "start");
+    let yy=y+70;
+    for(const e of s.ents){ el(g,"circle",{cx:x+34,cy:yy-6,r:3.4,fill:hue});
+      txt(g, x+50, yy, e, 17, "#42525F", 500, "start"); yy+=30; }
+  }
+
+  txt(root, 950, 1222, "Version ย่อเพื่อการนำเสนอ — รายละเอียด Capability / Activity ดูได้ใน RST Architecture Studio", 14, "#8A97A3", 500);
+}
+
+function toggleFocus(key){
+  focusRing = (focusRing===key)? null : key;
+  document.querySelectorAll(".ring").forEach(r=>{
+    r.classList.toggle("dim", focusRing!==null && r.getAttribute("data-ring")!==focusRing);
+  });
+}
+
+/* ===== แท็บทีม ===== */
+const tabsBox = document.getElementById("tabs");
+for(const k of ORDER){
+  const b=document.createElement("button"); b.className="tab"; b.textContent=DATA[k].name;
+  b.addEventListener("click",()=>{ curTeam=k; syncTabs(); render(); fit(); });
+  b.dataset.k=k; tabsBox.appendChild(b);
+}
+function syncTabs(){ tabsBox.querySelectorAll(".tab").forEach(b=>{
+  const on=b.dataset.k===curTeam; b.classList.toggle("on",on);
+  b.style.background = on? DATA[b.dataset.k].color : ""; }); }
+
+/* ===== ซูม / แพน / เต็มจอ ===== */
+const VB0={x:0,y:0,w:1900,h:1240}; let VB={...VB0};
+function applyVB(){ svg.setAttribute("viewBox",`${VB.x} ${VB.y} ${VB.w} ${VB.h}`); }
+function fit(){ VB={...VB0}; applyVB(); }
+function zoomAt(f,px,py){
+  const nw=Math.min(VB0.w*1.15, Math.max(VB0.w*.18, VB.w*f)); const k=nw/VB.w;
+  VB.x = px-(px-VB.x)*k; VB.y = py-(py-VB.y)*k; VB.w=nw; VB.h=VB0.h*(nw/VB0.w); applyVB(); }
+function ptr(e){ const r=svg.getBoundingClientRect();
+  return [VB.x+(e.clientX-r.left)/r.width*VB.w, VB.y+(e.clientY-r.top)/r.height*VB.h]; }
+svg.addEventListener("wheel",e=>{ e.preventDefault(); const [px,py]=ptr(e);
+  zoomAt(e.deltaY>0?1.12:0.89,px,py); },{passive:false});
+let drag=null;
+svg.addEventListener("pointerdown",e=>{ drag={x:e.clientX,y:e.clientY,vx:VB.x,vy:VB.y};
+  svg.classList.add("panning"); svg.setPointerCapture(e.pointerId); });
+svg.addEventListener("pointermove",e=>{ if(!drag) return; const r=svg.getBoundingClientRect();
+  VB.x=drag.vx-(e.clientX-drag.x)/r.width*VB.w; VB.y=drag.vy-(e.clientY-drag.y)/r.height*VB.h; applyVB(); });
+svg.addEventListener("pointerup",()=>{ drag=null; svg.classList.remove("panning"); });
+document.getElementById("zIn").onclick =()=>zoomAt(0.8, VB.x+VB.w/2, VB.y+VB.h/2);
+document.getElementById("zOut").onclick=()=>zoomAt(1.25,VB.x+VB.w/2, VB.y+VB.h/2);
+document.getElementById("zFit").onclick=fit;
+document.getElementById("zFull").onclick=()=>{ const f=document.getElementById("frame");
+  document.fullscreenElement? document.exitFullscreen() : f.requestFullscreen(); };
+
+syncTabs(); render(); fit();
+</script>
+</body>
+</html>
