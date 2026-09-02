@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>End · Way · Means — DBTP Conceptual View</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#F2F5F7; --panel:#FFFFFF; --ink:#17232F; --muted:#5B6B7A; --line:#DCE4EA;
+    --cx:#2358C6; --eco:#D96C2C; --iot:#7C4DC4; --is:#4E9F3D; --da:#10243E;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:'Sarabun',-apple-system,'Segoe UI',sans-serif;font-size:15px}
+  header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:16px 22px 6px}
+  header h1{margin:0;font-size:21px;font-weight:800}
+  header .sub{color:var(--muted);font-size:14px}
+  header a.back{margin-left:auto;color:var(--muted);font-size:13.5px;text-decoration:none;
+       border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--panel)}
+  .bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 22px 10px}
+  .formula{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+  .chip{border-radius:999px;padding:6px 16px;color:#fff}
+  .arrowtxt{color:var(--muted);font-weight:600}
+  .spacer{flex:1}
+  .btn{border:1.5px solid var(--line);background:var(--panel);color:var(--ink);border-radius:9px;
+       padding:6px 12px;font:600 13.5px 'Sarabun',sans-serif;cursor:pointer}
+  .btn:hover{border-color:#B7C4CE}
+  #frame{margin:0 22px 22px;background:var(--panel);border:1px solid var(--line);border-radius:16px;
+       overflow:hidden;position:relative}
+  #frame:fullscreen{background:var(--panel)}
+  svg{display:block;width:100%;height:auto;cursor:grab;user-select:none}
+  svg.panning{cursor:grabbing}
+  svg text{font-family:'Sarabun',-apple-system,sans-serif}
+  .ring{cursor:pointer;transition:opacity .25s}
+  .endcard{cursor:pointer;transition:opacity .25s}
+  .dim{opacity:.15}
+</style>
+</head>
+<body>
+<header>
+  <h1>Conceptual View — DBTP Architecture for 6 RST Development</h1>
+  <span class="sub">กรอบคิด Ends · Ways · Means — เป้าหมายคืออะไร ใช้วิธีการแบบไหน และต้องมีทรัพยากรอะไร</span>
+  <a class="back" href="index.html">← กลับ RST Architecture Studio</a>
+</header>
+<div class="bar">
+  <div class="formula">
+    <span class="chip" style="background:#10243E">END — เป้าหมาย</span>
+    <span class="arrowtxt">⟵ นำไปสู่ ⟵</span>
+    <span class="chip" style="background:#2358C6">WAY — วิธีการ</span>
+    <span class="arrowtxt">⟵ สนับสนุน ⟵</span>
+    <span class="chip" style="background:#5B6B7A">MEANS — ทรัพยากร</span>
+  </div>
+  <span class="spacer"></span>
+  <button class="btn" id="zIn">ซูม +</button>
+  <button class="btn" id="zOut">ซูม −</button>
+  <button class="btn" id="zFit">↺ พอดีจอ</button>
+  <button class="btn" id="zFull">⛶ เต็มจอ</button>
+</div>
+<div id="frame"><svg id="cv" viewBox="0 0 2000 1160" role="img"
+  aria-label="Conceptual View: End คือ 6 Revenue Stream Platforms, Way คือ 5 ห่วง DBTP, Means คือทรัพยากร"></svg></div>
+
+<script>
+"use strict";
+const NS="http://www.w3.org/2000/svg";
+const svg=document.getElementById("cv");
+function el(p,t,a){const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);p.appendChild(n);return n;}
+function txt(p,x,y,s,size,fill,w,anchor){const t=el(p,"text",{x,y,"font-size":size,fill,"font-weight":w||500,
+  "text-anchor":anchor||"middle"});t.textContent=s;return t;}
+function tint(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;}
+
+/* ===== เนื้อหา ===== */
+const ENDS=[
+  {name:"Tendering",   color:"#0E8074", goal:["ชนะงานประมูลการไฟฟ้า / ภาครัฐ","อย่างแม่นยำและทำกำไร"]},
+  {name:"Omni Channel",color:"#D96C2C", goal:["ขายผ่านทุกช่องทาง","Target GP 540 mb ภายในปี 2573"]},
+  {name:"TCS",         color:"#2358C6", goal:["โซลูชันพลังงานครบวงจร","5 Business Pillars"]},
+  {name:"Recurring",   color:"#4E9F3D", goal:["รายได้ประจำต่อเนื่อง (MRR)","จากสัญญาบริการระยะยาว"]},
+  {name:"PPA",         color:"#A8821C", goal:["สัญญาระยะยาว — ไผ่ · โรงไฟฟ้า","· Smart District"]},
+  {name:"Investment",  color:"#7C4DC4", goal:["ผลตอบแทนจากเงินปันผล","และ Capital Gain อย่างมีวินัย"]},
+];
+const WAY={
+  cx :{th:"Customer Experience", color:"#2358C6", items:["Portal & Apps","Multichannel · Social","Customer Analytics"]},
+  eco:{th:"Ecosystem",           color:"#D96C2C", items:["Partner Ecosystems","Public APIs","API Management"]},
+  iot:{th:"IoT",                 color:"#7C4DC4", items:["Connected Things","OT Systems","IoT Analytics"]},
+  is :{th:"Information System",  color:"#4E9F3D", items:["Core Systems — ERP Odoo","Back-Office Systems","Endpoint Computing"]},
+  da :{th:"Data & Analytics",    color:"#10243E", items:["Business Intelligence","Algorithm Engines","Business & Op. Analytics"]},
+};
+const MEANS=[
+  {title:"คนและทักษะ",                sub:"ทีม 6 RST · Data / AI Skill"},
+  {title:"งบประมาณและการลงทุน",       sub:"CAPEX / OPEX ตามเฟส Roadmap"},
+  {title:"เทคโนโลยี",                 sub:"ERP Odoo · Cloud / SaaS · AI"},
+  {title:"ข้อมูล",                    sub:"Common Database · Single Source of Truth"},
+  {title:"พาร์ตเนอร์และ Ecosystem",   sub:"ธนาคาร · Testing Lab · มหาวิทยาลัย"},
+  {title:"ธรรมาภิบาลและมาตรฐาน",      sub:"Security · PDPA · Master Data"},
+];
+
+/* ===== วาด ===== */
+const root=el(svg,"g",{});
+el(root,"rect",{x:0,y:0,width:2000,height:1160,fill:"#FFFFFF"});
+
+function panelHead(x,w,label,thai,color,sub){
+  el(root,"rect",{x,y:64,width:w,height:58,rx:14,fill:color});
+  txt(root,x+w/2,89,label,23,"#FFFFFF",800);
+  txt(root,x+w/2,112,thai,13.5,"rgba(255,255,255,.82)",600);
+  txt(root,x+w/2,152,sub,15,"#5B6B7A",600);
+}
+
+/* ---------- END (ซ้าย) ---------- */
+panelHead(50,510,"END — เป้าหมาย","จุดหมายที่ต้องไปให้ถึง","#10243E","6 Revenue Stream Type Platforms");
+let y=186;
+for(const e of ENDS){
+  const h=132,x=50,w=510;
+  const g=el(root,"g",{class:"endcard"});
+  el(g,"rect",{x,y,width:w,height:h,rx:14,fill:tint(e.color,.05),stroke:e.color,"stroke-width":2});
+  el(g,"rect",{x,y,width:9,height:h,rx:4.5,fill:e.color});
+  txt(g,x+34,y+44,e.name+" Platform",22,e.color,800,"start");
+  txt(g,x+34,y+78,e.goal[0],16.5,"#42525F",600,"start");
+  txt(g,x+34,y+104,e.goal[1],16.5,"#42525F",600,"start");
+  y+=h+22;
+}
+
+/* ---------- WAY (กลาง) ---------- */
+panelHead(660,680,"WAY — วิธีการ","สถาปัตยกรรมที่ใช้เดินทาง","#2358C6","Gartner Digital Business Technology Platform — 5 ห่วง");
+el(root,"rect",{x:660,y:186,width:680,height:900,rx:20,fill:"#F7FAFC",stroke:"#DCE4EA","stroke-width":1.5});
+
+/* Constituencies ทั้ง 4 ด้าน */
+const CONST_C="#1668B8";
+txt(root,1000,262,"Partners · พาร์ตเนอร์",19,CONST_C,800);
+txt(root,1000,1040,"Things · อุปกรณ์",19,CONST_C,800);
+let tL=txt(root,678,646,"Customers · ลูกค้า",19,CONST_C,800);
+tL.setAttribute("transform","rotate(-90 678 646)");
+let tR=txt(root,1322,646,"Employees · พนักงาน",19,CONST_C,800);
+tR.setAttribute("transform","rotate(90 1322 646)");
+
+/* วางแบบเพชร: Ecosystem บน (ติด Partners) · CX ซ้าย (ติด Customers) ·
+   IS ขวา (ติด Employees) · IoT ล่าง (ติด Things) · D&A กลาง */
+const R=112,RC=96;
+function drawRing(key,cx0,cy0,center){
+  const d=WAY[key];
+  const g=el(root,"g",{class:"ring","data-ring":key});
+  el(g,"circle",{cx:cx0,cy:cy0,r:center?RC:R,fill:center?d.color:tint(d.color,.08),
+    stroke:d.color,"stroke-width":center?0:3.5});
+  const inkC=center?"#FFFFFF":"#21313F";
+  const lines=d.items;
+  const lh=23, blockH=42+lines.length*lh;
+  let yy=cy0-blockH/2+16;
+  txt(g,cx0,yy,d.th,center?16.5:17,center?"#FFFFFF":d.color,800); yy+=12;
+  el(g,"line",{x1:cx0-40,y1:yy,x2:cx0+40,y2:yy,stroke:center?"#3D5470":tint(d.color,.4),"stroke-width":1.4});
+  yy+=21;
+  for(const ln of lines){ txt(g,cx0,yy,ln,13.5,inkC,600); yy+=lh; }
+  g.addEventListener("click",()=>toggleFocus(key));
+}
+drawRing("eco",1000,446,false);
+drawRing("cx",  800,646,false);
+drawRing("is", 1200,646,false);
+drawRing("iot",1000,846,false);
+drawRing("da", 1000,646,true);
+
+/* ---------- MEANS (ขวา) ---------- */
+panelHead(1440,510,"MEANS — ทรัพยากร","สิ่งที่ต้องมีเพื่อให้วิธีการเป็นจริง","#5B6B7A","Resources (ร่างตัวอย่าง — รอเติมข้อมูลจริง)");
+y=186;
+for(const m of MEANS){
+  const h=118,x=1440,w=510;
+  el(root,"rect",{x,y,width:w,height:h,rx:14,fill:"#FBFCFD",stroke:"#9AA8B4",
+    "stroke-width":1.8,"stroke-dasharray":"7 6"});
+  txt(root,x+30,y+46,m.title,20.5,"#33424F",800,"start");
+  txt(root,x+30,y+82,m.sub,15.5,"#6B7A87",500,"start");
+  txt(root,x+w-22,y+34,"ร่าง",12.5,"#B07C10",700,"end");
+  y+=h+18;
+}
+
+/* ---------- ลูกศรเชื่อม 3 บล็อก ---------- */
+el(root,"defs",{}).innerHTML=
+ `<marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+    <path d="M0,0 L9,4.5 L0,9 z" fill="#8A97A3"/></marker>`;
+for(const yy of [380,636,892]){
+  el(root,"line",{x1:654,y1:yy,x2:570,y2:yy,stroke:"#8A97A3","stroke-width":3,"marker-end":"url(#ah)"});
+  el(root,"line",{x1:1434,y1:yy,x2:1350,y2:yy,stroke:"#8A97A3","stroke-width":3,"marker-end":"url(#ah)"});
+}
+txt(root,622,356,"นำไปสู่",13.5,"#8A97A3",600);
+txt(root,1382,356,"สนับสนุน",13.5,"#8A97A3",600);
+
+txt(root,1000,1136,"Ends–Ways–Means: ต้องมีทรัพยากร (Means) เพื่อขับเคลื่อนสถาปัตยกรรม DBTP (Ways) ที่พา 6 Revenue Streams ไปถึงเป้าหมาย (Ends)",14.5,"#8A97A3",500);
+
+/* ===== โฟกัสทีละห่วง ===== */
+let focusRing=null;
+function toggleFocus(key){
+  focusRing=(focusRing===key)?null:key;
+  document.querySelectorAll(".ring").forEach(r=>{
+    r.classList.toggle("dim",focusRing!==null&&r.getAttribute("data-ring")!==focusRing);
+  });
+}
+
+/* ===== ซูม / แพน / เต็มจอ ===== */
+const VB0={x:0,y:0,w:2000,h:1160};let VB={...VB0};
+function applyVB(){svg.setAttribute("viewBox",`${VB.x} ${VB.y} ${VB.w} ${VB.h}`);}
+function fit(){VB={...VB0};applyVB();}
+function zoomAt(f,px,py){const nw=Math.min(VB0.w*1.15,Math.max(VB0.w*.18,VB.w*f));const k=nw/VB.w;
+  VB.x=px-(px-VB.x)*k;VB.y=py-(py-VB.y)*k;VB.w=nw;VB.h=VB0.h*(nw/VB0.w);applyVB();}
+function ptr(e){const r=svg.getBoundingClientRect();
+  return [VB.x+(e.clientX-r.left)/r.width*VB.w,VB.y+(e.clientY-r.top)/r.height*VB.h];}
+svg.addEventListener("wheel",e=>{e.preventDefault();const[px,py]=ptr(e);
+  zoomAt(e.deltaY>0?1.12:0.89,px,py);},{passive:false});
+let drag=null;
+svg.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY,vx:VB.x,vy:VB.y};
+  svg.classList.add("panning");svg.setPointerCapture(e.pointerId);});
+svg.addEventListener("pointermove",e=>{if(!drag)return;const r=svg.getBoundingClientRect();
+  VB.x=drag.vx-(e.clientX-drag.x)/r.width*VB.w;VB.y=drag.vy-(e.clientY-drag.y)/r.height*VB.h;applyVB();});
+svg.addEventListener("pointerup",()=>{drag=null;svg.classList.remove("panning");});
+document.getElementById("zIn").onclick =()=>zoomAt(0.8,VB.x+VB.w/2,VB.y+VB.h/2);
+document.getElementById("zOut").onclick=()=>zoomAt(1.25,VB.x+VB.w/2,VB.y+VB.h/2);
+document.getElementById("zFit").onclick=fit;
+document.getElementById("zFull").onclick=()=>{const f=document.getElementById("frame");
+  document.fullscreenElement?document.exitFullscreen():f.requestFullscreen();};
+fit();
+</script>
+</body>
+</html>
