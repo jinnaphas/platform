@@ -67,12 +67,15 @@
   <button class="btn" id="btnAdd" hidden>+ เพิ่มการ์ด</button>
   <button class="btn" id="btnCopy" hidden>📋 คัดลอก JSON</button>
   <button class="btn danger" id="btnReset" hidden>↺ รีเซ็ตทีมนี้</button>
+  <button class="btn" id="fMinus" title="ลดขนาดตัวอักษรทั้งภาพ">A−</button>
+  <button class="btn" id="fPlus" title="เพิ่มขนาดตัวอักษรทั้งภาพ">A+</button>
+  <button class="btn" id="btnPng" title="บันทึกภาพเป็น PNG">🖼 PNG</button>
   <button class="btn" id="zIn">ซูม +</button>
   <button class="btn" id="zOut">ซูม −</button>
   <button class="btn" id="zFit">↺ พอดีจอ</button>
   <button class="btn" id="zFull">⛶ เต็มจอ</button>
 </div>
-<div class="hint" id="hint">ลูกเล่น: คลิกที่ห่วงเพื่อโฟกัสทีละ Platform · หมุนล้อเมาส์เพื่อซูมตรงจุดที่ชี้ · ลากเพื่อเลื่อน · กด ✏️ แก้ไข เพื่อย้ายกล่อง/วง และแก้ข้อความ</div>
+<div class="hint" id="hint">ลูกเล่น: คลิกที่ห่วงเพื่อโฟกัสทีละ Platform · หมุนล้อเมาส์เพื่อซูมตรงจุดที่ชี้ · ลากเพื่อเลื่อน · <b>✏️ แก้ไข</b> = ย้ายกล่อง/วง + ดับเบิลคลิกแก้ข้อความ ขนาดตัวอักษร ความกว้างการ์ด ขนาดวง · <b>A− / A+</b> = ขยายตัวอักษรทั้งภาพ · <b>🖼 PNG</b> = บันทึกภาพไปแปะสไลด์</div>
 <div id="frame"><svg id="cv" viewBox="0 0 1900 1240" role="img" aria-label="แผนภาพย่อ: มือถือที่มี 5 ห่วง DBTP ตรงกลาง และ Stakeholder รอบข้าง"></svg></div>
 
 <div id="editor" hidden>
@@ -89,8 +92,24 @@
     </select></div>
   <div id="edItemsWrap"><label id="edItemsLabel">รายการ (บรรทัดละ 1 รายการ)</label>
     <textarea id="edItems" rows="6"></textarea></div>
+  <div id="edFsWrap" hidden><label>ขนาดตัวอักษร</label>
+    <select id="edFs">
+      <option value="0.85">เล็ก</option><option value="1" selected>ปกติ</option>
+      <option value="1.15">ใหญ่</option><option value="1.3">ใหญ่มาก</option>
+    </select></div>
+  <div id="edWWrap" hidden><label>ความกว้างการ์ด</label>
+    <select id="edW">
+      <option value="420">แคบ</option><option value="500" selected>ปกติ</option>
+      <option value="580">กว้าง</option>
+    </select></div>
+  <div id="edRWrap" hidden><label>ขนาดวง</label>
+    <select id="edR">
+      <option value="0.85">เล็ก</option><option value="1" selected>ปกติ</option>
+      <option value="1.15">ใหญ่</option>
+    </select></div>
   <div class="row">
     <button class="btn" id="edSave" style="background:#10243E;border-color:#10243E;color:#fff">บันทึก</button>
+    <button class="btn" id="edPos">↺ ตำแหน่ง</button>
     <button class="btn danger" id="edDel">ลบการ์ดนี้</button>
     <span class="spacer"></span>
     <button class="btn" id="edClose">ปิด</button>
@@ -212,6 +231,10 @@ function teamContent(k){
 }
 function teamPos(k){ if(!store[k]) store[k]={}; if(!store[k].pos) store[k].pos={}; return store[k].pos; }
 function off(k,id){ const p=teamPos(k)[id]; return p||[0,0]; }
+function ringStyle(k,key){ if(!store[k]) store[k]={}; if(!store[k].rstyle) store[k].rstyle={};
+  if(!store[k].rstyle[key]) store[k].rstyle[key]={}; return store[k].rstyle[key]; }
+function uiFS(){ return (store._ui && store._ui.fs) || 1; }
+function setUiFS(v){ if(!store._ui) store._ui={}; store._ui.fs=v; saveStore(); }
 
 /* ===== SVG helpers ===== */
 const NS = "http://www.w3.org/2000/svg";
@@ -251,11 +274,13 @@ function render(){
   el(root,"rect",{x:950-56,y:P.y+16,width:112,height:10,rx:5,fill:"#2C3F58"});
 
   /* ----- 5 ห่วง: 4 มุม + ตรงกลาง ----- */
-  const R=168, RC=150;
+  const GF = uiFS();
   const basePos = { cx:[782,418], eco:[1118,418], iot:[782,938], is:[1118,938], da:[950,678] };
   const gRings = el(root,"g",{});
   for(const key of ["cx","eco","iot","is","da"]){
     const def=RING_DEF[key], center=(key==="da");
+    const st=ringStyle(curTeam,key), rs=st.rs||1, F=GF*(st.fs||1);
+    const R=168*rs, RC=150*rs;
     const [dx,dy]=off(curTeam,"ring:"+key);
     const cx0=basePos[key][0]+dx, cy0=basePos[key][1]+dy;
     const g = el(gRings,"g",{class:"ring movable","data-ring":key,"data-id":"ring:"+key});
@@ -263,17 +288,17 @@ function render(){
       fill:center?def.color:tint(def.color,.07),
       stroke:def.color,"stroke-width":center?0:3.5});
     const topics = C.rings[key]||[];
-    let lines=[]; topics.forEach(tp=>{ lines.push(...wrap(tp,24)); });
+    let lines=[]; topics.forEach(tp=>{ lines.push(...wrap(tp, Math.round(24*rs/F))); });
     if(!topics.length) lines=["— ยังไม่มี —"];
     const inkC = center? "#FFFFFF" : "#21313F";
-    const lh=27, blockH = 58 + lines.length*lh;
-    let y = cy0 - blockH/2 + 24;
-    txt(g, cx0, y, def.th, center?21:21.5, center?"#FFFFFF":def.color, 800); y+=20;
-    txt(g, cx0, y+2, def.en, 13, center?"#9FB2C8":tint(def.color,.8), 600);
-    y+=14; el(g,"line",{x1:cx0-52,y1:y,x2:cx0+52,y2:y,stroke:center?"#3D5470":tint(def.color,.4),"stroke-width":1.5});
-    y+=24;
+    const lh=27*F, blockH = 58*F + lines.length*lh;
+    let y = cy0 - blockH/2 + 24*F;
+    txt(g, cx0, y, def.th, (center?21:21.5)*F, center?"#FFFFFF":def.color, 800); y+=20*F;
+    txt(g, cx0, y+2, def.en, 13*F, center?"#9FB2C8":tint(def.color,.8), 600);
+    y+=14*F; el(g,"line",{x1:cx0-52,y1:y,x2:cx0+52,y2:y,stroke:center?"#3D5470":tint(def.color,.4),"stroke-width":1.5});
+    y+=24*F;
     for(const ln of lines){
-      const t = txt(g, cx0, y, ln, 17.5, topics.length?inkC:"#8A97A3", topics.length?600:500);
+      const t = txt(g, cx0, y, ln, 17.5*F, topics.length?inkC:"#8A97A3", topics.length?600:500);
       if(!topics.length) t.setAttribute("font-style","italic");
       y+=lh;
     }
@@ -282,10 +307,12 @@ function render(){
   }
 
   /* ----- Stakeholder รอบข้าง ----- */
-  const colX = {L:30, R:1370}, W=500;
+  const colX = {L:30, R:1370};
   const ys = {L:86, R:86};
   C.sh.forEach((s, idx)=>{
-    const h = 58 + s.ents.length*30 + 14;
+    const F = GF*(s.fs||1), W = s.w||500;
+    const lh2 = 30*F;
+    const h = 58*F + s.ents.length*lh2 + 14*F;
     const [dx,dy]=off(curTeam,"sh:"+idx);
     const baseX = colX[s.side]!==undefined? colX[s.side]:30;
     const x = baseX+dx, y = ys[s.side]+dy;
@@ -300,10 +327,10 @@ function render(){
     el(g,"circle",{cx:x2,cy:my,r:5,fill:hue});
     el(g,"rect",{x,y,width:W,height:h,rx:14,fill:"#FFFFFF",stroke:"#DCE4EA","stroke-width":1.5});
     el(g,"rect",{x,y,width:7,height:h,rx:3.5,fill:hue});
-    txt(g, x+26, y+37, s.title, 20, "#17232F", 800, "start");
-    let yy=y+70;
-    for(const e2 of s.ents){ el(g,"circle",{cx:x+34,cy:yy-6,r:3.4,fill:hue});
-      txt(g, x+50, yy, e2, 17, "#42525F", 500, "start"); yy+=30; }
+    txt(g, x+26, y+37*F, s.title, 20*F, "#17232F", 800, "start");
+    let yy=y+70*F;
+    for(const e2 of s.ents){ el(g,"circle",{cx:x+34,cy:yy-6*F,r:3.4,fill:hue});
+      txt(g, x+50, yy, e2, 17*F, "#42525F", 500, "start"); yy+=lh2; }
     g.addEventListener("dblclick", ()=>{ if(editMode) openEditor("sh", idx); });
   });
 
@@ -327,29 +354,48 @@ const edTitle=document.getElementById("edTitle"), edName=document.getElementById
       edItems=document.getElementById("edItems"), edHue=document.getElementById("edHue"),
       edNameWrap=document.getElementById("edNameWrap"), edItemsWrap=document.getElementById("edItemsWrap"),
       edHueWrap=document.getElementById("edHueWrap"), edDel=document.getElementById("edDel"),
-      edItemsLabel=document.getElementById("edItemsLabel");
+      edItemsLabel=document.getElementById("edItemsLabel"),
+      edFsWrap=document.getElementById("edFsWrap"), edFs=document.getElementById("edFs"),
+      edWWrap=document.getElementById("edWWrap"), edW=document.getElementById("edW"),
+      edRWrap=document.getElementById("edRWrap"), edR=document.getElementById("edR"),
+      edPos=document.getElementById("edPos");
 let edCtx=null;
 function openEditor(type, ref){
   const C=teamContent(curTeam); edCtx={type,ref};
   edNameWrap.hidden=false; edItemsWrap.hidden=false; edHueWrap.hidden=true; edDel.hidden=true;
+  edFsWrap.hidden=true; edWWrap.hidden=true; edRWrap.hidden=true; edPos.hidden=true;
   if(type==="phone"){ edTitle.textContent="แก้ไขชื่อ Platform (บนมือถือ)";
     edName.value=C.phone; edItemsWrap.hidden=true; }
   else if(type==="ring"){ edTitle.textContent=`ห่วง ${RING_DEF[ref].th}`;
     edNameWrap.hidden=true; edItemsLabel.textContent="หัวข้อในห่วง (บรรทัดละ 1 หัวข้อ)";
-    edItems.value=(C.rings[ref]||[]).join("\n"); }
+    edItems.value=(C.rings[ref]||[]).join("\n");
+    const st=ringStyle(curTeam,ref);
+    edFsWrap.hidden=false; edFs.value=String(st.fs||1);
+    edRWrap.hidden=false; edR.value=String(st.rs||1);
+    edPos.hidden=false; }
   else { const s=C.sh[ref]; edTitle.textContent="แก้ไขการ์ด Stakeholder";
     edName.value=s.title; edHueWrap.hidden=false; edHue.value=s.hue in HUE? s.hue:"admin";
     edItemsLabel.textContent="นิติบุคคล / หน่วยงานหลัก (บรรทัดละ 1 รายการ)";
-    edItems.value=s.ents.join("\n"); edDel.hidden=false; }
+    edItems.value=s.ents.join("\n");
+    edFsWrap.hidden=false; edFs.value=String(s.fs||1);
+    edWWrap.hidden=false; edW.value=String(s.w||500);
+    edPos.hidden=false; edDel.hidden=false; }
   editor.hidden=false;
 }
 document.getElementById("edSave").onclick=()=>{
   const C=teamContent(curTeam);
   const lines=edItems.value.split("\n").map(s=>s.trim()).filter(Boolean);
   if(edCtx.type==="phone") C.phone=edName.value.trim()||C.phone;
-  else if(edCtx.type==="ring") C.rings[edCtx.ref]=lines;
-  else { const s=C.sh[edCtx.ref]; s.title=edName.value.trim()||s.title; s.hue=edHue.value; s.ents=lines; }
+  else if(edCtx.type==="ring"){ C.rings[edCtx.ref]=lines;
+    const st=ringStyle(curTeam,edCtx.ref);
+    st.fs=parseFloat(edFs.value); st.rs=parseFloat(edR.value); }
+  else { const s=C.sh[edCtx.ref]; s.title=edName.value.trim()||s.title; s.hue=edHue.value; s.ents=lines;
+    s.fs=parseFloat(edFs.value); s.w=parseInt(edW.value,10); }
   saveStore(); editor.hidden=true; render();
+};
+edPos.onclick=()=>{
+  const id = edCtx.type==="ring"? "ring:"+edCtx.ref : "sh:"+edCtx.ref;
+  delete teamPos(curTeam)[id]; saveStore(); editor.hidden=true; render();
 };
 edDel.onclick=()=>{
   if(edCtx.type!=="sh") return;
@@ -384,6 +430,27 @@ document.getElementById("btnCopy").onclick=async function(){
 document.getElementById("btnReset").onclick=()=>{
   if(!confirm(`รีเซ็ตทีม ${DEFAULTS[curTeam].name} กลับเป็นค่าเริ่มต้น? การแก้ไขทั้งหมดของทีมนี้จะหายไป`)) return;
   delete store[curTeam]; saveStore(); render();
+};
+
+/* ===== ขนาดตัวอักษรทั้งภาพ + Export PNG ===== */
+document.getElementById("fMinus").onclick=()=>{ setUiFS(Math.max(.8, Math.round((uiFS()-.1)*10)/10)); render(); };
+document.getElementById("fPlus").onclick =()=>{ setUiFS(Math.min(1.4, Math.round((uiFS()+.1)*10)/10)); render(); };
+document.getElementById("btnPng").onclick=()=>{
+  const clone=svg.cloneNode(true);
+  clone.setAttribute("viewBox","0 0 1900 1240");
+  clone.setAttribute("width","1900"); clone.setAttribute("height","1240");
+  clone.setAttribute("font-family","'Sarabun','Segoe UI',sans-serif");
+  clone.removeAttribute("class");
+  const data="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(new XMLSerializer().serializeToString(clone));
+  const img=new Image();
+  img.onload=()=>{
+    const cnv=document.createElement("canvas"); cnv.width=3800; cnv.height=2480;
+    const ctx=cnv.getContext("2d"); ctx.fillStyle="#FFFFFF"; ctx.fillRect(0,0,3800,2480);
+    ctx.drawImage(img,0,0,3800,2480);
+    const a=document.createElement("a");
+    a.download=`exec-summary-${curTeam}.png`; a.href=cnv.toDataURL("image/png"); a.click();
+  };
+  img.src=data;
 };
 
 /* ===== แท็บทีม ===== */
