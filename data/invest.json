@@ -10,7 +10,7 @@
       "side": "left",
       "image": null,
       "items": [
-        "SET, SETTRADE, ก.ล.ต. → [Data intake :  รวมข้อมูลราคา งบ มหภาค ปรับ XD/XR แปลงเป็น TTM]",
+        "SET, SETTRADE, ก.ล.ต. → [Macro : Dashboard - Market Overview + Market Regime]",
         "IR ข้อมูลบริษัทจดทะเบียน",
         "ตลท., สมาคมฯ",
         "กระทรวงพาณิชย์, สศค., สบน.",
@@ -75,25 +75,25 @@
       "title": "Technology Platform",
       "groups": [
         {
-          "name": "Insight and analysis",
+          "name": "1. Insight and analysis ← แหล่งข้อมูลและองค์ความรู้",
           "chips": [
-            "Data intake :  รวมข้อมูลราคา งบ มหภาค ปรับ XD/XR แปลงเป็น TTM",
-            "Screening : hard filter + soft score ตามเกณฑ์",
-            "Valuation : DDM, peer z-score, ราคาที่ให้ yield เป้าหมาย",
-            "Market regime : ระบุช่วงตลาดและปรับน้ำหนักเกณฑ์"
+            "Macro : Dashboard - Market Overview + Market Regime",
+            "Sector Selection : Screener + ตารางกลุ่มอุตสาหกรรม อัปเดตทุก 60 วินาที",
+            "Company Selection : พื้นฐานหุ้น + AI วิเคราะห์ + คะแนนจัดอันดับในกลุ่ม",
+            "Valuation : P/E และ ปันผล% ในตารางคัดกรอง + เมนูปันผล"
           ]
         },
         {
-          "name": "Decision and allocation",
+          "name": "2. Decision and allocation ← กรอบกลยุทธ์ + สภาพคล่อง → ช่องทางซื้อขาย",
           "chips": [
-            "Cash vs invest : ตัดสินสัดส่วนเงินสดกับเงินลงทุนตามสภาพคล่องธุรกิจ",
+            "เกณฑ์เชิงมูลค่า : P/E · P/BV · EV/EBITDA · FCF Yield",
             "Portfolio optimization : กำหนดน้ำหนักรายตัว เพดานรายกลุ่ม แผน rebalance",
             "Order sizing : แปลงน้ำหนักเป็นจำนวนหุ้นและราคาที่จะเข้า",
-            "Scenario test : ทดสอบผลกระทบเมื่อราคาหรือปันผลเปลี่ยน"
+            "Cash vs invest : Cash ไม่ใช่สินทรัพย์ที่ “ไม่ได้ทำงาน” เสมอไป แต่เป็น Option Value สำหรับรอโอกาสลงทุนที่ Risk–Reward ดีกว่า"
           ]
         },
         {
-          "name": "Monitoring and reporting",
+          "name": "3. Monitoring and reporting → บัญชี ภาษี และการรายงาน",
           "chips": [
             "Investment dashboard : มูลค่าตลาด ต้นทุน กำไรขาดทุนทั้งรับรู้และยังไม่รับรู้",
             "Dividend calendar : ปฏิทิน XD วันจ่าย จำนวนที่จะได้รับ",
@@ -102,7 +102,7 @@
           ]
         },
         {
-          "name": "Risk and control",
+          "name": "4. Risk, control and foundation ← กติกาและสิทธิ์",
           "chips": [
             "Limit and mandate : คุมเพดานรายตัว รายกลุ่ม และประเภทหลักทรัพย์ที่ลงทุนได้",
             "Approval, audit trail : ขั้นอนุมัติและบันทึกว่าใครทำอะไรเมื่อไหร่",
