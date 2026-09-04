@@ -71,7 +71,7 @@
       "title": "Technology Platform",
       "groups": [
         {
-          "name": "1. Insight and analysis ← แหล่งข้อมูลและองค์ความรู้",
+          "name": "1. Insight and analysis",
           "chips": [
             "Macro : Dashboard - Market Overview + Market Regime",
             "Sector Selection : Screener + ตารางกลุ่มอุตสาหกรรม อัปเดตทุก 60 วินาที",
@@ -80,7 +80,7 @@
           ]
         },
         {
-          "name": "2. Decision and allocation ← กรอบกลยุทธ์ + สภาพคล่อง → ช่องทางซื้อขาย",
+          "name": "2. Decision and allocation",
           "chips": [
             "Cash vs invest : Cash ไม่ใช่สินทรัพย์ที่ “ไม่ได้ทำงาน” เสมอไป แต่เป็น Option Value สำหรับรอโอกาสลงทุนที่ Risk–Reward ดีกว่า",
             "ควรลงทุนหรือไม่ : Macro Risk-On หรือ Risk-Off",
@@ -90,7 +90,7 @@
           ]
         },
         {
-          "name": "3. Monitoring and reporting → บัญชี ภาษี และการรายงาน",
+          "name": "3. Monitoring and reporting",
           "chips": [
             "Investment dashboard : มูลค่าตลาด ต้นทุน กำไรขาดทุนทั้งรับรู้และยังไม่รับรู้",
             "Dividend calendar : ปฏิทิน XD วันจ่าย จำนวนที่จะได้รับ",
@@ -99,7 +99,7 @@
           ]
         },
         {
-          "name": "4. Risk, control and foundation ← กติกาและสิทธิ์",
+          "name": "4. Risk, control and foundation",
           "chips": [
             "Limit and mandate : คุมเพดานรายตัว รายกลุ่ม และประเภทหลักทรัพย์ที่ลงทุนได้",
             "Approval, audit trail : ขั้นอนุมัติและบันทึกว่าใครทำอะไรเมื่อไหร่",
