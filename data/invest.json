@@ -10,11 +10,10 @@
       "side": "left",
       "image": null,
       "items": [
-        "SET, SETTRADE, ก.ล.ต. → [Macro : Dashboard - Market Overview + Market Regime]",
-        "IR ข้อมูลบริษัทจดทะเบียน",
-        "ตลท., สมาคมฯ",
-        "กระทรวงพาณิชย์, สศค., สบน.",
-        "บทวิเคราะห์หลักทรัพย์ → [Valuation : DDM, peer z-score, ราคาที่ให้ yield เป้าหมาย]"
+        "หน่วยงานและตลาดหลักทรัพย์ : SET , Settrade , IR , BOT",
+        "บทวิเคราะห์จากบริษัทหลักทรัพย์ : InnovestX, Kasikorn, Bualuang, Krungsri, Yuanta, DAOL",
+        "สื่อการลงทุนในประเทศ : THE STANDARD WEALTH, ลงทุนแมน, ทันโลกกับ Trader KP, eFinanceThai, FINNOMENA, Money Buffalo, กรุงเทพธุรกิจ, ข่าวหุ้นธุรกิจ, Wealth Me Up, Kaohoon International",
+        "ชุมชนและความคิดเห็นของนักลงทุน : ThaiVI, Facebook Group, YouTube, X, Pantip, กลุ่ม LINE, Podcast การลงทุน, บทสัมภาษณ์นักลงทุนรายบุคคล"
       ]
     },
     {
@@ -25,10 +24,9 @@
       "side": "left",
       "image": null,
       "items": [
-        "Bank - วงเงิน, สภาพคล่อง",
-        "Business partner - ข้อมูลอุตสาหกรรม",
-        "Financial analysis - บทวิเคราะห์ภายนอก → [Screening : hard filter + soft score ตามเกณฑ์]",
-        "Investment consultant - ที่ปรึกษาที่มีใบอนุญาต"
+        "Bank : วงเงิน, สภาพคล่อง",
+        "Business partner : ข้อมูลอุตสาหกรรม",
+        "Investment consultant : ที่ปรึกษาที่มีใบอนุญาต"
       ]
     },
     {
