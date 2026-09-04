@@ -86,10 +86,11 @@
         {
           "name": "2. Decision and allocation ← กรอบกลยุทธ์ + สภาพคล่อง → ช่องทางซื้อขาย",
           "chips": [
-            "เกณฑ์เชิงมูลค่า : P/E · P/BV · EV/EBITDA · FCF Yield",
-            "Portfolio optimization : กำหนดน้ำหนักรายตัว เพดานรายกลุ่ม แผน rebalance",
-            "Order sizing : แปลงน้ำหนักเป็นจำนวนหุ้นและราคาที่จะเข้า",
-            "Cash vs invest : Cash ไม่ใช่สินทรัพย์ที่ “ไม่ได้ทำงาน” เสมอไป แต่เป็น Option Value สำหรับรอโอกาสลงทุนที่ Risk–Reward ดีกว่า"
+            "Cash vs invest : Cash ไม่ใช่สินทรัพย์ที่ “ไม่ได้ทำงาน” เสมอไป แต่เป็น Option Value สำหรับรอโอกาสลงทุนที่ Risk–Reward ดีกว่า",
+            "ควรลงทุนหรือไม่ : Macro Risk-On หรือ Risk-Off",
+            "ลงทุนอะไร : Sector → Super Company → Valuation",
+            "ลงทุนเท่าไร : Position Size 1.จำนวนหุ้นที่ถือ  5-15 ตัว (น้อยกว่านี้กระจุกเกินไป มากกว่านี้ติดตามไม่ทั่วถึง) 2.น้ำหนักสูงสุดต่อตัว ≤ 25% (กันไม่ให้หุ้นตัวเดียวลากทั้งพอร์ต)  3. Core (60-70)/ Satellite (30-40) Core ไว้กินปันผล / Satellite ไว้หา capital gian) 4.โควตาเก็งกำไร ≤ 10% แยกบัญชี และยอมรับได้ว่าอาจเสียทั้งหมด",
+            "เมื่อไรควรขาย : Monitor → Hold / Add / Switch / Exit (สัญญาณ Exit เชิงพื้นฐาน :  กำไรชะลอ  ·  Margin ลด  ·  Structural Change  ·  ราคาสูงเกินพื้นฐาน)"
           ]
         },
         {
