@@ -156,7 +156,7 @@
           "chips": [
             "2|p1:Sale Forecasting @@https://jetniphat400.github.io/sale_forecast/",
             "2|p1:Chase Sale Operation @@https://jetniphat400.github.io/sale_forecast/",
-            "2|p2:Bid/Product Mapping",
+            "2|p2:Bid/Product Mapping @@http://192.168.0.180/",
             "4|p1:Inventory Max-Min Stock @@https://jetniphat400.github.io/sale_forecast/",
             "1|p3:AI Chatbot",
             "p2:Dashboard — Customer 360 Profile, QCDS, POR & RRC",
