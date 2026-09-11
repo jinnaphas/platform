@@ -132,7 +132,7 @@
             "1|p1:Line OA",
             "1|p1:Facebook",
             "1|p1:Website @@https://precise.co.th/our-business/pdem/",
-            "5|p3:Customer Satisfaction & After-Sale @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
+            "5|p2:Customer Satisfaction & After-Sale @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
           ]
         },
         {
@@ -141,9 +141,9 @@
             "1|p1:Dealer Registration",
             "2|p1:Target & Performance Management",
             "3|p1:Ordering & Fulfillment (การซื้อขายและส่งมอบ)",
-            "5|p2:Enablement (พัฒนาศักยภาพและมาตรฐาน)",
-            "5|p2:Rewarding & ระบบแนะนำงาน/Commission",
-            "5|p1:Customer Satisfaction & After-Sale"
+            "5|p1:Enablement (พัฒนาศักยภาพและมาตรฐาน)",
+            "5|p1:Rewarding & ระบบแนะนำงาน/Commission",
+            "5|p2:Customer Satisfaction & After-Sale"
           ]
         }
       ]
@@ -183,14 +183,14 @@
         {
           "name": "Demand Satisfaction Platform",
           "chips": [
-            "4|p1:Sale & Operation Planning (MRP,MPS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Vendor Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Manufacturing (APS,MES) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Quality Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p2:Engineering Design & PLM @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Warehouse Management System (WMS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Logistics & Fleet @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "5|p2:Financial & Accounting @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
+            "4|p3:Sale & Operation Planning (MRP,MPS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Vendor Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Manufacturing (APS,MES) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Quality Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Engineering Design & PLM @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Warehouse Management System (WMS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Logistics & Fleet @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "5|p3:Financial & Accounting @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
           ]
         }
       ]
