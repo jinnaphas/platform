@@ -158,10 +158,9 @@
             "2|p1:Chase Sale Operation @@https://jetniphat400.github.io/sale_forecast/",
             "2|p1:Bid/Product Mapping @@http://192.168.0.180/",
             "4|p1:Inventory Max-Min Stock @@https://jetniphat400.github.io/sale_forecast/",
-            "1|p3:AI Chatbot",
-            "p3:Dashboard — Customer 360 Profile, QCDS, POR & RRC",
-            "p3:Recurring  Analysis",
-            "p3:New Capability"
+            "1|p1:AI Chatbot",
+            "p1:Dashboard — Customer 360 Profile, QCDS, POR & RRC",
+            "p2:Recurring  Analysis"
           ]
         }
       ]
