@@ -171,13 +171,13 @@
         {
           "name": "Business Generation Platform  >>CRM",
           "chips": [
-            "1|p2:Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "1|p2:Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "2|p2:Quotation & Contract Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "2|p3:Pricing Strategy",
-            "1|p3:Marketing/Campaign Management",
+            "1|p1:Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "1|p1:Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "2|p1:Quotation & Contract Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "2|p2:Pricing Strategy",
+            "1|p2:Marketing/Campaign Management",
             "1|p1:Product Platform",
-            "5|p1:Customer Satisfaction & After-Sale"
+            "5|p2:Customer Satisfaction & After-Sale"
           ]
         },
         {
