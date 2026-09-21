@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PSL Bamboo Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* หน้าสอนธีมสว่างเดียว — โทนเขียวไผ่ + ทองพลังงาน */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: #F5F8F3; color: #17211A;
+    font: 15px/1.65 "IBM Plex Sans Thai", -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+  }
+  .page { max-width: 1560px; margin: 0 auto; padding: 22px 26px 60px; }
+  header.hd { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header.hd h1 { margin: 0; font-size: 26px; font-weight: 700; color: #123B26; letter-spacing: -.01em; }
+  header.hd .sub { color: #5F6E65; font-size: 14px; }
+  a.back {
+    margin-left: auto; font-size: 13px; color: #1C7A46; text-decoration: none;
+    border: 1px solid #DCE5DB; border-radius: 999px; padding: 5px 14px; background: #fff;
+  }
+  .row { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+  .card {
+    background: #FFFFFF; border: 1px solid #DCE5DB; border-radius: 16px;
+    padding: 18px 24px; flex: 1 1 340px;
+  }
+  .card h2 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: #123B26; }
+  .card h2 .tag {
+    display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: #1C7A46; background: #E4F2E7;
+    border-radius: 999px; padding: 2px 10px; margin-right: 8px; vertical-align: 2px;
+  }
+  table.map { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.map td { padding: 8px 4px; border-bottom: 1px solid #ECF1EA; vertical-align: top; }
+  table.map td:first-child { color: #5F6E65; white-space: nowrap; padding-right: 16px; font-size: 13px; }
+  table.map b { color: #123B26; }
+  ul.diff { margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.9; }
+  ul.diff b { color: #1C7A46; }
+  .rev { flex-basis: 100%; }
+  .revchain { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; font-size: 13.5px; }
+  .revchain .rc {
+    background: #F3F8EF; border: 1.5px solid #CBDCC6; border-radius: 999px;
+    padding: 6px 14px; font-weight: 600; color: #2C4A33;
+  }
+  .revchain .rc.gold { background: #FBF4E1; border-color: #E2CE96; color: #7A5E14; }
+  .revchain .ra { color: #9AA79B; font-weight: 700; }
+  .bridge {
+    margin-top: 16px; background: #123B26; color: #E7F2EB;
+    border-radius: 16px; padding: 18px 26px; font-size: 14.5px; line-height: 1.95;
+  }
+  .bridge b { color: #8FE3AE; }
+  .bridge a { color: #9CD8FF; }
+
+  .frame { background: #FFFFFF; border: 1px solid #DCE5DB; border-radius: 16px; margin-top: 16px; overflow: hidden; }
+  .frame:fullscreen { border-radius: 0; overflow-y: auto; }
+  .toolbar {
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    padding: 10px 16px; border-bottom: 1px solid #DCE5DB; background: #F8FBF6;
+  }
+  .toolbar .tl { font-weight: 700; font-size: 15px; margin-right: 6px; }
+  .btn {
+    border: 1px solid #DCE5DB; background: #fff; color: #17211A;
+    border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 13.5px; cursor: pointer;
+  }
+  .btn:hover { border-color: #1C7A46; color: #1C7A46; }
+  .btn.primary { background: #1C7A46; border-color: #1C7A46; color: #fff; }
+  .btn.primary:hover { color: #fff; filter: brightness(1.08); }
+  #stepLabel { font-size: 13.5px; color: #1C7A46; font-weight: 600; min-width: 240px; }
+  .toolbar .sp { flex: 1; }
+  .frame svg { display: block; width: 100%; height: auto; cursor: grab; touch-action: none; }
+  .frame svg.panning { cursor: grabbing; }
+  .step { transition: opacity .3s; }
+  .legend {
+    display: flex; gap: 20px; flex-wrap: wrap; align-items: center;
+    padding: 10px 18px; border-top: 1px solid #DCE5DB; background: #F8FBF6;
+    font-size: 13.5px; color: #46584D;
+  }
+  .lg { display: inline-flex; align-items: center; gap: 7px; }
+  .sw { width: 26px; height: 0; border-top: 3.5px solid; border-radius: 2px; }
+  @media print { header.hd a.back, .toolbar { display: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hd">
+    <h1>PSL — Ecosystem Capitalism ฉบับของเราเอง (ธุรกิจไผ่ซางหม่น)</h1>
+    <span class="sub">Addressing Overall Supply Chain of Bamboo — 8 ขั้นตอน · 4 แพลตฟอร์ม · ยึดหัวท้ายด้วยสัญญาระยะยาว</span>
+    <a class="back" href="index.html">← กลับ RST Architecture Studio</a>
+  </header>
+
+  <!-- คำอธิบายด้านบน แผนภาพด้านล่าง -->
+  <div class="row">
+    <div class="card">
+      <h2><span class="tag">ถอดบทเรียน</span>ทำไมธุรกิจไผ่ = Ecosystem Capitalism ไม่ใช่แค่ Platform</h2>
+      <table class="map">
+        <tr><td>Advantage</td><td><b>Ecosystem</b> — คุณค่าเกิดจาก "เครือข่ายทั้งห่วงโซ่" ต้นน้ำถึงปลายน้ำ ไม่ใช่ขั้นตอนใดขั้นตอนเดียว</td></tr>
+        <tr><td>Focus</td><td><b>ยึดหัวท้ายด้วยสัญญาระยะยาว</b> — ต้นน้ำ: Contract Farming (วัตถุดิบมั่นคง) ↔ ปลายน้ำ: PPA (รายได้มั่นคง)</td></tr>
+        <tr><td>Value Chain</td><td><b>8 ขั้นตอนบนข้อมูลชุดเดียว</b> — Single Data Backbone: Identity · Asset · Contract · Traceability · Payment · Carbon</td></tr>
+        <tr><td>Key Resource</td><td><b>ความไว้วางใจ + ร่วมลงทุนระยะยาว</b> — เกษตรกรเป็นหุ้นส่วน ลูกค้าเป็นผู้ร่วมออกแบบ ธนาคารลงทุนตามผลงานจริง</td></tr>
+        <tr><td>Platform คืออะไร</td><td><b>"กลไก"</b> ที่ทำให้แต่ละขั้นตอนมีประสิทธิภาพ — ส่วน <b>Ecosystem คือ "เครือข่ายคุณค่า"</b> ที่ทำให้ทุกฝ่ายโตไปด้วยกัน</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2><span class="tag">เทียบตัวอย่าง</span>PSL เหมือน Grab ตรงไหน (แค่เปลี่ยนสนาม)</h2>
+      <ul class="diff">
+        <li>Grab มีหลายบริการบนแอปเดียว — PSL มี <b>4 แพลตฟอร์มบนห่วงโซ่ไผ่เดียว</b> (R&D+Nursery · Contract Farming · Factory 4.0 · EMS)</li>
+        <li>Shared Core ของ Grab (ID·Wallet·Data) = <b>Single Data Backbone</b> ของเรา — ข้อมูลชุดเดียววิ่งครบ 8 ขั้นตอน</li>
+        <li>GrabRewards ที่ Lock-in ลูกค้า = <b>สัญญาระยะยาว 2 หัวท้าย</b> ของเรา — Contract Farming + PPA = Long-term Trust & Commitment</li>
+        <li>Cross-sell ของ Grab = <b>ของเหลือทิ้งขั้น 6–7 กลายเป็นเชื้อเพลิงขั้น 8</b> — Waste → รายได้แกนหลัก (PPA)</li>
+        <li>Grab ปล่อยสินเชื่อจากข้อมูลรายได้จริง = เราให้ธนาคารทำ <b>Performance-based Financing จากข้อมูลแปลงปลูกจริง</b></li>
+      </ul>
+      <svg id="loop" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin-top:6px"></svg>
+    </div>
+    <div class="card rev">
+      <h2><span class="tag">Revenue Model</span>รายได้หลายก้อนตลอดวงจร — เก็บได้ทุกขั้นตอน ไม่ต้องรอปลายน้ำ</h2>
+      <div class="revchain">
+        <span class="rc">① Co-funded R&D</span><span class="ra">→</span>
+        <span class="rc">② Recurring (ขาย Tissue Culture)</span><span class="ra">→</span>
+        <span class="rc">③ Long-term Contract (สัญญาปลูก)</span><span class="ra">→</span>
+        <span class="rc">④ Tendering (ประมูลผู้รับเหมา)</span><span class="ra">→</span>
+        <span class="rc">⑤–⑥ TCS / Recurring</span><span class="ra">→</span>
+        <span class="rc gold">⑦–⑧ PPA + Carbon Credit — รายได้หลักที่มั่นคงระยะยาว</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge">
+    <b>อันนี้ไม่ใช่แค่ตัวอย่าง — คือของจริงของเรา:</b> ห่วงโซ่นี้คือทีม <b>PPA / Long-term Contract RST</b> ใน Studio
+    (Addressing overall of bamboo · Bamboo Conversion · CCHP Biomass Powerplant · Smart District) ·
+    Single Data Backbone = <b>Common Database / Foundation Platform</b> ของ Precise ·
+    คำถามชวนคิด: <b>"ขั้นตอนไหนใน 8 ขั้น ที่วันนี้เรายังเป็นแค่ผู้ซื้อ-ผู้ขาย ยังไม่ได้เป็นหุ้นส่วนระยะยาว?"</b> ·
+    ย้อนดูตัวอย่างสากล <a href="grab-example.html">Grab — Ecosystem Capitalism</a> · <a href="uber-example.html">Uber — Platform Capitalism</a>
+  </div>
+
+  <div class="frame" id="frame">
+    <div class="toolbar">
+      <span class="tl">แผนภาพ: Bamboo Ecosystem ของ PSL</span>
+      <button class="btn primary" id="btnPlay">▶ เล่นทีละขั้น</button>
+      <button class="btn" id="btnNext">ขั้นถัดไป ⏭</button>
+      <span id="stepLabel">พร้อมเล่าเรื่อง — กดเล่นหรือหมุนล้อเมาส์เพื่อซูม</span>
+      <span class="sp"></span>
+      <button class="btn" id="zIn">ซูม +</button>
+      <button class="btn" id="zOut">ซูม −</button>
+      <button class="btn" id="zFit">↺ พอดีจอ</button>
+      <button class="btn" id="zFull">⛶ เต็มจอ</button>
+    </div>
+    <svg id="cv" viewBox="0 0 2000 1250" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="legend">
+      <span><b>เส้นทางของระบบนิเวศ (ตามเลข ①–⑧ = 8 ขั้นตอนของห่วงโซ่):</b></span>
+      <span class="lg"><span class="sw" style="border-color:#2E7D32"></span> วัตถุดิบ / พลังงาน</span>
+      <span class="lg"><span class="sw" style="border-color:#1668B8; border-top-style:dashed"></span> ข้อมูล / งานวิจัย</span>
+      <span class="lg"><span class="sw" style="border-color:#B58A1F"></span> เงินทุน / รายได้</span>
+      <span style="margin-left:auto">ลากเพื่อเลื่อน · หมุนล้อเมาส์เพื่อซูม · คลิกเลขเพื่อกระโดดไปขั้นนั้น</span>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("cv");
+function el(tag, attrs, parent){
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  (parent || svg).appendChild(e);
+  return e;
+}
+function txt(x, y, size, weight, fill, anchor, lines, parent, lh){
+  const t = el("text", { x, y, "font-size":size, "font-weight":weight, fill, "text-anchor":anchor||"start" }, parent);
+  (Array.isArray(lines) ? lines : [lines]).forEach((ln, i) => {
+    el("tspan", { x, dy: i ? (lh || size * 1.35) : 0 }, t).textContent = ln;
+  });
+  return t;
+}
+const C = {
+  ink:"#17211A", muted:"#5F6E65", line:"#DCE5DB",
+  mat:"#2E7D32", data:"#1668B8", money:"#B58A1F",
+  farmer:"#2E7D32", uni:"#0E8074", gov:"#6E7783", tech:"#7C4DC4",
+  ppa:"#B58A1F", pulp:"#1668B8", fin:"#8A6D1C", carbon:"#0B5A38",
+  psl:"#1C7A46", pslDark:"#123B26",
+};
+function card(x, y, w, h, color, glyph, title, bullets){
+  el("rect", { x, y, width:w, height:h, rx:14, fill:"#FFFFFF", stroke:C.line });
+  el("rect", { x, y, width:w, height:5, rx:2.5, fill:color });
+  el("circle", { cx:x+32, cy:y+37, r:17, fill:color });
+  txt(x+32, y+43, 15, 700, "#fff", "middle", glyph);
+  txt(x+58, y+43, 19, 700, color, "start", title);
+  let yy = y + 76;
+  bullets.forEach(b => {
+    el("circle", { cx:x+28, cy:yy-6, r:3, fill:C.muted });
+    txt(x+44, yy, 15.5, 400, C.ink, "start", b, null, 22);
+    yy += (Array.isArray(b) ? b.length : 1) * 22 + 10;
+  });
+}
+const STEP_NAMES = ["ภาพรวมทั้งหมด",
+  "① คัดเลือกพันธุ์ไผ่ — วิจัยร่วมกับมหาวิทยาลัย ฐานข้อมูลพันธุกรรม (Co-funded R&D)",
+  "② Tissue Culture → Nursery — ต้นกล้าคุณภาพ ติด QR ตรวจย้อนได้ (ขายให้ Nursery อื่น = Recurring)",
+  "③ แปลงปลูก Contract Farming — สัญญาระยะยาว เกษตรกรเป็นหุ้นส่วน + IoT/ดาวเทียม + จ่ายเงินอัตโนมัติ",
+  "④ เก็บเกี่ยว + ขนส่ง — ตารางเก็บเกี่ยว Logistics Tracking (Tendering ผู้รับเหมาท้องถิ่น)",
+  "⑤ แปรรูป Factory 4.0 — ควบคุมคุณภาพและ Yield แบบเรียลไทม์ (TCS)",
+  "⑥ Pulp & Packaging — B2B Marketplace + ลูกค้าร่วมออกแบบ Co-design (Recurring / TCS)",
+  "⑦ ของเหลือทิ้ง → โรงไฟฟ้าชีวมวล — EMS + PPA ระยะยาว = แกนหลักของรายได้",
+  "⑧ Carbon Credit + เงินทุนหมุนกลับแปลงปลูก — Performance-based Financing → ปลูกเพิ่ม วนต่อ"];
+let stepGroups = [];
+function stepG(n){
+  const g = el("g", { class:"step", "data-step":n });
+  stepGroups.push(g);
+  return g;
+}
+function arrow(g, d, color, dash, width){
+  el("path", { d, fill:"none", stroke:color, "stroke-width":width||3.6,
+    "stroke-dasharray": dash ? "8 8" : "none", "marker-end":"url(#ar-"+color.slice(1)+")" }, g);
+}
+function badge(g, x, y, n, label, color, anchor){
+  const bg = el("g", { style:"cursor:pointer" }, g);
+  el("circle", { cx:x, cy:y, r:17, fill:color }, bg);
+  txt(x, y+6, 17, 700, "#fff", "middle", "" + n, bg);
+  if (label) txt(anchor === "end" ? x - 24 : x + 24, y + 5.5, 15.5, 600, color, anchor || "start", label, bg);
+  bg.addEventListener("click", () => setStep(n));
+}
+const defs = el("defs", {});
+[C.mat, C.data, C.money, C.uni, C.pulp, C.carbon].forEach(c => {
+  const m = el("marker", { id:"ar-"+c.slice(1), viewBox:"0 0 10 10", refX:8, refY:5,
+    markerWidth:6.5, markerHeight:6.5, orient:"auto-start-reverse" }, defs);
+  el("path", { d:"M0,0 L10,5 L0,10 z", fill:c }, m);
+});
+
+txt(70, 82, 40, 700, C.pslDark, "start", "PSL ในมุม Ecosystem Capitalism — ห่วงโซ่ไผ่ซางหม่น");
+txt(70, 120, 18, 400, C.muted, "start", "8 ขั้นตอน · 4 แพลตฟอร์ม · ข้อมูลชุดเดียว — ยึดหัวท้ายด้วย Contract Farming ↔ PPA แล้วให้ทุกฝ่ายโตไปด้วยกัน");
+
+/* ---------- มือถือ 4 แพลตฟอร์ม กลางภาพ ---------- */
+const P = { x:790, y:170, w:420, h:930 };
+el("rect", { x:P.x-10, y:P.y-10, width:P.w+20, height:P.h+20, rx:52, fill:C.pslDark });
+el("rect", { x:P.x+8, y:P.y+8, width:P.w-16, height:P.h-16, rx:38, fill:"#FFFFFF" });
+el("rect", { x:P.x+P.w/2-55, y:P.y+22, width:110, height:18, rx:9, fill:C.pslDark });
+txt(P.x+P.w/2, P.y+86, 27, 700, C.pslDark, "middle", "PSL Bamboo Platforms");
+txt(P.x+P.w/2, P.y+112, 13.5, 400, C.muted, "middle", "4 แพลตฟอร์มเฉพาะทาง · ข้อมูลชุดเดียว · หนึ่งห่วงโซ่");
+
+/* แพลตฟอร์ม 4 ช่อง (2×2) */
+const tiles = [
+  ["🌱", "R&D + Nursery", ["ขั้น 1–3 · พันธุกรรม", "Tissue Culture · ต้นกล้า QR"]],
+  ["🤝", "Contract Farming", ["ขั้น 4–5 · สัญญา · IoT", "ดาวเทียม · จ่ายเงินอัตโนมัติ"]],
+  ["🏭", "Factory 4.0", ["ขั้น 6–7 · คุณภาพ/Yield", "Traceability · B2B Market"]],
+  ["⚡", "Energy Mgmt (EMS)", ["ขั้น 8 · PPA · Carbon", "Grid Monitoring"]],
+];
+const TW = (P.w - 56 - 14) / 2, TH = 150;
+tiles.forEach(([ic, name, desc], i) => {
+  const tx = P.x + 28 + (i % 2) * (TW + 14);
+  const ty = P.y + 140 + Math.floor(i / 2) * (TH + 14);
+  el("rect", { x:tx, y:ty, width:TW, height:TH, rx:14, fill:"#F2F8EF", stroke:C.line });
+  txt(tx + 16, ty + 42, 26, 400, C.ink, "start", ic);
+  txt(tx + 16, ty + 80, 14, 700, C.pslDark, "start", name);
+  txt(tx + 16, ty + 106, 11, 400, C.muted, "start", desc, null, 16);
+});
+/* แกนร่วม: Single Data Backbone */
+const coreY = P.y + 140 + 2 * (TH + 14) + 6;
+el("rect", { x:P.x+28, y:coreY, width:P.w-56, height:124, rx:14, fill:C.pslDark });
+txt(P.x+P.w/2, coreY+34, 17.5, 700, "#FFFFFF", "middle", "Single Data Backbone (แกนร่วม)");
+txt(P.x+P.w/2, coreY+62, 13, 400, "#A9D8BD", "middle", "Identity · Asset · Contract · Traceability");
+txt(P.x+P.w/2, coreY+86, 13, 400, "#A9D8BD", "middle", "Payment · Carbon — ข้อมูลชุดเดียว วิ่งครบ 8 ขั้นตอน");
+/* แถบ Lock-in: สัญญาหัวท้าย */
+const rwY = coreY + 138;
+el("rect", { x:P.x+28, y:rwY, width:P.w-56, height:70, rx:14, fill:C.money });
+txt(P.x+P.w/2, rwY+28, 16, 700, "#fff", "middle", "Long-term Trust & Commitment");
+txt(P.x+P.w/2, rwY+52, 12.5, 400, "#FBF0D3", "middle", "Contract Farming (ต้นน้ำ) ↔ PPA (ปลายน้ำ) — ยึดหัวท้าย");
+
+/* แถบห่วงโซ่ 8 ขั้นในมือถือ */
+const vcY = rwY + 86;
+el("rect", { x:P.x+28, y:vcY, width:P.w-56, height:150, rx:14, fill:"#F2F8EF", stroke:C.line });
+txt(P.x+P.w/2, vcY+30, 14.5, 700, C.pslDark, "middle", "ห่วงโซ่คุณค่าไผ่ซางหม่น (8 ขั้นตอน)");
+const vcIcons = ["🎋","🧪","🌱","🌾","🚜","🏭","📦","⚡"];
+vcIcons.forEach((ic, i) => {
+  const cx0 = P.x + 52 + i * ((P.w - 104) / 7);
+  txt(cx0, vcY + 76, 24, 400, C.ink, "middle", ic);
+  el("circle", { cx:cx0, cy:vcY + 106, r:12, fill: i >= 6 ? C.money : C.psl });
+  txt(cx0, vcY + 111, 12.5, 700, "#fff", "middle", "" + (i + 1));
+});
+txt(P.x+P.w/2, vcY+138, 11.5, 400, C.muted, "middle", "พันธุ์ · เพาะเลี้ยง · เรือนกล้า · แปลงปลูก · เก็บเกี่ยว · แปรรูป · บรรจุภัณฑ์ · ไฟฟ้า");
+
+/* ---------- การ์ดรอบนอก (8 กลุ่มพันธมิตร) ---------- */
+card(100, 185, 540, 230, C.uni, "U", "มหาวิทยาลัย / สถาบันวิจัย", [
+  "ร่วมวิจัยพันธุ์ไผ่ + เทคโนโลยีแปรรูป",
+  "Tissue Culture · Plant Science · อนุรักษ์พันธุกรรม",
+  "ลงขันวิจัยด้วยกัน = Co-funded R&D",
+]);
+card(100, 445, 540, 230, C.farmer, "F", "เกษตรกร (หัวใจของต้นน้ำ)", [
+  "จากผู้ขายวัตถุดิบ → หุ้นส่วน/ผู้ถือหุ้นแปลงปลูก",
+  "สัญญา Contract Farming ระยะยาว + จ่ายเงินอัตโนมัติ",
+  "ข้อมูลแปลงจริง → ขอสินเชื่อจากธนาคารได้",
+]);
+card(100, 705, 540, 200, C.gov, "G", "ภาครัฐ / ชุมชนท้องถิ่น", [
+  "นโยบาย · พื้นที่ปลูก · เศรษฐกิจท้องถิ่น",
+  "วิสาหกิจชุมชนร่วมเป็น Nursery Operator",
+]);
+card(100, 935, 540, 200, C.tech, "T", "พันธมิตรเทคโนโลยี", [
+  "Automation · IoT · EMS · เครื่องจักรแปรรูป",
+  "ดาวเทียม/เซ็นเซอร์ติดตามแปลงปลูก",
+]);
+card(1360, 175, 530, 230, C.pulp, "P", "ลูกค้า Pulp / Packaging", [
+  "จากผู้ซื้อ → ผู้ร่วมออกแบบผลิตภัณฑ์ (Co-design)",
+  "B2B Marketplace + Traceability ความยั่งยืน",
+  "ซื้อซ้ำระยะยาว = Recurring / TCS",
+]);
+card(1360, 445, 530, 230, C.ppa, "E", "ผู้รับซื้อไฟฟ้า (PPA)", [
+  "การไฟฟ้า · ลูกค้าอุตสาหกรรมผู้รับซื้อไฟ",
+  "คู่สัญญาระยะยาว ร่วมวางแผนพลังงานล่วงหน้า",
+  "PPA = รายได้แกนหลักที่มั่นคง",
+]);
+card(1360, 705, 530, 200, C.fin, "B", "สถาบันการเงิน / นักลงทุน", [
+  "ลงทุนแปลงปลูก โรงงาน และโรงไฟฟ้า",
+  "Performance-based Financing จากข้อมูลจริง",
+]);
+card(1360, 935, 530, 200, C.carbon, "C", "ตลาดคาร์บอนเครดิต", [
+  "รับรอง + ซื้อขาย Carbon Credit",
+  "จากการปลูกไผ่และพลังงานชีวมวล",
+]);
+
+/* ---------- เส้นเล่าเรื่อง ①–⑧ = 8 ขั้นตอน ---------- */
+let g;
+g = stepG(1);
+arrow(g, `M 640 300 C 715 300, 740 315, 782 335`, C.data, true, 3);
+badge(g, 700, 272, 1, "วิจัยพันธุ์ร่วมกัน", C.data);
+g = stepG(2);
+arrow(g, `M ${P.x+120} 470 C ${P.x+150} 500, ${P.x+200} 500, ${P.x+250} 480`, C.mat, false, 3.2);
+badge(g, 712, 430, 2, "ต้นกล้า QR สู่แปลงปลูก", C.mat, "end");
+g = stepG(3);
+arrow(g, `M 640 560 C 715 555, 745 530, 782 500`, C.mat);
+badge(g, 700, 592, 3, "สัญญาแปลงปลูก + IoT", C.mat, "start");
+g = stepG(4);
+arrow(g, `M ${P.x+300} 480 C ${P.x+260} 540, ${P.x+180} 545, ${P.x+130} 500`, C.mat, false, 3.2);
+badge(g, 705, 690, 4, "เก็บเกี่ยว-ขนส่ง", C.mat, "end");
+g = stepG(5);
+arrow(g, `M ${P.x+95} 620 C ${P.x+80} 585, ${P.x+95} 545, ${P.x+120} 522`, C.psl, false, 3.2);
+badge(g, 705, 920, 5, "Factory 4.0 คุณภาพ/Yield", C.psl, "end");
+g = stepG(6);
+arrow(g, `M 1213 480 C 1275 450, 1300 380, 1355 320`, C.mat);
+badge(g, 1288, 388, 6, "Co-design + B2B", C.pulp, "start");
+g = stepG(7);
+arrow(g, `M ${P.x+220} 555 C ${P.x+280} 590, ${P.x+300} 600, ${P.x+320} 610`, C.money, false, 3.2);
+arrow(g, `M 1213 620 C 1275 615, 1300 590, 1355 560`, C.money);
+badge(g, 1287, 690, 7, "ของเหลือทิ้ง → ไฟฟ้า → PPA", C.money, "start");
+g = stepG(8);
+arrow(g, `M 1360 820 C 1200 1180, 700 1180, 630 620`, C.money, true, 3);
+arrow(g, `M 1360 1030 C 1240 1150, 1080 1160, 1010 ${vcY+40}`, C.carbon, true, 2.8);
+badge(g, 1035, 1178, 8, "Carbon + เงินทุน หมุนกลับแปลงปลูก", C.money, "end");
+
+txt(70, 1225, 16.5, 600, C.muted, "start",
+  "จุดที่ต้องชี้ตอนเล่า: Grab ยึดลูกค้าด้วยแต้ม — PSL ยึดทั้งห่วงโซ่ด้วย “สัญญาระยะยาวหัวท้าย + ข้อมูลชุดเดียว” ทุกฝ่ายร่วมลงทุนร่วมโต และของเหลือทิ้งกลายเป็นรายได้แกนหลัก");
+
+/* ================= โหมดเล่าเรื่อง ================= */
+let curStep = 0, playTimer = null;
+function setStep(k){
+  curStep = k;
+  stepGroups.forEach(gr => {
+    const n = +gr.dataset.step;
+    gr.style.opacity = k === 0 ? 1 : (n === k ? 1 : (n < k ? .5 : .07));
+  });
+  document.getElementById("stepLabel").textContent = STEP_NAMES[k];
+}
+function stopPlay(){
+  if (playTimer){ clearInterval(playTimer); playTimer = null; }
+  document.getElementById("btnPlay").textContent = "▶ เล่นทีละขั้น";
+}
+document.getElementById("btnPlay").onclick = () => {
+  if (playTimer){ stopPlay(); return; }
+  setStep(1);
+  document.getElementById("btnPlay").textContent = "⏸ หยุด";
+  playTimer = setInterval(() => {
+    if (curStep >= 8){ stopPlay(); setStep(0); return; }
+    setStep(curStep + 1);
+  }, 2600);
+};
+document.getElementById("btnNext").onclick = () => { stopPlay(); setStep(curStep >= 8 ? 0 : curStep + 1); };
+
+/* ================= ซูม / แพน / เต็มจอ ================= */
+const VB0 = { x:0, y:0, w:2000, h:1250 };
+let VB = { ...VB0 };
+function applyVB(){ svg.setAttribute("viewBox", `${VB.x} ${VB.y} ${VB.w} ${VB.h}`); }
+function zoomAt(f, cx, cy){
+  const nw = Math.min(VB0.w * 1.15, Math.max(VB0.w * .18, VB.w * f));
+  const nh = nw * (VB0.h / VB0.w);
+  cx = cx ?? VB.x + VB.w / 2; cy = cy ?? VB.y + VB.h / 2;
+  VB.x = cx - (cx - VB.x) * (nw / VB.w);
+  VB.y = cy - (cy - VB.y) * (nh / VB.h);
+  VB.w = nw; VB.h = nh;
+  applyVB();
+}
+function toSvg(e){
+  const r = svg.getBoundingClientRect();
+  return [ VB.x + (e.clientX - r.left) / r.width * VB.w,
+           VB.y + (e.clientY - r.top) / r.height * VB.h ];
+}
+svg.addEventListener("wheel", e => {
+  e.preventDefault();
+  const [sx, sy] = toSvg(e);
+  zoomAt(e.deltaY > 0 ? 1.18 : 0.85, sx, sy);
+}, { passive:false });
+let pan = null;
+svg.addEventListener("pointerdown", e => {
+  pan = { x:e.clientX, y:e.clientY, vx:VB.x, vy:VB.y };
+  svg.classList.add("panning");
+  svg.setPointerCapture(e.pointerId);
+});
+svg.addEventListener("pointermove", e => {
+  if (!pan) return;
+  const r = svg.getBoundingClientRect();
+  VB.x = pan.vx - (e.clientX - pan.x) / r.width * VB.w;
+  VB.y = pan.vy - (e.clientY - pan.y) / r.height * VB.h;
+  applyVB();
+});
+svg.addEventListener("pointerup", () => { pan = null; svg.classList.remove("panning"); });
+document.getElementById("zIn").onclick = () => zoomAt(0.78);
+document.getElementById("zOut").onclick = () => zoomAt(1.28);
+document.getElementById("zFit").onclick = () => { VB = { ...VB0 }; applyVB(); };
+document.getElementById("zFull").onclick = () => {
+  const f = document.getElementById("frame");
+  document.fullscreenElement ? document.exitFullscreen() : f.requestFullscreen();
+};
+
+/* ---------- วงล้อ Trust Flywheel ---------- */
+const lp = document.getElementById("loop");
+function lel(tag, attrs){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); lp.appendChild(e); return e; }
+function ltxt(x, y, size, weight, fill, anchor, lines){
+  const t = lel("text", { x, y, "font-size":size, "font-weight":weight, fill, "text-anchor":anchor });
+  (Array.isArray(lines)?lines:[lines]).forEach((ln,i)=>{ const s=document.createElementNS(NS,"tspan"); s.setAttribute("x",x); s.setAttribute("dy",i?size*1.25:0); s.textContent=ln; t.appendChild(s); });
+}
+const ld = lel("defs", {});
+const lm = document.createElementNS(NS, "marker");
+["id","viewBox","refX","refY","markerWidth","markerHeight","orient"].forEach((k,i)=>lm.setAttribute(k,["lar","0 0 10 10",8,5,7,7,"auto"][i]));
+const lmp = document.createElementNS(NS,"path"); lmp.setAttribute("d","M0,0 L10,5 L0,10 z"); lmp.setAttribute("fill","#1C7A46");
+lm.appendChild(lmp); ld.appendChild(lm);
+const nodes = [
+  [90, 70,  ["สัญญา", "ระยะยาว"]],
+  [320, 45, ["วัตถุดิบ/รายได้", "มั่นคง"]],
+  [550, 70, ["พันธมิตร", "กล้าลงทุน"]],
+  [550, 195,["Platform/Yield", "เก่งขึ้น"]],
+  [320, 222,["รายได้", "หลายก้อน"]],
+  [90, 195, ["ความเชื่อมั่น", "ยิ่งแน่น"]],
+];
+nodes.forEach(([x, y, lines]) => {
+  lel("circle", { cx:x, cy:y, r:40, fill:"#E4F2E7", stroke:"#1C7A46", "stroke-width":2 });
+  ltxt(x, y-2, 11.5, 600, "#0B5A38", "middle", lines);
+});
+[[128,58,282,50],[358,50,512,58],[550,112,550,153],[512,207,358,217],[282,219,128,207],[90,153,90,112]].forEach(([x1,y1,x2,y2]) => {
+  lel("path", { d:`M ${x1} ${y1} L ${x2} ${y2}`, fill:"none", stroke:"#1C7A46", "stroke-width":2.6, "marker-end":"url(#lar)" });
+});
+</script>
+</body>
+</html>
