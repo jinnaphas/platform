@@ -50,7 +50,7 @@
     },
     {
       "id": "sh4-omni",
-      "title": "End User ZPrecise,DealerX",
+      "title": "End User Precise,DealerX",
       "hue": "buyer",
       "glyph": "E",
       "side": "right",
@@ -129,10 +129,10 @@
         {
           "name": "Customer Engagement Platform",
           "chips": [
-            "1|p3:Line OA",
-            "1|p3:Facebook",
+            "1|p1:Line OA",
+            "1|p1:Facebook",
             "1|p1:Website @@https://precise.co.th/our-business/pdem/",
-            "5|p1:Customer Satisfaction & After-Sale @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
+            "5|p2:Customer Satisfaction & After-Sale @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
           ]
         },
         {
@@ -141,9 +141,9 @@
             "1|p1:Dealer Registration",
             "2|p1:Target & Performance Management",
             "3|p1:Ordering & Fulfillment (การซื้อขายและส่งมอบ)",
-            "5|p2:Enablement (พัฒนาศักยภาพและมาตรฐาน)",
-            "5|p2:Rewarding & ระบบแนะนำงาน/Commission",
-            "5|p1:Customer Satisfaction & After-Sale"
+            "5|p1:Enablement (พัฒนาศักยภาพและมาตรฐาน)",
+            "5|p1:Rewarding & ระบบแนะนำงาน/Commission",
+            "5|p2:Customer Satisfaction & After-Sale"
           ]
         }
       ]
@@ -154,13 +154,12 @@
         {
           "name": "Analytics & AI",
           "chips": [
-            "2|p1:Sale Forecasting @@https://jetniphat400.github.io/sale_forecast/",
-            "2|p1:Chase Sale Operation @@https://jetniphat400.github.io/sale_forecast/",
-            "2|p2:Bid/Product Mapping",
+            "2|p1:Sale Forecasting for Chase Sale Operation @@https://jetniphat400.github.io/sale_forecast/",
+            "2|p1:Near Real time Inventory & Lead time Dashboard @@https://jetniphat400.github.io/sale_forecast/",
+            "2|p2:Bid/Product Mapping @@http://192.168.0.180/",
             "4|p1:Inventory Max-Min Stock @@https://jetniphat400.github.io/sale_forecast/",
-            "1|p3:AI Chatbot",
-            "p2:Dashboard — Customer 360 Profile, QCDS, POR & RRC",
-            "p3:Recurring  Analysis"
+            "1|p1:AI Chatbot",
+            "p2:Recurring Analysis"
           ]
         }
       ]
@@ -171,26 +170,26 @@
         {
           "name": "Business Generation Platform  >>CRM",
           "chips": [
-            "1|p2:Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "1|p2:Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "2|p2:Quotation & Contract Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "2|p3:Pricing Strategy",
-            "1|p3:Marketing/Campaign Management",
+            "1|p1:Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "1|p1:Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "2|p1:Quotation & Contract Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "2|p2:Pricing Strategy",
+            "1|p2:Marketing/Campaign Management",
             "1|p1:Product Platform",
-            "5|p1:Customer Satisfaction & After-Sale"
+            "5|p2:Customer Satisfaction & After-Sale"
           ]
         },
         {
           "name": "Demand Satisfaction Platform",
           "chips": [
-            "4|p1:Sale & Operation Planning (MRP,MPS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Vendor Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Manufacturing (APS,MES) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Quality Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p2:Engineering Design & PLM @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Warehouse Management System (WMS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "4|p1:Logistics & Fleet @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
-            "5|p2:Financial & Accounting @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
+            "4|p3:Sale & Operation Planning (MRP,MPS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Vendor Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Manufacturing (APS,MES) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Quality Management @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Engineering Design & PLM @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Warehouse Management System (WMS) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "4|p3:Logistics & Fleet @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
+            "5|p3:Financial & Accounting @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
           ]
         }
       ]
