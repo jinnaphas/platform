@@ -160,7 +160,7 @@
             "2|p2:Bid/Product Mapping @@http://192.168.0.180/",
             "4|p1:Inventory Max-Min Stock @@https://jetniphat400.github.io/sale_forecast/",
             "1|p1:AI Chatbot",
-            "p2:Recurring Analysis"
+            "p3:Recurring Analysis"
           ]
         }
       ]
