@@ -1,14 +1,15 @@
 {
   "phoneTitle": "Omni Channel Platform",
   "valueChain": [
-    "ลูกค้าแสดงความต้องการ  สนใจ หรือแสดงความสนใจสินค้า— TOR / Customer Need",
-    "เสนอราคา + Check stock/LT  เจรจา — Quotation",
+    "ลูกค้าแสดงความต้องการ / Customer Need หรือ TOR",
+    "เสนอราคา + Check stock/Lead Time เจรจา — Quotation",
     "ตกลงซื้อ-ขาย  — PO / สัญญา",
     "Supply Chain Planning — แปลงยอดขาย/PO เป็นแผนผลิตและแผนจัดหาวัตถุดิบ (S&OP)",
     "Manufacturing —ควบคุมการผลิตสินค้า",
     "Quality Management — ตรวจสอบและรับรองมาตรฐานคุณภาพสินค้าก่อนส่งมอบ",
     "Logistics & Warehouse — บริหารคลังสินค้าและจัดส่งสินค้าให้ตรงตามกำหนด",
-    "Aftersales— ดูแลหลังการขายและสร้างรายได้ซ้ำ  (Recurring)"
+    "Revenue Recognitionออก Invoice/เก็บเงิน",
+    "Aftersales— ดูแลหลังการขายและสร้างรายได้ซ้ำ  (Recurring)ขั้นใหม่"
   ],
   "stakeholders": [
     {
