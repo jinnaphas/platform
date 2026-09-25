@@ -3,7 +3,7 @@
   "valueChain": [
     "ลูกค้าแสดงความต้องการ / Customer Need หรือ TOR",
     "เสนอราคา + Check stock/Lead Time เจรจา — Quotation",
-    "ตกลงซื้อ-ขาย  — PO / สัญญา",
+    "ตกลงซื้อ-ขาย  PO / สัญญา",
     "Supply Chain Planning — แปลงยอดขาย/PO เป็นแผนผลิตและแผนจัดหาวัตถุดิบ (S&OP)",
     "Manufacturing —ควบคุมการผลิตสินค้า",
     "Quality Management — ตรวจสอบและรับรองมาตรฐานคุณภาพสินค้าก่อนส่งมอบ",
