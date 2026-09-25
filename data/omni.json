@@ -132,19 +132,19 @@
           "chips": [
             "1|p1:Line OA",
             "1|p1:Facebook",
-            "1|p1:Website @@https://precise.co.th/our-business/pdem/",
-            "5|p2:Customer Satisfaction & After-Sale @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
+            "1|p1:Website @@https://bellepotty97.github.io/CDX/precise-pcc-pem.html",
+            "5|p2:Customer Satisfaction & After-Sale @@https://bellepotty97.github.io/CDX/support.html"
           ]
         },
         {
           "name": "Channel Member Management Platform",
           "chips": [
-            "1|p1:Dealer Registration",
-            "2|p1:Target & Performance Management",
-            "3|p1:Ordering & Fulfillment (การซื้อขายและส่งมอบ)",
-            "5|p1:Enablement (พัฒนาศักยภาพและมาตรฐาน)",
-            "5|p2:Rewarding & ระบบแนะนำงาน/Commission",
-            "5|p2:Customer Satisfaction & After-Sale"
+            "1|p1:Dealer Registration @@https://bellepotty97.github.io/CDX/dealer.html",
+            "2|p1:Target & Performance Management @@https://bellepotty97.github.io/CDX/dealer.html",
+            "3|p1:Ordering & Fulfillment (การซื้อขายและส่งมอบ) @@https://bellepotty97.github.io/CDX/dealer.html",
+            "5|p1:Enablement (พัฒนาศักยภาพและมาตรฐาน) @@https://bellepotty97.github.io/CDX/dealer.html",
+            "5|p2:Rewarding & ระบบแนะนำงาน/Commission @@https://bellepotty97.github.io/CDX/dealer.html",
+            "5|p2:Customer Satisfaction & After-Sale @@https://bellepotty97.github.io/CDX/support.html"
           ]
         }
       ]
