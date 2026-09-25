@@ -98,7 +98,7 @@
         "Sale&CRM&KA: TOR/Customer Need → Mapping Product Category to Quotation → [Bid/Product Mapping]",
         "Sale&CRM&KA: เสนอราคา Quotation → [Quotation & Contract Management]",
         "Sale&CRM&KA: Record Pass/Fail OI & Quotation พร้อมระบุเหตุผล → [Lead Management (Lead & Opportunity Pipeline)]",
-        "Sale&CRM&KA: ทำ Sale Forecasting และ Chase Sale Operation ดูความพร้อมก่อนเสนอราคา → [Chase Sale Operation]",
+        "Sale&CRM&KA: ทำ Sale Forecasting และ Chase Sale Operation ดูความพร้อมก่อนเสนอราคา  Check Stock Availability+LT→ [Chase Sale Operation]",
         "Demand Satisfaction: บริหาร QCDS ทุก CTR และเก็บเงินให้ได้ เพื่อให้เกิด Customer Satisfaction",
         "S&OP: Finalize Chase Sale & Operation Plan — ควบคุมสต็อกให้อยู่ในระดับที่ตั้งไว้ (Target Finished Inventory = 5 วัน) → [Forecast Max-Min Stock]  บริหารคน Maximize Resource/Manday, Conso ทั้งบริษัท (Skill Matrix of Operator) → [Chase Sale Operation]",
         "Purchasing: บริหารซัพพลายเออร์ตั้งแต่สั่งซื้อวัตถุดิบ (PO) จนถึงประเมินผลงาน → [Vendor Management Platform]",
