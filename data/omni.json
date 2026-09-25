@@ -169,7 +169,7 @@
       "title": "Information System Platform : ERP Odoo",
       "groups": [
         {
-          "name": "Business Generation Platform  >>CRM",
+          "name": "Business Generation Platform  >>Customer Relationship Management :CRM",
           "chips": [
             "1|p1:Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
             "1|p1:Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
