@@ -137,7 +137,7 @@
           ]
         },
         {
-          "name": "Dealer Management Platform (Channel Member)",
+          "name": "Channel Member Management Platform",
           "chips": [
             "1|p1:Dealer Registration",
             "2|p1:Target & Performance Management",
