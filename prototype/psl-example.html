@@ -105,13 +105,13 @@
       </table>
     </div>
     <div class="card">
-      <h2><span class="tag">เทียบตัวอย่าง</span>PSL เหมือน Grab ตรงไหน (แค่เปลี่ยนสนาม)</h2>
+      <h2><span class="tag">กลไกสำคัญ</span>Ecosystem Platform ของ PSL ทำงานยังไง</h2>
       <ul class="diff">
-        <li>Grab มีหลายบริการบนแอปเดียว — PSL มี <b>4 แพลตฟอร์มบนห่วงโซ่ไผ่เดียว</b> (R&D+Nursery · Contract Farming · Factory 4.0 · EMS)</li>
-        <li>Shared Core ของ Grab (ID·Wallet·Data) = <b>Single Data Backbone</b> ของเรา — ข้อมูลชุดเดียววิ่งครบ 8 ขั้นตอน</li>
-        <li>GrabRewards ที่ Lock-in ลูกค้า = <b>สัญญาระยะยาว 2 หัวท้าย</b> ของเรา — Contract Farming + PPA = Long-term Trust & Commitment</li>
-        <li>Cross-sell ของ Grab = <b>ของเหลือทิ้งขั้น 6–7 กลายเป็นเชื้อเพลิงขั้น 8</b> — Waste → รายได้แกนหลัก (PPA)</li>
-        <li>Grab ปล่อยสินเชื่อจากข้อมูลรายได้จริง = เราให้ธนาคารทำ <b>Performance-based Financing จากข้อมูลแปลงปลูกจริง</b></li>
+        <li><b>PSL = แพลตฟอร์มจับคู่ 2 ฝั่ง (ผู้ขาย ↔ ผู้ซื้อ)</b> บน <b>4 แพลตฟอร์มบนห่วงโซ่ไผ่เดียว</b> (R&D+Nursery · Contract Farming · Factory 4.0 · EMS) — ขายกล้าไผ่ · Contract Farming · ซื้อขายไม้ไผ่และสินค้าแปรรูปจากไผ่ · ซื้อขายเชื้อเพลิง · รับรอง + ซื้อขาย Carbon Credit</li>
+        <li><b>Single Data Backbone</b> — ข้อมูลชุดเดียววิ่งครบ 8 ขั้นตอน: ID เกษตรกร · ID ต้นไม้ · ข้อมูลการปลูก · การแปรรูป · การผลิต · การจัดการ Waste</li>
+        <li><b>สัญญาระยะยาว 2 หัวท้าย</b> — Contract Farming + PPA = Long-term Trust & Commitment และมี <b>System Lock-in</b>: ลูกค้าติดตามข้อมูลไม้ไผ่ได้ตั้งแต่ต้นน้ำถึงปลายน้ำ (ผลิตกล้า → ผลิตสินค้า → แปรรูปเป็นไฟฟ้า)</li>
+        <li><b>Cross-sell ของ PSL = Waste</b> — ของเหลือจากกระบวนการผลิต/แปรรูปไม้ไผ่ แปรเปลี่ยนเป็น <b>รายได้หลักของฝั่งผลิตไฟฟ้า (PPA)</b></li>
+        <li><b>Performance-based Financing</b> — ธนาคารให้สินเชื่อหรือเงินทุนตามดัชนีชี้วัดผลงานจริงจากข้อมูลแปลงปลูก</li>
       </ul>
       <svg id="loop" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin-top:6px"></svg>
     </div>
@@ -319,34 +319,36 @@ card(1360, 935, 530, 200, C.carbon, "C", "ตลาดคาร์บอนเ�
   "จากการปลูกไผ่และพลังงานชีวมวล",
 ]);
 
-/* ---------- เส้นเล่าเรื่อง ①–⑧ = 8 ขั้นตอน ---------- */
+/* ---------- เส้นเล่าเรื่อง ①–⑧ = 8 ขั้นตอน ----------
+   เส้นภายในมือถือเดินเฉพาะ "ช่องว่างระหว่าง Tile" (แถบ y 462–472 และ 628–640)
+   เพื่อไม่ให้ทับข้อความในการ์ดหรือ Tile */
 let g;
 g = stepG(1);
 arrow(g, `M 640 300 C 715 300, 740 315, 782 335`, C.data, true, 3);
 badge(g, 700, 272, 1, "วิจัยพันธุ์ร่วมกัน", C.data);
 g = stepG(2);
-arrow(g, `M ${P.x+120} 470 C ${P.x+150} 500, ${P.x+200} 500, ${P.x+250} 480`, C.mat, false, 3.2);
+arrow(g, `M 940 298 L 1055 298`, C.mat, false, 3);
 badge(g, 712, 430, 2, "ต้นกล้า QR สู่แปลงปลูก", C.mat, "end");
 g = stepG(3);
 arrow(g, `M 640 560 C 715 555, 745 530, 782 500`, C.mat);
-badge(g, 700, 592, 3, "สัญญาแปลงปลูก + IoT", C.mat, "start");
+badge(g, 700, 592, 3, "สัญญาแปลงปลูก + IoT", C.mat, "end");
 g = stepG(4);
-arrow(g, `M ${P.x+300} 480 C ${P.x+260} 540, ${P.x+180} 545, ${P.x+130} 500`, C.mat, false, 3.2);
+arrow(g, `M 1085 462 C 1040 468, 960 468, 918 472`, C.mat, false, 3);
 badge(g, 705, 690, 4, "เก็บเกี่ยว-ขนส่ง", C.mat, "end");
 g = stepG(5);
-arrow(g, `M ${P.x+95} 620 C ${P.x+80} 585, ${P.x+95} 545, ${P.x+120} 522`, C.psl, false, 3.2);
+arrow(g, `M 862 633 L 940 633`, C.psl, false, 3);
 badge(g, 705, 920, 5, "Factory 4.0 คุณภาพ/Yield", C.psl, "end");
 g = stepG(6);
 arrow(g, `M 1213 480 C 1275 450, 1300 380, 1355 320`, C.mat);
 badge(g, 1288, 388, 6, "Co-design + B2B", C.pulp, "start");
 g = stepG(7);
-arrow(g, `M ${P.x+220} 555 C ${P.x+280} 590, ${P.x+300} 600, ${P.x+320} 610`, C.money, false, 3.2);
+arrow(g, `M 1000 633 L 1088 633`, C.money, false, 3);
 arrow(g, `M 1213 620 C 1275 615, 1300 590, 1355 560`, C.money);
 badge(g, 1287, 690, 7, "ของเหลือทิ้ง → ไฟฟ้า → PPA", C.money, "start");
 g = stepG(8);
-arrow(g, `M 1360 820 C 1200 1180, 700 1180, 630 620`, C.money, true, 3);
-arrow(g, `M 1360 1030 C 1240 1150, 1080 1160, 1010 ${vcY+40}`, C.carbon, true, 2.8);
-badge(g, 1035, 1178, 8, "Carbon + เงินทุน หมุนกลับแปลงปลูก", C.money, "end");
+arrow(g, `M 1360 830 C 1150 1160, 700 1150, 646 648`, C.money, true, 3);
+arrow(g, `M 1360 1035 C 1300 1095, 1250 1125, 1198 1146`, C.carbon, true, 2.8);
+badge(g, 1035, 1150, 8, "Carbon + เงินทุน หมุนกลับแปลงปลูก", C.money, "end");
 
 txt(70, 1225, 16.5, 600, C.muted, "start",
   "จุดที่ต้องชี้ตอนเล่า: Grab ยึดลูกค้าด้วยแต้ม — PSL ยึดทั้งห่วงโซ่ด้วย “สัญญาระยะยาวหัวท้าย + ข้อมูลชุดเดียว” ทุกฝ่ายร่วมลงทุนร่วมโต และของเหลือทิ้งกลายเป็นรายได้แกนหลัก");
