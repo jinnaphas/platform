@@ -1,14 +1,15 @@
 {
   "phoneTitle": "Omni Channel Platform",
   "valueChain": [
-    "ลูกค้าแสดงความต้องการ  สนใจ หรือแสดงความสนใจสินค้า— TOR / Customer Need",
-    "เสนอราคา  เจรจา — Quotation",
-    "ตกลงซื้อ-ขาย  — PO / สัญญา",
+    "ลูกค้าแสดงความต้องการ / Customer Need หรือ TOR",
+    "เสนอราคา + Check stock/Lead Time เจรจา — Quotation",
+    "ตกลงซื้อ-ขาย  PO / สัญญา",
     "Supply Chain Planning — แปลงยอดขาย/PO เป็นแผนผลิตและแผนจัดหาวัตถุดิบ (S&OP)",
     "Manufacturing —ควบคุมการผลิตสินค้า",
     "Quality Management — ตรวจสอบและรับรองมาตรฐานคุณภาพสินค้าก่อนส่งมอบ",
     "Logistics & Warehouse — บริหารคลังสินค้าและจัดส่งสินค้าให้ตรงตามกำหนด",
-    "Aftersales— ดูแลหลังการขายและสร้างรายได้ซ้ำ  (Recurring)"
+    "Revenue Recognitionออก Invoice/เก็บเงิน",
+    "Aftersales— ดูแลหลังการขายและสร้างรายได้ซ้ำ  (Recurring)ขั้นใหม่"
   ],
   "stakeholders": [
     {
@@ -91,13 +92,13 @@
       "side": "right",
       "image": null,
       "items": [
-        "🎯 Target: GP 375 mb (PEM105), Total GP 540 mb (PEM,PPP,PSP,PSL) ภายในปี 2573 · ลูกค้าเข้าถึง-ซื้อง่าย · และส่งของได้เร็วภายใน3-5 วัน  ,เพิ่ม Channel Member 5 รายต่อปี",
+        "🎯 Target: GP 360 ปี2570, 420 mb (PEM105) ภายในปี 2573 ,เพิ่ม Channel Member 5 รายต่อปี",
         "Business Generation: กวาดหาโอกาส OI มาจนได้ PO/GP ตาม Target → [Business Generation Platform  >>CRM]",
         "Sale&CRM&KA: หา Information for OI ทั้งหมดมาบันทึกในระบบ → [Lead Management (Lead & Opportunity Pipeline)]",
         "Sale&CRM&KA: TOR/Customer Need → Mapping Product Category to Quotation → [Bid/Product Mapping]",
         "Sale&CRM&KA: เสนอราคา Quotation → [Quotation & Contract Management]",
         "Sale&CRM&KA: Record Pass/Fail OI & Quotation พร้อมระบุเหตุผล → [Lead Management (Lead & Opportunity Pipeline)]",
-        "Sale&CRM&KA: ทำ Sale Forecasting และ Chase Sale Operation ดูความพร้อมก่อนเสนอราคา → [Chase Sale Operation]",
+        "Sale&CRM&KA: ทำ Sale Forecasting และ Chase Sale Operation ดูความพร้อมก่อนเสนอราคา  Check Stock Availability+LT→ [Chase Sale Operation]",
         "Demand Satisfaction: บริหาร QCDS ทุก CTR และเก็บเงินให้ได้ เพื่อให้เกิด Customer Satisfaction",
         "S&OP: Finalize Chase Sale & Operation Plan — ควบคุมสต็อกให้อยู่ในระดับที่ตั้งไว้ (Target Finished Inventory = 5 วัน) → [Forecast Max-Min Stock]  บริหารคน Maximize Resource/Manday, Conso ทั้งบริษัท (Skill Matrix of Operator) → [Chase Sale Operation]",
         "Purchasing: บริหารซัพพลายเออร์ตั้งแต่สั่งซื้อวัตถุดิบ (PO) จนถึงประเมินผลงาน → [Vendor Management Platform]",
@@ -131,19 +132,19 @@
           "chips": [
             "1|p1:Line OA",
             "1|p1:Facebook",
-            "1|p1:Website @@https://precise.co.th/our-business/pdem/",
-            "5|p2:Customer Satisfaction & After-Sale @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo"
+            "1|p1:Website @@https://bellepotty97.github.io/CDX/precise-pcc-pem.html",
+            "5|p2:Customer Satisfaction & After-Sale @@https://bellepotty97.github.io/CDX/support.html"
           ]
         },
         {
-          "name": "Dealer Management Platform (Channel Member)",
+          "name": "Channel Member Management Platform",
           "chips": [
-            "1|p1:Dealer Registration",
-            "2|p1:Target & Performance Management",
-            "3|p1:Ordering & Fulfillment (การซื้อขายและส่งมอบ)",
-            "5|p1:Enablement (พัฒนาศักยภาพและมาตรฐาน)",
-            "5|p1:Rewarding & ระบบแนะนำงาน/Commission",
-            "5|p2:Customer Satisfaction & After-Sale"
+            "1|p1:Dealer Registration @@https://bellepotty97.github.io/CDX/dealer.html",
+            "2|p1:Target & Performance Management @@https://bellepotty97.github.io/CDX/dealer.html",
+            "3|p1:Ordering & Fulfillment (การซื้อขายและส่งมอบ) @@https://bellepotty97.github.io/CDX/dealer.html",
+            "5|p1:Enablement (พัฒนาศักยภาพและมาตรฐาน) @@https://bellepotty97.github.io/CDX/dealer.html",
+            "5|p2:Rewarding & ระบบแนะนำงาน/Commission @@https://bellepotty97.github.io/CDX/dealer.html",
+            "5|p2:Customer Satisfaction & After-Sale @@https://bellepotty97.github.io/CDX/support.html"
           ]
         }
       ]
@@ -159,7 +160,7 @@
             "2|p2:Bid/Product Mapping @@http://192.168.0.180/",
             "4|p1:Inventory Max-Min Stock @@https://jetniphat400.github.io/sale_forecast/",
             "1|p1:AI Chatbot",
-            "p2:Recurring Analysis"
+            "p3:Recurring Analysis"
           ]
         }
       ]
@@ -168,7 +169,7 @@
       "title": "Information System Platform : ERP Odoo",
       "groups": [
         {
-          "name": "Business Generation Platform  >>CRM",
+          "name": "Business Generation Platform  >>Customer Relationship Management :CRM",
           "chips": [
             "1|p1:Customer Registration @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
             "1|p1:Lead Management (Lead & Opportunity Pipeline) @@https://edu-sit-precise-digital-economy-company-limited.odoo.com/odoo",
