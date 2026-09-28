@@ -160,18 +160,19 @@ omni:{ name:"Omni Channel", color:"#D96C2C", phone:"Omni Channel Platform",
     {side:"R",hue:"biz",title:"Precise Business",ents:["ทีม Omni Channel","(Target GP 540 mb ภายในปี 2573)"]}]},
 tcs:{ name:"TCS", color:"#2358C6", phone:"TCS Platform",
   rings:{
-    cx :["Buyer Self-Service Portal","Customer Engagement Hub","Inbound Marketing","Digital Commerce"],
-    eco:["Ecosystem & Partner","Financing / Insurance","Marketplace Commission"],
-    iot:["Energy Intelligence (EMS)","IoT Data / Grid Edge","Predictive Maintenance"],
-    is :["Business Generation","Demand Satisfaction","Digital Engineering (PLM)","ERP Odoo (Foundation)"],
-    da :["Market & Demand Intel","Pipeline & Forecast","ESG / Carbon Analytics","AI Copilot"]},
+    cx :["Customer Engagement Hub","Digital Commerce Channel","LivePerson Chatbot","Content & Demand Hub","Self Pricing Engine"],
+    eco:["DE Integration","Financing Service"],
+    iot:["Base Energy & Power Quality Monitoring Map"],
+    is :["Standards & Compliance Technical Database","Sale & Operation Planning","Negotiation & Contract Mgmt","Reference-Price Survey","Cross-BU OrderMgmt"],
+    da :["Market & Demand Intelligence Center","Pipeline & Forecast Analytics","ICP & TAL Scoring","Customer/Sales Analytics","LCC Analysis","Generative AI Quote Builder"]},
   sh:[
-    {side:"L",hue:"partner",title:"Partners / Supplier / Ecosystem",ents:["Financing · Insurance Partner","ผู้ผลิต IoT Sensor","Sub-Contractor"]},
-    {side:"L",hue:"comp",title:"Complementor",ents:["FTI · IEAT · BOI · depa","กระทรวงอุตฯ / พลังงาน · ERC","MEA · PEA · EGAT · สมอ.","ธนาคาร / ประกัน · กรมศุลกากร"]},
-    {side:"L",hue:"compet",title:"Competitor",ents:["Schneider · Siemens · ABB","Hitachi Energy · LS Electric","SCG · Banpu (Renewable)"]},
-    {side:"R",hue:"buyer",title:"Buyer",ents:["โรงงานอุตสาหกรรม · อาคาร","ลูกค้าโซลูชันพลังงาน 5 Pillars"]},
-    {side:"R",hue:"biz",title:"Precise Business",ents:["Sale · S&OP · DE","Project · BU · Marketing"]},
-    {side:"R",hue:"admin",title:"Platform Admin",ents:["IT/OT Security · Data Governance"]}]},
+    {side:"L",hue:"partner",title:"หน่วยงานกำกับดูแล/มาตรฐาน",ents:["ISO / IEC","กระทรวงอุตสาหกรรม / พลังงาน","กนอ. · PEA / MEA","กกพ. · BOI · สมอ. · สวทช.","กรมทรัพย์สินทางปัญญา"]},
+    {side:"L",hue:"compet",title:"Competitor",ents:[]},
+    {side:"L",hue:"biz",title:"Precise Business",ents:["TCS Sale","S&OP","Digital Engineering","Business Manager"]},
+    {side:"L",hue:"admin",title:"Precise Information Center",ents:["ศูนย์กลางรวบรวมและจัดการข้อมูลสินค้า","และรายชื่อลูกค้าที่สามารถก่อให้เกิดโอกาส"]},
+    {side:"R",hue:"buyer",title:"Buyer",ents:["End User","Main Contractor","KA (การไฟฟ้าแต่ละพื้นที่)"]},
+    {side:"R",hue:"admin",title:"หน่วยงานตรวจสอบ การจัดจ้าง",ents:["กรมบัญชีกลาง","ฝ่ายจัดซื้อองค์กร"]},
+    {side:"R",hue:"comp",title:"ผู้เกี่ยวข้องการตั้งงบประมาณ",ents:["สำนักงานนโยบายพลังงานแห่งชาติ","กรมพัฒนาพลังงานทดแทนและอนุรักษ์พลังงาน","สำนักงบประมาณ","ครม. / รัฐสภา","ฝ่ายวิศวกรรมซ่อมบำรุง","ผู้จัดการฝ่าย / เจ้าของงบประมาณ","ผู้บริหารสูงสุด / คณะกรรมการบริหาร","องค์กรปกครองส่วนท้องถิ่น (อปท.)"]}]},
 recurring:{ name:"Recurring", color:"#4E9F3D", phone:"Recurring RST Platform",
   rings:{
     cx :["Customer Portal","LINE OA / LIFF","Catalog & Package Pricing"],
@@ -280,7 +281,7 @@ function render(){
   for(const key of ["cx","eco","iot","is","da"]){
     const def=RING_DEF[key], center=(key==="da");
     const st=ringStyle(curTeam,key), rs=st.rs||1, F=GF*(st.fs||1);
-    const R=168*rs, RC=150*rs;
+    const R=168*rs, RC=162*rs;
     const [dx,dy]=off(curTeam,"ring:"+key);
     const cx0=basePos[key][0]+dx, cy0=basePos[key][1]+dy;
     const g = el(gRings,"g",{class:"ring movable","data-ring":key,"data-id":"ring:"+key});
