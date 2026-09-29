@@ -202,20 +202,52 @@ ppa:{ name:"PPA", color:"#A8821C", phone:"PPA / Long-term Contract Platform",
     {side:"R",hue:"biz",title:"Precise Business",ents:["Sale · นักส่งเสริม · Production"]},
     {side:"R",hue:"admin",title:"Platform Admin",ents:["Cloud/SaaS · Cyber Security"]}]},
 invest:{ name:"Investment", color:"#7C4DC4", phone:"Investment RST Platform",
+  sub:"Investment in Other Industries · ตัดสินใจเป็นระบบ ทำซ้ำได้ ไม่ขึ้นกับตัวบุคคล",
+  /* ทีมนี้ใช้ชื่อห่วงเฉพาะของตัวเอง (กรอบ 7 ขั้น) แทนชื่อ DBTP มาตรฐาน */
+  ringNames:{
+    cx :{th:"1. Insight & Analysis",    en:"ขั้น 1–4 · อ่านตลาดถึงประเมินมูลค่า"},
+    eco:{th:"2. Decision & Allocation", en:"ตอบ 4 คำถามหลัก"},
+    iot:{th:"3. Monitoring & Reporting",en:"ขั้น 5–7 · ติดตามผลและทบทวน"},
+    is :{th:"4. Risk & Control",        en:"สัญญาณ Exit และการควบคุม"},
+    da :{th:"7-Step Framework",         en:"Business Architecture Model"}},
+  ringStyle:{ cx:{fs:.85}, eco:{fs:.85}, iot:{fs:.85}, is:{fs:.85}, da:{fs:.85} },
   rings:{
-    cx :["Investment Dashboard","Quarterly Report","Dividend Calendar"],
-    eco:["Broker Connect (KS)","Bank / ที่ปรึกษาการลงทุน"],
-    iot:[],
-    is :["Decision & Allocation","Risk & Control","Shared Foundation"],
-    da :["Screening & Valuation","Market Regime","Scenario Test","Portfolio Optimization"]},
+    cx :["Market Overview : SET · S&P 500",
+         "NASDAQ · Market Regime",
+         "Sector : Screener + กลุ่มอุตฯ ทุก 60 วิ",
+         "Company : พื้นฐาน + AI + คะแนนอันดับ",
+         "Valuation : P/E · Div Yield + เมนูปันผล",
+         "กราฟ : RSI · ATR · MACD · SMA 20/50/200"],
+    eco:["ควรลงทุนไหม? Risk-On / Risk-Off",
+         "เงินสด = Option Value",
+         "ลงทุนอะไร? อุตฯ → บริษัท → ราคา",
+         "เท่าไร? 5–15 ตัว · ≤25%/ตัว",
+         "Core 60–70 / Satellite 30–40",
+         "ขาย : ซื้อวิธีไหน ขายวิธีนั้น",
+         "ขาขึ้น : Trend Following / Breakout"],
+    iot:["Portfolio : มูลค่า · Top Holdings · เป้าหมาย",
+         "Monitor : Streaming + กราฟอัจฉริยะ",
+         "Earnings · Cash Flow · Catalyst",
+         "Trade Plan (TP/SL) + Journal + Backtest",
+         "Dividend Calendar · Yield on Cost",
+         "Quarterly Report"],
+    is :["Value Investor : โอกาสดีกว่า",
+         "พื้นฐานเปลี่ยน · สัดส่วนเกิน",
+         "Technical : หลุด SMA 50",
+         "TP 20–25% · SL −8% ถึง −10%",
+         "ขาดทุน 50% ต้องกำไร 100% คืนทุน",
+         "Limit & Mandate · Audit Trail",
+         "Cyber Security · Point-in-time Data"],
+    da :["01 อ่านภาวะตลาด","02 เลือกอุตสาหกรรมศักยภาพ","03 คัดเลือกบริษัทคุณภาพ",
+         "04 ประเมินมูลค่า จังหวะซื้อ","05 กำหนดสัดส่วนการลงทุน",
+         "06 ติดตามผล ให้เวลาเติบโต","07 ทบทวน · ขายเมื่อ Thesis เปลี่ยน"]},
   sh:[
-    {side:"L",hue:"partner",title:"Information / ข้อมูลตลาด",ents:["SET · SETTRADE · ก.ล.ต.","ตลท. · สมาคมฯ · IR บจ.","กระทรวงพาณิชย์ · สศค. · สบน."]},
-    {side:"L",hue:"comp",title:"Complementor / ที่ปรึกษา",ents:["Bank","Business Partner","Investment Consultant (มีใบอนุญาต)"]},
-    {side:"L",hue:"partner",title:"Finance & Tax",ents:["ฝ่ายบัญชีและภาษี"]},
-    {side:"R",hue:"buyer",title:"Trading Channels",ents:["Broker: KSecurities (KS)"]},
-    {side:"R",hue:"admin",title:"Governance",ents:["คณะกรรมการอนุมัติวงเงิน"]},
-    {side:"R",hue:"biz",title:"Precise Business",ents:["ทีมกำหนดเกณฑ์","Investment Decision Framework"]},
-    {side:"R",hue:"admin",title:"Platform Admin",ents:["ดูแลสิทธิ์การเข้าถึง"]}]},
+    {side:"L",hue:"partner",title:"Information / ข้อมูลตลาด",ents:["SET · Settrade · IR · BOT — อ่านภาวะตลาด","ตลาดต่างประเทศ : S&P 500 · NASDAQ","บทวิเคราะห์ บล. : InnovestX · Kasikorn · Bualuang","Krungsri · Yuanta · DAOL — เลือกอุตฯ/บริษัท","สื่อลงทุน : THE STANDARD WEALTH · ลงทุนแมน","Trader KP · eFinanceThai · FINNOMENA","Money Buffalo · กรุงเทพธุรกิจ · ข่าวหุ้นธุรกิจ"]},
+    {side:"L",hue:"comp",title:"Complementor / ที่ปรึกษา",ents:["Bank : วงเงิน · สภาพคล่อง","Business Partner : ข้อมูลอุตสาหกรรม","Investment Consultant (มีใบอนุญาต)"]},
+    {side:"L",hue:"admin",title:"Platform Admin / ดูแลสิทธิ์",ents:["PCC Trading AI Assistant — แพลตฟอร์มเดียว","รวมข้อมูล วิเคราะห์ วางแผนการเทรด","Limit & Mandate : เพดานรายตัว / รายกลุ่ม","Cyber Security : สิทธิ์เข้าถึง · เข้ารหัส · สำรองข้อมูล","OT/IT Security Framework · Cloud / SaaS"]},
+    {side:"R",hue:"buyer",title:"Trading Channels / ส่งคำสั่งซื้อขาย",ents:["Broker : KSecurities (KS) — ส่งคำสั่ง · ชำระราคา","Approval + Audit Trail : ใครทำอะไรเมื่อไหร่","Trade Plan (TP/SL) → Journal ทุกครั้ง"]},
+    {side:"R",hue:"biz",title:"Precise Business / เป้าหมาย",ents:["กำไร 7 ปี รวม 250 ลบ. จากฐานทุน 200 ลบ.","2569=10 · 2570=20 · 2571=30 · 2572=40 (ลบ.)","2573–2575 = 50 ต่อปี (25%)","แผน : 2569 สร้างระบบ · 2570–72 ขยายผล","2573–75 รักษาระดับ","Actual 2569 (YTD 24 ก.ย.) : 25 ลบ. = 250% ของเป้า","รวมกำไรยังไม่ขาย + OCI = +39.50 ลบ."]},
+    {side:"R",hue:"comp",title:"Business Generation / กรวยคัดกรองหุ้น",ents:["931 หุ้น SET (8 Industry · 28 Sectors)","60 ผ่าน Screener เชิงปริมาณ","15 ผ่านเกณฑ์คุณภาพ : ROE · D/E · FCF · ปันผล","10 เข้า Watchlist : รอจังหวะและ Valuation","8 ถือจริงในพอร์ต : ผ่านครบ 7 ขั้น","เกณฑ์ 5 มิติ : มูลค่า · คุณภาพ · ความมั่นคง","ผลตอบแทน · การเติบโต","“การกวาด” = คัดด้วยเกณฑ์เดิมทุกครั้ง ไม่ใช่ไล่ซื้อ"]}]},
 };
 const ORDER = ["tendering","omni","tcs","recurring","ppa","invest"];
 
@@ -269,7 +301,7 @@ function render(){
   const phoneTitle = txt(root, 950, P.y+46, C.phone, 23, "#FFFFFF", 700);
   phoneTitle.style.cursor = editMode? "text":"default";
   phoneTitle.addEventListener("dblclick", ()=>{ if(editMode) openEditor("phone"); });
-  txt(root, 950, P.y+74, "1 มือถือ = 1 Platform · ข้างในคือ 5 ห่วง DBTP", 14, "#9FB2C8", 500);
+  txt(root, 950, P.y+74, D.sub || "1 มือถือ = 1 Platform · ข้างในคือ 5 ห่วง DBTP", 14, "#9FB2C8", 500);
   const S = {x:P.x+22, y:P.y+92, w:P.w-44, h:P.h-116};
   el(root,"rect",{x:S.x,y:S.y,width:S.w,height:S.h,rx:26,fill:"#F7FAFC",stroke:"#2C3F58","stroke-width":1});
   el(root,"rect",{x:950-56,y:P.y+16,width:112,height:10,rx:5,fill:"#2C3F58"});
@@ -279,8 +311,12 @@ function render(){
   const basePos = { cx:[782,418], eco:[1118,418], iot:[782,938], is:[1118,938], da:[950,678] };
   const gRings = el(root,"g",{});
   for(const key of ["cx","eco","iot","is","da"]){
-    const def=RING_DEF[key], center=(key==="da");
-    const st=ringStyle(curTeam,key), rs=st.rs||1, F=GF*(st.fs||1);
+    /* ทีมอาจตั้งชื่อห่วงเอง (D.ringNames) และมีขนาดเริ่มต้นเอง (D.ringStyle);
+       ค่าใน localStorage (การแก้ของผู้ใช้) ทับค่าเริ่มต้นของทีมอีกชั้น */
+    const def={...RING_DEF[key], ...((D.ringNames||{})[key]||{})};
+    const center=(key==="da");
+    const st={...((D.ringStyle||{})[key]||{}), ...ringStyle(curTeam,key)};
+    const rs=st.rs||1, F=GF*(st.fs||1);
     const R=168*rs, RC=162*rs;
     const [dx,dy]=off(curTeam,"ring:"+key);
     const cx0=basePos[key][0]+dx, cy0=basePos[key][1]+dy;
@@ -367,7 +403,9 @@ function openEditor(type, ref){
   edFsWrap.hidden=true; edWWrap.hidden=true; edRWrap.hidden=true; edPos.hidden=true;
   if(type==="phone"){ edTitle.textContent="แก้ไขชื่อ Platform (บนมือถือ)";
     edName.value=C.phone; edItemsWrap.hidden=true; }
-  else if(type==="ring"){ edTitle.textContent=`ห่วง ${RING_DEF[ref].th}`;
+  else if(type==="ring"){
+    const rn={...RING_DEF[ref], ...((DEFAULTS[curTeam].ringNames||{})[ref]||{})};
+    edTitle.textContent=`ห่วง ${rn.th}`;
     edNameWrap.hidden=true; edItemsLabel.textContent="หัวข้อในห่วง (บรรทัดละ 1 หัวข้อ)";
     edItems.value=(C.rings[ref]||[]).join("\n");
     const st=ringStyle(curTeam,ref);
